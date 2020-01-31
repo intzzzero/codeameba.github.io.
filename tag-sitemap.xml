@@ -234,13 +234,6 @@
     </url>
 
     <url>
-        <loc>http://codeameba.github.io/tags/VSCode/</loc>
-        <lastmod>2020-01-31T09:58:44.208Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://codeameba.github.io/tags/extension/</loc>
         <lastmod>2020-01-31T09:58:44.208Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -249,6 +242,13 @@
 
     <url>
         <loc>http://codeameba.github.io/tags/%25ED%2599%2595%25EC%259E%25A5%25ED%2594%2584%25EB%25A1%259C%25EA%25B7%25B8%25EB%259E%25A8/</loc>
+        <lastmod>2020-01-31T09:58:44.208Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/tags/VSCode/</loc>
         <lastmod>2020-01-31T09:58:44.208Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -444,14 +444,14 @@
     </url>
 
     <url>
-        <loc>http://codeameba.github.io/tags/html/</loc>
+        <loc>http://codeameba.github.io/tags/markup/</loc>
         <lastmod>2020-01-31T09:58:43.165Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://codeameba.github.io/tags/markup/</loc>
+        <loc>http://codeameba.github.io/tags/html/</loc>
         <lastmod>2020-01-31T09:58:43.165Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
