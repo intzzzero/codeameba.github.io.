@@ -1350,3 +1350,6 @@ header label {
 .post-content pre .javascript .function {
   color: #8959a8;
 }
+.navbar-header.header-logo {
+  font-size: 14pt;
+}

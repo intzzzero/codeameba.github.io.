@@ -10,7 +10,7 @@
   <id>http://codeameba.github.io/</id>
   
   <author>
-    <name>정씨가문의별</name>
+    <name>Sooyoung Jeong</name>
     
   </author>
   
@@ -61,11 +61,11 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
+      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
       <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
-      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
   </entry>
   
@@ -724,42 +724,6 @@
   </entry>
   
   <entry>
-    <title>Github pages에 Custom domain 적용하기</title>
-    <link href="http://codeameba.github.io/2019/08/12/tip-custom-domain/"/>
-    <id>http://codeameba.github.io/2019/08/12/tip-custom-domain/</id>
-    <published>2019-08-11T16:00:42.000Z</published>
-    <updated>2020-01-31T09:58:44.141Z</updated>
-    
-    <content type="html"><![CDATA[<img src="https://images.unsplash.com/photo-1542178036-2e5efe4d8f83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60"><h1 id="Github-pages에-Custom-domain-적용하기"><a href="#Github-pages에-Custom-domain-적용하기" class="headerlink" title="Github pages에 Custom domain 적용하기"></a>Github pages에 Custom domain 적용하기</h1><hr><p>얼마 전 가비아를 통해 codeameba.com 도메인을 구입했다. 그리고, 기존에 codeameba.github.io였던 블로그에 적용을 했다. 물론 커스텀도메인을 구입한 것도 적용한 것도 처음이라 나름의 시행착오는 있었지만, 결과적으로는 잘 돌아간다.</p><img src="/images/codeameba_cname.png"><p>지금이라면, 한 번에 커스텀 도메인을 연결할 자신이 있지만, 몇 개월 뒤, 몇 년 뒤에 다시 한다면 분명 똑같은 시행착오를 겪을 것이라는 걸 나는 잘 알고 있다. 그렇기에 간단히 기록으로 남겨두려 한다.</p><br><h2 id="1-도메인-구입"><a href="#1-도메인-구입" class="headerlink" title="1. 도메인 구입"></a>1. 도메인 구입</h2><hr><img src="/images/gabia01.png"><p>커스텀 도메인은 하늘에서 뚝 떨어지는 것이 아니다. 도메인 가치에 따른 사용료를 지불해야만 한다. 구글 도메인 서비스나, 한국에서 가장 많이 이용하는 가비아 같은 DNS 업체를 통해 본인이 사용하고 싶은 도메인을 검색해볼 수 있다. 내 경우에는 가비아에서 검색해보고 구입했는데, 아무도 쓰고 있지 않았고, .com인데도 불구하고 가격이 그다지 비싼 편도 아니었다.</p><br><h2 id="2-DNS-설정"><a href="#2-DNS-설정" class="headerlink" title="2. DNS 설정"></a>2. DNS 설정</h2><hr><p>어떤 웹페이지에 도메인을 적용할 것인지 가비아 내에서 설정을 해야 한다.(My가비아 -&gt; DNS 관리툴 바로 가기 -&gt; DNS 설정)</p><img src="/images/gabia03.png"><p>타입은 CNAME, 호스트는 www, 값에는 도메인을 연결할 페이지의 주소를 적는다.<br>TTL(Time To Live)은, 말 그대로 생존 기간을 말하는 것으로 네임서버에서 넘어간 호스트 정보가 유지되는 시간이라고 한다. 설정한 시간 뒤에 자동으로 정보가 소멸된다고 하는데, 아직 자세한 내용을 모르겠다. 공부할 것에 추가.</p><p>어쨌든 이렇게 설정한 뒤 저장을 한다.</p><h4 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h4><p><a href="https://library.gabia.com/contents/domain/4146" target="_blank" rel="external nofollow noopener noreferrer">https://library.gabia.com/contents/domain/4146</a><br><a href="https://www.youtube.com/watch?v=N_T_vhUsn1A" target="_blank" rel="external nofollow noopener noreferrer">WEB2-Domain Name System-12.DNS record &amp; CNAME - YouTube</a></p><br><h2 id="3-GitHub-Custom-domain-설정"><a href="#3-GitHub-Custom-domain-설정" class="headerlink" title="3. GitHub Custom domain 설정"></a>3. GitHub Custom domain 설정</h2><hr><p>DNS 쪽은 끝났고, 이제 github에서 설정해야 한다.</p><p>Settings -&gt; Github Pages -&gt; Custom domain 에 본인이 구매한 도메인을 적는다. 이때 꼭, www.를 붙인다. 그리고 Save.</p><img src="/images/github_pages.png"><p>아직 끝이 아니다. 해당 레포의 메인으로 돌아와보면 아래와 같이 CNAME이라는 새로운 파일이 생성된 것을 볼 수 있다. 이걸 열어서 www.를 붙인 형식으로 도메인을 적는다.</p><img src="/images/cnamefile.png"><blockquote><p>CNAME(Canonical Name): 하나의 도메인에 다른 이름을 부여하는 방식. 쉽게 말하자면 가명이라고 할 수 있다.</p></blockquote><br><h2 id="4-Hexo-추가-설정"><a href="#4-Hexo-추가-설정" class="headerlink" title="4. Hexo 추가 설정"></a>4. Hexo 추가 설정</h2><hr><p>Hexo의 경우 _config.yml에서 url을 CNAME으로 변경해야 한다. 그리고, 여기까지 설정했는데 제대로 도메인 적용이 안 된다면 Hexo의 CNAME Plugin을 설치해야 한다.<br><code>npm install hexo-generator-cname --save</code></p><p>설치 후에는 _config.yml 파일을 열어 다음과 같이 설정을 추가한다.<br><code>plugins: hexo-generator-cname</code></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;img src=&quot;https://images.unsplash.com/photo-1542178036-2e5efe4d8f83?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1400&amp;q=6
-      
-    
-    </summary>
-    
-    
-      <category term="tip" scheme="http://codeameba.github.io/categories/tip/"/>
-    
-    
-      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="githubpages" scheme="http://codeameba.github.io/tags/githubpages/"/>
-    
-      <category term="hexo" scheme="http://codeameba.github.io/tags/hexo/"/>
-    
-      <category term="dns" scheme="http://codeameba.github.io/tags/dns/"/>
-    
-      <category term="customdomain" scheme="http://codeameba.github.io/tags/customdomain/"/>
-    
-      <category term="cname" scheme="http://codeameba.github.io/tags/cname/"/>
-    
-  </entry>
-  
-  <entry>
     <title>TIL(190812) - React 01</title>
     <link href="http://codeameba.github.io/2019/08/12/react-til-01/"/>
     <id>http://codeameba.github.io/2019/08/12/react-til-01/</id>
@@ -796,6 +760,42 @@
       <category term="리액트" scheme="http://codeameba.github.io/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/"/>
     
       <category term="react" scheme="http://codeameba.github.io/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Github pages에 Custom domain 적용하기</title>
+    <link href="http://codeameba.github.io/2019/08/12/tip-custom-domain/"/>
+    <id>http://codeameba.github.io/2019/08/12/tip-custom-domain/</id>
+    <published>2019-08-11T16:00:42.000Z</published>
+    <updated>2020-01-31T09:58:44.141Z</updated>
+    
+    <content type="html"><![CDATA[<img src="https://images.unsplash.com/photo-1542178036-2e5efe4d8f83?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60"><h1 id="Github-pages에-Custom-domain-적용하기"><a href="#Github-pages에-Custom-domain-적용하기" class="headerlink" title="Github pages에 Custom domain 적용하기"></a>Github pages에 Custom domain 적용하기</h1><hr><p>얼마 전 가비아를 통해 codeameba.com 도메인을 구입했다. 그리고, 기존에 codeameba.github.io였던 블로그에 적용을 했다. 물론 커스텀도메인을 구입한 것도 적용한 것도 처음이라 나름의 시행착오는 있었지만, 결과적으로는 잘 돌아간다.</p><img src="/images/codeameba_cname.png"><p>지금이라면, 한 번에 커스텀 도메인을 연결할 자신이 있지만, 몇 개월 뒤, 몇 년 뒤에 다시 한다면 분명 똑같은 시행착오를 겪을 것이라는 걸 나는 잘 알고 있다. 그렇기에 간단히 기록으로 남겨두려 한다.</p><br><h2 id="1-도메인-구입"><a href="#1-도메인-구입" class="headerlink" title="1. 도메인 구입"></a>1. 도메인 구입</h2><hr><img src="/images/gabia01.png"><p>커스텀 도메인은 하늘에서 뚝 떨어지는 것이 아니다. 도메인 가치에 따른 사용료를 지불해야만 한다. 구글 도메인 서비스나, 한국에서 가장 많이 이용하는 가비아 같은 DNS 업체를 통해 본인이 사용하고 싶은 도메인을 검색해볼 수 있다. 내 경우에는 가비아에서 검색해보고 구입했는데, 아무도 쓰고 있지 않았고, .com인데도 불구하고 가격이 그다지 비싼 편도 아니었다.</p><br><h2 id="2-DNS-설정"><a href="#2-DNS-설정" class="headerlink" title="2. DNS 설정"></a>2. DNS 설정</h2><hr><p>어떤 웹페이지에 도메인을 적용할 것인지 가비아 내에서 설정을 해야 한다.(My가비아 -&gt; DNS 관리툴 바로 가기 -&gt; DNS 설정)</p><img src="/images/gabia03.png"><p>타입은 CNAME, 호스트는 www, 값에는 도메인을 연결할 페이지의 주소를 적는다.<br>TTL(Time To Live)은, 말 그대로 생존 기간을 말하는 것으로 네임서버에서 넘어간 호스트 정보가 유지되는 시간이라고 한다. 설정한 시간 뒤에 자동으로 정보가 소멸된다고 하는데, 아직 자세한 내용을 모르겠다. 공부할 것에 추가.</p><p>어쨌든 이렇게 설정한 뒤 저장을 한다.</p><h4 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h4><p><a href="https://library.gabia.com/contents/domain/4146" target="_blank" rel="external nofollow noopener noreferrer">https://library.gabia.com/contents/domain/4146</a><br><a href="https://www.youtube.com/watch?v=N_T_vhUsn1A" target="_blank" rel="external nofollow noopener noreferrer">WEB2-Domain Name System-12.DNS record &amp; CNAME - YouTube</a></p><br><h2 id="3-GitHub-Custom-domain-설정"><a href="#3-GitHub-Custom-domain-설정" class="headerlink" title="3. GitHub Custom domain 설정"></a>3. GitHub Custom domain 설정</h2><hr><p>DNS 쪽은 끝났고, 이제 github에서 설정해야 한다.</p><p>Settings -&gt; Github Pages -&gt; Custom domain 에 본인이 구매한 도메인을 적는다. 이때 꼭, www.를 붙인다. 그리고 Save.</p><img src="/images/github_pages.png"><p>아직 끝이 아니다. 해당 레포의 메인으로 돌아와보면 아래와 같이 CNAME이라는 새로운 파일이 생성된 것을 볼 수 있다. 이걸 열어서 www.를 붙인 형식으로 도메인을 적는다.</p><img src="/images/cnamefile.png"><blockquote><p>CNAME(Canonical Name): 하나의 도메인에 다른 이름을 부여하는 방식. 쉽게 말하자면 가명이라고 할 수 있다.</p></blockquote><br><h2 id="4-Hexo-추가-설정"><a href="#4-Hexo-추가-설정" class="headerlink" title="4. Hexo 추가 설정"></a>4. Hexo 추가 설정</h2><hr><p>Hexo의 경우 _config.yml에서 url을 CNAME으로 변경해야 한다. 그리고, 여기까지 설정했는데 제대로 도메인 적용이 안 된다면 Hexo의 CNAME Plugin을 설치해야 한다.<br><code>npm install hexo-generator-cname --save</code></p><p>설치 후에는 _config.yml 파일을 열어 다음과 같이 설정을 추가한다.<br><code>plugins: hexo-generator-cname</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;img src=&quot;https://images.unsplash.com/photo-1542178036-2e5efe4d8f83?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1400&amp;q=6
+      
+    
+    </summary>
+    
+    
+      <category term="tip" scheme="http://codeameba.github.io/categories/tip/"/>
+    
+    
+      <category term="hexo" scheme="http://codeameba.github.io/tags/hexo/"/>
+    
+      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="githubpages" scheme="http://codeameba.github.io/tags/githubpages/"/>
+    
+      <category term="dns" scheme="http://codeameba.github.io/tags/dns/"/>
+    
+      <category term="customdomain" scheme="http://codeameba.github.io/tags/customdomain/"/>
+    
+      <category term="cname" scheme="http://codeameba.github.io/tags/cname/"/>
     
   </entry>
   
