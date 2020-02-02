@@ -1,3 +1,12 @@
 .navbar-header.header-logo {
   font-size: 14pt;
 }
+a:hover {
+  color: #1cbc9c;
+}
+.tag-cloud-tags a:hover {
+  color: #1cbc9c;
+}
+.archive-item-link:hover {
+  color: #1cbc9c;
+}
