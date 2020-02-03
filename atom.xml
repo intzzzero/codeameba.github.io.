@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codeameba.github.io/"/>
-  <updated>2020-01-31T09:58:43.088Z</updated>
+  <updated>2020-02-03T07:32:03.444Z</updated>
   <id>http://codeameba.github.io/</id>
   
   <author>
@@ -17,42 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://codeameba.github.io/2020/01/31/hello-world/"/>
-    <id>http://codeameba.github.io/2020/01/31/hello-world/</id>
-    <published>2020-01-31T09:58:43.087Z</published>
-    <updated>2020-01-31T09:58:43.088Z</updated>
+    <title>내가 생각하는 좋은 콘텐츠</title>
+    <link href="http://codeameba.github.io/2020/02/03/what-is-good-content/"/>
+    <id>http://codeameba.github.io/2020/02/03/what-is-good-content/</id>
+    <published>2020-02-03T07:19:42.000Z</published>
+    <updated>2020-02-03T07:32:03.444Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external nofollow noopener noreferrer">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external nofollow noopener noreferrer">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external nofollow noopener noreferrer">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external nofollow noopener noreferrer">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external nofollow noopener noreferrer">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external nofollow noopener noreferrer">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external nofollow noopener noreferrer">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external nofollow noopener noreferrer&quot;&gt;Hexo&lt;/a&gt;! This is your very first post.
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>첫 포스팅</title>
-    <link href="http://codeameba.github.io/2020/01/31/first-post/"/>
-    <id>http://codeameba.github.io/2020/01/31/first-post/</id>
-    <published>2020-01-31T06:19:42.000Z</published>
-    <updated>2020-01-31T08:07:45.096Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="테스트-포스팅"><a href="#테스트-포스팅" class="headerlink" title="테스트 포스팅"></a>테스트 포스팅</h1><p>글을 통해 생각을 정리하기 위한 블로그입니다.</p><h1 id="테스트-01"><a href="#테스트-01" class="headerlink" title="테스트 01"></a>테스트 01</h1><p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis.</p><p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum.</p><p>Sed posuere consectetur est at lobortis. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna.</p><h1 id="테스트-02"><a href="#테스트-02" class="headerlink" title="테스트 02"></a>테스트 02</h1><p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis.</p><p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum.</p><p>Sed posuere consectetur est at lobortis. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna.</p><h1 id="테스트-03"><a href="#테스트-03" class="headerlink" title="테스트 03"></a>테스트 03</h1><p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis.</p><p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum.</p><p>Sed posuere consectetur est at lobortis. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna.</p><h1 id="테스트-04"><a href="#테스트-04" class="headerlink" title="테스트 04"></a>테스트 04</h1><p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis.</p><p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum.</p><p>Sed posuere consectetur est at lobortis. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna.</p><h1 id="테스트-05"><a href="#테스트-05" class="headerlink" title="테스트 05"></a>테스트 05</h1><p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis.</p><p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec ullamcorper nulla non metus auctor fringilla. Maecenas faucibus mollis interdum.</p><p>Sed posuere consectetur est at lobortis. Nullam id dolor id nibh ultricies vehicula ut id elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>]]></content>
+    <content type="html"><![CDATA[<img src="https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="many books"><h3 id="첫째-조금이라도-나은-사람이-되었다고-스스로-느낄-수-있는-콘텐츠가-좋은-콘텐츠의-기준이다"><a href="#첫째-조금이라도-나은-사람이-되었다고-스스로-느낄-수-있는-콘텐츠가-좋은-콘텐츠의-기준이다" class="headerlink" title="첫째, 조금이라도 나은 사람이 되었다고 스스로 느낄 수 있는 콘텐츠가 좋은 콘텐츠의 기준이다."></a>첫째, 조금이라도 나은 사람이 되었다고 스스로 느낄 수 있는 콘텐츠가 좋은 콘텐츠의 기준이다.</h3><p> 모든 사람은 기본적으로 어제보다 오늘, 오늘보다 내일 더 나아지고자 하는 마음 즉, 향상심을 갖고 있다고 생각한다. 따라서 향상심을 충족시킬 수 있어야 좋은 콘텐츠다. 여기서 의미하는 향상심은 비단 지식적 측면만이 아닌, 감정적, 정신적 측면까지 포괄하는 개념이다.</p><h3 id="둘째-저자의-경험에서-비롯된-스토리가-더해진-콘텐츠는-더욱-좋은-콘텐츠다"><a href="#둘째-저자의-경험에서-비롯된-스토리가-더해진-콘텐츠는-더욱-좋은-콘텐츠다" class="headerlink" title="둘째, 저자의 경험에서 비롯된 스토리가 더해진 콘텐츠는 더욱 좋은 콘텐츠다."></a>둘째, 저자의 경험에서 비롯된 스토리가 더해진 콘텐츠는 더욱 좋은 콘텐츠다.</h3><p> 똑같은 인사이트를 전달하려는 콘텐츠라고 해도 콘텐츠 제작자의 경험을 바탕으로 한 스토리가 더해진 콘텐츠가 진정성 있는 콘텐츠이며, 그런 콘텐츠는 독자의 기억에 오랫동안 긍정적으로 남을 수 있다고 생각한다.</p><h3 id="셋째-기존에-몰랐던-새로운-시각까지-깨닫게-해주는-콘텐츠는-가장-좋은-콘텐츠다"><a href="#셋째-기존에-몰랐던-새로운-시각까지-깨닫게-해주는-콘텐츠는-가장-좋은-콘텐츠다" class="headerlink" title="셋째, 기존에 몰랐던 새로운 시각까지 깨닫게 해주는 콘텐츠는 가장 좋은 콘텐츠다."></a>셋째, 기존에 몰랐던 새로운 시각까지 깨닫게 해주는 콘텐츠는 가장 좋은 콘텐츠다.</h3><p> 의도적으로 취향에 반하는 콘텐츠를 접하지 않는 이상, 사람들은 비슷한 성격의 콘텐츠를 이용하려는 관성이 있고, 콘텐츠 플랫폼의 추천 알고리즘은 이러한 관성에 더욱 힘을 싣고 있다. 물론, 자신만의 취향을 구축하고, 확고히 하는 것도 중요하지만, 취향에 갇혀 다른 시각과 경험의 기회를 놓치는 것은 결과적으로 안타까운 일이다.</p><p>만약, 세 가지 기준에 모두 만족하는 콘텐츠라면, 독자에게 ‘유쾌한 터닝포인트’를 선사할 수 있다고 생각한다. 개인적 경험을 바탕으로 좋은 콘텐츠라고 느꼈던 것들에는, 무라카미 하루키의 에세이 ‘이렇게 작지만 확실한 행복’, 벤 스틸러의 영화 ‘월터의 상상은 현실이 된다’, 우미노 치카의 만화 ‘허니와 클로버’가 있다. 이러한 콘텐츠들을 접했을 때, 고양감과 진정성을 느꼈으며, 새로운 시각으로 자신과 세상을 바라볼 수 있었다.</p><p>하지만 아무리 좋은 콘텐츠라도 독자에게 닿을 수 없으면, 가치를 인정받을 수 없다. 따라서 콘텐츠를 만드는 사람은, <strong>‘좋은 콘텐츠를, 필요로 하는 독자에게 보기 좋은 형태로 제시할 수 있어야’</strong> 한다고 생각한다.</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;테스트-포스팅&quot;&gt;&lt;a href=&quot;#테스트-포스팅&quot; class=&quot;headerlink&quot; title=&quot;테스트 포스팅&quot;&gt;&lt;/a&gt;테스트 포스팅&lt;/h1&gt;&lt;p&gt;글을 통해 생각을 정리하기 위한 블로그입니다.&lt;/p&gt;
-&lt;h1 id=&quot;테스트-01&quot;&gt;&lt;a h
+        &lt;img src=&quot;https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1950&amp;
       
     
     </summary>
@@ -796,6 +773,48 @@
       <category term="customdomain" scheme="http://codeameba.github.io/tags/customdomain/"/>
     
       <category term="cname" scheme="http://codeameba.github.io/tags/cname/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TIL(190811) - TDD(Test Driven Development) 01</title>
+    <link href="http://codeameba.github.io/2019/08/11/tdd-til-01/"/>
+    <id>http://codeameba.github.io/2019/08/11/tdd-til-01/</id>
+    <published>2019-08-10T16:00:42.000Z</published>
+    <updated>2020-01-31T09:58:44.033Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="TIL-190811-TDD-Test-Driven-Development-01"><a href="#TIL-190811-TDD-Test-Driven-Development-01" class="headerlink" title="TIL(190811) - TDD(Test Driven Development) 01"></a>TIL(190811) - TDD(Test Driven Development) 01</h1><hr><p><i>인프런의 ‘견고한 JS 소프트웨어 만들기’ 강의를 보며 정리함</i></p><h2 id="TDD의-개념"><a href="#TDD의-개념" class="headerlink" title="TDD의 개념"></a>TDD의 개념</h2><ul><li>테스트 코드를 먼저 작성하고, 그 테스트에 통과할 수 있는 코드를 작성하는 방식의 개발방법</li><li>빨간색, 초록색, 파란색으로 단계를 구분함.<ul><li>빨간색: 테스트 코드만 작성한 상태</li><li>초록색: 테스트에 통과할 수 있는 최소 요구치를 만족한 코드를 작성한 상태</li><li>파란색: 테스트에 통과한 코드를 리팩토링까지 마친 상태</li></ul></li></ul><h2 id="자스민-Jasmine"><a href="#자스민-Jasmine" class="headerlink" title="자스민(Jasmine)"></a>자스민(Jasmine)</h2><img src="https://miro.medium.com/max/1352/1*LfnjaoH3oIYpbOlbABzmHA.png">- <a href="https://jasmine.github.io/pages/getting_started.html" target="_blank" rel="external nofollow noopener noreferrer">[Getting Started]</a>- 자바스크립트의 코드를 테스트할 수 있는 도구(프레임워크)- ‘자스민’만 사용하는 것을 ’Standalone’이라고 부름- 현업에서는 Standalone을 쓰는 경우는 그다지 없고, ‘카르마(Karma)’ 라이브러리와 함께 사용하여 테스트를 자동화함.]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;TIL-190811-TDD-Test-Driven-Development-01&quot;&gt;&lt;a href=&quot;#TIL-190811-TDD-Test-Driven-Development-01&quot; class=&quot;headerlink&quot; title=&quot;TIL(190811
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
+    
+      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
+    
+      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
+    
+      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
+    
+      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
+    
+      <category term="패스트캠퍼스" scheme="http://codeameba.github.io/tags/%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4/"/>
+    
+      <category term="TDD" scheme="http://codeameba.github.io/tags/TDD/"/>
+    
+      <category term="테스트주도개발" scheme="http://codeameba.github.io/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C/"/>
     
   </entry>
   

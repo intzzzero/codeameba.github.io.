@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>http://codeameba.github.io/tags/%25EC%2583%259D%25EA%25B0%2581%25EC%25A0%2595%25EB%25A6%25AC/</loc>
+        <lastmod>2020-02-03T07:32:03.444Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/tags/%25EB%25B8%2594%25EB%25A1%259C%25EA%25B7%25B8/</loc>
+        <lastmod>2020-02-03T07:32:03.444Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/tags/blog/</loc>
+        <lastmod>2020-02-03T07:32:03.444Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://codeameba.github.io/tags/%25ED%258C%25A8%25EC%258A%25A4%25ED%258A%25B8%25EC%25BA%25A0%25ED%258D%25BC%25EC%258A%25A4/</loc>
         <lastmod>2020-01-31T09:58:44.463Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -144,20 +165,6 @@
 
     <url>
         <loc>http://codeameba.github.io/tags/%25EA%25B5%25AC%25EA%25B8%2580-%25EC%2595%25A0%25EB%2584%2590%25EB%25A6%25AC%25ED%258B%25B1%25EC%258A%25A4/</loc>
-        <lastmod>2020-01-31T09:58:44.263Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/tags/%25EB%25B8%2594%25EB%25A1%259C%25EA%25B7%25B8/</loc>
-        <lastmod>2020-01-31T09:58:44.263Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/tags/blog/</loc>
         <lastmod>2020-01-31T09:58:44.263Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -593,13 +600,6 @@
     <url>
         <loc>http://codeameba.github.io/tags/developer/</loc>
         <lastmod>2020-01-31T09:58:42.492Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/tags/%25EC%2583%259D%25EA%25B0%2581%25EC%25A0%2595%25EB%25A6%25AC/</loc>
-        <lastmod>2020-01-31T08:07:45.096Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
