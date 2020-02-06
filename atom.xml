@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codeameba.github.io/"/>
-  <updated>2020-02-05T09:11:57.218Z</updated>
+  <updated>2020-02-06T08:45:42.535Z</updated>
   <id>http://codeameba.github.io/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2020년은 황금시대일지도 모른다</title>
+    <link href="http://codeameba.github.io/2020/02/06/blog/golden-age/"/>
+    <id>http://codeameba.github.io/2020/02/06/blog/golden-age/</id>
+    <published>2020-02-06T08:41:42.000Z</published>
+    <updated>2020-02-06T08:45:42.535Z</updated>
+    
+    <content type="html"><![CDATA[<figure style="text-align: center">  <img src="/images/midnight.png" alt="미드나잇 인 파리 캡쳐">  <figcaption>미드나잇 인 파리의 한 장면</figcaption></figure><p>과거를 동경하는 문화는 어느 시대에나 있었을 것이다. 지금 80-90년대의 레트로 문화가 성행하듯이 말이다.</p><p>르네상스, 황금시대 등의 이름 역시 당대에 붙여진 이름이 아닌, 후대의 사람들이 과거를 동경하며 불렀을 이름이다.</p><p>현재가 아무리 최악의 시대라고 불리며, 살아가기에 녹록지 않긴 하지만, 먼 훗날 누군가는 2020년을 황금시대라며 동경할지도 모를 일이다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure style=&quot;text-align: center&quot;&gt;
+  &lt;img src=&quot;/images/midnight.png&quot; alt=&quot;미드나잇 인 파리 캡쳐&quot;&gt;
+  &lt;figcaption&gt;미드나잇 인 파리의 한 장면&lt;/figcaption&gt;
+&lt;/figur
+      
+    
+    </summary>
+    
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
+    
+    
+      <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
+    
+      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="황금시대" scheme="http://codeameba.github.io/tags/%ED%99%A9%EA%B8%88%EC%8B%9C%EB%8C%80/"/>
+    
+      <category term="미드나잇인파리" scheme="http://codeameba.github.io/tags/%EB%AF%B8%EB%93%9C%EB%82%98%EC%9E%87%EC%9D%B8%ED%8C%8C%EB%A6%AC/"/>
+    
+  </entry>
   
   <entry>
     <title>허니와 클로버</title>
@@ -733,46 +770,6 @@
       <category term="cookie" scheme="http://codeameba.github.io/tags/cookie/"/>
     
       <category term="http" scheme="http://codeameba.github.io/tags/http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TIL(190815) - React 04</title>
-    <link href="http://codeameba.github.io/2019/08/15/programming/react-til-04/"/>
-    <id>http://codeameba.github.io/2019/08/15/programming/react-til-04/</id>
-    <published>2019-08-14T16:00:42.000Z</published>
-    <updated>2020-02-03T07:47:26.950Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="TIL-190815-React-04"><a href="#TIL-190815-React-04" class="headerlink" title="TIL(190815) - React 04"></a>TIL(190815) - React 04</h1><hr><ul><li>class component는 render 외에도 많은 것을 갖고 있다.</li><li>그 중의 하나가 life cycle method<ul><li>life cycle method는 react가 component를 생성하고 없애는 방법</li><li>component가 생성될 때 render 이전에 호출되는 함수들이 있고, 이후에 호출되는 함수들이 있다.</li><li>mounting / unmounting</li><li>updating</li></ul></li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"this is constructor"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  state = &#123;</span><br><span class="line">    count: <span class="number">0</span></span><br><span class="line">  &#125;;</span><br><span class="line">  plus = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function"><span class="params">current</span> =&gt;</span> (&#123; <span class="attr">count</span>: current.count + <span class="number">1</span> &#125;));</span><br><span class="line">  &#125;;</span><br><span class="line">  minus = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(<span class="function"><span class="params">current</span> =&gt;</span> (&#123; <span class="attr">count</span>: current.count - <span class="number">1</span> &#125;));</span><br><span class="line">  &#125;;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'this is render'</span>);</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;The number is &#123;<span class="keyword">this</span>.state.count&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">        &lt;button onClick=&#123;this.plus&#125;&gt;Plus&lt;/</span>button&gt;</span><br><span class="line">        &lt;button onClick=&#123;<span class="keyword">this</span>.minus&#125;&gt;Minus&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><img src="/images/constructor_first.png">- constructor는 render보다 먼저 호출된다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    isLoading: <span class="literal">true</span></span><br><span class="line">  &#125;;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;<span class="attr">isLoading</span>: <span class="literal">false</span>&#125;);</span><br><span class="line">    &#125;, <span class="number">3000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; isLoading &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;isLoading ? 'Loading...' : 'We Are Ready!'&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>componentDidMount는 render 이후에 호출된다.</li></ul><h4 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h4><ul><li><a href="https://reactjs-kr.firebaseapp.com/docs/state-and-lifecycle.html" target="_blank" rel="external nofollow noopener noreferrer">https://reactjs-kr.firebaseapp.com/docs/state-and-lifecycle.html</a></li><li><a href="https://yts.lt/api" target="_blank" rel="external nofollow noopener noreferrer">https://yts.lt/api</a></li></ul><h2 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h2><ul><li>fetch처럼 데이터를 받아올 때 사용함</li><li>async/await과 같이 사용 가능<ul><li>ex) axios가 데이터를 다 받아올 때까지 기다려달라는 의미.</li></ul></li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getMovies = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> movies = <span class="keyword">await</span> axios.get(<span class="string">'https://yts.lt/api/v2/list_movies.json'</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;TIL-190815-React-04&quot;&gt;&lt;a href=&quot;#TIL-190815-React-04&quot; class=&quot;headerlink&quot; title=&quot;TIL(190815) - React 04&quot;&gt;&lt;/a&gt;TIL(190815) - React 04&lt;/h1
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
-    
-      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
-    
-      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
-    
-      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
-    
-      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
-    
-      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
-    
-      <category term="리액트" scheme="http://codeameba.github.io/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/"/>
-    
-      <category term="react" scheme="http://codeameba.github.io/tags/react/"/>
     
   </entry>
   
