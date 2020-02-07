@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/05/30/programming/book-review-phychology-of-programming/">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');</script>
+    <!-- End Google Tag Manager -->
+
+<title>[Book Review] 프로그래밍 심리학(The psychology of computer programming) | 별의서재</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="별의서재" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">별의서재</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">별의서재</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[Book Review] 프로그래밍 심리학(The psychology of computer programming)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">5월 30, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/%EB%82%B4%EA%B0%80-%EC%9D%BD%EC%9D%80-%EC%B1%85/">내가 읽은 책</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <img src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80">
+
+<h1 id="Book-Review-프로그래밍-심리학-The-psychology-of-computer-programming"><a href="#Book-Review-프로그래밍-심리학-The-psychology-of-computer-programming" class="headerlink" title="[Book Review] 프로그래밍 심리학(The psychology of computer programming)"></a>[Book Review] 프로그래밍 심리학(The psychology of computer programming)</h1><hr>
+<div style="clear:left;text-align:left;"><div style="float:left;margin:0 15px 5px 0;"><a href="http://www.yes24.com/Product/Goods/11686161" style="display:inline-block;overflow:hidden;border:solid 1px #ccc;" target="_blank" rel="external nofollow noopener noreferrer"><img style="margin:-1px;vertical-align:top;" src="http://image.yes24.com/goods/11686161/M" border="0" alt="프로그래밍 심리학 "></a></div><div><p style="line-height:1.2em;color:#333;font-size:14px;font-weight:bold;">프로그래밍 심리학 </p><p style="margin-top:5px;line-height:1.2em;color:#666;"><a href="http://www.yes24.com/SearchCorner/Result?domain=ALL&author_yn=Y&query=&auth_no=115389" target="_blank" rel="external nofollow noopener noreferrer">제럴드 M. 와인버그</a> 저</p><p style="margin-top:14px;line-height:1.5em;text-align:justify;color:#999;">약 40년 전 제랄드 와인버그는 ‘프로그래밍도 사람이 하는 것’이라는, 당연하지만 현실에선 제대로 인정받지 못하는 문제 인식을 바탕으로 『프로그래밍 심리학』을 탄생시켰다. 프로그래밍을 둘러싼 여러 부류의 사람들이 가지는 마음의 이치를 다룬 역사적인 책이다. 프로젝트를 이끌어나가는 사람 사이의 관계뿐 아니...</p></div></div>
+
+<h2 id="프로그래밍-심리학"><a href="#프로그래밍-심리학" class="headerlink" title="프로그래밍 + 심리학"></a>프로그래밍 + 심리학</h2><hr>
+<p>본디 책 욕심이 과한 나는, 본격적인 공부를 시작하기도 전부터 프로그래밍 관련 서적이라면 닥치는대로 사 모았다. 그렇게 충동구매 했던 많은 책들 중 하나가 ‘프로그래밍 심리학’이었다. 몇 개월을 책장에만 두고 읽을 엄두도 못 내다가 마침내 최근에서야 읽었는데, 수많은 책들 중 가장 먼저 읽게 된 이유라면 역시 제목이었다. ‘프로그래밍’과 ‘심리학’이라니, 마치 수십년간 서로를 이해하지 못 하는 이과와 문과가 조화롭게 어울리는 듯한 생경한 모습으로 다가왔다. 더불어, 아직 코드를 물 흐르듯 읽을 정도의 실력이 되지 못 하는 나는 가장 코드의 등장 빈도가 낮은 이 책을 선택한 것이다.</p>
+<h2 id="프로그래밍-심리학은-어떤-책인가"><a href="#프로그래밍-심리학은-어떤-책인가" class="headerlink" title="프로그래밍 심리학은 어떤 책인가"></a>프로그래밍 심리학은 어떤 책인가</h2><hr>
+<p>프로그래밍이라는 분야는 여러모로 흥미로운 분야다. 학문으로써도 그렇지만, 프로그래밍 역사에 한 획을 그은 이들 중 상당수가 아직까지 생존하고 있다는 점이 특히 그렇다. 그만큼 역사가 길지 않은데, 이 책은 약 40년 전 초판이 발행되었다. 불과 40년 밖에 되지 않은 책이 프로그래밍 세계에서는 고전인 것이다. 어찌 흥미롭지 않을 수 있겠는가. 심지어 프로그래밍 심리학의 저자 또한 아직까지 건재하여 개정판이 나올 때마다 내용을 덧붙이고 있다.</p>
+<p>이러한 프로그래밍 세계의 고전 ‘프로그래밍 심리학’에서 시종일관 강조하는 것은, <strong>협업</strong>에 관한 내용이다. 예나 지금이나 사람 관계만큼 힘든 것이 없다. 그것은 이쪽 업계도 마찬가지인 것이다. 저자는 협업을 강조하는 과정에 있어서 빼먹지 않고 각자의 심리를 연관 짓고 있는데, 그럼에도 마지막에 남는 것은 심리보다는 인간관계에 대한 다양한 사례들이다. 그래서인지 개인적으로는 심리학보다 인간관계론의 비중이 크게 느껴졌다.</p>
+<p>책에서는 대략적으로 다음과 같은 내용들을 다룬다. ‘프로그래밍을 하는 프로그래머 본인의 심리’, ‘프로그래머 사이의 관계’, ‘프로그래머와 관리자의 관계’, ‘프로그래머의 마음가짐과 태도’ 등을 다양한 사례를 곁들이며 유쾌하게 풀어내고 있다. 그리고, 역시 약 40년 전에 쓰인 책이라고 느껴질 수 있는 대목도 심심치 않게 등장한다. ‘천공카드’, ‘FORTRAN’, ‘PL/1’ 등 지금은 쉽게 접하기 어려운 용어들인데, 덕분에 겸사겸사 비루한 내 배경지식을 키울 수 있어서 긍정적으로 다가왔다.</p>
+<h2 id="프로그래머로서의-자세"><a href="#프로그래머로서의-자세" class="headerlink" title="프로그래머로서의 자세"></a>프로그래머로서의 자세</h2><hr>
+<p>이런저런 재밌는 옛날(?)이야기들이 대거 등장하지만, 결국 저자가 말하고 싶은 것은 <strong>프로그래머로서의 자세</strong>라고 생각한다. 내가 이 책을 읽고 느낀 것은 크게 세 가지다.</p>
+<h3 id="첫째"><a href="#첫째" class="headerlink" title="첫째,"></a>첫째,</h3><p>프로그래밍이라는 행위는 프로그래머 한 명과 컴퓨터 사이에서만 진행되는 개인적인 일이 아니라, 다수의 프로그래머와 프로그래머가 아닌 누군가가 컴퓨터를 도구 삼아 유기적으로 진행하는 삶의 한 부분인 것이다. 따라서 컴퓨터보다 사람을 먼저 생각해야 한다.</p>
+<h3 id="둘째"><a href="#둘째" class="headerlink" title="둘째,"></a>둘째,</h3><p>너무 겸손한 태도도, 너무 자신만만한 태도도 좋지 않다. 특히, 과한 자신감은 집단과 멀어지게 만들고, 작은 실수도 크게 보이게 한다. </p>
+<h3 id="셋째"><a href="#셋째" class="headerlink" title="셋째,"></a>셋째,</h3><p>컴퓨터는 융통성이 없기 때문에, 프로그래머는 유연한 사고를 할 수 있어야 한다. 또한, 컴퓨터는 시시때때로 앞에 앉은 사람을 한 없이 바보처럼 느끼게 만들기 때문에, 프로그래머의 가장 큰 덕목은 유머러스함과 끊임없는 동기부여다.</p>
+<h2 id="인상적인-대목"><a href="#인상적인-대목" class="headerlink" title="인상적인 대목"></a>인상적인 대목</h2><hr>
+<p>끝으로, 두고 두고 다시 읽으며 기억하고 싶은 인상적인 대목을 여기에 적어두려 한다.</p>
+<blockquote>
+<p>프로그램은 사람이 만드는 다른 모든 물건처럼 명확한 수명과 활용 범위를 염두에 두고 설계되어야 한다. 수백 년 동안 유지될 수 있을 만큼 논리적인 방법으로 만든 장인의 작품처럼, 프로그램에는 과도하게 설계된 부분도 미진하게 설계된 부분도 있어서는 안 된다.<br>-프로그래밍 심리학 p.246-</p>
+</blockquote>
+<blockquote>
+<p>아마도 좋은 프로그래머를 만드는 요소가 훌륭한 우정을 만드는 요소와 비슷하다는 사실을 발견하게 될 것이다. 바로, 상호 관심과 개성 존중이다.<br>-프로그래밍 심리학 p.262-</p>
+</blockquote>
+<blockquote>
+<p>프로그래머에게는 유머감각이 필요하다. 컴퓨터는 자신 앞에 앉은 사람을 모두 바보로 만드는 기계이기 때문에 우스꽝스러운 꼴을 당한 자신의 모습을 웃고 넘길 수 없는 사람이 프로그래머로 오랫동안 버티기는 어렵다. 누군가가 말했다. 프로그래머의 주제가는 “아아아아아<del>(괴로워하는 신음소리)”라고. 프로그래머는 작업을 하나 마칠 때마다 자기가 저질렀던 멍청한 실수와 대면한다. 그리고 주제가의 두 번째 소절을 부른다. “하하하하</del>” 그러지 않고서는 광대 노릇을 계속할 수가 없다.<br>-프로그래밍 심리학 p.284-</p>
+</blockquote>
+<blockquote>
+<p>심리적 자세가 야기한 문제를 논할 때에는 주석문 얘기가 빠질 수 없다. 코드에 주석을 다는 목적은 읽는 이가 코드를 직접 보기 전에 적당한 마음의 준비를 하게 만들려는 것이다. 그 코드가 정확히 구현되어 있다면, 주석문은 확실히 효과가 있다. 그러나 코드가 부정확하다면, 읽는 사람의 심리적 자세가 주석문의 지배를 당하기 때문에 오류를 찾아내는 데 오히려 방해가 된다.<br>-프로그래밍 심리학 p.303-</p>
+</blockquote>
+<blockquote>
+<p>우리 머릿속의 잘못된 믿을들을 깨끗이 쓸어 내고, 가능하다면 실험을 통해 나온 견고한 증거들로 채워 넣을 때가 되었다. 여러 문제 중 일부라도 결국에는 해결된다는 뜻이 아니다. 그러기에는 문제가 너무 복잡하다. 그러나 언제나 완벽하게 해결될 수 있는 문제만 풀어볼 만한 가치가 있지는 않다. 사실, 우리에게 필요한 것은 정답이 아니라 그것을 찾는 과정에서 얻는 경험이다.<br>-프로그래밍 심리학 p.484-</p>
+</blockquote>
+<hr>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/developer/"># developer</a>
+                    
+                        <a href="/tags/book/"># book</a>
+                    
+                        <a href="/tags/book-review/"># book review</a>
+                    
+                        <a href="/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90/"># 개발자</a>
+                    
+                        <a href="/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"># 독후감</a>
+                    
+                        <a href="/tags/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%8B%AC%EB%A6%AC%ED%95%99/"># 프로그래밍 심리학</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/06/01/programming/coding-exercise-stopwatch/">[JavaScript Exercise] Stop watch</a>
+            
+            
+            <a class="next" rel="next" href="/2019/05/29/programming/coding-exersice-counter/">[JavaScript Exercise] Counter</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 2020 Sooyoung Jeong</span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
