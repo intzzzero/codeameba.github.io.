@@ -1362,3 +1362,7 @@ a:hover {
 .archive-item-link:hover {
   color: #1cbc9c;
 }
+#disqus_thread {
+  max-width: 780px;
+  margin: 30px auto;
+}
