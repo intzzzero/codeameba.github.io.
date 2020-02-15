@@ -8,8 +8,15 @@
     </url>
 
     <url>
+        <loc>http://codeameba.github.io/categories/%25EC%2583%259D%25EA%25B0%2581%25EC%25A0%2595%25EB%25A6%25AC/</loc>
+        <lastmod>2020-02-15T07:26:08.787Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://codeameba.github.io/categories/%25EB%25B8%2594%25EB%25A1%259C%25EA%25B7%25B8/</loc>
-        <lastmod>2020-02-15T07:23:28.139Z</lastmod>
+        <lastmod>2020-02-14T15:26:22.055Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -17,13 +24,6 @@
     <url>
         <loc>http://codeameba.github.io/categories/%25EB%2582%25B4%25EA%25B0%2580-%25EC%259D%25BD%25EC%259D%2580-%25EC%25B1%2585/</loc>
         <lastmod>2020-02-14T14:31:08.559Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/%25EC%2583%259D%25EA%25B0%2581%25EC%25A0%2595%25EB%25A6%25AC/</loc>
-        <lastmod>2020-02-06T08:53:13.697Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
