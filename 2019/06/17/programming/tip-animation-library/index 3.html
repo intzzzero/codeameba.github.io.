@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/06/17/programming/tip-animation-library/">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');</script>
+    <!-- End Google Tag Manager -->
+
+<title>[번역 중...] 2019년을 대표할만한 11가지 자바스크립트 애니메이션 라이브러리 | amebaLab</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="amebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">amebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">amebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[번역 중...] 2019년을 대표할만한 11가지 자바스크립트 애니메이션 라이브러리</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">6월 17, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/tip/">tip</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="번역-2019년을-대표할만한-11가지-자바스크립트-애니메이션-라이브러리"><a href="#번역-2019년을-대표할만한-11가지-자바스크립트-애니메이션-라이브러리" class="headerlink" title="[번역] 2019년을 대표할만한 11가지 자바스크립트 애니메이션 라이브러리"></a>[번역] 2019년을 대표할만한 11가지 자바스크립트 애니메이션 라이브러리</h1><h2 id="lt-최고의-JS-CSS-애니메이션-라이브러리-gt"><a href="#lt-최고의-JS-CSS-애니메이션-라이브러리-gt" class="headerlink" title="&lt;최고의 JS-CSS 애니메이션 라이브러리&gt;"></a>&lt;최고의 JS-CSS 애니메이션 라이브러리&gt;</h2><img src="https://images.unsplash.com/photo-1524666643752-b381eb00effb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80">
+***
+<a href="https://blog.bitsrc.io/11-javascript-animation-libraries-for-2018-9d7ac93a2c59" target="_blank" rel="external nofollow noopener noreferrer">11 JavaScript Animation Libraries For 2019 - Some of the finest JS-CSS animation libraries around.[원문 링크]</a>
+
+<img src="/images/tip-animation-library.png">
+
+<p>깔끔한 자바스크립트 애니메이션 라이브러리를 찾기 위해 웹을 검색해보며 한 가지 알게된 사실이 있습니다. 추천리스트에 있는 라이브러리 중 상당수는 제대로 유지 및 관리가 되지 않는다는 점입니다. 그래서 저는 직접 조사를 진행했고, 당신의 앱에 사용할만한 가장 훌륭한 라이브러리 11가지를 소개하려 합니다. 그리고, 유지, 관리는 조금 안 될지라도 여전히 유용한 라이브러리도 몇 가지 추가할까 합니다.</p>
+<h2 id="순수한-CSS를-사용한다는-것"><a href="#순수한-CSS를-사용한다는-것" class="headerlink" title="순수한 CSS를 사용한다는 것"></a>순수한 CSS를 사용한다는 것</h2><hr>
+<p>애니메이션 라이브러리 속으로 뛰어들기에 앞서, 순수한 CSS를 사용하는 것을 잊지 않았으면 합니다. 왜냐하면, 그것이 표준이기 때문입니다. 순수한 CSS의 사용은 퍼포먼스를 향상시키고, 호환성이 뛰어나며, 애니메이션 효과를 만드는 가장 좋은 방법일 수 있습니다. 여기에 순수한 CSS로 이루어진 10가지의 좋은 예가 있습니다.</p>
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="jcoulterdesign" data-slug-hash="BrdPaw" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Pure CSS Saturn Hula Hooping">
+  <span>See the Pen <a href="https://codepen.io/jcoulterdesign/pen/BrdPaw/" target="_blank" rel="external nofollow noopener noreferrer">
+  Pure CSS Saturn Hula Hooping</a> by Jamie Coulter (<a href="https://codepen.io/jcoulterdesign" target="_blank" rel="external nofollow noopener noreferrer">@jcoulterdesign</a>)
+  on <a href="https://codepen.io" target="_blank" rel="external nofollow noopener noreferrer">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="1-Three-js"><a href="#1-Three-js" class="headerlink" title="1. Three.js"></a>1. Three.js</h2><hr>
+<img src="https://cdn-images-1.medium.com/max/1600/1*AX-ojZx301J9_BU4lan5WQ.gif">
+
+<p>깃허브에서 43K 이상의 별을 받을 정도로 굉장히 인기가 있는 라이브러리인 Three.js는, WebGL을 직관적인 방법으로 사용하여 브라우저에서 3D 애니메이션을 만들 수 있는 훌륭한 방식을 취하고 있습니다.<br>Canvas, svg, CSS3D 그리고 WebGL 렌더러를 제공하는 이 라이브러리를 사용하면 다양한 디바이스와 브라우저 전반에 걸쳐 풍부한 인터렉티브 경험을 만들어낼 수 있습니다. Three.js는 2010년 4월 처음 소개 되었음에도 여전히 큰 사랑을 받으며 약 1,000 여명 기고자(contributor)들에 의해 개발되고 있습니다.</p>
+<p><a href="https://github.com/mrdoob/three.js/" target="_blank" rel="external nofollow noopener noreferrer">GitHub - mrdoob/three.js: JavaScript 3D library.</a></p>
+<h2 id="2-Anime-js"><a href="#2-Anime-js" class="headerlink" title="2. Anime.js"></a>2. Anime.js</h2><hr>
+<img src="https://cdn-images-1.medium.com/max/1600/1*8cEXCt53kxaYtjLI6eYCKA.gif">
+
+<p>깃허브에서 20K 이상의 별을 받은 Anime.js는, CSS 속성(Property), 개별 CSS 트랜스폼, SVG 또는, DOM 속성(Attribute) 및 자바스크립트 객체와 함께 작동하는 자바스크립트 애니메이션 라이브러리입니다. 이 라이브러리를 사용하면 여러 애니메이션 속성(Properties)들을 연결하여 여러 인스턴스를 동기화하고, 타임라인을 만드는 등의 작업을 할 수 있습니다.</p>
+<p><a href="https://github.com/juliangarnier/anime" target="_blank" rel="external nofollow noopener noreferrer">GitHub - juliangarnier/anime: JavaScript animation engine</a></p>
+<h2 id="3-Mo-js"><a href="#3-Mo-js" class="headerlink" title="3. Mo.js"></a>3. Mo.js</h2><hr>
+<img src="https://cdn-images-1.medium.com/max/1600/1*dt92pFaY3Py6PB718DOdNQ.gif">
+
+<p>깃허브에서 14K 이상의 별을 받은 Mo.js는, 웹을 위한 모션 그래픽 도구모음입니다. 여기에는 간단한 선언적 APIs부터 기기간 호환성을 비롯한 1,500개 이상의 유닛 테스트가 포함되어 있는데요. 이를 통해 DOME 또는 SVG DOME을 중심으로 물체를 움직이거나, 독특한 Mo.js 객체를 만들 수도 있습니다. 문서가 다소 부족하다는 게 아쉽지만, 예제가 풍부하고, CSS-TRICKS<a href="https://css-tricks.com/introduction-mo-js/" target="_blank" rel="external nofollow noopener noreferrer">An Introduction to mo.js | CSS-Tricks</a>에서도 다루고 있다.</p>
+<p><a href="https://github.com/legomushroom/mojs" target="_blank" rel="external nofollow noopener noreferrer">GitHub - mojs/mojs: The motion graphics toolbelt for the web</a></p>
+<h2 id="4-Velocity"><a href="#4-Velocity" class="headerlink" title="4. Velocity"></a>4. Velocity</h2><hr>
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="hone" data-slug-hash="azRzbe" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="CSS Cube - Velocity JS Animation">
+  <span>See the Pen <a href="https://codepen.io/hone/pen/azRzbe/" target="_blank" rel="external nofollow noopener noreferrer">
+  CSS Cube - Velocity JS Animation</a> by Luca Dimola (<a href="https://codepen.io/hone" target="_blank" rel="external nofollow noopener noreferrer">@hone</a>)
+  on <a href="https://codepen.io" target="_blank" rel="external nofollow noopener noreferrer">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p>깃허브에서 15K 이상의 별을 받은 Velocity는, jQuery의 $.animate() 함수와 동일한 API를 지니고 있는 빠른 자바스크립트 애니메이션 엔진입니다. 색상 애니메이션(Color animation), 변형(Transforms), 가속/감속(easing), 반복(loops), SVG 지원(support), 스크롤(scrolling) 등의 기능이 특징입니다.<br>Velocity의 고성능 엔진에 대한 설명과 고장(breakdown) 예방법에 대한 내용은 <a href="https://www.sitepoint.com/incredibly-fast-ui-animation-using-velocity-js/" target="_blank" rel="external nofollow noopener noreferrer">여기</a>를 참고하시기 바랍니다. 그리고, Velocity를 활용한 SVG 애니메이션의 소개는 <a href="https://davidwalsh.name/svg-animation" target="_blank" rel="external nofollow noopener noreferrer">이곳</a>을 참고해주세요.</p>
+<p><a href="https://github.com/julianshapiro/velocity" target="_blank" rel="external nofollow noopener noreferrer">GitHub - julianshapiro/velocity: Accelerated JavaScript animation.</a></p>
+<h2 id="5-Popmotion"><a href="#5-Popmotion" class="headerlink" title="5. Popmotion"></a>5. Popmotion</h2><hr>
+<img src="https://cdn-images-1.medium.com/max/1600/1*43mWXPbZZIT667NXiNXCbA.gif">
+
+<p>깃허브에서 14K 이상의 별을 받은 Popmotion은, 고작 11kb밖에 되지않는 실용적인 반응형 애니메이션 라이브러리죠. 값을 입력하여 시작과 종료를 임의로 정할 수 있으며, 이를 통해 CSS, SVG, React, Three.js 그리고, API까지 컨트롤이 가능합니다.</p>
+<p><a href="https://github.com/Popmotion/popmotion" target="_blank" rel="external nofollow noopener noreferrer">GitHub - Popmotion/popmotion: Simple animation libraries for delightful user interfaces</a></p>
+<h2 id="6-Vivus"><a href="#6-Vivus" class="headerlink" title="6. Vivus"></a>6. Vivus</h2><hr>
+<img src="https://cdn-images-1.medium.com/max/1600/1*liaA8RgKx9oR5xARY7dCnA.gif">
+
+<p>깃허브에서 10K 이상의 별을 받은 Vivus는, 자바스크립트 클래스에 대한 의존성이 전혀 없이 SVG로 애니메이션을 만들 수 있는 라이브러리입니다. 이미지가 그려지는 다양한 형태의 애니메이션을 기본적으로 제공하며, 그 중 하나를 선택하거나, 임의로 제작하여 SVG를 그릴 수도 있습니다. 그와 관련하여 예시를 보고 싶으시다면 Vivus-instant<a href="https://maxwellito.github.io/vivus-instant/" target="_blank" rel="external nofollow noopener noreferrer">Vivus Instant - inline SVG animation with CSS</a>를 확인해보세요.</p>
+<p><a href="https://github.com/maxwellito/vivus" target="_blank" rel="external nofollow noopener noreferrer">GitHub - maxwellito/vivus: JavaScript library to make drawing animation on SVG</a></p>
+<h2 id="7-GreenSock-JS"><a href="#7-GreenSock-JS" class="headerlink" title="7. GreenSock JS"></a>7. GreenSock JS</h2><hr>
+<img src="https://cdn-images-1.medium.com/max/1600/1*pxGvIj0qSrQxOjAcqVWM5A.gif">
+
+<p>GreenSock JS(이하 GSAP)는 400만 개 이상의 웹 사이트에서 사용되고 있는 고성능의 의존성이 없는, 크로스 브라우저 애니메이션이 가능한 자바스크립트 라이브러리입니다. GSAP는 그만큼 유연하고 React, Vue, Angular 등의 프레임워크는 물론이고 바닐라 자바스크립트와의 호환성도 아주 좋습니다. 또한, GSDevtools는 GSAP를 사용하여 제작된 애니메이션의 디버깅에 유용합니다.</p>
+<p><a href="https://github.com/greensock/GreenSock-JS" target="_blank" rel="external nofollow noopener noreferrer">GitHub - greensock/GreenSock-JS: GreenSock’s GSAP JavaScript animation library (including Draggable).</a></p>
+<h2 id="8-Scroll-Reveal"><a href="#8-Scroll-Reveal" class="headerlink" title="8. Scroll Reveal"></a>8. Scroll Reveal</h2><hr>
+<img src="https://cdn-images-1.medium.com/max/1600/1*W1EUSjFp9fzgBVotnrX16w.gif">
+
+<p>깃허브에서 15K 이상의 별을 받았고, 의존성이 전혀 없는 라이브러리 Scroll Reaveal은, 웹 브라우저와 모바일 브라우저를 위하여 쉽게 적용이 가능한 애니메이션 방식의 스크롤을 제공합니다. 다양하고 깔끔한 효과들이 있으며, 자연어를 통해 애니메이션을 정의할 수도 있습니다. 여기 몇 가지의 짧은 튜토리얼<a href="https://www.sitepoint.com/revealing-elements-scrollreveal-js/" target="_blank" rel="external nofollow noopener noreferrer">Revealing Elements with scrollReveal.js</a>이 있습니다.</p>
+<p><a href="https://github.com/jlmakes/scrollreveal" target="_blank" rel="external nofollow noopener noreferrer">GitHub - scrollreveal/scrollreveal: Animate elements as they scroll into view.</a></p>
+<h2 id="9-Hover-CSS"><a href="#9-Hover-CSS" class="headerlink" title="9. Hover(CSS)"></a>9. Hover(CSS)</h2><hr>
+<img src="https://cdn-images-1.medium.com/max/1600/1*xe8ter15XRmBxsFy8VuF1Q.gif">
+
+<p>깃허브에서 20K 이상의 별을 받은 Hover는 CSS 라이브러리입니다. 링크, 버튼, 로고, SVG, 이미지 등에 적용 가능한 CSS3 기반의 호버 효과를 다채롭게 제공합니다. CSS, Sass, LESS 등에서 사용할 수도 있으며, 특정 효과를 스타일시트에 직접 복사, 붙여넣기 하는 방식으로도 적용이 가능합니다.</p>
+<p><a href="https://github.com/IanLunn/Hover" target="_blank" rel="external nofollow noopener noreferrer">GitHub - IanLunn/Hover: A collection of CSS3 powered hover effects to be applied to links, buttons, logos, SVG, featured images and so on. Easily apply to your own elements, modify or just use for inspiration. Available in CSS, Sass, and LESS.</a></p>
+<h2 id="10-Kute-js"><a href="#10-Kute-js" class="headerlink" title="10. Kute.js"></a>10. Kute.js</h2><hr>
+<img src="https://cdn-images-1.medium.com/max/1600/1*wO5X8sjMLw5qJVcBN-relQ.gif">
+
+<p>Kute.js는 크로스 브라우저 애니메이션에 필수적인 기능을 두루 갖춘 본격적인 네이티브 자바스크립트 애니메이션 엔진입니다. 코드의 품질, 유연성, 성능 및 크기에 중점적으로 신경을 썼으며, 확장<a href="http://thednp.github.io/kute.js/features.html#performance" target="_blank" rel="external nofollow noopener noreferrer">KUTE.js Features | Javascript Animation Engine</a>이 가능하여 별도의 기능을 추가할 수도 있습니다.</p>
+<p><a href="https://github.com/thednp/kute.js/" target="_blank" rel="external nofollow noopener noreferrer">GitHub - thednp/kute.js: KUTE.js is a native JavaScript animation engine featuring great code quality, badass performance, SVG morphing, stroke drawing and 2D &amp; 3D transforms, CSS3 transforms, colors, as well as other CSS3 properties or presentation attributes.</a></p>
+<h2 id="11-Typed-js"><a href="#11-Typed-js" class="headerlink" title="11. Typed.js"></a>11. Typed.js</h2><hr>
+<img src="https://cdn-images-1.medium.com/max/1600/1*dI6ZGTmRCtZ4OOtaakfItQ.gif">
+
+<p>깃허브에서 6K 이상의 별을 받은 Typed.js를 사용하면, 설정한 속도에 따라 문자열의 입력 애니메이션을 생성할 수가 있습니다. 또한, 페이지에 HTML <code>&lt;div&gt;</code>를 배치하고..</p>
+<p>[번역 중…]</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"># 자바스크립트</a>
+                    
+                        <a href="/tags/VSCode/"># VSCode</a>
+                    
+                        <a href="/tags/%ED%99%95%EC%9E%A5%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8/"># 확장프로그램</a>
+                    
+                        <a href="/tags/CSS/"># CSS</a>
+                    
+                        <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC/"># 자바스크립트라이브러리</a>
+                    
+                        <a href="/tags/%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC/"># 애니메이션라이브러리</a>
+                    
+                        <a href="/tags/%EB%AA%A8%EC%85%98%EA%B7%B8%EB%9E%98%ED%94%BD/"># 모션그래픽</a>
+                    
+                        <a href="/tags/motion-graphic/"># motion graphic</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/06/25/programming/coding-exercise-gotoup/">[JavaScript Exercise] 스크롤 업 버튼</a>
+            
+            
+            <a class="next" rel="next" href="/2019/06/10/programming/tip-extensions/">[번역] 쾌적한 자바스크립트 코딩을 위한 VSCode 확장 프로그램 추천</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 2020 Sooyoung Jeong</span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/08/28/programming/react-movie-app-03/">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');</script>
+    <!-- End Google Tag Manager -->
+
+<title>[ReactJS] 무비앱 만들기 Day 03 | amebaLab</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="amebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">amebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">amebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[ReactJS] 무비앱 만들기 Day 03</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">8월 28, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="ReactJS-무비앱-만들기-Day-03"><a href="#ReactJS-무비앱-만들기-Day-03" class="headerlink" title="[ReactJS] 무비앱 만들기 Day 03"></a>[ReactJS] 무비앱 만들기 Day 03</h1><hr>
+<h2 id="2-0-Setting-up-the-project"><a href="#2-0-Setting-up-the-project" class="headerlink" title="2.0 Setting up the project"></a>2.0 Setting up the project</h2><hr>
+<h3 id="create-react-app"><a href="#create-react-app" class="headerlink" title="create-react-app"></a>create-react-app</h3><ul>
+<li>yarn 또는 npm을 사용<ul>
+<li><code>yarn global add create-react-app</code></li>
+</ul>
+</li>
+<li>간편하게 react를 시작할 수 있게 해주는 모듈<ul>
+<li><code>create-react-app</code></li>
+</ul>
+</li>
+<li>컴퓨터에 저장하기 때문에 매번 버전 확인 및 업데이트를 해야한다는 번거로움이 있음.</li>
+</ul>
+<br>
+
+<h3 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h3><ul>
+<li>앞의 경우를  보완한 것이 npx를 통한 설치<ul>
+<li><code>yarn global add npx</code> or <code>npm i npx -g</code></li>
+</ul>
+</li>
+<li>이것 또한 모듈이지만, 컴퓨터에 저장할 필요가 없음.</li>
+<li>항상 최신 버전의 create-react-app을 받아서 실행한 뒤, 끝나면 삭제 됨<ul>
+<li><code>npx create-react-app</code></li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h3 id="prop-types"><a href="#prop-types" class="headerlink" title="prop-types"></a>prop-types</h3><ul>
+<li>prop-types 모듈 설치 필요<ul>
+<li><code>yarn add prop-types</code></li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="2-1-React-router-part-one"><a href="#2-1-React-router-part-one" class="headerlink" title="2.1 React router part one"></a>2.1 React router part one</h2><hr>
+<h3 id="Screens"><a href="#Screens" class="headerlink" title="Screens"></a>Screens</h3><ul>
+<li>[  ] Home</li>
+<li>[  ] TV Shows</li>
+<li>[  ] Search</li>
+<li>[  ] Detail</li>
+</ul>
+<br>
+
+<h3 id="React-Router"><a href="#React-Router" class="headerlink" title="React Router"></a>React Router</h3><ul>
+<li><a href="https://github.com/ReactTraining/react-router" target="_blank" rel="external nofollow noopener noreferrer">GitHub - ReactTraining/react-router: Declarative routing for React</a><ul>
+<li><a href="https://reacttraining.com/react-router/web/guides/quick-start" target="_blank" rel="external nofollow noopener noreferrer">React Router: Declarative Routing for React.js</a></li>
+</ul>
+</li>
+<li>React App에게 Home에서 시작해야 한다는 걸 알려주기 위한 도구</li>
+<li>React의 Routing 패키지</li>
+<li>DOM과 react-native에도 사용 가능함</li>
+<li>React Router는 컴포넌트 묶음이다.</li>
+</ul>
+<br>
+
+<h2 id="2-2-React-router-part-two"><a href="#2-2-React-router-part-two" class="headerlink" title="2.2 React router part two"></a>2.2 React router part two</h2><hr>
+<h3 id="HashRouter"><a href="#HashRouter" class="headerlink" title="HashRouter"></a>HashRouter</h3><ul>
+<li>url에 해쉬태그가 들어가기 때문에 미관상 보기 좋지 않음</li>
+<li><code>http://localhost:3000/#/home</code></li>
+</ul>
+<br>
+
+<h3 id="BrowserRouter"><a href="#BrowserRouter" class="headerlink" title="BrowserRouter"></a>BrowserRouter</h3><ul>
+<li>일반적인 웹 페이지의 url</li>
+<li><code>http://localhost:3000/home</code></li>
+</ul>
+<br>
+
+<h3 id="Composition"><a href="#Composition" class="headerlink" title="Composition"></a>Composition</h3><ul>
+<li>두 개 이상의 Route를 동시에 랜더링 하는 방식<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; (</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/"</span> exact component=&#123;Home&#125; /&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/tv"</span> component=&#123;TV&#125; /&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/tv/popular"</span> render=&#123;() =&gt; <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>popular<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>&#125; /&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/search"</span> component=&#123;Search&#125; /&gt;</span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+<img src="/images/composition.png">
+
+</li>
+</ul>
+<br>
+
+<h3 id="Redirect"><a href="#Redirect" class="headerlink" title="Redirect"></a>Redirect</h3><ul>
+<li><code>&lt;Redirect from=“*” to=“/“ /&gt;</code></li>
+<li>해당되는 페이지만 렌더링 되도록 함.<ul>
+<li>But, 경로가 겹치게 되어서 에러가 나는데 그래서 <code>Switch</code>를 사용해야 함.</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h3 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h3><ul>
+<li>한 번에 오직 하나의 Route만 랜더링 할 수 있게 함.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Router.js</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BrowserRouter <span class="keyword">as</span> Router, Route, Redirect, Switch &#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span>;</span><br><span class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">'Routes/Home'</span>;</span><br><span class="line"><span class="keyword">import</span> TV <span class="keyword">from</span> <span class="string">'Routes/TV'</span>;</span><br><span class="line"><span class="keyword">import</span> Search <span class="keyword">from</span> <span class="string">'Routes/Search'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; (</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;Switch&gt; <span class="comment">// &lt;- Switch</span></span><br><span class="line">      &lt;Route path=<span class="string">"/"</span> exact component=&#123;Home&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"/tv"</span> component=&#123;TV&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"/tv/popular"</span> render=&#123;() =&gt; <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>popular<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"/search"</span> component=&#123;Search&#125; /&gt;</span><br><span class="line">      &lt;Redirect <span class="keyword">from</span>=<span class="string">"*"</span> to=<span class="string">"/"</span> /&gt; <span class="comment">// &lt;- Redirect</span></span><br><span class="line">    &lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>Router&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<br>
+
+<h3 id="exact"><a href="#exact" class="headerlink" title="exact"></a>exact</h3><ul>
+<li>주어진 경로와 정확히 동일할 때 설정한 컴포넌트를 보여줌.</li>
+</ul>
+<hr>
+<h3 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h3><ul>
+<li><a href="https://velopert.com/3417" target="_blank" rel="external nofollow noopener noreferrer">react-router :: 1장. 리액트 라우터 사용해보기 | VELOPERT.LOG</a></li>
+<li><a href="https://reacttraining.com/react-router/web/guides/quick-start" target="_blank" rel="external nofollow noopener noreferrer">React Router: Declarative Routing for React.js</a></li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/til/"># til</a>
+                    
+                        <a href="/tags/TIL/"># TIL</a>
+                    
+                        <a href="/tags/Today-I-Learned/"># Today I Learned</a>
+                    
+                        <a href="/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"># 오늘배운것들</a>
+                    
+                        <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"># 자바스크립트</a>
+                    
+                        <a href="/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/"># 리액트</a>
+                    
+                        <a href="/tags/react/"># react</a>
+                    
+                        <a href="/tags/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94/"># 노마드코더</a>
+                    
+                        <a href="/tags/nomadcoders/"># nomadcoders</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/08/29/programming/react-movie-app-04/">[ReactJS] 무비앱 만들기 Day 04</a>
+            
+            
+            <a class="next" rel="next" href="/2019/08/27/programming/react-movie-app-02/">[ReactJS] 무비앱 만들기 Day 02</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 2020 Sooyoung Jeong</span>
+    </div>
+</footer>
+    </div>
+</body>
+</html>
