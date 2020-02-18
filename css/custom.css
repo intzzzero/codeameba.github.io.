@@ -10,6 +10,9 @@ a:hover {
 .archive-item-link:hover {
   color: #1cbc9c;
 }
+.post-toc .is-active-link::before {
+  background-color: #1cbc9c;
+}
 #disqus_thread {
   max-width: 780px;
   margin: 50px auto;
