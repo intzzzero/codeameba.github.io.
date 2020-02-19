@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/09/05/programming/react-movie-app-05/">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');</script>
+    <!-- End Google Tag Manager -->
+
+<title>[ReactJS] 무비앱 만들기 Day 05 | amebaLab</title>
+
+
+
+    <link rel="icon" href="/image/favicon2.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="amebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">amebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">amebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[ReactJS] 무비앱 만들기 Day 05</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">9월 5, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="ReactJS-무비앱-만들기-Day-05"><a href="#ReactJS-무비앱-만들기-Day-05" class="headerlink" title="[ReactJS] 무비앱 만들기 Day 05"></a>[ReactJS] 무비앱 만들기 Day 05</h1><hr>
+<h2 id="4-0-Introduction-to-The-Movie-DB-API"><a href="#4-0-Introduction-to-The-Movie-DB-API" class="headerlink" title="4.0 Introduction to The Movie DB API"></a>4.0 Introduction to The Movie DB API</h2><hr>
+<ul>
+<li>데이터가 오는 곳이 API(Application Programming Interface)</li>
+<li>Nomflix에서는 the movie db를 이용함(가입 필요).<ul>
+<li><a href="https://www.themoviedb.org/" target="_blank" rel="external nofollow noopener noreferrer">https://www.themoviedb.org/</a> </li>
+</ul>
+</li>
+<li>setting -&gt; API -&gt; API KEY copy</li>
+</ul>
+<h2 id="4-1-Sexy-Networking-with-Axios-Instances"><a href="#4-1-Sexy-Networking-with-Axios-Instances" class="headerlink" title="4.1 Sexy Networking with Axios Instances"></a>4.1 Sexy Networking with Axios Instances</h2><hr>
+<h3 id="API-Verbs"><a href="#API-Verbs" class="headerlink" title="API Verbs"></a>API Verbs</h3><ul>
+<li><input disabled type="checkbox"> Now playing (Movie</li>
+<li><input disabled type="checkbox"> Top Rated (TV, Movie)</li>
+<li><input disabled type="checkbox"> Popular (TV, Movie)</li>
+<li><input disabled type="checkbox"> Upcoming (Movie)</li>
+<li><input disabled type="checkbox"> Airing Today (TV)</li>
+</ul>
+<h3 id="요청-방식"><a href="#요청-방식" class="headerlink" title="요청 방식"></a>요청 방식</h3><ul>
+<li>이전 강의들에서는 주로 fetch를 썼음<ul>
+<li>라우터에서 호출하고, fetch 하고, 나머지 모든 작업들을 하는 방식인데 효율적이지 않음.</li>
+<li>왜냐하면 url의 동일한 내용이 반복되기 때문</li>
+<li>따라서 네트워킹과 API만 다루는 별도의 파일을 따로 만들고 호출할 것</li>
+<li>또한, fetch가 아닌, axios를 사용</li>
+</ul>
+</li>
+</ul>
+<h3 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h3><ul>
+<li><a href="https://github.com/axios/axios" target="_blank" rel="external nofollow noopener noreferrer">GitHub - axios/axios: Promise based HTTP client for the browser and node.js</a></li>
+<li>별도 모듈 설치 필요<ul>
+<li><code>yarn add axios</code></li>
+</ul>
+</li>
+<li>axios의 장점은, 직접 인스턴스를 configure(설정)할 수 있다는 점.</li>
+</ul>
+<p><strong>axios.create([config])</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> instance = axios.create(&#123;</span><br><span class="line">  baseURL: <span class="string">'https://some-domain.com/api/'</span>,</span><br><span class="line">  timeout: <span class="number">1000</span>,</span><br><span class="line">  headers: &#123;<span class="string">'X-Custom-Header'</span>: <span class="string">'foobar'</span>&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>위의 axios.create를 통해 반복을 최소화 할 수 있음.<ul>
+<li>parameter에 api_key와 language 전달</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> api = axios.create(&#123;</span><br><span class="line">  baseURL: <span class="string">'https://api.themoviedb.org/3/'</span>,</span><br><span class="line">  params: &#123;</span><br><span class="line">    api_key: <span class="string">'b8e07a1bc39775b44d7ad690b461e764'</span>,</span><br><span class="line">    language: <span class="string">'en-US'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">api.get(<span class="string">'tv/popular'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> api;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>index.js에 api.js를 import하고 실행해보면 아래와 같이 데이터가 들어오는 것을 확인할 수 있음.</li>
+<li>주의) api.get에서 <code>tv/popular</code>로 작성해야 상대경로로 접근함<ul>
+<li><code>/tv/popular</code>로 작성하면 절대경로가 됨</li>
+</ul>
+</li>
+</ul>
+<img src="/images/api-response.png">
+<img src="/images/api-response2.png">
+
+<hr>
+<h2 id="4-2-API-Verbs-part-One"><a href="#4-2-API-Verbs-part-One" class="headerlink" title="4.2 API Verbs part One"></a>4.2 API Verbs part One</h2><hr>
+<h3 id="API-Verbs-1"><a href="#API-Verbs-1" class="headerlink" title="API Verbs"></a>API Verbs</h3><ul>
+<li><input checked disabled type="checkbox"> <p>Now playing (Movie)</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>Upcoming (Movie)</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>Top Rated (TV)</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>Popular (TV, X)</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>Airing Today (TV)</p>
+</li>
+<li><input disabled type="checkbox"> <p>TV Show Detail</p>
+</li>
+<li><input disabled type="checkbox"> <p>Movie Detail</p>
+</li>
+<li><p>TV와 Movies 각각의 api 요청</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> api = axios.create(&#123;</span><br><span class="line">  baseURL: <span class="string">'https://api.themoviedb.org/3/'</span>,</span><br><span class="line">  params: &#123;</span><br><span class="line">    api_key: <span class="string">'b8e07a1bc39775b44d7ad690b461e764'</span>,</span><br><span class="line">    language: <span class="string">'en-US'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> MoviesApi = &#123;</span><br><span class="line">  nowPlaying: <span class="function"><span class="params">()</span> =&gt;</span> api.get(<span class="string">'movie/now_playing'</span>),</span><br><span class="line">  upcoming: <span class="function"><span class="params">()</span> =&gt;</span> api.get(<span class="string">'movie/upcoming'</span>),</span><br><span class="line">  popluar: <span class="function"><span class="params">()</span> =&gt;</span> api.get(<span class="string">'movie/popular'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> TvApi = &#123;</span><br><span class="line">  topRated: <span class="function"><span class="params">()</span> =&gt;</span> api.get(<span class="string">'tv/top_rated'</span>),</span><br><span class="line">  popular: <span class="function"><span class="params">()</span> =&gt;</span> api.get(<span class="string">'tv/popular'</span>),</span><br><span class="line">  airingToday: <span class="function"><span class="params">()</span> =&gt;</span> api.get(<span class="string">'tv/airing_today'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>fetch 방식의 api 요청에 비해 훨씬 간결하고 가독성이 좋음.</li>
+<li>axios 짱짱맨</li>
+</ul>
+<h2 id="4-3-API-Verbs-part-Two"><a href="#4-3-API-Verbs-part-Two" class="headerlink" title="4.3 API Verbs part Two"></a>4.3 API Verbs part Two</h2><hr>
+<ul>
+<li>Movie Detail을 가져오기 위해 id가 필요함<ul>
+<li><code>movie/{movie_id}</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="API-Verbs-2"><a href="#API-Verbs-2" class="headerlink" title="API Verbs"></a>API Verbs</h3><ul>
+<li><input checked disabled type="checkbox"> Now playing (Movie)</li>
+<li><input checked disabled type="checkbox"> Upcoming (Movie)</li>
+<li><input checked disabled type="checkbox"> Top Rated (TV)</li>
+<li><input checked disabled type="checkbox"> Popular (TV, X)</li>
+<li><input checked disabled type="checkbox"> Airing Today (TV)</li>
+<li><input checked disabled type="checkbox"> TV Show Detail</li>
+<li><input checked disabled type="checkbox"> Movie Detail</li>
+<li><input checked disabled type="checkbox"> Search  (Movie, TV)</li>
+</ul>
+<h3 id="append-to-response"><a href="#append-to-response" class="headerlink" title="append_to_response"></a>append_to_response</h3><ul>
+<li>api에서 지원하는 기능</li>
+<li><a href="https://developers.themoviedb.org/3/getting-started/append-to-response" target="_blank" rel="external nofollow noopener noreferrer">API Docs</a></li>
+<li>video나 image같은 것들을 덧붙이기(append)하면 포스터나 예고편 등으로 출력이 된다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> MoviesApi = &#123;</span><br><span class="line">  nowPlaying: <span class="function"><span class="params">()</span> =&gt;</span> api.get(<span class="string">'movie/now_playing'</span>),</span><br><span class="line">  upcoming: <span class="function"><span class="params">()</span> =&gt;</span> api.get(<span class="string">'movie/upcoming'</span>),</span><br><span class="line">  popluar: <span class="function"><span class="params">()</span> =&gt;</span> api.get(<span class="string">'movie/popular'</span>),</span><br><span class="line">  movieDetail: <span class="function"><span class="params">id</span> =&gt;</span> api.get(<span class="string">`movie/<span class="subst">$&#123;id&#125;</span>`</span>, &#123;</span><br><span class="line">    params: &#123;</span><br><span class="line">      appent_to_response: <span class="string">'videos'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h3><ul>
+<li>search 기능은 url 외에도 검색어에 해당하는 파라미터가 추가로 필요함</li>
+</ul>
+<img src="/images/api-search.png">
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search: <span class="function">(<span class="params">term</span>) =&gt;</span> api.get(<span class="string">'search/movie'</span>, &#123;</span><br><span class="line">  params: &#123;</span><br><span class="line">    query: term</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>그리고 api의 명세를 잘 찾아보면 아래와 같이 요구사항이 설명되어 있음.</li>
+<li>이 경우에는 URI로 인코딩이 필요하다고 함.</li>
+</ul>
+<img src="/images/api-search2.png">
+
+<ul>
+<li>따라서 아래와 같이 encodeURIComponent를 사용하면 값을 인코팅하고 그 문자열로 검색을 하게 됨.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">search: <span class="function">(<span class="params">term</span>) =&gt;</span> api.get(<span class="string">'search/movie'</span>, &#123;</span><br><span class="line">  params: &#123;</span><br><span class="line">    query: <span class="built_in">encodeURIComponent</span>(term)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/til/"># til</a>
+                    
+                        <a href="/tags/TIL/"># TIL</a>
+                    
+                        <a href="/tags/Today-I-Learned/"># Today I Learned</a>
+                    
+                        <a href="/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"># 오늘배운것들</a>
+                    
+                        <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"># 자바스크립트</a>
+                    
+                        <a href="/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/"># 리액트</a>
+                    
+                        <a href="/tags/react/"># react</a>
+                    
+                        <a href="/tags/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94/"># 노마드코더</a>
+                    
+                        <a href="/tags/nomadcoders/"># nomadcoders</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/09/09/programming/react-movie-app-06/">[ReactJS] 무비앱 만들기 Day 06</a>
+            
+            
+            <a class="next" rel="next" href="/2019/08/29/programming/react-movie-app-04/">[ReactJS] 무비앱 만들기 Day 04</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 2020 codeAmeba</span>
+    </div>
+</footer>
+    </div>
+</body>
+</html>

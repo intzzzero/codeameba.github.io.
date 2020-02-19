@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/04/22/programming/cs-til-04/">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');</script>
+    <!-- End Google Tag Manager -->
+
+<title>컴퓨터공학 4일차 TIL(2019.04.22) | amebaLab</title>
+
+
+
+    <link rel="icon" href="/favicon.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="amebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">amebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">amebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">컴퓨터공학 4일차 TIL(2019.04.22)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">4월 22, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/CS/">CS</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Bwe58ELHlqT/?utm_source=ig_embed&amp;utm_medium=loading" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:100%; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/Bwe58ELHlqT/?utm_source=ig_embed&amp;utm_medium=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank" rel="external nofollow noopener noreferrer"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div><div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewbox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"/></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> Instagram에서 이 게시물 보기</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div></a> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/Bwe58ELHlqT/?utm_source=ig_embed&amp;utm_medium=loading" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank" rel="external nofollow noopener noreferrer">👨‍💻🍷 . . #fubiz #somewheremagazine #inspirationcultmag #dreamermagazine #소니이미지갤러리 #sonyimagegallery #sonyalpha #a7m3 #sel55f18z #minimalzine #gominimalmag #moodygrams #lensculture #peoplewhocode #seoul_korea #codinglife</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/aprilgreenery/?utm_source=ig_embed&amp;utm_medium=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank" rel="external nofollow noopener noreferrer"> 정수영(Sooyoung Jeong)</a>(@aprilgreenery)님의 공유 게시물님, <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2019-04-20T15:46:39+00:00">2019 4월 20 8:46오전 PDT</time></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+
+<h1 id="컴공-4일차-19-04-22"><a href="#컴공-4일차-19-04-22" class="headerlink" title="컴공 4일차(19.04.22)"></a>컴공 4일차(19.04.22)</h1><ul>
+<li>오늘 수업은 상당히 개념적인 내용이 주를 이루었다. 배울 것은 많은데, 수업 시간은 짧고, 시간은 점점 빨라지는 기분이라 왠지 모르게 초조해진다.<br>기초지식을 쌓을 겸, 기회가 되면 자격증도 취득할 수 있도록, 정보처리기사 공부를 통해서 공부하는 것도 괜찮은 방안이 될 것 같다.</li>
+</ul>
+<h3 id="함수"><a href="#함수" class="headerlink" title="함수"></a>함수</h3><ul>
+<li>Namespace : 변수가 출력될 때 본인과 가까운 순서로 실행되며 그 영역을 namespace라고 함. 변수가 저장된 공간.<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">10</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">()</span>:</span></span><br><span class="line">    t=<span class="number">10</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">g</span><span class="params">()</span>:</span></span><br><span class="line">        b=<span class="number">20</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">h</span><span class="params">()</span>:</span></span><br><span class="line">            <span class="keyword">nonlocal</span> b <span class="comment">#다른 지역 변수 b를 선택</span></span><br><span class="line">            b=<span class="number">30</span></span><br><span class="line">            print(b,<span class="string">'in h'</span>)</span><br><span class="line">        h()</span><br><span class="line">        print(b, <span class="string">'in g'</span>)</span><br><span class="line">    g()</span><br><span class="line">f()</span><br></pre></td></tr></table></figure></li>
+<li>Stack frame: 함수가 실행될 때 쌓이는 메모리 공간(자바스크립트의 call stack)</li>
+</ul>
+<h3 id="인자-전달-방식에-따른-함수의-구분"><a href="#인자-전달-방식에-따른-함수의-구분" class="headerlink" title="인자 전달 방식에 따른 함수의 구분"></a>인자 전달 방식에 따른 함수의 구분</h3><ul>
+<li>call by value  :  값을 가져와서 스택을 쌓음. 스택 밖으로 넘어갈 수는 없음.</li>
+<li>call by reference  : 주소값을 가져와서(참조하여) 스택을 쌓음. 스택을 넘어서 값을 가져오거나 수정이 가능함.</li>
+<li>call by object reference</li>
+<li>immutable object는 함수 내부에서 값을 변경할 수 없다.</li>
+</ul>
+<h3 id="First-Class-Function"><a href="#First-Class-Function" class="headerlink" title="First - Class Function"></a>First - Class Function</h3><ul>
+<li>프로그래밍 언어 중 함수를 다른 변수와 동일하게 다루는 언어를 함수우선순위(First-class function)를 가졌다고 표현합니다. 예를 들어 함수를 다른 함수의 전달인자(Argument)로 사용하고, 함수에서 함수를 리턴하거나 변수의 값으로 함수를 할당할 수 있습니다.  </li>
+</ul>
+<h4 id="출처"><a href="#출처" class="headerlink" title="출처"></a>출처</h4><p><a href="https://developer.mozilla.org/ko/docs/Glossary/First-class_Function" target="_blank" rel="external nofollow noopener noreferrer">First-class Function - 용어 사전 | MDN</a></p>
+<h3 id="First-Class-function은…"><a href="#First-Class-function은…" class="headerlink" title="First-Class function은…"></a>First-Class function은…</h3><ul>
+<li>함수를 인자(argument)로 전달</li>
+<li>함수를 리턴(return) 값으로 전달</li>
+<li>함수를 변수에 전달</li>
+</ul>
+<h3 id="익명-함수"><a href="#익명-함수" class="headerlink" title="익명 함수"></a>익명 함수</h3><ul>
+<li>이름이 없는 함수</li>
+<li>몇 번 사용 안 할 때 주로 씀</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 람다는 반드시 리턴이라서 return 생략</span></span><br><span class="line">f = <span class="keyword">lambda</span> a, b: a + b</span><br><span class="line"></span><br><span class="line">li=[<span class="number">3</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">8</span>]</span><br><span class="line">li2=li.copy()</span><br><span class="line"></span><br><span class="line">li2.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">li2.sort(key=<span class="keyword">lambda</span> x: x%<span class="number">2</span>==<span class="number">2</span>, reverse=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="list-comprehension"><a href="#list-comprehension" class="headerlink" title="list comprehension"></a>list comprehension</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">li2=[i*<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">101</span>)]</span><br></pre></td></tr></table></figure>
+
+<h3 id="map-filter-reduce"><a href="#map-filter-reduce" class="headerlink" title="map, filter, reduce"></a>map, filter, reduce</h3><ul>
+<li><p>lazy evaluation(게으른 연산)</p>
+</li>
+<li><p><strong>map</strong> : for와의 차이점은 연산의 실행 시점을 주도적으로 정할 수 있다는 점. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">li=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">m=map(<span class="keyword">lambda</span> x: x**<span class="number">2</span>, li)</span><br><span class="line">next(m)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>filter</strong> : 기준을 정하여 원하는 값만 걸러냄</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">li=[<span class="number">5</span>, <span class="number">-4</span>, <span class="number">3</span>, <span class="number">-2</span>, <span class="number">6</span>]</span><br><span class="line">f=filter(<span class="keyword">lambda</span> x: x &gt; <span class="number">0</span>, li)</span><br><span class="line">next(f)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>filter와 map의 동시 사용 예시</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">li=[<span class="number">4</span>, <span class="number">-2</span>, <span class="number">5</span>, <span class="number">3</span>]</span><br><span class="line">list(map(<span class="keyword">lambda</span> x: x**<span class="number">2</span> ,filter(<span class="keyword">lambda</span> x: x &gt; <span class="number">0</span>, li)))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>reduce</strong>: 원하는 값이 나올 때까지 리스트를 줄여줌<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 최대값 구하기</span></span><br><span class="line">li=[<span class="number">5</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">13</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">10</span>]</span><br><span class="line">reduce(<span class="keyword">lambda</span> a, b: a <span class="keyword">if</span> a &gt; b <span class="keyword">else</span> b, li)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="삼항-연산자-python"><a href="#삼항-연산자-python" class="headerlink" title="삼항 연산자(python)"></a>삼항 연산자(python)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">10</span></span><br><span class="line"><span class="comment"># 참일 때 값 if 조건문 else 거짓일 때 값</span></span><br><span class="line">string=<span class="string">'big'</span> <span class="keyword">if</span> a &gt; <span class="number">7</span> <span class="keyword">else</span> <span class="string">'small'</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="예제"><a href="#예제" class="headerlink" title="예제"></a>예제</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">li=[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'a'</span>, <span class="string">'a'</span>, <span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#result</span></span><br><span class="line"><span class="comment">#dic=&#123;'a' : 4, 'b' : 2, 'c' : 2, 'd' : 1&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#use</span></span><br><span class="line"><span class="comment">#dic.get()</span></span><br><span class="line"><span class="comment">#dic.update() or dic</span></span><br><span class="line"></span><br><span class="line">reduce(<span class="keyword">lambda</span> dic, ch: dic.update(&#123;ch : dic.get(ch, <span class="number">0</span>)+<span class="number">1</span>&#125;) <span class="keyword">or</span> dic, li, &#123;&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>reduce는 내장함수가 아니라서 <code>from functools import reduce</code>  추가해야 함</li>
+</ul>
+<h3 id="클로저-closure"><a href="#클로저-closure" class="headerlink" title="클로저(closure)"></a>클로저(closure)</h3><ul>
+<li>함수 내부에 상태 정보를 저장해두고, 함수 결과가 이 내부의 상태 정보에 따라 출력 결과가 달라짐.</li>
+<li>일반적인 함수(function)은 하나의 input에 대해 하나의 output만을 가짐. 하지만 method, closure부터는 이 법칙이 깨짐.</li>
+<li>(과거에)OOP를 쓸 수 없을 때 울며 겨자 먹기로 썼다.</li>
+</ul>
+<p><strong>지역변수(local variable)가 필요한 이유</strong></p>
+<ul>
+<li>함수가 실행 도중에 결과 데이터를 저장하기 위해서</li>
+<li>상태정보: 특정한 데이터의 현재 상태</li>
+</ul>
+<p><strong>스택프레임(stack frame) 존재의 이유</strong></p>
+<ul>
+<li>어떤 함수가 실행될 때 필요한 상태정보를 저장하기 위해</li>
+<li><blockquote>
+<p>상태정보는 지역변수가 지정</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>계좌 클로저 함수</strong></p>
+<ul>
+<li>상태값에 따라 결과값이 달라짐?<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">account</span><span class="params">(cus_name, balance)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(money)</span>:</span></span><br><span class="line">        <span class="keyword">nonlocal</span> balance</span><br><span class="line">        balance+=money</span><br><span class="line">        <span class="keyword">return</span> cus_name, balance</span><br><span class="line">    <span class="keyword">return</span> inner</span><br><span class="line"></span><br><span class="line">my_acnt = account(<span class="string">'greg'</span>, <span class="number">5000</span>)</span><br><span class="line">your_acnt = account(<span class="string">'john'</span>, <span class="number">300</span>)</span><br><span class="line"></span><br><span class="line">my_acnt(<span class="number">500</span>)</span><br><span class="line"><span class="comment">#('greg', 5500)</span></span><br><span class="line">your_acnt(<span class="number">500</span>)</span><br><span class="line"><span class="comment">#('john', 800)</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="선형-탐색-Linear-Search"><a href="#선형-탐색-Linear-Search" class="headerlink" title="선형 탐색(Linear Search)"></a>선형 탐색(Linear Search)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">li=[<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">10</span>, <span class="number">25</span>]</span><br><span class="line">target = <span class="number">3</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">linear_search</span><span class="params">(li, target)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> idx <span class="keyword">in</span> range(len(li)):</span><br><span class="line">        <span class="keyword">if</span> li[idx] == target:</span><br><span class="line">            <span class="keyword">return</span> idx</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">linear_search(li, target)</span><br></pre></td></tr></table></figure>
+
+<h3 id="알고리즘-성능-평가"><a href="#알고리즘-성능-평가" class="headerlink" title="알고리즘 성능 평가"></a>알고리즘 성능 평가</h3><ul>
+<li>절대 시간  X </li>
+<li>상대 시간으로 측정: 연산 횟수, 최악의 경우</li>
+<li>선형탐색의 소요 시간은 n에 바례</li>
+</ul>
+<h3 id="이진-탐색-Binary-Search"><a href="#이진-탐색-Binary-Search" class="headerlink" title="이진 탐색(Binary Search)"></a>이진 탐색(Binary Search)</h3><ul>
+<li>데이터가 정렬되어 있어야 함(필수)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(li, target)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    binary_search(li, target) -&gt; idx</span></span><br><span class="line"><span class="string">    타겟을 찾았다면 인덱스 반환</span></span><br><span class="line"><span class="string">    찾기 못 하면 None</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>다음 시간에 계속…</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%EC%9D%BC%EA%B8%B0/"># 일기</a>
+                    
+                        <a href="/tags/til/"># til</a>
+                    
+                        <a href="/tags/TIL/"># TIL</a>
+                    
+                        <a href="/tags/Today-I-Learned/"># Today I Learned</a>
+                    
+                        <a href="/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"># 오늘배운것들</a>
+                    
+                        <a href="/tags/%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4/"># 패스트캠퍼스</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/04/23/programming/tip-git-command/">깃(git)과 터미널(terminal)의 주요 명령어</a>
+            
+            
+            <a class="next" rel="next" href="/2019/04/19/programming/cs-til-03/">컴퓨터공학 3일차 TIL(2019.04.19)</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 2020 Sooyoung Jeong</span>
+    </div>
+</footer>
+    </div>
+</body>
+</html>
