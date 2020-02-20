@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>http://codeameba.github.io/categories/%25EC%2583%259D%25EA%25B0%2581%25EC%25A0%2595%25EB%25A6%25AC/</loc>
+        <lastmod>2020-02-20T10:00:21.772Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://codeameba.github.io/categories/Python/</loc>
         <lastmod>2020-02-19T13:00:43.752Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,13 +24,6 @@
     <url>
         <loc>http://codeameba.github.io/categories/Exercise/</loc>
         <lastmod>2020-02-18T05:25:20.007Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/%25EC%2583%259D%25EA%25B0%2581%25EC%25A0%2595%25EB%25A6%25AC/</loc>
-        <lastmod>2020-02-15T07:26:08.787Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
