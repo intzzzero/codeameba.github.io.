@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>http://codeameba.github.io/categories/%25EB%25B2%2588%25EC%2597%25AD/</loc>
+        <lastmod>2020-02-20T21:02:56.986Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/categories/tip/</loc>
+        <lastmod>2020-02-20T21:02:06.366Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://codeameba.github.io/categories/%25EC%2583%259D%25EA%25B0%2581%25EC%25A0%2595%25EB%25A6%25AC/</loc>
         <lastmod>2020-02-20T10:00:21.772Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -50,21 +64,7 @@
     </url>
 
     <url>
-        <loc>http://codeameba.github.io/categories/tip/</loc>
-        <lastmod>2020-02-03T07:47:26.950Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://codeameba.github.io/categories/HTML/</loc>
-        <lastmod>2020-02-03T07:47:26.950Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/HTTP/</loc>
         <lastmod>2020-02-03T07:47:26.950Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -87,6 +87,13 @@
     <url>
         <loc>http://codeameba.github.io/categories/CS/</loc>
         <lastmod>2020-02-03T07:47:26.902Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/categories/HTTP/</loc>
+        <lastmod>2020-02-03T07:47:26.540Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
