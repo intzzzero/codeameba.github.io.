@@ -41,9 +41,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="불안의이유" scheme="http://codeameba.github.io/tags/%EB%B6%88%EC%95%88%EC%9D%98%EC%9D%B4%EC%9C%A0/"/>
     
@@ -93,7 +93,7 @@
     <link href="http://codeameba.github.io/2020/02/15/blog/disqus-setting/"/>
     <id>http://codeameba.github.io/2020/02/15/blog/disqus-setting/</id>
     <published>2020-02-14T16:00:42.000Z</published>
-    <updated>2020-02-14T15:26:22.055Z</updated>
+    <updated>2020-02-20T22:13:53.702Z</updated>
     
     <content type="html"><![CDATA[<h2 id="디스커스-Disqus"><a href="#디스커스-Disqus" class="headerlink" title="디스커스(Disqus)"></a>디스커스(Disqus)</h2><p>네이버 블로그나 티스토리 같은 블로그 서비스에는 자체적인 댓글 기능이 있지만, Hexo, Jekyll, Gatsby 등의 정적 사이트로 블로그를 만든 경우에는 손수 댓글 기능을 추가해야만 한다. 내 경우에는 Hexo를 쓰고 있다.</p><p>물론, 테마에 따라서는 yml에 디스커스 ID를 추가하는 것만으로도 손쉽게 추가할 수도 있지만, 내가 쓰는 테마에는 없었기에 약간의 시행착오가 필요했다. 그리고, 마침내 코드를 추가하는 방식으로 디스커스 댓글 기능을 사용할 수 있게 되었고, 만약 나처럼 테마에 디스커스 항목이 없어서 당황할 사람들을 위해 기록을 남겨둔다.<br>뭐, 미래의 내가 다시 보고 따라해야 할 수도 있고…</p><h2 id="디스커스-코드-구하러-가기"><a href="#디스커스-코드-구하러-가기" class="headerlink" title="디스커스 코드 구하러 가기"></a>디스커스 코드 구하러 가기</h2><p>가입은 했다 치고, 디스커스에 접속한다. 그리고, GET STARTED를 클릭한다.<br><img src="/images/disqus01.png"></p><p>아래와 같은 페이지 넘어가게 되는데, 아이콘만 보더라도 댓글 기능처럼 보이는 위의 것을 선택한다.<br><img src="/images/disqus02.png"></p><p>그리고, 홈이 나오면, 우측 상단의 설정 메뉴에서 Admin을 눌러 이동한다. 이어서 나오는 페이지에서는 Installing Disqus를 클릭한다.<br><img src="/images/disqus03.png"><br><img src="/images/disqus04.png"></p><p>‘어라? 뭔가 잘못 찾아온 거 아닌가’ 싶을 것이다. 이어진 페이지에서 등장하는 아이콘들은 디스커스와 모종의 관계를 맺고 간단히 댓글 기능을 추가할 수 있는 자본의 노예들이다. 당황하지 말고 스크롤을 내리자.<br>그리고, ‘난 너희랑 달라~’ 라는 생각을 하며 당당하게 Universal Code를 얻으러 간다.<br><img src="/images/disqus05.png"></p><p>이것이 디스커스 댓글 기능이 담긴 코드다.<br><img src="/images/disqus06.png"></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"disqus_thread"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">/**</span><br><span class="line">*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.</span><br><span class="line"><span class="actionscript">*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https:<span class="comment">//disqus.com/admin/universalcode/#configuration-variables*/</span></span></span><br><span class="line">/*</span><br><span class="line"><span class="actionscript"><span class="keyword">var</span> disqus_config = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">this</span>.page.url = PAGE_URL;  <span class="comment">// Replace PAGE_URL with your page's canonical URL variable</span></span></span><br><span class="line"><span class="actionscript"><span class="keyword">this</span>.page.identifier = PAGE_IDENTIFIER; <span class="comment">// Replace PAGE_IDENTIFIER with your page's unique identifier variable</span></span></span><br><span class="line">&#125;;</span><br><span class="line">*/</span><br><span class="line"><span class="actionscript">(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123; <span class="comment">// DON'T EDIT BELOW THIS LINE</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> d = <span class="built_in">document</span>, s = d.createElement(<span class="string">'script'</span>);</span></span><br><span class="line"><span class="actionscript">s.src = <span class="string">'https://본인블로그URL/embed.js'</span>;</span></span><br><span class="line"><span class="javascript">s.setAttribute(<span class="string">'data-timestamp'</span>, +<span class="keyword">new</span> <span class="built_in">Date</span>());</span></span><br><span class="line">(d.head || d.body).appendChild(s);</span><br><span class="line">&#125;)();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">noscript</span>&gt;</span>Please enable JavaScript to view the <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://disqus.com/?ref_noscript"</span>&gt;</span>comments powered by Disqus.<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="디스커스-코드-추가하기"><a href="#디스커스-코드-추가하기" class="headerlink" title="디스커스 코드 추가하기"></a>디스커스 코드 추가하기</h2><p>코드는 구했으니 이제 정적 페이지 소스 코드에 추가해야 한다.<br>내 경우에는 블로그를 구성하는 테마의 확장자가 ejs로 되어 있으며, 파일명을 통해 어느 페이지와 파트를 구성하는 지 대략 확인 가능하다.<br><img src="/images/disqus07.png"></p><p>댓글의 위치가 가장 하단이라고 해서 자칫 footer.ejs에 코드를 추가하는 불상사는 없길 바란다. 메인 페이지부터 컨텍 페이지까지 댓글이 달리게 되는 수가 있다. 물론, 그것이 바라던 바라면 그렇게 해도 무방하다.<br>하지만, 나는 포스트에만 댓글이 추가되길 바라기 떄문에 pose.ejs에 코드를 추가했다.<br><img src="/images/disqus08.png"></p><h2 id="디스커스-스타일-변경"><a href="#디스커스-스타일-변경" class="headerlink" title="디스커스 스타일 변경"></a>디스커스 스타일 변경</h2><p>아마 디스커스 코드만 추가하고 잘 붙었나~ 확인해보면, 아래와 같이 너비가 100%일 것이다.<br><img src="/images/disqus09.png"></p><p>이대로 마음에 든다면 그냥 써도 되겠지만, 내 포스트는 모두 최대 너비를 780px로 통일했기 때문에 조정이 필요했다. 따라서 블로그 테마의 CSS를 조금 만져야 했다. 이 또한 경우에 따라 다를 수 있겠지만, 대개의 경우 나처럼 styl(스타일러스)로 되어 있을 것이며, 만약 아니더라도 사용상의 차이는 크지 않을 것이다.<br><img src="/images/disqus10.png"></p><p>이 중에서 건드려야 할 것은 custom.styl이다. 디스커스 코드의 ID는 disqus_thread이며, 아래와 같이 스타일을 변경하였고,</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#disqus_thread</span> &#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">780px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">50px</span> auto;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><p>결과적으로 지금의 형태가 되었다.<br><img src="/images/disqus11.png"></p>]]></content>
     
@@ -107,20 +107,20 @@
     </summary>
     
     
-      <category term="블로그" scheme="http://codeameba.github.io/categories/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+      <category term="tip" scheme="http://codeameba.github.io/categories/tip/"/>
     
-    
-      <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
-    
-      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="hexo" scheme="http://codeameba.github.io/tags/hexo/"/>
     
       <category term="댓글기능구현" scheme="http://codeameba.github.io/tags/%EB%8C%93%EA%B8%80%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84/"/>
     
       <category term="디스커스" scheme="http://codeameba.github.io/tags/%EB%94%94%EC%8A%A4%EC%BB%A4%EC%8A%A4/"/>
     
       <category term="disqus" scheme="http://codeameba.github.io/tags/disqus/"/>
+    
+      <category term="hexo" scheme="http://codeameba.github.io/tags/hexo/"/>
+    
+      <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
   </entry>
   
@@ -151,9 +151,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="황금시대" scheme="http://codeameba.github.io/tags/%ED%99%A9%EA%B8%88%EC%8B%9C%EB%8C%80/"/>
     
@@ -187,9 +187,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="허니와클로버" scheme="http://codeameba.github.io/tags/%ED%97%88%EB%8B%88%EC%99%80%ED%81%B4%EB%A1%9C%EB%B2%84/"/>
     
@@ -219,9 +219,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -249,9 +249,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -279,9 +279,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -309,9 +309,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -504,48 +504,6 @@
   </entry>
   
   <entry>
-    <title>TIL(190829) - TDD(Test Driven Development) 02</title>
-    <link href="http://codeameba.github.io/2019/08/29/programming/tdd-til-02/"/>
-    <id>http://codeameba.github.io/2019/08/29/programming/tdd-til-02/</id>
-    <published>2019-08-28T16:00:42.000Z</published>
-    <updated>2020-02-03T07:47:26.950Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="TIL-190829-TDD-Test-Driven-Development-02"><a href="#TIL-190829-TDD-Test-Driven-Development-02" class="headerlink" title="# TIL(190829) - TDD(Test Driven Development) 02"></a># TIL(190829) - TDD(Test Driven Development) 02</h1><hr><p><i>인프런의 ‘견고한 JS 소프트웨어 만들기’ 강의를 보며 정리함</i></p><h2 id="Jasmine-Setting-Up"><a href="#Jasmine-Setting-Up" class="headerlink" title="Jasmine Setting Up"></a>Jasmine Setting Up</h2><hr><ul><li><a href="https://github.com/jasmine/jasmine/releases?after=v2.9.1" target="_blank" rel="external nofollow noopener noreferrer">Releases · jasmine/jasmine · GitHub</a></li><li>강의에서는 2.7.0 버전 다운로드</li><li>SpecRunner.html 파일 실행</li></ul><img src="/images/spec-runner.png">### 테스트 러너<ul><li>자스민, 소스, 테스트 코드를 실행하는 파일</li><li>스탠드 얼론의 경우 HTML 파일이 테스트 러너</li><li>테스트 자동화를 하려면 카르마(Karma) 라이브러리와 연동해야 한다.</li></ul><h2 id="자스민의-활용"><a href="#자스민의-활용" class="headerlink" title="자스민의 활용"></a>자스민의 활용</h2><ul><li>자스민의 SpecRunner.html의 코드를 보면 아래와 같다.</li></ul><img src="/images/spec-runner-code.png"><ul><li>빨간 박스의 자바스크립트 세 줄이 자스민의 테스트 도구라고 할 수 있다.</li><li>그리고, 아래와 같이 본인의 테스트 코드를 넣어서 테스트를 한다.</li></ul><img src="/images/spec-runner-use.png"><ul><li>첫 번째 줄의 describe 함수는 테스트 꾸러미를 만들 때 사용함. 보통은 함수 하나 하나를 테스트 할 때 주로 사용한다.</li><li>두 번째 줄의 it 함수는 테스트 케이스를 만들 때 사용함. 함수의 기능을 테스트 한다고 보면 됨.  첫 번째 인자로 함수 기능의 스펙을 문자열 형태로 넣고, 두 번째 인자로 테스트 함수를 구현할 수 있는 함수를 넣는다.</li><li>세 번째 줄은 테스트 코드 구현 부. 함수의 결과값을 expect 함수의 인자로 넣고, 함수의 기대값을 toBe 함수의 인자로 넣는다.</li></ul><p><strong>테스트 꾸러미(Test Suite)</strong></p><ul><li>describe - 테스트 설명, 테스트 구현 함수</li></ul><p><strong>테스트 스펙(Test Spec)</strong></p><ul><li>it - 테스트 설명, 기대식을 가진 테스트 구현 함수</li></ul><p><strong>기대식과 매쳐</strong></p><ul><li>expect(결과값).toBe(기대값)</li></ul><p><strong>스파이</strong></p><ul><li>spyOn(감시할 객체, 감시할 메서드)</li></ul><h3 id="테스트-결과-확인-방법"><a href="#테스트-결과-확인-방법" class="headerlink" title="테스트 결과 확인 방법"></a>테스트 결과 확인 방법</h3><img src="/images/test-result.png"><ul><li>hello world는 describe  함수로 선언했던 테스트 꾸러미의 이름이라고 할 수 있음.</li><li>true is true는 hello world 테스트 꾸러미에 속한 테스트 케이스.</li><li>위의 내용을 통틀어 1개의 테스트가 실행되었으므로 1spec이라고 명시되었다.</li><li>실패는 없으므로 0 failures.</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;TIL-190829-TDD-Test-Driven-Development-02&quot;&gt;&lt;a href=&quot;#TIL-190829-TDD-Test-Driven-Development-02&quot; class=&quot;headerlink&quot; title=&quot;# TIL(1908
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
-    
-      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
-    
-      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
-    
-      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
-    
-      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
-    
-      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
-    
-      <category term="패스트캠퍼스" scheme="http://codeameba.github.io/tags/%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4/"/>
-    
-      <category term="TDD" scheme="http://codeameba.github.io/tags/TDD/"/>
-    
-      <category term="테스트주도개발" scheme="http://codeameba.github.io/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>[ReactJS] 무비앱 만들기 Day 04</title>
     <link href="http://codeameba.github.io/2019/08/29/programming/react-movie-app-04/"/>
     <id>http://codeameba.github.io/2019/08/29/programming/react-movie-app-04/</id>
@@ -584,6 +542,48 @@
       <category term="노마드코더" scheme="http://codeameba.github.io/tags/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94/"/>
     
       <category term="nomadcoders" scheme="http://codeameba.github.io/tags/nomadcoders/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TIL(190829) - TDD(Test Driven Development) 02</title>
+    <link href="http://codeameba.github.io/2019/08/29/programming/tdd-til-02/"/>
+    <id>http://codeameba.github.io/2019/08/29/programming/tdd-til-02/</id>
+    <published>2019-08-28T16:00:42.000Z</published>
+    <updated>2020-02-03T07:47:26.950Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="TIL-190829-TDD-Test-Driven-Development-02"><a href="#TIL-190829-TDD-Test-Driven-Development-02" class="headerlink" title="# TIL(190829) - TDD(Test Driven Development) 02"></a># TIL(190829) - TDD(Test Driven Development) 02</h1><hr><p><i>인프런의 ‘견고한 JS 소프트웨어 만들기’ 강의를 보며 정리함</i></p><h2 id="Jasmine-Setting-Up"><a href="#Jasmine-Setting-Up" class="headerlink" title="Jasmine Setting Up"></a>Jasmine Setting Up</h2><hr><ul><li><a href="https://github.com/jasmine/jasmine/releases?after=v2.9.1" target="_blank" rel="external nofollow noopener noreferrer">Releases · jasmine/jasmine · GitHub</a></li><li>강의에서는 2.7.0 버전 다운로드</li><li>SpecRunner.html 파일 실행</li></ul><img src="/images/spec-runner.png">### 테스트 러너<ul><li>자스민, 소스, 테스트 코드를 실행하는 파일</li><li>스탠드 얼론의 경우 HTML 파일이 테스트 러너</li><li>테스트 자동화를 하려면 카르마(Karma) 라이브러리와 연동해야 한다.</li></ul><h2 id="자스민의-활용"><a href="#자스민의-활용" class="headerlink" title="자스민의 활용"></a>자스민의 활용</h2><ul><li>자스민의 SpecRunner.html의 코드를 보면 아래와 같다.</li></ul><img src="/images/spec-runner-code.png"><ul><li>빨간 박스의 자바스크립트 세 줄이 자스민의 테스트 도구라고 할 수 있다.</li><li>그리고, 아래와 같이 본인의 테스트 코드를 넣어서 테스트를 한다.</li></ul><img src="/images/spec-runner-use.png"><ul><li>첫 번째 줄의 describe 함수는 테스트 꾸러미를 만들 때 사용함. 보통은 함수 하나 하나를 테스트 할 때 주로 사용한다.</li><li>두 번째 줄의 it 함수는 테스트 케이스를 만들 때 사용함. 함수의 기능을 테스트 한다고 보면 됨.  첫 번째 인자로 함수 기능의 스펙을 문자열 형태로 넣고, 두 번째 인자로 테스트 함수를 구현할 수 있는 함수를 넣는다.</li><li>세 번째 줄은 테스트 코드 구현 부. 함수의 결과값을 expect 함수의 인자로 넣고, 함수의 기대값을 toBe 함수의 인자로 넣는다.</li></ul><p><strong>테스트 꾸러미(Test Suite)</strong></p><ul><li>describe - 테스트 설명, 테스트 구현 함수</li></ul><p><strong>테스트 스펙(Test Spec)</strong></p><ul><li>it - 테스트 설명, 기대식을 가진 테스트 구현 함수</li></ul><p><strong>기대식과 매쳐</strong></p><ul><li>expect(결과값).toBe(기대값)</li></ul><p><strong>스파이</strong></p><ul><li>spyOn(감시할 객체, 감시할 메서드)</li></ul><h3 id="테스트-결과-확인-방법"><a href="#테스트-결과-확인-방법" class="headerlink" title="테스트 결과 확인 방법"></a>테스트 결과 확인 방법</h3><img src="/images/test-result.png"><ul><li>hello world는 describe  함수로 선언했던 테스트 꾸러미의 이름이라고 할 수 있음.</li><li>true is true는 hello world 테스트 꾸러미에 속한 테스트 케이스.</li><li>위의 내용을 통틀어 1개의 테스트가 실행되었으므로 1spec이라고 명시되었다.</li><li>실패는 없으므로 0 failures.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;TIL-190829-TDD-Test-Driven-Development-02&quot;&gt;&lt;a href=&quot;#TIL-190829-TDD-Test-Driven-Development-02&quot; class=&quot;headerlink&quot; title=&quot;# TIL(1908
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
+    
+      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
+    
+      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
+    
+      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
+    
+      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
+    
+      <category term="패스트캠퍼스" scheme="http://codeameba.github.io/tags/%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4/"/>
+    
+      <category term="TDD" scheme="http://codeameba.github.io/tags/TDD/"/>
+    
+      <category term="테스트주도개발" scheme="http://codeameba.github.io/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C/"/>
     
   </entry>
   
@@ -735,6 +735,8 @@
       <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
     
     
+      <category term="일기" scheme="http://codeameba.github.io/tags/%EC%9D%BC%EA%B8%B0/"/>
+    
       <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
     
       <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
@@ -742,8 +744,6 @@
       <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
     
       <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
-    
-      <category term="일기" scheme="http://codeameba.github.io/tags/%EC%9D%BC%EA%B8%B0/"/>
     
       <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
     
