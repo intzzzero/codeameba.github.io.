@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codeameba.github.io/"/>
-  <updated>2020-02-20T10:00:21.772Z</updated>
+  <updated>2020-02-24T09:56:53.357Z</updated>
   <id>http://codeameba.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>유용한 웹사이트 모음(마지막 업데이트 2020.02.24)</title>
+    <link href="http://codeameba.github.io/2020/02/24/programming/tip-useful-site/"/>
+    <id>http://codeameba.github.io/2020/02/24/programming/tip-useful-site/</id>
+    <published>2020-02-24T09:57:42.000Z</published>
+    <updated>2020-02-24T09:56:53.357Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ol><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript" target="_blank" rel="external nofollow noopener noreferrer">JavaScript | MDN</a></li><li><a href="https://ko.javascript.info/js" target="_blank" rel="external nofollow noopener noreferrer">코어 자바스크립트</a></li><li><a href="https://poiemaweb.com/" target="_blank" rel="external nofollow noopener noreferrer">웹 프로그래밍 튜토리얼 | PoiemaWeb</a></li><li><a href="https://illustrated.dev/" target="_blank" rel="external nofollow noopener noreferrer">Illustrated.dev</a></li><li><a href="https://keycode.info/" target="_blank" rel="external nofollow noopener noreferrer">JavaScript Event KeyCodes</a></li><li><a href="https://www.30secondsofcode.org/" target="_blank" rel="external nofollow noopener noreferrer">https://www.30secondsofcode.org/</a></li></ol><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ol><li><a href="https://flexboxfroggy.com/#ko" target="_blank" rel="external nofollow noopener noreferrer">Flexbox Froggy - A game for learning CSS flexbox</a></li><li><a href="https://leaverou.github.io/css3patterns/" target="_blank" rel="external nofollow noopener noreferrer">CSS3 Patterns Gallery</a></li><li><a href="https://www.mydevice.io/" target="_blank" rel="external nofollow noopener noreferrer">mydevice.io : web devices capabilities</a></li><li><a href="https://www.colorzilla.com/gradient-editor/" target="_blank" rel="external nofollow noopener noreferrer">https://www.colorzilla.com/gradient-editor/</a></li><li><a href="http://nthmaster.com/" target="_blank" rel="external nofollow noopener noreferrer">Mastering the :nth-child | CSS3 pseudo classes and :nth-child ranges</a></li><li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="external nofollow noopener noreferrer">A Complete Guide to Flexbox | CSS-Tricks</a></li><li><a href="https://webgradients.com/" target="_blank" rel="external nofollow noopener noreferrer">Fresh Background Gradients | WebGradients.com 💎</a></li><li><a href="https://www.the-art-of-web.com/css/timing-function/" target="_blank" rel="external nofollow noopener noreferrer">Transition Timing Functions &lt; CSS | The Art of Web</a></li><li><a href="https://cubic-bezier.com/#.17,.67,.83,.67" target="_blank" rel="external nofollow noopener noreferrer">cubic-bezier.com</a></li><li><a href="https://daneden.github.io/animate.css/" target="_blank" rel="external nofollow noopener noreferrer">Animate.css</a></li><li><a href="https://cssbattle.dev/" target="_blank" rel="external nofollow noopener noreferrer">CSSBattle</a></li><li><a href="https://pattle.github.io/simpsons-in-css/" target="_blank" rel="external nofollow noopener noreferrer">The Simpsons in CSS</a></li><li><a href="https://griddy.io/" target="_blank" rel="external nofollow noopener noreferrer">Griddy</a></li><li><a href="https://autoprefixer.github.io/" target="_blank" rel="external nofollow noopener noreferrer">Autoprefixer CSS online</a></li><li><a href="http://gridcalculator.dk/" target="_blank" rel="external nofollow noopener noreferrer">http://gridcalculator.dk/</a></li></ol><h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol><li><a href="https://en.bem.info/" target="_blank" rel="external nofollow noopener noreferrer">BEM</a></li><li><a href="https://caniuse.com/" target="_blank" rel="external nofollow noopener noreferrer">Can I use… Support tables for HTML5, CSS3, etc</a></li></ol><h2 id="Tool"><a href="#Tool" class="headerlink" title="Tool"></a>Tool</h2><ol><li><a href="https://git-scm.com/book/ko/v2" target="_blank" rel="external nofollow noopener noreferrer">Git - Book</a></li><li><a href="https://ovenapp.io/" target="_blank" rel="external nofollow noopener noreferrer">Oven - HTML5-Powered Web/App Prototyping Tool</a></li></ol><h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><ol><li><a href="https://velog.io/@velopert" target="_blank" rel="external nofollow noopener noreferrer">velopert (Minjun Kim) - velog</a></li></ol><h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><ol><li><a href="https://blog.gaerae.com/" target="_blank" rel="external nofollow noopener noreferrer">개발자스럽다</a></li><li><a href="https://www.44bits.io/ko" target="_blank" rel="external nofollow noopener noreferrer">44BITS 기술 블로그: 클라우드 컴퓨팅, 프로그래밍, 컨테이너, 리눅스</a></li><li><a href="https://d2.naver.com/home" target="_blank" rel="external nofollow noopener noreferrer">NAVER D2</a></li><li><a href="https://www.ridicorp.com/blog/" target="_blank" rel="external nofollow noopener noreferrer">Blog - 리디주식회사 RIDI Corporation</a></li><li><a href="https://meetup.toast.com/" target="_blank" rel="external nofollow noopener noreferrer">TOAST Meetup</a></li><li><a href="http://engineering.vcnc.co.kr/" target="_blank" rel="external nofollow noopener noreferrer">VCNC Engineering Blog</a></li><li><a href="https://woowabros.github.io/" target="_blank" rel="external nofollow noopener noreferrer">우아한형제들 기술 블로그</a></li><li><a href="https://blog.dramancompany.com/" target="_blank" rel="external nofollow noopener noreferrer">DRAMA&amp;COMPANY | DReam And MAke it happen</a></li><li><a href="https://tech.kakao.com/" target="_blank" rel="external nofollow noopener noreferrer">tech.kakao.com – 카카오는 사람과 사람, 사람과 기술을 한층 가깝게 연결함으로써, 어제보다 더 나은 세상을 만들어 갑니다.</a></li><li><a href="https://www.zerocho.com/" target="_blank" rel="external nofollow noopener noreferrer">ZeroCho Blog</a></li><li><a href="https://tutorialzine.com/2019/02/10-amazing-javascript-games" target="_blank" rel="external nofollow noopener noreferrer">10 Amazing JavaScript Games In Under 13kB of Code - Tutorialzine</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;JavaScript&quot;&gt;&lt;a href=&quot;#JavaScript&quot; class=&quot;headerlink&quot; title=&quot;JavaScript&quot;&gt;&lt;/a&gt;JavaScript&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozil
+      
+    
+    </summary>
+    
+    
+      <category term="tip" scheme="http://codeameba.github.io/categories/tip/"/>
+    
+    
+      <category term="tip" scheme="http://codeameba.github.io/tags/tip/"/>
+    
+      <category term="유용한사이트" scheme="http://codeameba.github.io/tags/%EC%9C%A0%EC%9A%A9%ED%95%9C%EC%82%AC%EC%9D%B4%ED%8A%B8/"/>
+    
+      <category term="북마크" scheme="http://codeameba.github.io/tags/%EB%B6%81%EB%A7%88%ED%81%AC/"/>
+    
+      <category term="즐겨찾기" scheme="http://codeameba.github.io/tags/%EC%A6%90%EA%B2%A8%EC%B0%BE%EA%B8%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>불안의 이유</title>
@@ -710,46 +743,6 @@
       <category term="노마드코더" scheme="http://codeameba.github.io/tags/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94/"/>
     
       <category term="nomadcoders" scheme="http://codeameba.github.io/tags/nomadcoders/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[JavaScript] ++i 와 i++의 차이</title>
-    <link href="http://codeameba.github.io/2019/08/20/programming/js-til-increase-decrease/"/>
-    <id>http://codeameba.github.io/2019/08/20/programming/js-til-increase-decrease/</id>
-    <published>2019-08-19T16:00:42.000Z</published>
-    <updated>2020-02-03T07:47:26.920Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="JavaScript-i-와-i-의-차이"><a href="#JavaScript-i-와-i-의-차이" class="headerlink" title="[JavaScript] ++i 와 i++의 차이"></a>[JavaScript] ++i 와 i++의 차이</h2><img src="https://images.unsplash.com/photo-1461773518188-b3e86f98242f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60">***<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">console</span>.log(i++);</span><br><span class="line"><span class="built_in">console</span>.log(++i);</span><br><span class="line"><span class="built_in">console</span>.log(i++);</span><br><span class="line"><span class="built_in">console</span>.log(++i);</span><br></pre></td></tr></table></figure><p>위의 출력 결과를 알 수 있겠는가? 불과 3개월 전의 나라면 단순하게 1, 2, 3, 4라고 답했을 지도 모르겠다. 하지만, 지금의 나는 둘의 차이를 분명하게 알고 있다.</p><p>위와 같이 <code>++</code> 혹은, <code>--</code>와 같이 더하기나 빼기 기호가 이어져 있는 연산자를 <strong>증감 연산자</strong>라고 하는데, 변수의 앞에 있을 경우 <strong>전위 증감 연산자</strong>, 뒤에 있을 경우 <strong>후위 증감 연산자</strong>라고 부른다.</p><p>이 증감 연산자는 말 그대로 숫자형의 변수를 1씩 증가 시키거나 1씩 감소 시킨다. 여기까지만 알고 있다면, 자연스럽게 위의 답을 1, 2, 3, 4라고 할 수 있을 것이다.</p><p>위의 답을 먼저 밝히자면 <code>0, 2, 2, 4</code>다.<br>1씩 증가하는 증감 연산자인데 어째서 1과 3이 빠지고 2씩 증가했는지 의아하게 생각할 누군가를 위해 개인적인 복습 겸 설명을 해볼까 한다.</p><p>여기서 우리는 위의 증감 연산자가 <strong>전위</strong>인가 <strong>후위</strong>인가를 주의 깊게 봐야 한다. 굳이 이름까지 다르게 붙였다는 것은 각각의 작동 방식이다 다르다는 것을 의미한다.</p><br><h3 id="전위-증감-연산자-i"><a href="#전위-증감-연산자-i" class="headerlink" title="전위 증감 연산자(++i)"></a>전위 증감 연산자(++i)</h3><hr><p>전위 증감 연산자는 변수의 값을 <strong>증가 먼저 시킨 뒤에 할당한다.</strong> 따라서 아래와 같은 경우가 있다면,</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">console</span>.log(++i);</span><br></pre></td></tr></table></figure><p>출력 값은 <code>1</code>이 나올 것이다.</p><br><h3 id="후위-증감-연산자-i"><a href="#후위-증감-연산자-i" class="headerlink" title="후위 증감 연산자(i++)"></a>후위 증감 연산자(i++)</h3><hr><p>반면에 후위 증감 연산자는 변수의 값을 <strong>할당 먼저 한 뒤에 증가 시킨다.</strong> 따라서 아래와 같은 경우가 있다면,</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">console</span>.log(i++);</span><br></pre></td></tr></table></figure><p>증가 시키기 전의 값인  <code>0</code>이 나올 것이다.</p><br><h3 id="증감-연산자의-반복"><a href="#증감-연산자의-반복" class="headerlink" title="증감 연산자의 반복"></a>증감 연산자의 반복</h3><hr><p>전위 증감 연산자를 쓰던 후위 증감 연산자를 쓰던 정해진 범위 내에서 증감이 이루어지기 때문에 최초의 값이 필요하다면 후위를, 최초의 값이 필요 없다면 전위를 쓰면 된다고 생각한다. 둘의 미묘한 속도 차이가 있다고는 하는데, 몇 차례 출력을 해본 결과로는 후위 증감 연산자가 약간 빠른 것 같기도 한다. 0.01초 정도.</p><p><strong>어쨌든 중요한 것은, 전위와 후위를 섞어 쓰지 않는 것이다. 하나를 정했다면 그 프로젝트에서는 끝까지 그걸로 가야만 한다. 그래야 평화로울 것이다.</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;JavaScript-i-와-i-의-차이&quot;&gt;&lt;a href=&quot;#JavaScript-i-와-i-의-차이&quot; class=&quot;headerlink&quot; title=&quot;[JavaScript] ++i 와 i++의 차이&quot;&gt;&lt;/a&gt;[JavaScript] ++i 와
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="일기" scheme="http://codeameba.github.io/tags/%EC%9D%BC%EA%B8%B0/"/>
-    
-      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
-    
-      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
-    
-      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
-    
-      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
-    
-      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
-    
-      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
-    
-      <category term="증감연산자" scheme="http://codeameba.github.io/tags/%EC%A6%9D%EA%B0%90%EC%97%B0%EC%82%B0%EC%9E%90/"/>
     
   </entry>
   
