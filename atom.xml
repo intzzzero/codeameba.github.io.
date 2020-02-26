@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codeameba.github.io/"/>
-  <updated>2020-02-24T09:56:53.357Z</updated>
+  <updated>2020-02-26T10:02:23.985Z</updated>
   <id>http://codeameba.github.io/</id>
   
   <author>
@@ -15,6 +15,44 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript Fundamental(마지막 업데이트: 20.02.26)</title>
+    <link href="http://codeameba.github.io/2020/02/26/programming/js-fundamental/"/>
+    <id>http://codeameba.github.io/2020/02/26/programming/js-fundamental/</id>
+    <published>2020-02-25T16:00:42.000Z</published>
+    <updated>2020-02-26T10:02:23.985Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JS-Study"><a href="#JS-Study" class="headerlink" title="JS Study"></a>JS Study</h1><ul><li>자바스크립트를 공부하며 주요 개념들을 정리함.</li><li>교재: 모던 자바스크립트 입문(이소 히로시 지음)</li></ul><hr><h2 id="자바스크립트의-재탄생"><a href="#자바스크립트의-재탄생" class="headerlink" title="자바스크립트의 재탄생"></a>자바스크립트의 재탄생</h2><ul><li>자바스크립트는 기존의 다른 프로그래밍 언어들과 달리 불확실한 요소가 많아 외면 당했었다.</li><li>구글 지도에서 선보인 Ajax라는 비동기 통신 기술 덕분에 자바스크립트가 재탄생하며, 관심을 받게 되었다.</li><li>HTML5와 ES5의 등장은 자바스크립트에 날개를 달아주었다.</li></ul><h2 id="변수-variable"><a href="#변수-variable" class="headerlink" title="변수(variable)"></a>변수(variable)</h2><ul><li>변수는 값이 저장된 특정 메모리 영역을 가리키는 이름이다.</li><li>변수에 값을 할당하지 않고 선언만 하면 <code>undefined</code>가 담겨있다.</li><li><code>var</code>, <code>let</code>, <code>const</code> 등의 키워드 없이 선언된 변수는 전역변수로 취급한다.</li></ul><h2 id="변수-호이스팅-hoisting"><a href="#변수-호이스팅-hoisting" class="headerlink" title="변수 호이스팅(hoisting)"></a>변수 호이스팅(hoisting)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure><ul><li>프로그램 중간에서 변수를 선언하더라도 첫머리에 선언된 것처럼 작동하는데, 이것을 <strong>호이스팅</strong> 이라고 한다.</li><li>단, 호이스팅이 되는 것은 선언문 뿐이며, 자동으로 undefined로 초기화 된다.</li></ul><h2 id="getMonth-메서드에-1을-해야-하는-이유"><a href="#getMonth-메서드에-1을-해야-하는-이유" class="headerlink" title="getMonth() 메서드에 +1을 해야 하는 이유"></a>getMonth() 메서드에 +1을 해야 하는 이유</h2><ul><li><code>new Date()</code> 메서드 사용 시 <code>getMonth()</code> 는 0~11이기 때문에 <strong>+1</strong>을 해줘야 한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`오늘은 <span class="subst">$&#123;now.getMonth()+<span class="number">1</span>&#125;</span> 월 <span class="subst">$&#123;now.getDate()&#125;</span> 일입니다.`</span>); <span class="comment">//오늘은 2 월 19 일입니다.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(now.getMonth()); <span class="comment">//1</span></span><br></pre></td></tr></table></figure></li></ul><h2 id="함수-function-의-동작원리"><a href="#함수-function-의-동작원리" class="headerlink" title="함수(function)의 동작원리"></a>함수(function)의 동작원리</h2><ul><li>함수를 호출하며 인수(argument)를 전달하면, 함수 정의문의 인자(parameter)로 받아 실행 결과를 반환(return)한다.</li><li><strong>자판기의 이미지가 연상됨.</strong><blockquote><ol><li>특정 음료의 가격에 맞는 금액 투입(argument)</li><li>특정 음료의 버튼 누름(call)</li><li>투입된 금액과 호출된 음료의 값을 비교</li><li>가격이 맞으면 해당 음료 반환(return)</li></ol></blockquote></li></ul><h2 id="자바스크립트의-함수는-일급객체"><a href="#자바스크립트의-함수는-일급객체" class="headerlink" title="자바스크립트의 함수는 일급객체"></a>자바스크립트의 함수는 일급객체</h2><ul><li>함수를 값으로 쓸 수 있음. -&gt; 변수에 할당 가능</li><li>다른 함수의 인수(argument)로 전달 가능</li></ul><h2 id="함수-선언문의-호이스팅"><a href="#함수-선언문의-호이스팅" class="headerlink" title="함수 선언문의 호이스팅"></a>함수 선언문의 호이스팅</h2><ul><li>변수와 마찬가지로 호이스팅이 됨<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(square(<span class="number">5</span>)); <span class="comment">// 25</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>return이 없으면 undefined<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(square(<span class="number">5</span>)); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  x * x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(square(<span class="number">3</span>)); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure></li></ul><h2 id="값의-전달-참조의-전달"><a href="#값의-전달-참조의-전달" class="headerlink" title="값의 전달, 참조의 전달"></a>값의 전달, 참조의 전달</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add1</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x = x + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> b = add1(a);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`a = <span class="subst">$&#123;a&#125;</span>, b = <span class="subst">$&#123;b&#125;</span>`</span>); <span class="comment">// a = 3, b = 4</span></span><br></pre></td></tr></table></figure><ul><li>위와 같이 인수로 원시값(primitive-type)을 전달하면, 해당 값 자체가 복사되어 전달된다. 이것을 <strong>값의 전달</strong> 또는 <strong>깊은 복사(deep copy)</strong> 라고 한다.</li><li>별도의 메모리 공간에 복사되는 것이기 때문에 변수 a와 인자 x는 별개의 값이며, x의 값이 바뀌더라도 a가 영향을 받지 않는다.</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add1</span>(<span class="params">p</span>) </span>&#123;</span><br><span class="line">  p.x = p.x + <span class="number">1</span>;</span><br><span class="line">  p.y = p.y + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">x</span>:<span class="number">3</span>, <span class="attr">y</span>:<span class="number">4</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> b = add1(a);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a, b); <span class="comment">// &#123; x: 4, y: 5 &#125; &#123; x: 4, y: 5 &#125;</span></span><br></pre></td></tr></table></figure><ul><li>반면에 인수로 객체(object-type)을 전달했을 때에는 참조(reference)가 전달되는 것으로 이를 <strong>참조 전달</strong> 또는 <strong>얕은 복사(shallow copy)</strong> 라고 한다.</li><li>하나의 메모리 공간에 있는 객체를 각기 다른 곳에서 가리키고 있다는 이미지로 이해할 수 있으며, 따라서 p의 값이 바뀌자 a의 값도 바뀐 것이다.</li></ul><h2 id="스코프"><a href="#스코프" class="headerlink" title="스코프"></a>스코프</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'global'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="string">'local'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// global</span></span><br><span class="line">  <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f();</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// ReferenceError: b is not defined</span></span><br></pre></td></tr></table></figure><ul><li>위와 같이 함수 내부의 변수가 출력되지 않는 이유는 스코프(scope) 때문이다.</li><li>기본적으로 <strong>내부에서는 외부를 볼 수 있지만, 외부에서는 내부를 볼 수 없다</strong> 는 개념으로 이해할 수 있다.</li><li>코드가 작성되는 시점에 구문만으로 정해지는 스코프를 어휘적 스코프(lexical scope)라고 하며, 코드가 실행되는 와중에 정해지는 스코프를 동적 스코프(dynamic scope)라고 한다. <strong>자바스크립트는 lexical scope를 따른다</strong></li><li>스코프가 존재하는 가장 큰 이유는 식별자(identifier)의 충돌을 막기 위함이다.</li></ul><h2 id="메서드-method"><a href="#메서드-method" class="headerlink" title="메서드(method)"></a>메서드(method)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> circle = &#123;</span><br><span class="line">  center: &#123; <span class="attr">x</span>:<span class="number">1.0</span>, <span class="attr">y</span>:<span class="number">2.0</span> &#125;, <span class="comment">// 원의 중심</span></span><br><span class="line">  radius: <span class="number">2.5</span>, <span class="comment">// 원의 반지름</span></span><br><span class="line">  area: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">// 원의 넓이를 구하는 메서드</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.PI * <span class="keyword">this</span>.radius * <span class="keyword">this</span>.radius;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">circle.translate = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123; <span class="comment">// 새로운 메서드를 추가하여 원을 이동</span></span><br><span class="line">  <span class="keyword">this</span>.center.x = <span class="keyword">this</span>.center.x + a;</span><br><span class="line">  <span class="keyword">this</span>.center.y = <span class="keyword">this</span>.center.y + b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">circle.translate(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">circle.center; <span class="comment">// &#123;x: 2, y: 4&#125;</span></span><br></pre></td></tr></table></figure><ul><li>자바스크립트에서는 객체 내부의 데이터는 모두 프로퍼티(property)이며, 프로퍼티가 함수를 값으로 가질 때, 일반 프로퍼티와 구분하기 위해 <strong>메서드(method)</strong> 라고 칭한다.</li><li>일반적으로 메서드는, 메서드가 속한 객체의 내부 데이터(프로퍼티 값) 상태를 바꾸는 용도로 사용한다.</li></ul><h2 id="함수를-사용하는-이유"><a href="#함수를-사용하는-이유" class="headerlink" title="함수를 사용하는 이유"></a>함수를 사용하는 이유</h2><ol><li><p><strong>재사용이 가능하다.</strong></p><ul><li>동일한 작업이 반복될 경우 해당 작업을 하는 함수를 만들어 필요한 곳에서 호출만 하면 되기 때문에 코드가 간결해진다.</li></ul></li><li><p><strong>프로그램을 이해하기 쉽다.</strong></p><ul><li>함수의 이름을 알아보기 쉽게 지으면, 함수명만 보고도 프로그램의 흐름을 파악하기 쉽다.</li></ul></li><li><p><strong>프로그램의 수정이 간단해진다.</strong></p><ul><li>수정해야 할 일이 있을 때 해당되는 함수만 수정하면 된다.</li></ul></li></ol><h2 id="생성자-함수"><a href="#생성자-함수" class="headerlink" title="생성자 함수"></a>생성자 함수</h2><ul><li>Java나 C++ 등의 객체지향 언어에는 <strong>클래스(class)</strong> 라는 객체 생성 방법이 있다.</li><li>자바스크립트에는 클래스가 없지만, 대신 <strong>프로토타입(prototype)</strong> 이 있기 때문에 클래스와 유사한 방식으로 객체를 생성할 수 있다.</li><li>생성자 함수를 통해 <strong>동일한 이름에 프로퍼티 값이 다른 객체</strong> 를 효율적으로 생성할 수 있다.</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Card</span>(<span class="params">suit, rank</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.suit = suit;</span><br><span class="line">  <span class="keyword">this</span>.rank = rank;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> card = <span class="keyword">new</span> Card(<span class="string">'Heart'</span>, <span class="string">'A'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(card); <span class="comment">// Card &#123; suit: 'Heart', rank: 'A' &#125;</span></span><br></pre></td></tr></table></figure><ul><li>이때, 통상적으로 생성자 함수라는 것을 알리기 위해 <strong>파스칼 케이스</strong>를 쓴다.</li><li>이와 같이 생성된 객체를 <strong>인스턴스</strong> 라고 부르는데, 본래 객체지향 언어에서의 인스턴스와는 차이가 있지만, 일반 객체와 구분하기 위해 편의상 인스턴스라고 부른다.</li><li><code>this</code> 는 생성자가 생성하는 객체를 가리킨다. 즉, 생성자 함수 내부의 <code>this</code> 는 인스턴스를 가리킨다고 볼 수 있다.</li><li><strong>참고:</strong> <ul><li><a href="https://ko.javascript.info/constructor-new" target="_blank" rel="external nofollow noopener noreferrer">https://ko.javascript.info/constructor-new</a></li><li><a href="https://ko.javascript.info/class" target="_blank" rel="external nofollow noopener noreferrer">https://ko.javascript.info/class</a></li><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external nofollow noopener noreferrer">https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes</a></li></ul></li></ul><h2 id="자바스크립트의-객체"><a href="#자바스크립트의-객체" class="headerlink" title="자바스크립트의 객체"></a>자바스크립트의 객체</h2><ul><li>자바스크립트의 객체는 크게 <strong>세 종류</strong> 로 구분할 수 있다.</li></ul><ol><li><p><strong>네이티브 객체</strong></p><ul><li>ECMAScript 스펙에 따라 정의된 객체를 네이티브 객체(native object)다. </li><li>Array, Function, Number 등의 내장 생성자로 생성된 객체와 JSON, Math, Reflect 등이 네이티브 객체에 포함된다.</li></ul></li><li><p><strong>호스트 객체</strong></p><ul><li>자바스크립트 실행 환경에 정의된 객체를 호스트 객체(host object)라고 한다.</li><li>Window, Navigator, History, Screen 등 브라우저 객체와 DOM 객체, Ajax를 위한 XMLHttpRequest 객체, HTML5의 여러 API에 이르기까지 클라이언트 측 자바스크립트에 정의된 객체들이 포함된다.</li></ul></li><li><p><strong>사용자 정의 객체</strong></p><ul><li>사용자가 직접 정의한 코드의 실행 결과로 생성된 객체를 말한다.</li></ul></li></ol><h2 id="희소-배열-sparse-array"><a href="#희소-배열-sparse-array" class="headerlink" title="희소 배열(sparse array)"></a>희소 배열(sparse array)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>];</span><br><span class="line">a[<span class="number">4</span>] = <span class="string">'E'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// ["A", "B", "C", empty, "E"]</span></span><br><span class="line"><span class="built_in">console</span>.log(a[<span class="number">3</span>]); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(a.length); <span class="comment">// 5</span></span><br><span class="line">a.hasOwnProperty(<span class="string">"3"</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure><ul><li>위와 같이 <code>length</code>가 요소의 개수보다 클 때 <strong>희소 배열</strong> 이라고 부른다.</li><li>이때 배열은 내부적으로 <strong>객체</strong> 의 형태로 저장되어 있으며, 리터럴로 표현하자면 아래와 같다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  <span class="string">'0'</span>:<span class="string">'A'</span>,</span><br><span class="line">  <span class="string">'1'</span>:<span class="string">'B'</span>,</span><br><span class="line">  <span class="string">'2'</span>:<span class="string">'C'</span>,</span><br><span class="line">  <span class="string">'4'</span>:<span class="string">'E'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;JS-Study&quot;&gt;&lt;a href=&quot;#JS-Study&quot; class=&quot;headerlink&quot; title=&quot;JS Study&quot;&gt;&lt;/a&gt;JS Study&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;자바스크립트를 공부하며 주요 개념들을 정리함.&lt;/li&gt;
+&lt;li&gt;교재: 모
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
+    
+      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
+    
+      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
+    
+      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
+    
+      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>유용한 웹사이트 모음(마지막 업데이트 2020.02.24)</title>
@@ -72,11 +110,11 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
+    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="불안의이유" scheme="http://codeameba.github.io/tags/%EB%B6%88%EC%95%88%EC%9D%98%EC%9D%B4%EC%9C%A0/"/>
     
@@ -143,17 +181,17 @@
       <category term="tip" scheme="http://codeameba.github.io/categories/tip/"/>
     
     
+      <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="hexo" scheme="http://codeameba.github.io/tags/hexo/"/>
+    
       <category term="댓글기능구현" scheme="http://codeameba.github.io/tags/%EB%8C%93%EA%B8%80%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84/"/>
     
       <category term="디스커스" scheme="http://codeameba.github.io/tags/%EB%94%94%EC%8A%A4%EC%BB%A4%EC%8A%A4/"/>
     
       <category term="disqus" scheme="http://codeameba.github.io/tags/disqus/"/>
-    
-      <category term="hexo" scheme="http://codeameba.github.io/tags/hexo/"/>
-    
-      <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
-    
-      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
   </entry>
   
@@ -182,11 +220,11 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
+    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="황금시대" scheme="http://codeameba.github.io/tags/%ED%99%A9%EA%B8%88%EC%8B%9C%EB%8C%80/"/>
     
@@ -218,11 +256,11 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
+    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="허니와클로버" scheme="http://codeameba.github.io/tags/%ED%97%88%EB%8B%88%EC%99%80%ED%81%B4%EB%A1%9C%EB%B2%84/"/>
     
@@ -250,11 +288,11 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
+    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -280,11 +318,11 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
+    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -310,11 +348,11 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
+    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -340,11 +378,11 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
+    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -676,48 +714,6 @@
       
       
         &lt;h1 id=&quot;ReactJS-무비앱-만들기-Day-02&quot;&gt;&lt;a href=&quot;#ReactJS-무비앱-만들기-Day-02&quot; class=&quot;headerlink&quot; title=&quot;[ReactJS] 무비앱 만들기 Day 02&quot;&gt;&lt;/a&gt;[ReactJS] 무비앱 만들기 
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
-    
-      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
-    
-      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
-    
-      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
-    
-      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
-    
-      <category term="리액트" scheme="http://codeameba.github.io/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/"/>
-    
-      <category term="react" scheme="http://codeameba.github.io/tags/react/"/>
-    
-      <category term="노마드코더" scheme="http://codeameba.github.io/tags/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94/"/>
-    
-      <category term="nomadcoders" scheme="http://codeameba.github.io/tags/nomadcoders/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[ReactJS] 무비앱 만들기 Day 01</title>
-    <link href="http://codeameba.github.io/2019/08/26/programming/react-movie-app-01/"/>
-    <id>http://codeameba.github.io/2019/08/26/programming/react-movie-app-01/</id>
-    <published>2019-08-25T16:00:42.000Z</published>
-    <updated>2020-02-03T07:47:26.920Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="ReactJS-무비앱-만들기-Day-01"><a href="#ReactJS-무비앱-만들기-Day-01" class="headerlink" title="[ReactJS] 무비앱 만들기 Day 01"></a>[ReactJS] 무비앱 만들기 Day 01</h1><hr><br><h2 id="1-1-Arrow-Function"><a href="#1-1-Arrow-Function" class="headerlink" title="1.1 Arrow Function"></a>1.1 Arrow Function</h2><hr><ul><li>ES6에서 새롭게 추가된 기능</li><li>ES6 이전 일반적인 형태의 함수에서는 return을 생략하면 undefined가 출력되었지만, 화살표 함수에서는 내부적으로 return을 자동으로 해주기 때문에 생략이 가능하다.</li><li>단,  <code>{}</code>를 사용한다면 return을 명시해줘야 한다.</li><li>parameter가 1개일 경우에는 <code>()</code> 생략 가능.</li><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98" target="_blank" rel="external nofollow noopener noreferrer">화살표 함수 - JavaScript | MDN</a></li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> beers = [<span class="string">'cass'</span>, <span class="string">'hite'</span>, <span class="string">'terra'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6 이전</span></span><br><span class="line"><span class="keyword">const</span> beerFilter = beers.filter(<span class="function"><span class="keyword">function</span>(<span class="params">beer</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> beer.length &gt; <span class="number">4</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(beerFilter); <span class="comment">// [ 'terra' ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6 이후</span></span><br><span class="line"><span class="keyword">const</span> beerFilterVer2 = beers.filter(<span class="function"><span class="params">beer</span> =&gt;</span> beer.length &lt; <span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(beerFilterVer2); <span class="comment">// [ 'cass', 'hite' ]</span></span><br></pre></td></tr></table></figure><br><h2 id="1-2-Template-Literals"><a href="#1-2-Template-Literals" class="headerlink" title="1.2 Template Literals"></a>1.2 Template Literals</h2><hr><ul><li>Template Literals는 Template와 변수, 문자열 등을 다루기에 적합한 방법이다.</li><li>백틱(backtracks)라고 부르는 기호를 활용하며 문자열로 출력하게 한다.</li><li>인자는 <code>${}</code>  이것으로 감싼다.</li><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="external nofollow noopener noreferrer">Template literals - JavaScript | MDN</a></li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> beerBox = [</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'CASS'</span>,</span><br><span class="line">    <span class="keyword">from</span>: <span class="string">'KOREA'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'STELLA'</span>,</span><br><span class="line">    <span class="keyword">from</span>: <span class="string">'BELGIUM'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">'KIRIN'</span>,</span><br><span class="line">    <span class="keyword">from</span>: <span class="string">'JAPAN'</span></span><br><span class="line">  &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> favBeer = beerBox.filter(<span class="function"><span class="params">beer</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (beer.from === <span class="string">'KOREA'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">`I LOVE <span class="subst">$&#123;beer.name&#125;</span>`</span>); <span class="comment">// &lt;- template literals</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// I LOVE CASS</span></span><br></pre></td></tr></table></figure><br><h2 id="1-3-Object-Destructuring"><a href="#1-3-Object-Destructuring" class="headerlink" title="1.3 Object Destructuring"></a>1.3 Object Destructuring</h2><hr><ul><li>우리말로 <strong>구조 분해 할당</strong> 이라고 하며, 동일한 할당 작업을 반복해야 할 때 이를 한 번에 할 수 있게 해줌.</li><li>비교적 적은 코드가 사용되기 때문에 깔끔하게 보인다는 게 장점</li><li>Object를 기반으로 생성됨.</li><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" target="_blank" rel="external nofollow noopener noreferrer">구조 분해 할당 - JavaScript | MDN</a></li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> beer = &#123;</span><br><span class="line">  name: <span class="string">'CASS'</span>,</span><br><span class="line">  <span class="keyword">from</span>: <span class="string">'KOREA'</span>,</span><br><span class="line">  taste: <span class="string">'FRESH'</span>,</span><br><span class="line">  type: <span class="string">'LAGER'</span>,</span><br><span class="line">  <span class="keyword">with</span>: &#123;</span><br><span class="line">    morning: <span class="string">'CUP RA-MYEON'</span>,</span><br><span class="line">    afternoon: <span class="string">'PIZZA'</span>,</span><br><span class="line">    evening: <span class="string">'SAM-GYEOP-SAL'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; name, <span class="keyword">from</span>, taste, type, <span class="attr">with</span>: &#123; afternoon &#125; &#125; = beer;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;name&#125;</span> is from <span class="subst">$&#123;<span class="keyword">from</span>&#125;</span>, this is <span class="subst">$&#123;taste&#125;</span> <span class="subst">$&#123;type&#125;</span>. I love drink with <span class="subst">$&#123;afternoon&#125;</span>`</span>);</span><br><span class="line"><span class="comment">// CASS is from KOREA, this is FRESH LAGER. I love drink with PIZZA</span></span><br></pre></td></tr></table></figure><br><h2 id="1-4-Spread-Operator"><a href="#1-4-Spread-Operator" class="headerlink" title="1.4 Spread Operator"></a>1.4 Spread Operator</h2><hr><ul><li>배열이나 객체를 풀어줌(Unpack).</li><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Spread_syntax" target="_blank" rel="external nofollow noopener noreferrer">전개 구문 - JavaScript | MDN</a></li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> days = [<span class="string">'Mon'</span>, <span class="string">'Tue'</span>, <span class="string">'Wed'</span>];</span><br><span class="line"><span class="keyword">const</span> otherDays = [<span class="string">'Thu'</span>, <span class="string">'Fri'</span>, <span class="string">'Sat'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> allDays = [days, otherDays, <span class="string">'Sun'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(allDays);</span><br><span class="line"><span class="comment">// [ [ 'Mon', 'Tue', 'Wed' ], [ 'Thu', 'Fri', 'Sat' ], 'Sun' ]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> allDaysVer2 = [...days, ...otherDays, <span class="string">'Sun'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(allDaysVer2);</span><br><span class="line"><span class="comment">// [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ]</span></span><br></pre></td></tr></table></figure><br><h2 id="1-5-Classes"><a href="#1-5-Classes" class="headerlink" title="1.5 Classes"></a>1.5 Classes</h2><hr><ul><li>프로그래밍에는 크게 두 종류의 패러다임이 있다<ul><li>함수형 프로그래밍(Functional Programming)</li><li>객체 지향 프로그래밍(OOP, Object Oriented Programming)</li></ul></li><li>객체 지향 프로그래밍의 경우 모든 것을 객체나 클래스로 만들고, 부모 자식의 관계가 분명하다.</li><li>Class는 청사진(Blueprint)과 같다고 생각하면 된다.</li><li>리액트에서 지겹도록 사용하게 됨.</li><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external nofollow noopener noreferrer">Classes - JavaScript | MDN</a></li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SmartPhone</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, made) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.made = made;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calling</span> <span class="keyword">extends</span> <span class="title">SmartPhone</span> </span>&#123;</span><br><span class="line">  ringRing() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello?'</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  intro() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`This phone is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>)</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myPhone = <span class="keyword">new</span> SmartPhone(<span class="string">'iphone'</span>, <span class="string">'apple'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myPhone.name);</span><br><span class="line"><span class="comment">// iphone</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> yourPhone = <span class="keyword">new</span> Calling(<span class="string">'galaxy'</span>, <span class="string">'samsung'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(yourPhone.ringRing(), yourPhone.intro());</span><br><span class="line"><span class="comment">// Hello?</span></span><br><span class="line"><span class="comment">// This phone is galaxy</span></span><br><span class="line"><span class="comment">// undefined</span></span><br></pre></td></tr></table></figure><h3 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h3><ul><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/static" target="_blank" rel="external nofollow noopener noreferrer">static - JavaScript | MDN</a></li><li><a href="https://velog.io/@ddalpange/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EA%B0%9D%EC%B2%B4-%EB%B3%B5%EC%82%AC%ED%95%98%EA%B8%B0" target="_blank" rel="external nofollow noopener noreferrer">자바스크립트 객체 복사하기</a></li><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze" target="_blank" rel="external nofollow noopener noreferrer">Object.freeze() - JavaScript | MDN</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;ReactJS-무비앱-만들기-Day-01&quot;&gt;&lt;a href=&quot;#ReactJS-무비앱-만들기-Day-01&quot; class=&quot;headerlink&quot; title=&quot;[ReactJS] 무비앱 만들기 Day 01&quot;&gt;&lt;/a&gt;[ReactJS] 무비앱 만들기 
       
     
     </summary>

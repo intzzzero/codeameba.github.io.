@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>http://codeameba.github.io/categories/JavaScript/</loc>
+        <lastmod>2020-02-26T10:02:23.985Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://codeameba.github.io/categories/tip/</loc>
         <lastmod>2020-02-24T09:56:53.357Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -58,13 +65,6 @@
 
     <url>
         <loc>http://codeameba.github.io/categories/HTML/</loc>
-        <lastmod>2020-02-03T07:47:26.950Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/JavaScript/</loc>
         <lastmod>2020-02-03T07:47:26.950Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
