@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/04/25/programming/cs-til-07/">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');</script>
+    <!-- End Google Tag Manager -->
+
+<title>컴퓨터공학 7일차 TIL(2019.04.25) | AmebaLab</title>
+
+
+
+    <link rel="icon" href="/image/favicon2.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AmebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">AmebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">AmebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">컴퓨터공학 7일차 TIL(2019.04.25)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">4월 25, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/CS/">CS</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <img src="https://images.unsplash.com/photo-1554412661-828c8d34bb9c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60">
+
+<h1 id="컴공-7일차-19-04-25"><a href="#컴공-7일차-19-04-25" class="headerlink" title="컴공 7일차(19.04.25)"></a>컴공 7일차(19.04.25)</h1><ul>
+<li>네트워크와 <strong>기본</strong>알고리즘을 배웠다. 네트워크는 그나마 알아 들을 수 있는 범주여서 비교적 양호했으나, 알고리즘은 여전히 어렵다. 여전히라고 해봤자 아직 제대로 공부한 것도 아니지만, 사실 첫 인상이 그리 좋지는 않다. 그래도 친해지려고 노력해야겠지만…</li>
+</ul>
+<h3 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h3><ul>
+<li>NIC가 2개 이상부터는 라우터라고 부를 수 있음.</li>
+<li>IP의 역할은 단 하나, IP라우팅</li>
+<li><code>$ netstat -r</code> 라우팅테이블 호출</li>
+</ul>
+<h3 id="TCP-IP-4계층"><a href="#TCP-IP-4계층" class="headerlink" title="TCP/IP 4계층"></a>TCP/IP 4계층</h3><img src="https://codeameba.github.io/images/arp.jpg" alt="TCP/IP 4계층">
+
+<ol>
+<li>1계층) Network Interface - Ethernet(MAC address)</li>
+<li>2계층) Internet - IP(IP routing), packet을 받는 호스트(컴퓨터)를 특정하는 역할, 특정 호스트에 도달하기 위해 IP를 관리하는 계층</li>
+<li>3계층) Transport - TCP/UDP, Port를 관리하며, 특정 프로세스(서버나 클라이언트)에 접근</li>
+<li>4계층) Application<ul>
+<li>HTTP: 메시지 기반, 문자열,</li>
+<li>HTTPS: application과 transport 사이에 SSL/TLS(secure socket layer)가 추가되어 암호화 됨</li>
+<li>DNS</li>
+</ul>
+</li>
+</ol>
+<h3 id="DNS-Domain-Name-System"><a href="#DNS-Domain-Name-System" class="headerlink" title="DNS(Domain Name System)"></a>DNS(Domain Name System)</h3><ul>
+<li><code>$ nslookup</code> -&gt; facebook.com : 해당 도메인의 IP 확인 가능</li>
+<li>IP주소를 기억하기 어려워서 사람이 기억하기 쉬운 도메인 네임이 등장</li>
+<li>입력된 도메인 네임을 DNS가 IP로 변환해줌</li>
+<li>브라우저가 DNS Server 측으로 요청(처음 접속 시에 요청 후, cache에 저장 됨)</li>
+</ul>
+<h3 id="URL-파일식별자-Uniform-Resource-Lacator"><a href="#URL-파일식별자-Uniform-Resource-Lacator" class="headerlink" title="URL(파일식별자, Uniform Resource Lacator)"></a>URL(파일식별자, Uniform Resource Lacator)</h3><ul>
+<li>구조: <code>http://www.example.com:80/path/to/myfile.html?key1=value1&amp;key2=value2#SomewhereInTheDocument</code></li>
+<li>URL: 요청한 자원의 위치를 가리킨다.</li>
+<li><code>http</code>: 형식을 나타내는 Protocol 혹은 Scheme</li>
+<li><code>www.example.com</code>: Domain Name, IP주소와 동일한 역할</li>
+<li><code>:80</code>: Port, 생략하는 경우가 많음.</li>
+<li><code>/path/to/myfile.html</code>: 해당 문서의 경로, 최근에는 물리적 경로가 아닌, 웹 서버에서 추상화된 경로를 나타내는 경우가 많음.</li>
+<li><code>?key1=value1&amp;key2=value2</code>: Query라고 부르며, 해당 자원을 대략적으로 설명한다.</li>
+<li><code>#SomewhereInTheDocument</code>: Anchor 혹은 Bookmark라고 한다. 보통 해당 페이지에서 임의 지점으로 자동 스크롤링 되는 방식으로 이용된다.</li>
+</ul>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><ul>
+<li>0.9/1.0 버전까지는 text 위주였기 때문에 UDP를 사용했음.</li>
+<li>1.1부터는 TCP를 통한 지속적 연결 지원. -&gt; 이미지, 영상 등 정보가 많아져서</li>
+</ul>
+<h3 id="메서드"><a href="#메서드" class="headerlink" title="메서드"></a>메서드</h3><p>클라이언트가 웹서버에게 사용자 요청의 목적과 종류를 알리는 수단으로, HTTP 요청 메시지의 첫째줄에 위치한다. GET과 POST 방식이 주로 쓰인다.</p>
+<ul>
+<li>GET: 리소스 취득</li>
+<li>HEAD: 메시지 헤더(문서 정보) 취득</li>
+<li>POST: 내용 전송(파일 전송도 가능)</li>
+<li>PUT: 내용 갱신 위주(파일 전송도 가능)</li>
+<li>DELETE: 웹 리소스(파일) 제거</li>
+<li>TRACE: 요청 리소스가 수신되는 경로를 보여줌. 거의 사용 안함.</li>
+<li>OPTION: 웹서버측 제공 메소드에 대한 질의</li>
+<li>CONNECT: 프록시 서버와 같은 중간 서버 경유. 거의 사용 안함.<blockquote>
+<p>보안상의 이유로, 웹서버가 GET, POST 2개의 메소드 또는 OPTIONS를 포함한 3개까지만 허용하는 경우가 대부분.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="상태코드"><a href="#상태코드" class="headerlink" title="상태코드"></a>상태코드</h3><ul>
+<li>200번대: 성공</li>
+<li>300번대: Redirect</li>
+<li>400번대: client의 문제로 실패, 요청에 문제가 있음.</li>
+<li>500번대: server의 문제로 실패, 응답에 문제가 있음.</li>
+</ul>
+<h3 id="컨텐츠-협상"><a href="#컨텐츠-협상" class="headerlink" title="컨텐츠 협상"></a>컨텐츠 협상</h3><ul>
+<li>요청 자료에 대해 우선순위를 정해 놓고 요청을 했을 때 서버에서 해당 설정에 맞춰서 전송</li>
+<li>서버 주도 방식과 클라이언트 주도 방식이 있음<ul>
+<li>server-driven: 네트워크에 부담</li>
+<li>agent-driven: 정확도 상승</li>
+</ul>
+</li>
+<li>ex) <code>Accept : text/html, text/*;q=0.5, */*;q=0.2</code></li>
+</ul>
+<h3 id="TCP-UDP"><a href="#TCP-UDP" class="headerlink" title="TCP/UDP"></a>TCP/UDP</h3><ul>
+<li><p><strong>TCP</strong></p>
+<ul>
+<li>신뢰도가 높다.</li>
+<li>패킷이 유실되면, 재전송 해줌.</li>
+<li>유실 유무를 지속적으로 확인하기 때문에 네트워크에 부담이 됨.</li>
+<li>파일, 메일 등에 주로 쓰임.</li>
+<li>서버소켓과 호스트가  접속된 후 계속 연결 되어있음.</li>
+</ul>
+</li>
+<li><p><strong>UDP</strong></p>
+<ul>
+<li>신뢰도가 낮다.</li>
+<li>패킷 전송 후 유실 돼도 재전송 안해줌.</li>
+<li>빠르고 가벼움.</li>
+<li>동영상 서비스나 게임 등에 주로 쓰임.</li>
+<li>데이터 전송 후 연결 해제</li>
+</ul>
+</li>
+</ul>
+<h3 id="참고할만한-자료"><a href="#참고할만한-자료" class="headerlink" title="참고할만한 자료"></a>참고할만한 자료</h3><ul>
+<li>TCP/IP 완벽가이드 - <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=872152" target="_blank" rel="external nofollow noopener noreferrer">알라딘: TCP/IP 완벽 가이드</a></li>
+<li><a href="https://d2.naver.com/helloworld/47667" target="_blank" rel="external nofollow noopener noreferrer">NAVER D2</a> - 최소한 ‘데이터 수신’까지는 알아야 함!</li>
+</ul>
+<h3 id="NAT-Network-Address-Translation"><a href="#NAT-Network-Address-Translation" class="headerlink" title="NAT(Network Address Translation)"></a>NAT(Network Address Translation)</h3><ul>
+<li>라우터가 호스트의 IP(private)를 자신의 IP(public)로 변환하여 저장</li>
+</ul>
+<h3 id="NAPT-Network-Address-Port-Translation"><a href="#NAPT-Network-Address-Port-Translation" class="headerlink" title="NAPT(Network Address Port Translation)"></a>NAPT(Network Address Port Translation)</h3><ul>
+<li>NAT에 Port까지 함게 맵핑하여 변환</li>
+<li>NIC(정확하게는 라우터가 호스트에게 할당해줄 수 있는 IP의 갯수)가 부족하여 동일한 IP를 할당할 수밖에 없을 때, 이를 구분하기 위해 Port번호를 추가, 변경하여 구분.</li>
+</ul>
+<h3 id="port"><a href="#port" class="headerlink" title="port"></a>port</h3><ul>
+<li>2**10개 만큼 사용 가능</li>
+<li>특정 프로세스에 정확하게 정보를 전송하기 위한 표식</li>
+</ul>
+<h3 id="Server-Client"><a href="#Server-Client" class="headerlink" title="Server / Client"></a>Server / Client</h3><ul>
+<li>server: 서비스 제공자, socket이 많다. 특정 컴퓨터의 특정 프로세스.<ul>
+<li>웹 서버</li>
+<li>게임 서버</li>
+<li>ftp 서버</li>
+</ul>
+</li>
+<li>port: socket(일종의 메모리)에 부여된 숫자. 0~2<sup>16-1</sup>, 2bytes 정수<ul>
+<li>0~1023 (server)</li>
+<li>49152~65534(client)</li>
+<li>Well-known port(정해진 포트 번호)가 있음(표 참고)</li>
+<li>HTTPS port : 443 / HTTP : 80</li>
+</ul>
+</li>
+<li>client: 프로세스</li>
+<li>socket: 두 종류가 있음<ul>
+<li>data socket: 접속 후 데이터를 송/수신 하는 소켓</li>
+<li>listening socket : client로부터 접속 요청을 받는 소켓</li>
+</ul>
+</li>
+</ul>
+<h3 id="sliding-window-공부할-것"><a href="#sliding-window-공부할-것" class="headerlink" title="sliding window - 공부할 것"></a>sliding window - 공부할 것</h3><hr>
+<h2 id="자료구조-알고리즘"><a href="#자료구조-알고리즘" class="headerlink" title="자료구조/알고리즘"></a>자료구조/알고리즘</h2><h3 id="Comparison-Sorting-우선적으로-공부해야-할-알고리즘"><a href="#Comparison-Sorting-우선적으로-공부해야-할-알고리즘" class="headerlink" title="Comparison Sorting - 우선적으로 공부해야 할 알고리즘"></a>Comparison Sorting - 우선적으로 공부해야 할 알고리즘</h3><ol>
+<li>Quick Sort - Random pivot<ul>
+<li>O(n log n) -&gt; average</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_middle_idx</span><span class="params">(li, start, mid, end)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    리스트의 맨 처음 값과 중간 값, 마지막 값 중에서</span></span><br><span class="line"><span class="string">    가운데 값이 위치한 인덱스를 반환한다.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    idx_li=[start, mid, end]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># to do</span></span><br><span class="line">    <span class="keyword">if</span> li[idx_li[<span class="number">0</span>]] &lt; li[idx_li[<span class="number">1</span>]]:</span><br><span class="line">        idx_li[<span class="number">0</span>], idx_li[<span class="number">1</span>]=idx_li[<span class="number">1</span>], idx_li[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">if</span> li[idx_li[<span class="number">1</span>]] &gt; li[idx_li[<span class="number">2</span>]]:</span><br><span class="line">        idx_li[<span class="number">1</span>], idx_li[<span class="number">2</span>]=idx_li[<span class="number">2</span>], idx_li[<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">if</span> li[idx_li[<span class="number">0</span>]] &gt; li[idx_li[<span class="number">1</span>]]:</span><br><span class="line">        idx_li[<span class="number">0</span>], idx_li[<span class="number">1</span>]=idx_li[<span class="number">1</span>], idx_li[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> idx_li[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span><span class="params">(li, start, end)</span>:</span></span><br><span class="line">    <span class="comment"># base case</span></span><br><span class="line">    <span class="comment"># to do</span></span><br><span class="line">    <span class="keyword">if</span> start &gt;= end:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    left=start</span><br><span class="line">    right=end</span><br><span class="line">    mid=li[(left+right)//<span class="number">2</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 추가된 코드</span></span><br><span class="line">    mid_idx=get_middle_idx(li, start, mid, end)</span><br><span class="line">    li[mid_idx], li[mid]=li[mid], li[mid_idx]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># left와 right가 교차하기 전까지</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">        <span class="comment"># li[left]가 피벗보다 작으면</span></span><br><span class="line">        <span class="comment"># left++</span></span><br><span class="line">        <span class="keyword">while</span> li[left] &lt; pivot:</span><br><span class="line">            left+=<span class="number">1</span></span><br><span class="line">                                                                                                                             </span><br><span class="line">        <span class="comment"># li[right]가 피벗보다 크면</span></span><br><span class="line">        <span class="comment"># right--</span></span><br><span class="line">        <span class="keyword">while</span> pivot &lt; li[right]:</span><br><span class="line">            right-=<span class="number">1</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">if</span> left &lt;= right:</span><br><span class="line">            li[left], li[right]=li[right], li[left]</span><br><span class="line">            left+=<span class="number">1</span></span><br><span class="line">            right-=<span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    quick_sort(li, start, right)</span><br><span class="line">    quick_sort(li, left, end)</span><br><span class="line"></span><br><span class="line"><span class="comment"># TEST</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    num_data=int(input(<span class="string">'데이터 개수(종료:0):'</span>))</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> num_data:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    data=[random.randint(<span class="number">1</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(num_data)]</span><br><span class="line">    print(data)</span><br><span class="line">    quick_sort(data, <span class="number">0</span>, len(data)<span class="number">-1</span>)</span><br><span class="line">    print(data)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Insertion sort / selection sort</li>
+</ol>
+<ul>
+<li>insertion sort(삽입정렬)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insertion_sort</span><span class="params">(li)</span>:</span></span><br><span class="line">    n=len(li)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, n):</span><br><span class="line">        temp=li[i]</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i<span class="number">-1</span>, <span class="number">-2</span>, <span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> j==<span class="number">-1</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">                </span><br><span class="line">            <span class="keyword">if</span> li[j] &gt; temp:</span><br><span class="line">                li[j+<span class="number">1</span>]=li[j]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        li[j+<span class="number">1</span>]=temp</span><br><span class="line"></span><br><span class="line"><span class="comment"># TEST</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    num_data=int(input(<span class="string">'데이터 개수(종료:0):'</span>))</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> num_data:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    data=[random.randint(<span class="number">1</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(num_data)]</span><br><span class="line">    print(data)</span><br><span class="line">    insertion_sort(data)</span><br><span class="line">    print(data)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>selection sort</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selection_sort</span><span class="params">(li)</span>:</span></span><br><span class="line">    n=len(li)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n<span class="number">-1</span>):</span><br><span class="line">        min_idx=i</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, n):</span><br><span class="line">            <span class="keyword">if</span> li[j] &lt; li[min_idx]:</span><br><span class="line">                min_idx=j</span><br><span class="line">        li[i], li[min_idx]=li[min_idx], li[i]</span><br><span class="line"></span><br><span class="line"><span class="comment"># TEST</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    num_data=int(input(<span class="string">'데이터 개수(종료:0):'</span>))</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> num_data:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    data=[random.randint(<span class="number">1</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(num_data)]</span><br><span class="line">    print(data)</span><br><span class="line">    selection_sort(data)</span><br><span class="line">    print(data)</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h4><ul>
+<li>MDN</li>
+<li>WIKIPEDIA</li>
+<li>정보통신기술용어해설(<a href="http://www.ktword.co.kr/abbr_view.php?m_temp1=3791" target="_blank" rel="external nofollow noopener noreferrer">http://www.ktword.co.kr/abbr_view.php?m_temp1=3791</a>)</li>
+</ul>
+<h4 id="이미지-출처"><a href="#이미지-출처" class="headerlink" title="이미지 출처"></a>이미지 출처</h4><ul>
+<li>unsplash.com</li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%EC%9D%BC%EA%B8%B0/"># 일기</a>
+                    
+                        <a href="/tags/til/"># til</a>
+                    
+                        <a href="/tags/TIL/"># TIL</a>
+                    
+                        <a href="/tags/Today-I-Learned/"># Today I Learned</a>
+                    
+                        <a href="/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"># 오늘배운것들</a>
+                    
+                        <a href="/tags/%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4/"># 패스트캠퍼스</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/04/26/programming/cs-til-08/">컴퓨터공학 8일차 TIL(2019.04.26)</a>
+            
+            
+            <a class="next" rel="next" href="/2019/04/24/programming/cs-til-06/">컴퓨터공학 6일차 TIL(2019.04.24)</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© 2020 codeAmeba</span>
+    </div>
+</footer>
+    </div>
+</body>
+</html>
