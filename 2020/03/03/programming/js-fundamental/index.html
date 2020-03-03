@@ -12,7 +12,7 @@
     <meta name="description" content="생각과 학습의 아카이브">
 
 
-<link rel="canonical" href="http://codeameba.github.io/2020/02/29/programming/js-fundamental/">
+<link rel="canonical" href="http://codeameba.github.io/2020/03/03/programming/js-fundamental/">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
 <script>
@@ -31,7 +31,7 @@
     })(window,document,'script','dataLayer','GTM-PM2CPLV');</script>
     <!-- End Google Tag Manager -->
 
-<title>JavaScript Fundamental(마지막 업데이트: 20.02.29) | AmebaLab</title>
+<title>JavaScript Fundamental(마지막 업데이트: 20.03.03) | AmebaLab</title>
 
 
 
@@ -194,7 +194,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">JavaScript Fundamental(마지막 업데이트: 20.02.29)</h1>
+            <h1 class="post-title">JavaScript Fundamental(마지막 업데이트: 20.03.03)</h1>
             
                 <div class="post-meta">
                     
@@ -203,7 +203,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">2월 29, 2020&nbsp;&nbsp;1:00:42</a>
+                        Date: <a href="#">3월 3, 2020&nbsp;&nbsp;1:00:42</a>
                         </span>
                     
                     
@@ -261,10 +261,11 @@
 <li>다른 함수의 인수(argument)로 전달 가능</li>
 </ul>
 <h2 id="함수-선언문의-호이스팅"><a href="#함수-선언문의-호이스팅" class="headerlink" title="함수 선언문의 호이스팅"></a>함수 선언문의 호이스팅</h2><ul>
-<li>변수와 마찬가지로 호이스팅이 됨<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(square(<span class="number">5</span>)); <span class="comment">// 25</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>return이 없으면 undefined<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(square(<span class="number">5</span>)); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  x * x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(square(<span class="number">3</span>)); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>변수와 마찬가지로 호이스팅이 됨</li>
+<li>아래와 같은 <strong>함수선언문</strong> 은 전체가 통째로 호이스팅 됨<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(square(<span class="number">5</span>)); <span class="comment">// 25</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수선언문</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>return이 없으면 undefined<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(square(<span class="number">5</span>)); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  x * x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(square(<span class="number">3</span>)); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure></li>
+<li>변수와 마찬가지로 <strong>선언문</strong> 만 호이스팅이 되기 때문에, 아래와 같은 <strong>함수표현식</strong> 은 변수명만 호이스팅이 됨.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 기명 함수표현식</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="function"><span class="keyword">function</span> <span class="title">bb</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'bb'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 익명 함수표현식</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'c'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>함수의 호이스팅은 코드의 순차실행을 저해하고 예측을 어렵게 하기 때문에 되도록 <strong>함수표현식</strong> 의 사용을 권함</li>
 </ul>
 <h2 id="값의-전달-참조의-전달"><a href="#값의-전달-참조의-전달" class="headerlink" title="값의 전달, 참조의 전달"></a>값의 전달, 참조의 전달</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add1</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x = x + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> b = add1(a);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`a = <span class="subst">$&#123;a&#125;</span>, b = <span class="subst">$&#123;b&#125;</span>`</span>); <span class="comment">// a = 3, b = 4</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -386,6 +387,39 @@
 </li>
 <li>truthy와 falsy에 각각 속한 피연산자들을 보면 나름대로의 일관성이 보이는 것을 알 수 있다. 대체적으로 <strong>없음</strong> 의 뉘앙스가 강한 쪽이 false로 평가된다.</li>
 </ul>
+<h2 id="암묵적-타입-변환"><a href="#암묵적-타입-변환" class="headerlink" title="암묵적 타입 변환"></a>암묵적 타입 변환</h2><ul>
+<li>자바스크립트에서는 암묵적으로 타입을 변환하는 방법이 있다. 대표적으로 아래와 같은 방법으로 string을 number로 변환이 가능하다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'2'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(s, <span class="keyword">typeof</span>(s)); <span class="comment">// 2 string</span></span><br><span class="line"><span class="built_in">console</span>.log(s<span class="number">-0</span>, <span class="keyword">typeof</span>(s<span class="number">-0</span>)); <span class="comment">// 2 number</span></span><br><span class="line"><span class="built_in">console</span>.log(+s, <span class="keyword">typeof</span>(+s)); <span class="comment">// 2 number</span></span><br></pre></td></tr></table></figure></li>
+<li>간단하고 편리한 방법이긴 하지만, 놓치고 지나칠 가능성이 농후하므로 되도록 <code>parseInt()</code>, <code>Number()</code>와 같은 명시적인 방법으로 타입을 변환하는 게 좋다고 생각한다.</li>
+</ul>
+<h2 id="대화상자의-종류"><a href="#대화상자의-종류" class="headerlink" title="대화상자의 종류"></a>대화상자의 종류</h2><ul>
+<li>웹 브라우저의 전역 객체 window에는 <strong>대화상자</strong> 를 띄울 수 있는 방법이 세 가지가 있다.</li>
+</ul>
+<p><strong><code>window.alert()</code></strong></p>
+<ul>
+<li>경고 대화상자를 표시</li>
+<li>확인을 누르면 undefiend 반환</li>
+</ul>
+<p><strong><code>window.prompt()</code></strong></p>
+<ul>
+<li>사용자의 문자열 입력을 받을 수 있는 대화상자를 표시</li>
+<li>문자열 입력 후 확인을 누르면 해당 문자열 반환</li>
+<li>문자열을 입력하지 않고 확인을 누르면 빈 문자열(“”) 반환</li>
+<li>취소를 누르면 null 반환</li>
+</ul>
+<p><strong><code>window.confirm()</code></strong></p>
+<ul>
+<li>‘확인’ 버튼과 ‘취소’ 버튼이 있는 대화상자를 표시</li>
+<li>‘확인’을 누르면 true를, ‘취소’를 누르면 false가 반환</li>
+</ul>
+<h2 id="for-문-실행순서"><a href="#for-문-실행순서" class="headerlink" title="for 문 실행순서"></a>for 문 실행순서</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>위와 같은 일반적인 for 문이 있을 때, 실행 순서는 다음과 같다.</strong></p>
+<ol>
+<li>변수 i를 선언 및 0으로 초기화 <code>let i = 0</code></li>
+<li>i가 10 보다 작은지 확인 <code>i &lt; 10</code></li>
+<li>블록문 실행 <code>console.log(i)</code></li>
+<li>i의 값이 1 증가 <code>i++</code></li>
+<li>i의 값이 10이 될 때까지 1번 내용을 제외하고 반복</li>
+</ol>
 
         </div>
 
