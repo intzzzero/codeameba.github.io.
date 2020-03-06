@@ -34,10 +34,10 @@
     <meta name="description" content="생각과 학습의 아카이브">
 
 
-<link rel="canonical" href="http://codeameba.github.io/2020/03/03/programming/js-fundamental/">
+<link rel="canonical" href="http://codeameba.github.io/2020/03/06/programming/js-fundamental/">
 
 
-<title>JavaScript Fundamental(마지막 업데이트: 20.03.03) | AmebaLab</title>
+<title>JavaScript Fundamental(마지막 업데이트: 20.03.06) | AmebaLab</title>
 
 
 
@@ -200,7 +200,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">JavaScript Fundamental(마지막 업데이트: 20.03.03)</h1>
+            <h1 class="post-title">JavaScript Fundamental(마지막 업데이트: 20.03.06)</h1>
             
                 <div class="post-meta">
                     
@@ -209,7 +209,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">3월 3, 2020&nbsp;&nbsp;1:00:42</a>
+                        Date: <a href="#">3월 6, 2020&nbsp;&nbsp;1:00:42</a>
                         </span>
                     
                     
@@ -312,6 +312,15 @@
 </ul>
 </li>
 </ol>
+<h2 id="함수를-정의하는-방법"><a href="#함수를-정의하는-방법" class="headerlink" title="함수를 정의하는 방법"></a>함수를 정의하는 방법</h2><ol>
+<li>함수 선언문<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>함수 리터럴<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>Function 생성자<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'x'</span>, <span class="string">'return x * x);</span></span><br></pre></td></tr></table></figure></li>
+<li>화살표(arrow) 함수 표현식<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="params">x</span> =&gt;</span> x * x;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>함수 선언문을 제외한 세 가지 방법은 호이스팅이 되지 않기 때문에 <strong>변수에 할당 후에 사용이 가능</strong> 하며, 따라서 호출하는 코드보다 상단에 위치해야 한다.</li>
+</ul>
 <h2 id="생성자-함수"><a href="#생성자-함수" class="headerlink" title="생성자 함수"></a>생성자 함수</h2><ul>
 <li>Java나 C++ 등의 객체지향 언어에는 <strong>클래스(class)</strong> 라는 객체 생성 방법이 있다.</li>
 <li>자바스크립트에는 클래스가 없지만, 대신 <strong>프로토타입(prototype)</strong> 이 있기 때문에 클래스와 유사한 방식으로 객체를 생성할 수 있다.</li>
@@ -426,6 +435,7 @@
 <li>i의 값이 1 증가 <code>i++</code></li>
 <li>i의 값이 10이 될 때까지 1번 내용을 제외하고 반복</li>
 </ol>
+<h2 id="객체-지향-프로그래밍의-의미"><a href="#객체-지향-프로그래밍의-의미" class="headerlink" title="객체 지향 프로그래밍의 의미"></a>객체 지향 프로그래밍의 의미</h2><p><strong>객체 지향 프로그래밍(OOP: Object Oriented Programming)</strong> 이란, 프로그램을 작성하는 방법 중 하나로 프로그램을 객체라고 부르는 부품 여러 개로 구성하여 만드는 방법이다. 이때, 객체란 데이터와 데이터를 처리하는 함수(메서드)를 한곳에 모아둔 덩어리를 말한다.</p>
 
         </div>
 
