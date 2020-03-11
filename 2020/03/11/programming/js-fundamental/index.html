@@ -549,6 +549,31 @@
 </ul>
 </li>
 </ul>
+<h2 id="클로저-closure"><a href="#클로저-closure" class="headerlink" title="클로저(closure)"></a>클로저(closure)</h2><ul>
+<li>클로저의 주 사용 목적은 외부로부터 내부의 상태를 숨기는 <strong>캡슐화(encapsulation)</strong> 에 있다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> f;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 보통은 익명함수를 사용하지만, 편의를 위해 이름을 붙임</span></span><br><span class="line">    <span class="keyword">return</span> count++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> counter = makeCounter();</span><br><span class="line"><span class="built_in">console</span>.log(counter()); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(counter()); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(counter()); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>위와 같은 클로저가 있을 때 다음과 같은 특징을 알 수 있다.</strong></p>
+<ol>
+<li>외부 함수 <code>makeCounter</code>는 중첩 함수 <code>f</code>의 참조를 반환한다.</li>
+<li>중첩 함수 <code>f</code>는 외부 함수 <code>makeCounter</code>의 지역 변수 <code>count</code>를 참조한다.</li>
+<li>전역 변수 <code>counter</code>에 함수 <code>makeCounter</code>를 할당하였으므로, 전역 변수 <code>counter</code>는 중첩 함수 <code>f</code>의 함수 객체를 참조한다.</li>
+<li><code>f</code>의 함수 객체는 함수 <code>makeCounter</code>의 렉시컬 환경 컴포넌트를 참조한다.</li>
+<li>결과적으로, 전역 변수 <code>counter</code>는 중첩 함수 <code>f</code>의 함수 객체를 통해 간접적으로 외부 함수 <code>makeCounter</code>의 렉시컬 환경 컴포넌트를 참조한다.</li>
+</ol>
+<p><strong>클로저의 핵심:</strong></p>
+<ul>
+<li>외부 함수를 호출하면 해당 함수의 렉시컬 환경 컴포넌트가 생성되며, 중첩 함수의 함수 객체를 생성 및 반환한다.</li>
+<li>외부 함수는 클로저를 생성하는 팩토리 함수이며, 클로저의 주 기능은 중첩함수에 담겨있다.</li>
+<li>외부 함수가 속한 렉시컬 환경 컴포넌트는 클로저 내부 상태 자체이며, 외부 함수가 호출될 때마다 새로 생성된다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> counter = makeCounter();</span><br><span class="line"><span class="built_in">console</span>.log(counter()); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(counter()); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(counter()); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> counter2 = makeCounter();</span><br><span class="line"><span class="built_in">console</span>.log(counter2()); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(counter2()); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(counter2()); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure></li>
+<li>중첩 함수의 함수 객체가 있는 한 외부 함수가 속한 렉시컬 환경 컴포넌트를 지워지지 않으며, 외부 함수의 함수 객체가 사라져도 지워지지 않는다.</li>
+<li>클로저 내부 상태(외부 함수의 지역 변수, 선언적 환경 레코드)는 외부로부터 은폐되어 있으며 중첩 함수 안에서만 읽거나 쓸 수 있다.</li>
+</ul>
+<p><strong>참고:</strong></p>
+<ul>
+<li><a href="https://opentutorials.org/course/743/6544" target="_blank" rel="external nofollow noopener noreferrer">클로저 - 생활코딩</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures" target="_blank" rel="external nofollow noopener noreferrer">클로저 - JavaScript | MDN</a></li>
+<li><a href="https://poiemaweb.com/js-closure" target="_blank" rel="external nofollow noopener noreferrer">Closure | PoiemaWeb</a></li>
+</ul>
 
         </div>
 
