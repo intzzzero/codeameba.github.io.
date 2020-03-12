@@ -1,0 +1,19 @@
+.navbar-header.header-logo {
+  font-size: 14pt;
+}
+a:hover {
+  color: #1cbc9c;
+}
+.tag-cloud-tags a:hover {
+  color: #1cbc9c;
+}
+.archive-item-link:hover {
+  color: #1cbc9c;
+}
+.post-toc .is-active-link::before {
+  background-color: #1cbc9c;
+}
+#disqus_thread {
+  max-width: 780px;
+  margin: 50px auto;
+}
