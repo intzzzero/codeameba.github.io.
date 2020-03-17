@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codeameba.github.io/"/>
-  <updated>2020-03-12T10:05:27.850Z</updated>
+  <updated>2020-03-17T09:54:54.145Z</updated>
   <id>http://codeameba.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>유용한 웹사이트 모음(마지막 업데이트 2020.03.17)</title>
+    <link href="http://codeameba.github.io/2020/03/17/programming/tip-useful-site/"/>
+    <id>http://codeameba.github.io/2020/03/17/programming/tip-useful-site/</id>
+    <published>2020-03-17T09:57:42.000Z</published>
+    <updated>2020-03-17T09:54:54.145Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ol><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript" target="_blank" rel="external nofollow noopener noreferrer">JavaScript | MDN</a></li><li><a href="https://ko.javascript.info/js" target="_blank" rel="external nofollow noopener noreferrer">코어 자바스크립트</a></li><li><a href="https://poiemaweb.com/" target="_blank" rel="external nofollow noopener noreferrer">웹 프로그래밍 튜토리얼 | PoiemaWeb</a></li><li><a href="https://illustrated.dev/" target="_blank" rel="external nofollow noopener noreferrer">Illustrated.dev</a></li><li><a href="https://keycode.info/" target="_blank" rel="external nofollow noopener noreferrer">JavaScript Event KeyCodes</a></li><li><a href="https://www.30secondsofcode.org/" target="_blank" rel="external nofollow noopener noreferrer">https://www.30secondsofcode.org/</a></li><li><a href="https://codequs.com/p/r1fCkfhQU/here-are-10-projects-you-can-do-to-build-with-vanilla-javascript/?fbclid=IwAR2I9Qpv_27gtzGG-lEUH7QF4AYIE4IVjnrYw9lC8RBlMu79Bw12JH4suuo" target="_blank" rel="external nofollow noopener noreferrer">Learn Startup - Build a successful business and change the world</a></li></ol><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ol><li><a href="https://flexboxfroggy.com/#ko" target="_blank" rel="external nofollow noopener noreferrer">Flexbox Froggy - A game for learning CSS flexbox</a></li><li><a href="https://leaverou.github.io/css3patterns/" target="_blank" rel="external nofollow noopener noreferrer">CSS3 Patterns Gallery</a></li><li><a href="https://www.mydevice.io/" target="_blank" rel="external nofollow noopener noreferrer">mydevice.io : web devices capabilities</a></li><li><a href="https://www.colorzilla.com/gradient-editor/" target="_blank" rel="external nofollow noopener noreferrer">https://www.colorzilla.com/gradient-editor/</a></li><li><a href="http://nthmaster.com/" target="_blank" rel="external nofollow noopener noreferrer">Mastering the :nth-child | CSS3 pseudo classes and :nth-child ranges</a></li><li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="external nofollow noopener noreferrer">A Complete Guide to Flexbox | CSS-Tricks</a></li><li><a href="https://webgradients.com/" target="_blank" rel="external nofollow noopener noreferrer">Fresh Background Gradients | WebGradients.com 💎</a></li><li><a href="https://www.the-art-of-web.com/css/timing-function/" target="_blank" rel="external nofollow noopener noreferrer">Transition Timing Functions &lt; CSS | The Art of Web</a></li><li><a href="https://cubic-bezier.com/#.17,.67,.83,.67" target="_blank" rel="external nofollow noopener noreferrer">cubic-bezier.com</a></li><li><a href="https://daneden.github.io/animate.css/" target="_blank" rel="external nofollow noopener noreferrer">Animate.css</a></li><li><a href="https://cssbattle.dev/" target="_blank" rel="external nofollow noopener noreferrer">CSSBattle</a></li><li><a href="https://pattle.github.io/simpsons-in-css/" target="_blank" rel="external nofollow noopener noreferrer">The Simpsons in CSS</a></li><li><a href="https://griddy.io/" target="_blank" rel="external nofollow noopener noreferrer">Griddy</a></li><li><a href="https://autoprefixer.github.io/" target="_blank" rel="external nofollow noopener noreferrer">Autoprefixer CSS online</a></li><li><a href="http://gridcalculator.dk/" target="_blank" rel="external nofollow noopener noreferrer">http://gridcalculator.dk/</a></li></ol><h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol><li><a href="https://en.bem.info/" target="_blank" rel="external nofollow noopener noreferrer">BEM</a></li><li><a href="https://caniuse.com/" target="_blank" rel="external nofollow noopener noreferrer">Can I use… Support tables for HTML5, CSS3, etc</a></li></ol><h2 id="Tool"><a href="#Tool" class="headerlink" title="Tool"></a>Tool</h2><ol><li><a href="https://git-scm.com/book/ko/v2" target="_blank" rel="external nofollow noopener noreferrer">Git - Book</a></li><li><a href="https://ovenapp.io/" target="_blank" rel="external nofollow noopener noreferrer">Oven - HTML5-Powered Web/App Prototyping Tool</a></li><li><a href="https://www.conventionalcommits.org/ko/v1.0.0/" target="_blank" rel="external nofollow noopener noreferrer">Conventional Commits</a></li></ol><h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><ol><li><a href="https://velog.io/@velopert" target="_blank" rel="external nofollow noopener noreferrer">velopert (Minjun Kim) - velog</a></li></ol><h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><ol><li><a href="https://blog.gaerae.com/" target="_blank" rel="external nofollow noopener noreferrer">개발자스럽다</a></li><li><a href="https://www.44bits.io/ko" target="_blank" rel="external nofollow noopener noreferrer">44BITS 기술 블로그: 클라우드 컴퓨팅, 프로그래밍, 컨테이너, 리눅스</a></li><li><a href="https://d2.naver.com/home" target="_blank" rel="external nofollow noopener noreferrer">NAVER D2</a></li><li><a href="https://www.ridicorp.com/blog/" target="_blank" rel="external nofollow noopener noreferrer">Blog - 리디주식회사 RIDI Corporation</a></li><li><a href="https://meetup.toast.com/" target="_blank" rel="external nofollow noopener noreferrer">TOAST Meetup</a></li><li><a href="http://engineering.vcnc.co.kr/" target="_blank" rel="external nofollow noopener noreferrer">VCNC Engineering Blog</a></li><li><a href="https://woowabros.github.io/" target="_blank" rel="external nofollow noopener noreferrer">우아한형제들 기술 블로그</a></li><li><a href="https://blog.dramancompany.com/" target="_blank" rel="external nofollow noopener noreferrer">DRAMA&amp;COMPANY | DReam And MAke it happen</a></li><li><a href="https://tech.kakao.com/" target="_blank" rel="external nofollow noopener noreferrer">tech.kakao.com – 카카오는 사람과 사람, 사람과 기술을 한층 가깝게 연결함으로써, 어제보다 더 나은 세상을 만들어 갑니다.</a></li><li><a href="https://www.zerocho.com/" target="_blank" rel="external nofollow noopener noreferrer">ZeroCho Blog</a></li><li><a href="https://tutorialzine.com/2019/02/10-amazing-javascript-games" target="_blank" rel="external nofollow noopener noreferrer">10 Amazing JavaScript Games In Under 13kB of Code - Tutorialzine</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;JavaScript&quot;&gt;&lt;a href=&quot;#JavaScript&quot; class=&quot;headerlink&quot; title=&quot;JavaScript&quot;&gt;&lt;/a&gt;JavaScript&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozil
+      
+    
+    </summary>
+    
+    
+      <category term="tip" scheme="http://codeameba.github.io/categories/tip/"/>
+    
+    
+      <category term="tip" scheme="http://codeameba.github.io/tags/tip/"/>
+    
+      <category term="유용한사이트" scheme="http://codeameba.github.io/tags/%EC%9C%A0%EC%9A%A9%ED%95%9C%EC%82%AC%EC%9D%B4%ED%8A%B8/"/>
+    
+      <category term="북마크" scheme="http://codeameba.github.io/tags/%EB%B6%81%EB%A7%88%ED%81%AC/"/>
+    
+      <category term="즐겨찾기" scheme="http://codeameba.github.io/tags/%EC%A6%90%EA%B2%A8%EC%B0%BE%EA%B8%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript Fundamental(마지막 업데이트: 20.03.12)</title>
@@ -55,39 +88,6 @@
   </entry>
   
   <entry>
-    <title>유용한 웹사이트 모음(마지막 업데이트 2020.02.24)</title>
-    <link href="http://codeameba.github.io/2020/02/24/programming/tip-useful-site/"/>
-    <id>http://codeameba.github.io/2020/02/24/programming/tip-useful-site/</id>
-    <published>2020-02-24T09:57:42.000Z</published>
-    <updated>2020-02-24T09:56:53.357Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ol><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript" target="_blank" rel="external nofollow noopener noreferrer">JavaScript | MDN</a></li><li><a href="https://ko.javascript.info/js" target="_blank" rel="external nofollow noopener noreferrer">코어 자바스크립트</a></li><li><a href="https://poiemaweb.com/" target="_blank" rel="external nofollow noopener noreferrer">웹 프로그래밍 튜토리얼 | PoiemaWeb</a></li><li><a href="https://illustrated.dev/" target="_blank" rel="external nofollow noopener noreferrer">Illustrated.dev</a></li><li><a href="https://keycode.info/" target="_blank" rel="external nofollow noopener noreferrer">JavaScript Event KeyCodes</a></li><li><a href="https://www.30secondsofcode.org/" target="_blank" rel="external nofollow noopener noreferrer">https://www.30secondsofcode.org/</a></li></ol><h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ol><li><a href="https://flexboxfroggy.com/#ko" target="_blank" rel="external nofollow noopener noreferrer">Flexbox Froggy - A game for learning CSS flexbox</a></li><li><a href="https://leaverou.github.io/css3patterns/" target="_blank" rel="external nofollow noopener noreferrer">CSS3 Patterns Gallery</a></li><li><a href="https://www.mydevice.io/" target="_blank" rel="external nofollow noopener noreferrer">mydevice.io : web devices capabilities</a></li><li><a href="https://www.colorzilla.com/gradient-editor/" target="_blank" rel="external nofollow noopener noreferrer">https://www.colorzilla.com/gradient-editor/</a></li><li><a href="http://nthmaster.com/" target="_blank" rel="external nofollow noopener noreferrer">Mastering the :nth-child | CSS3 pseudo classes and :nth-child ranges</a></li><li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="external nofollow noopener noreferrer">A Complete Guide to Flexbox | CSS-Tricks</a></li><li><a href="https://webgradients.com/" target="_blank" rel="external nofollow noopener noreferrer">Fresh Background Gradients | WebGradients.com 💎</a></li><li><a href="https://www.the-art-of-web.com/css/timing-function/" target="_blank" rel="external nofollow noopener noreferrer">Transition Timing Functions &lt; CSS | The Art of Web</a></li><li><a href="https://cubic-bezier.com/#.17,.67,.83,.67" target="_blank" rel="external nofollow noopener noreferrer">cubic-bezier.com</a></li><li><a href="https://daneden.github.io/animate.css/" target="_blank" rel="external nofollow noopener noreferrer">Animate.css</a></li><li><a href="https://cssbattle.dev/" target="_blank" rel="external nofollow noopener noreferrer">CSSBattle</a></li><li><a href="https://pattle.github.io/simpsons-in-css/" target="_blank" rel="external nofollow noopener noreferrer">The Simpsons in CSS</a></li><li><a href="https://griddy.io/" target="_blank" rel="external nofollow noopener noreferrer">Griddy</a></li><li><a href="https://autoprefixer.github.io/" target="_blank" rel="external nofollow noopener noreferrer">Autoprefixer CSS online</a></li><li><a href="http://gridcalculator.dk/" target="_blank" rel="external nofollow noopener noreferrer">http://gridcalculator.dk/</a></li></ol><h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol><li><a href="https://en.bem.info/" target="_blank" rel="external nofollow noopener noreferrer">BEM</a></li><li><a href="https://caniuse.com/" target="_blank" rel="external nofollow noopener noreferrer">Can I use… Support tables for HTML5, CSS3, etc</a></li></ol><h2 id="Tool"><a href="#Tool" class="headerlink" title="Tool"></a>Tool</h2><ol><li><a href="https://git-scm.com/book/ko/v2" target="_blank" rel="external nofollow noopener noreferrer">Git - Book</a></li><li><a href="https://ovenapp.io/" target="_blank" rel="external nofollow noopener noreferrer">Oven - HTML5-Powered Web/App Prototyping Tool</a></li></ol><h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><ol><li><a href="https://velog.io/@velopert" target="_blank" rel="external nofollow noopener noreferrer">velopert (Minjun Kim) - velog</a></li></ol><h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><ol><li><a href="https://blog.gaerae.com/" target="_blank" rel="external nofollow noopener noreferrer">개발자스럽다</a></li><li><a href="https://www.44bits.io/ko" target="_blank" rel="external nofollow noopener noreferrer">44BITS 기술 블로그: 클라우드 컴퓨팅, 프로그래밍, 컨테이너, 리눅스</a></li><li><a href="https://d2.naver.com/home" target="_blank" rel="external nofollow noopener noreferrer">NAVER D2</a></li><li><a href="https://www.ridicorp.com/blog/" target="_blank" rel="external nofollow noopener noreferrer">Blog - 리디주식회사 RIDI Corporation</a></li><li><a href="https://meetup.toast.com/" target="_blank" rel="external nofollow noopener noreferrer">TOAST Meetup</a></li><li><a href="http://engineering.vcnc.co.kr/" target="_blank" rel="external nofollow noopener noreferrer">VCNC Engineering Blog</a></li><li><a href="https://woowabros.github.io/" target="_blank" rel="external nofollow noopener noreferrer">우아한형제들 기술 블로그</a></li><li><a href="https://blog.dramancompany.com/" target="_blank" rel="external nofollow noopener noreferrer">DRAMA&amp;COMPANY | DReam And MAke it happen</a></li><li><a href="https://tech.kakao.com/" target="_blank" rel="external nofollow noopener noreferrer">tech.kakao.com – 카카오는 사람과 사람, 사람과 기술을 한층 가깝게 연결함으로써, 어제보다 더 나은 세상을 만들어 갑니다.</a></li><li><a href="https://www.zerocho.com/" target="_blank" rel="external nofollow noopener noreferrer">ZeroCho Blog</a></li><li><a href="https://tutorialzine.com/2019/02/10-amazing-javascript-games" target="_blank" rel="external nofollow noopener noreferrer">10 Amazing JavaScript Games In Under 13kB of Code - Tutorialzine</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;JavaScript&quot;&gt;&lt;a href=&quot;#JavaScript&quot; class=&quot;headerlink&quot; title=&quot;JavaScript&quot;&gt;&lt;/a&gt;JavaScript&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.mozil
-      
-    
-    </summary>
-    
-    
-      <category term="tip" scheme="http://codeameba.github.io/categories/tip/"/>
-    
-    
-      <category term="tip" scheme="http://codeameba.github.io/tags/tip/"/>
-    
-      <category term="유용한사이트" scheme="http://codeameba.github.io/tags/%EC%9C%A0%EC%9A%A9%ED%95%9C%EC%82%AC%EC%9D%B4%ED%8A%B8/"/>
-    
-      <category term="북마크" scheme="http://codeameba.github.io/tags/%EB%B6%81%EB%A7%88%ED%81%AC/"/>
-    
-      <category term="즐겨찾기" scheme="http://codeameba.github.io/tags/%EC%A6%90%EA%B2%A8%EC%B0%BE%EA%B8%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>불안의 이유</title>
     <link href="http://codeameba.github.io/2020/02/20/blog/do-it-now/"/>
     <id>http://codeameba.github.io/2020/02/20/blog/do-it-now/</id>
@@ -112,9 +112,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="불안의이유" scheme="http://codeameba.github.io/tags/%EB%B6%88%EC%95%88%EC%9D%98%EC%9D%B4%EC%9C%A0/"/>
     
@@ -181,17 +181,17 @@
       <category term="tip" scheme="http://codeameba.github.io/categories/tip/"/>
     
     
-      <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
-    
-      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="hexo" scheme="http://codeameba.github.io/tags/hexo/"/>
-    
       <category term="댓글기능구현" scheme="http://codeameba.github.io/tags/%EB%8C%93%EA%B8%80%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84/"/>
     
       <category term="디스커스" scheme="http://codeameba.github.io/tags/%EB%94%94%EC%8A%A4%EC%BB%A4%EC%8A%A4/"/>
     
       <category term="disqus" scheme="http://codeameba.github.io/tags/disqus/"/>
+    
+      <category term="hexo" scheme="http://codeameba.github.io/tags/hexo/"/>
+    
+      <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
   </entry>
   
@@ -222,9 +222,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="황금시대" scheme="http://codeameba.github.io/tags/%ED%99%A9%EA%B8%88%EC%8B%9C%EB%8C%80/"/>
     
@@ -258,9 +258,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="허니와클로버" scheme="http://codeameba.github.io/tags/%ED%97%88%EB%8B%88%EC%99%80%ED%81%B4%EB%A1%9C%EB%B2%84/"/>
     
@@ -290,9 +290,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -320,9 +320,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -350,9 +350,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -380,9 +380,9 @@
     
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
@@ -575,48 +575,6 @@
   </entry>
   
   <entry>
-    <title>TIL(190829) - TDD(Test Driven Development) 02</title>
-    <link href="http://codeameba.github.io/2019/08/29/programming/tdd-til-02/"/>
-    <id>http://codeameba.github.io/2019/08/29/programming/tdd-til-02/</id>
-    <published>2019-08-28T16:00:42.000Z</published>
-    <updated>2020-02-03T07:47:26.950Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="TIL-190829-TDD-Test-Driven-Development-02"><a href="#TIL-190829-TDD-Test-Driven-Development-02" class="headerlink" title="# TIL(190829) - TDD(Test Driven Development) 02"></a># TIL(190829) - TDD(Test Driven Development) 02</h1><hr><p><i>인프런의 ‘견고한 JS 소프트웨어 만들기’ 강의를 보며 정리함</i></p><h2 id="Jasmine-Setting-Up"><a href="#Jasmine-Setting-Up" class="headerlink" title="Jasmine Setting Up"></a>Jasmine Setting Up</h2><hr><ul><li><a href="https://github.com/jasmine/jasmine/releases?after=v2.9.1" target="_blank" rel="external nofollow noopener noreferrer">Releases · jasmine/jasmine · GitHub</a></li><li>강의에서는 2.7.0 버전 다운로드</li><li>SpecRunner.html 파일 실행</li></ul><img src="/images/spec-runner.png">### 테스트 러너<ul><li>자스민, 소스, 테스트 코드를 실행하는 파일</li><li>스탠드 얼론의 경우 HTML 파일이 테스트 러너</li><li>테스트 자동화를 하려면 카르마(Karma) 라이브러리와 연동해야 한다.</li></ul><h2 id="자스민의-활용"><a href="#자스민의-활용" class="headerlink" title="자스민의 활용"></a>자스민의 활용</h2><ul><li>자스민의 SpecRunner.html의 코드를 보면 아래와 같다.</li></ul><img src="/images/spec-runner-code.png"><ul><li>빨간 박스의 자바스크립트 세 줄이 자스민의 테스트 도구라고 할 수 있다.</li><li>그리고, 아래와 같이 본인의 테스트 코드를 넣어서 테스트를 한다.</li></ul><img src="/images/spec-runner-use.png"><ul><li>첫 번째 줄의 describe 함수는 테스트 꾸러미를 만들 때 사용함. 보통은 함수 하나 하나를 테스트 할 때 주로 사용한다.</li><li>두 번째 줄의 it 함수는 테스트 케이스를 만들 때 사용함. 함수의 기능을 테스트 한다고 보면 됨.  첫 번째 인자로 함수 기능의 스펙을 문자열 형태로 넣고, 두 번째 인자로 테스트 함수를 구현할 수 있는 함수를 넣는다.</li><li>세 번째 줄은 테스트 코드 구현 부. 함수의 결과값을 expect 함수의 인자로 넣고, 함수의 기대값을 toBe 함수의 인자로 넣는다.</li></ul><p><strong>테스트 꾸러미(Test Suite)</strong></p><ul><li>describe - 테스트 설명, 테스트 구현 함수</li></ul><p><strong>테스트 스펙(Test Spec)</strong></p><ul><li>it - 테스트 설명, 기대식을 가진 테스트 구현 함수</li></ul><p><strong>기대식과 매쳐</strong></p><ul><li>expect(결과값).toBe(기대값)</li></ul><p><strong>스파이</strong></p><ul><li>spyOn(감시할 객체, 감시할 메서드)</li></ul><h3 id="테스트-결과-확인-방법"><a href="#테스트-결과-확인-방법" class="headerlink" title="테스트 결과 확인 방법"></a>테스트 결과 확인 방법</h3><img src="/images/test-result.png"><ul><li>hello world는 describe  함수로 선언했던 테스트 꾸러미의 이름이라고 할 수 있음.</li><li>true is true는 hello world 테스트 꾸러미에 속한 테스트 케이스.</li><li>위의 내용을 통틀어 1개의 테스트가 실행되었으므로 1spec이라고 명시되었다.</li><li>실패는 없으므로 0 failures.</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;TIL-190829-TDD-Test-Driven-Development-02&quot;&gt;&lt;a href=&quot;#TIL-190829-TDD-Test-Driven-Development-02&quot; class=&quot;headerlink&quot; title=&quot;# TIL(1908
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
-    
-      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
-    
-      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
-    
-      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
-    
-      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
-    
-      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
-    
-      <category term="패스트캠퍼스" scheme="http://codeameba.github.io/tags/%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4/"/>
-    
-      <category term="TDD" scheme="http://codeameba.github.io/tags/TDD/"/>
-    
-      <category term="테스트주도개발" scheme="http://codeameba.github.io/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>[ReactJS] 무비앱 만들기 Day 04</title>
     <link href="http://codeameba.github.io/2019/08/29/programming/react-movie-app-04/"/>
     <id>http://codeameba.github.io/2019/08/29/programming/react-movie-app-04/</id>
@@ -655,6 +613,48 @@
       <category term="노마드코더" scheme="http://codeameba.github.io/tags/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94/"/>
     
       <category term="nomadcoders" scheme="http://codeameba.github.io/tags/nomadcoders/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TIL(190829) - TDD(Test Driven Development) 02</title>
+    <link href="http://codeameba.github.io/2019/08/29/programming/tdd-til-02/"/>
+    <id>http://codeameba.github.io/2019/08/29/programming/tdd-til-02/</id>
+    <published>2019-08-28T16:00:42.000Z</published>
+    <updated>2020-02-03T07:47:26.950Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="TIL-190829-TDD-Test-Driven-Development-02"><a href="#TIL-190829-TDD-Test-Driven-Development-02" class="headerlink" title="# TIL(190829) - TDD(Test Driven Development) 02"></a># TIL(190829) - TDD(Test Driven Development) 02</h1><hr><p><i>인프런의 ‘견고한 JS 소프트웨어 만들기’ 강의를 보며 정리함</i></p><h2 id="Jasmine-Setting-Up"><a href="#Jasmine-Setting-Up" class="headerlink" title="Jasmine Setting Up"></a>Jasmine Setting Up</h2><hr><ul><li><a href="https://github.com/jasmine/jasmine/releases?after=v2.9.1" target="_blank" rel="external nofollow noopener noreferrer">Releases · jasmine/jasmine · GitHub</a></li><li>강의에서는 2.7.0 버전 다운로드</li><li>SpecRunner.html 파일 실행</li></ul><img src="/images/spec-runner.png">### 테스트 러너<ul><li>자스민, 소스, 테스트 코드를 실행하는 파일</li><li>스탠드 얼론의 경우 HTML 파일이 테스트 러너</li><li>테스트 자동화를 하려면 카르마(Karma) 라이브러리와 연동해야 한다.</li></ul><h2 id="자스민의-활용"><a href="#자스민의-활용" class="headerlink" title="자스민의 활용"></a>자스민의 활용</h2><ul><li>자스민의 SpecRunner.html의 코드를 보면 아래와 같다.</li></ul><img src="/images/spec-runner-code.png"><ul><li>빨간 박스의 자바스크립트 세 줄이 자스민의 테스트 도구라고 할 수 있다.</li><li>그리고, 아래와 같이 본인의 테스트 코드를 넣어서 테스트를 한다.</li></ul><img src="/images/spec-runner-use.png"><ul><li>첫 번째 줄의 describe 함수는 테스트 꾸러미를 만들 때 사용함. 보통은 함수 하나 하나를 테스트 할 때 주로 사용한다.</li><li>두 번째 줄의 it 함수는 테스트 케이스를 만들 때 사용함. 함수의 기능을 테스트 한다고 보면 됨.  첫 번째 인자로 함수 기능의 스펙을 문자열 형태로 넣고, 두 번째 인자로 테스트 함수를 구현할 수 있는 함수를 넣는다.</li><li>세 번째 줄은 테스트 코드 구현 부. 함수의 결과값을 expect 함수의 인자로 넣고, 함수의 기대값을 toBe 함수의 인자로 넣는다.</li></ul><p><strong>테스트 꾸러미(Test Suite)</strong></p><ul><li>describe - 테스트 설명, 테스트 구현 함수</li></ul><p><strong>테스트 스펙(Test Spec)</strong></p><ul><li>it - 테스트 설명, 기대식을 가진 테스트 구현 함수</li></ul><p><strong>기대식과 매쳐</strong></p><ul><li>expect(결과값).toBe(기대값)</li></ul><p><strong>스파이</strong></p><ul><li>spyOn(감시할 객체, 감시할 메서드)</li></ul><h3 id="테스트-결과-확인-방법"><a href="#테스트-결과-확인-방법" class="headerlink" title="테스트 결과 확인 방법"></a>테스트 결과 확인 방법</h3><img src="/images/test-result.png"><ul><li>hello world는 describe  함수로 선언했던 테스트 꾸러미의 이름이라고 할 수 있음.</li><li>true is true는 hello world 테스트 꾸러미에 속한 테스트 케이스.</li><li>위의 내용을 통틀어 1개의 테스트가 실행되었으므로 1spec이라고 명시되었다.</li><li>실패는 없으므로 0 failures.</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;TIL-190829-TDD-Test-Driven-Development-02&quot;&gt;&lt;a href=&quot;#TIL-190829-TDD-Test-Driven-Development-02&quot; class=&quot;headerlink&quot; title=&quot;# TIL(1908
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
+    
+      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
+    
+      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
+    
+      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
+    
+      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
+    
+      <category term="패스트캠퍼스" scheme="http://codeameba.github.io/tags/%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4/"/>
+    
+      <category term="TDD" scheme="http://codeameba.github.io/tags/TDD/"/>
+    
+      <category term="테스트주도개발" scheme="http://codeameba.github.io/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%A3%BC%EB%8F%84%EA%B0%9C%EB%B0%9C/"/>
     
   </entry>
   
