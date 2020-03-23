@@ -34,10 +34,10 @@
     <meta name="description" content="생각과 학습의 아카이브">
 
 
-<link rel="canonical" href="http://codeameba.github.io/2020/03/12/programming/js-fundamental/">
+<link rel="canonical" href="http://codeameba.github.io/2020/03/23/programming/js-fundamental/">
 
 
-<title>JavaScript Fundamental(마지막 업데이트: 20.03.12) | AmebaLab</title>
+<title>JavaScript Fundamental(마지막 업데이트: 20.03.23) | AmebaLab</title>
 
 
 
@@ -200,7 +200,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">JavaScript Fundamental(마지막 업데이트: 20.03.12)</h1>
+            <h1 class="post-title">JavaScript Fundamental(마지막 업데이트: 20.03.23)</h1>
             
                 <div class="post-meta">
                     
@@ -209,7 +209,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">3월 12, 2020&nbsp;&nbsp;18:40:42</a>
+                        Date: <a href="#">3월 23, 2020&nbsp;&nbsp;18:30:42</a>
                         </span>
                     
                     
@@ -614,8 +614,7 @@
 <li><p><strong>모듈 패턴</strong></p>
 <ul>
 <li>모듈(module)은 여러 기능을 하나로 묶은 것으로, 클로저(closure)를 즉시 실행 함수(IIFE)로 감싼 형태다.</li>
-<li>이를 통하여 내부의 변수나 함수는 은폐하고, 원하는 함수만 공개할 수 있다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = Module || &#123;&#125;;</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">_Module</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'NoName'</span>; <span class="comment">// 프라이빗 변수</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 프라이빗 함수</span></span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">  &#125;</span><br><span class="line">  _Module.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 퍼블릭 함수</span></span><br><span class="line">    <span class="built_in">console</span>.log(getName());</span><br><span class="line">  &#125;;</span><br><span class="line">  _Module.setName = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123; <span class="comment">// 퍼블릭 함수</span></span><br><span class="line">    name = x;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)(Module)</span><br><span class="line"></span><br><span class="line">Module.setName(<span class="string">'Tom'</span>);</span><br><span class="line">Module.showName(); <span class="comment">// Tom</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>이를 통하여 내부의 변수나 함수는 은폐하고, 원하는 함수만 공개할 수 있다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = Module || &#123;&#125;;</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">_Module</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'NoName'</span>; <span class="comment">// 프라이빗 변수</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 프라이빗 함수</span></span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">  &#125;</span><br><span class="line">  _Module.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 퍼블릭 함수</span></span><br><span class="line">    <span class="built_in">console</span>.log(getName());</span><br><span class="line">  &#125;;</span><br><span class="line">  _Module.setName = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123; <span class="comment">// 퍼블릭 함수</span></span><br><span class="line">    name = x;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)(Module)</span><br><span class="line"></span><br><span class="line">Module.setName(<span class="string">'Tom'</span>);</span><br><span class="line">Module.showName(); <span class="comment">// Tom</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ol>
@@ -623,6 +622,56 @@
 <li><strong>참고:</strong><ul>
 <li><a href="https://webcoding.tistory.com/entry/JavaScript-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AA%A8%EB%93%88-%ED%8C%A8%ED%84%B4%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%BA%A1%EC%8A%90%ED%99%94" target="_blank" rel="external nofollow noopener noreferrer">JavaScript 자바스크립트 모듈 패턴을 이용한 캡슐화 :: 심플한 코딩 백과사전</a></li>
 <li><a href="https://poiemaweb.com/js-object-oriented-programming" target="_blank" rel="external nofollow noopener noreferrer">Object-Oriented Programming | PoiemaWeb</a></li>
+<li><a href="https://www.zerocho.com/category/Javascript/post/57541bef7dfff917002c4e86" target="_blank" rel="external nofollow noopener noreferrer">(JavaScript) 디자인 패턴(싱글턴, 모듈, 생성자) - ZeroCho Blog</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="apply-call-bind"><a href="#apply-call-bind" class="headerlink" title="apply, call, bind"></a>apply, call, bind</h2><ul>
+<li><p>Function 객체의 메서드에는 apply와 call이 있으며, this 값과 함수의 인수를 사용하여 함수를 실행하는 메서드다.</p>
+</li>
+<li><p>apply와 call은 동일하게 동작하며, 유일한 차이점은 인수를 넘기는 방식이다. apply는 배열로 인수를 넘기고, call은 쉼표로 구분한 값의 목록으로 인수를 넘긴다. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params">greetings, honorifics</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(greetings + <span class="string">''</span> + honorifics + <span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tom = &#123; <span class="attr">name</span>: <span class="string">'Tom Sawyer'</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> becky = &#123; <span class="attr">name</span>: <span class="string">'Becky Thatcher'</span> &#125;;</span><br><span class="line">say.apply(tom, [<span class="string">'Hello! '</span>, <span class="string">'Mr.'</span>]); <span class="comment">// Hello! Mr.Tom Sawyer</span></span><br><span class="line">say.call(becky, <span class="string">'Hi '</span>, <span class="string">'Ms.'</span>); <span class="comment">// Hi Ms.Becky Thatcher</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>bind 역시 Function 객체의 메서드이며, 객체에 함수를 바인드하는 역할을 한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params">greetings, honorifics</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(greetings + <span class="string">''</span> + honorifics + <span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tom = &#123; <span class="attr">name</span>: <span class="string">'Tom Sawyer'</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> sayToTom = say.bind(tom);</span><br><span class="line">sayToTom(<span class="string">'hello~ '</span>, <span class="string">'Mr.'</span>); <span class="comment">// hello~ Mr.Tom Sawyer</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="화살표-함수-arrow-function"><a href="#화살표-함수-arrow-function" class="headerlink" title="화살표 함수(arrow function)"></a>화살표 함수(arrow function)</h2><p>ES6에서는 익명함수의 단축 표현인 <strong>화살표 함수 표현식</strong>이 추가되었다. 화살표 함수 표현식은 아래와 같이 다양한 방법으로 작성이 가능하다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="function">(<span class="params">x</span>) =&gt;</span> &#123;<span class="keyword">return</span> x*x&#125;; <span class="comment">// 함수 표현식</span></span><br><span class="line"><span class="keyword">const</span> f = <span class="function">(<span class="params">x, y, z</span>) =&gt;</span> &#123;...&#125;; <span class="comment">// 인수가 여럿이라면 쉼표로 구분</span></span><br><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="params">x</span> =&gt;</span> &#123;<span class="keyword">return</span> x*x&#125;; <span class="comment">// 인수가 하나라면 괄호 생략 가능</span></span><br><span class="line"><span class="keyword">const</span> f = <span class="function"><span class="params">()</span> =&gt;</span> &#123;...&#125;; <span class="comment">// 인수가 없을 때에는 빈 괄호 필수</span></span><br><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="params">x</span> =&gt;</span> x*x; <span class="comment">// 함수 바디에 return문만 있으면 return 생략 가능</span></span><br><span class="line"><span class="keyword">const</span> f = <span class="function">(<span class="params">a, b</span>) =&gt;</span> (&#123;<span class="attr">x</span>:a, <span class="attr">y</span>:b&#125;); <span class="comment">// 반환값이 객체 리터럴이라면 괄호 필수</span></span><br><span class="line">(<span class="function"><span class="params">x</span> =&gt;</span> x*x)(<span class="number">3</span>); <span class="comment">// 즉시실행함수(IIFE)로 화살표 함수 사용 가능</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="일반-함수와-화살표-함수의-차이"><a href="#일반-함수와-화살표-함수의-차이" class="headerlink" title="일반 함수와 화살표 함수의 차이."></a>일반 함수와 화살표 함수의 차이.</h3><ol>
+<li><p><strong>this</strong></p>
+<ul>
+<li>함수 리터럴로 정의한 함수는 <code>this</code>의 값이 함수를 호출할 때 결정되지만, 화살표 함수의 <code>this</code>값은 함수를 정의할 때 결정된다.</li>
+</ul>
+</li>
+<li><p><strong>arguments 변수가 없음</strong></p>
+<ul>
+<li>화살표 함수 안에는 arguments 변수가 정의되어 있지 않아 사용할 수 없다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f  = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">f(); <span class="comment">// Uncaught ReferenceError: arguments is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> s = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="built_in">arguments</span>);&#125;;</span><br><span class="line">s(); <span class="comment">// Arguments [callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>생성자로 사용 불가</strong></p>
+<ul>
+<li>화살표 함수 앞에는 <code>new</code> 연산자를 붙여 호출할 수 없다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Person = <span class="function">(<span class="params">name, age</span>) =&gt;</span> &#123;<span class="keyword">this</span>.name = name; <span class="keyword">this</span>.age = age;&#125;;</span><br><span class="line"><span class="keyword">const</span> Tom = <span class="keyword">new</span> Person(<span class="string">'Tom'</span>, <span class="number">25</span>); <span class="comment">// Uncaught TypeError: Person is not a constructor</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Coffee = <span class="function"><span class="keyword">function</span>(<span class="params">name, price</span>) </span>&#123;<span class="keyword">this</span>.name = name; <span class="keyword">this</span>.price = price;&#125;;</span><br><span class="line"><span class="keyword">const</span> americano = <span class="keyword">new</span> Coffee(<span class="string">'Americano'</span>, <span class="number">4100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(americano); <span class="comment">// Coffee &#123;name: "Americano", price: 4100&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(americano.price); <span class="comment">// 4100</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>yield 키워드를 쓸 수 없다</strong></p>
+<ul>
+<li>화살표 함수 안에서는 <code>yield</code> 키워드를 쓸 수 없으며, 따라서 화살표 함수는 제너레이터의 기능을 수행할 수 없다.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>참고:</strong><ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/%EC%95%A0%EB%A1%9C%EC%9A%B0_%ED%8E%91%EC%85%98" target="_blank" rel="external nofollow noopener noreferrer">화살표 함수 - JavaScript | MDN</a></li>
+<li><a href="https://poiemaweb.com/es6-arrow-function" target="_blank" rel="external nofollow noopener noreferrer">Arrow function | PoiemaWeb</a></li>
+<li><a href="https://ko.javascript.info/arrow-functions-basics" target="_blank" rel="external nofollow noopener noreferrer">화살표 함수 기초</a></li>
+<li><a href="https://ko.javascript.info/arrow-functions" target="_blank" rel="external nofollow noopener noreferrer">화살표 함수에 대한 재고</a></li>
+<li><a href="https://ko.javascript.info/object-methods" target="_blank" rel="external nofollow noopener noreferrer">메서드와 ‘this’</a></li>
+<li><a href="https://ko.javascript.info/generators" target="_blank" rel="external nofollow noopener noreferrer">제너레이터</a></li>
 </ul>
 </li>
 </ul>
@@ -659,10 +708,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/03/20/programming/tip-useful-site/">유용한 웹사이트 모음(마지막 업데이트 2020.03.20)</a>
             
-            
-            <a class="next" rel="next" href="/2020/02/20/blog/do-it-now/">불안의 이유</a>
+            <a class="next" rel="next" href="/2020/03/20/programming/tip-useful-site/">유용한 웹사이트 모음(마지막 업데이트 2020.03.20)</a>
             
         </section>
 
