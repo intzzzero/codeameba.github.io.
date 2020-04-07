@@ -461,6 +461,22 @@
 </ul>
 </li>
 </ul>
+<h2 id="제너레이터-generator"><a href="#제너레이터-generator" class="headerlink" title="제너레이터(generator)"></a>제너레이터(generator)</h2><ul>
+<li>반복 가능한 이터레이터를 값으로 반환</li>
+<li>작업의 일시 정지와 재시작이 가능하며 자신의 상태를 관리</li>
+<li>제너레이터는 아래와 같이 <code>function*</code> 문으로 정의하며, 하나 이상의 <code>yield</code> 표현식을 포함한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">gen</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> iter = <span class="keyword">get</span>();</span><br><span class="line">console.log(iter.next()); // &#123;value: <span class="number">1</span>, <span class="attr">done</span>: <span class="literal">false</span>&#125;</span><br><span class="line"><span class="built_in">console</span>.log(iter.next()); <span class="comment">// &#123;value: 2, done: false&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(iter.next()); <span class="comment">// &#123;value: 3, done: false&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(iter.next()); <span class="comment">// &#123;value: undefined, done: true&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li>위와 같이 제너레이터 함수의 <code>yield</code>는 프로그램이 일시적으로 정지하는 위치라고 할 수 있다.</li>
+<li><code>yield</code> 표현식은 지정된 표현식을 값으로 갖고, 이를 변수에 대입할 수 있다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="keyword">yield</span> <span class="number">2</span>;</span><br></pre></td></tr></table></figure></li>
+<li>제너레이터로 생성한 이터레이터는 이터러블이므로 <code>for..of</code>문을 쓸 수 있다.</li>
+</ul>
+<ul>
+<li><strong>참고:</strong><ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/yield" target="_blank" rel="external nofollow noopener noreferrer">yield - JavaScript | MDN</a></li>
+<li><a href="https://meetup.toast.com/posts/73" target="_blank" rel="external nofollow noopener noreferrer">ES6의 제너레이터를 사용한 비동기 프로그래밍 : TOAST Meetup</a></li>
+<li><a href="https://ko.javascript.info/generators" target="_blank" rel="external nofollow noopener noreferrer">제너레이터</a></li>
+</ul>
+</li>
+</ul>
 
         </div>
 
@@ -493,6 +509,8 @@
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/04/07/programming/js-fundamental-04/">JavaScript Fundamental 04(마지막 업데이트: 20.04.07)</a>
             
             
             <a class="next" rel="next" href="/2020/03/21/programming/js-fundamental-02/">JavaScript Fundamental 02(마지막 업데이트: 20.03.21)</a>
