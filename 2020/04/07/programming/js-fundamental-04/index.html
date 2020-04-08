@@ -37,7 +37,7 @@
 <link rel="canonical" href="http://codeameba.github.io/2020/04/07/programming/js-fundamental-04/">
 
 
-<title>JavaScript Fundamental 04(마지막 업데이트: 20.04.07) | AmebaLab</title>
+<title>JavaScript Fundamental 04(마지막 업데이트: 20.04.08) | AmebaLab</title>
 
 
 
@@ -200,7 +200,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">JavaScript Fundamental 04(마지막 업데이트: 20.04.07)</h1>
+            <h1 class="post-title">JavaScript Fundamental 04(마지막 업데이트: 20.04.08)</h1>
             
                 <div class="post-meta">
                     
@@ -245,6 +245,25 @@
 <li><a href="https://poiemaweb.com/js-prototype" target="_blank" rel="external nofollow noopener noreferrer">poiemaweb - 프로토타입</a></li>
 <li><a href="https://poiemaweb.com/es6-class" target="_blank" rel="external nofollow noopener noreferrer">poiemaweb - 클래스</a></li>
 <li><a href="https://ko.javascript.info/prototype-inheritance" target="_blank" rel="external nofollow noopener noreferrer">코어자바스크립트 - 프로토타입 상속</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="접근자-프로퍼티"><a href="#접근자-프로퍼티" class="headerlink" title="접근자 프로퍼티"></a>접근자 프로퍼티</h2><ul>
+<li><p>일반적으로 값 을 가져올 때 쓰는 접근자 프로퍼티를 <code>getter</code>, 값을 수정할 때 쓰는 접근자 프로퍼티를 <code>setter</code>라고 부른다.</p>
+</li>
+<li><p><strong>접근자 프로퍼티를 사용하는 이유</strong></p>
+<ul>
+<li>객체 밖에서 객체의 프로퍼티를 직접적으로 읽거나 쓰는 행위는 데이터의 유지 보수성을 해친다.</li>
+<li>따라서, 객체가 가진 프로퍼티 값을 읽고 쓸 수 있는 특정 프로퍼티가 <code>getter</code>와 <code>setter</code>이다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  _name: <span class="string">'Tom'</span>,</span><br><span class="line">  <span class="keyword">get</span> name() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._name;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span> name(value) &#123;</span><br><span class="line">    <span class="keyword">const</span> str = value.charAt(<span class="number">0</span>).toUpperCase() + value.substring(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">this</span>._name = str;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// Tom</span></span><br><span class="line">person.name = <span class="string">'jane'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">// Jane</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>접근자 프로퍼티가 없는 객체에 접근자 프로퍼티를 추가하거나 정의할 때에는 <code>Object.defineProperty</code>나 <code>Object.defineProperties</code> 메서드를 사용한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(user, <span class="string">'name'</span>, &#123;</span><br><span class="line">  <span class="keyword">get</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._name;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span>(value) &#123;</span><br><span class="line">    <span class="keyword">if</span> (value.length &lt; <span class="number">4</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Too short! more than 4 characters'</span>);</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>._name = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">user.name = <span class="string">'Peter'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(user.name); <span class="comment">// Peter</span></span><br><span class="line"></span><br><span class="line">user.name = <span class="string">'Li'</span>; <span class="comment">// Too short! more than 4 characters</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>참고:</strong></p>
+<ul>
+<li><a href="https://ko.javascript.info/property-accessors#ref-614" target="_blank" rel="external nofollow noopener noreferrer">프로퍼티 getter와 setter</a></li>
 </ul>
 </li>
 </ul>
