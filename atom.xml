@@ -522,13 +522,13 @@
       <category term="내가 읽은 책" scheme="http://codeameba.github.io/categories/%EB%82%B4%EA%B0%80-%EC%9D%BD%EC%9D%80-%EC%B1%85/"/>
     
     
-      <category term="book review" scheme="http://codeameba.github.io/tags/book-review/"/>
-    
-      <category term="독후감" scheme="http://codeameba.github.io/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
-    
       <category term="마케팅" scheme="http://codeameba.github.io/tags/%EB%A7%88%EC%BC%80%ED%8C%85/"/>
     
+      <category term="book review" scheme="http://codeameba.github.io/tags/book-review/"/>
+    
       <category term="마켓4.0" scheme="http://codeameba.github.io/tags/%EB%A7%88%EC%BC%934-0/"/>
+    
+      <category term="독후감" scheme="http://codeameba.github.io/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
     
   </entry>
   
@@ -554,11 +554,11 @@
       <category term="내가 읽은 책" scheme="http://codeameba.github.io/categories/%EB%82%B4%EA%B0%80-%EC%9D%BD%EC%9D%80-%EC%B1%85/"/>
     
     
+      <category term="마케팅" scheme="http://codeameba.github.io/tags/%EB%A7%88%EC%BC%80%ED%8C%85/"/>
+    
       <category term="book review" scheme="http://codeameba.github.io/tags/book-review/"/>
     
       <category term="독후감" scheme="http://codeameba.github.io/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
-    
-      <category term="마케팅" scheme="http://codeameba.github.io/tags/%EB%A7%88%EC%BC%80%ED%8C%85/"/>
     
       <category term="마케터의 일" scheme="http://codeameba.github.io/tags/%EB%A7%88%EC%BC%80%ED%84%B0%EC%9D%98-%EC%9D%BC/"/>
     
