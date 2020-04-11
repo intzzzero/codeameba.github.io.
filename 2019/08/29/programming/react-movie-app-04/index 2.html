@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/08/29/programming/react-movie-app-04/">
+
+
+<title>[ReactJS] 무비앱 만들기 Day 04 | AmebaLab</title>
+
+
+
+    <link rel="icon" href="/image/favicon2.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AmebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">AmebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">AmebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[ReactJS] 무비앱 만들기 Day 04</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">8월 29, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="ReactJS-무비앱-만들기-Day-04"><a href="#ReactJS-무비앱-만들기-Day-04" class="headerlink" title="[ReactJS] 무비앱 만들기 Day 04"></a>[ReactJS] 무비앱 만들기 Day 04</h1><hr>
+<h2 id="3-0-CSS-in-React-part-One"><a href="#3-0-CSS-in-React-part-One" class="headerlink" title="3.0 CSS in React part One"></a>3.0 CSS in React part One</h2><hr>
+<h3 id="리액트에서-CSS를-적용하는-방법-01"><a href="#리액트에서-CSS를-적용하는-방법-01" class="headerlink" title="리액트에서 CSS를 적용하는 방법 01"></a>리액트에서 CSS를 적용하는 방법 01</h3><ul>
+<li>styles.css 파일을 만들어서 스타일 적용</li>
+<li>CSS를 적용할 요소에 className으로 클래스명 적어야 함</li>
+<li>최상위 파일(index.js)에 import<ul>
+<li><code>import &#39;styles.css&#39;;</code></li>
+</ul>
+</li>
+<li>나쁜 방법은 아니나, 컴포넌트와 CSS가 분리되어 있다는 게 단점.<ul>
+<li>컴포넌트를 쓰는 가장 큰 이유는 캡슐화(Encapulation)에 있음.</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h3 id="리액트에서-CSS를-적용하는-방법-02"><a href="#리액트에서-CSS를-적용하는-방법-02" class="headerlink" title="리액트에서 CSS를 적용하는 방법 02"></a>리액트에서 CSS를 적용하는 방법 02</h3><ul>
+<li>기능별로 별도 컴포넌트를 생성</li>
+<li>각 컴포넌트마다 CSS 파일의 생성 및 적용</li>
+<li>이 방법에도 단점은 있음<ul>
+<li>첫째, CSS 파일을 생성해야 된다는 점.</li>
+<li>둘째, 사용할 때마다 import를 해야 한다는 점.</li>
+<li>셋째, className을 기억해야 한다는 점.(CSS는 Global로 작동하기 때문)</li>
+</ul>
+</li>
+</ul>
+<br>
+
+<h2 id="3-1-CSS-in-React-part-Two"><a href="#3-1-CSS-in-React-part-Two" class="headerlink" title="3.1 CSS in React part Two"></a>3.1 CSS in React part Two</h2><hr>
+<h3 id="리액트에서-CSS를-적용하는-방법-03"><a href="#리액트에서-CSS를-적용하는-방법-03" class="headerlink" title="리액트에서 CSS를 적용하는 방법 03"></a>리액트에서 CSS를 적용하는 방법 03</h3><ul>
+<li>CSS를 컴포넌트 스코프에서 작동하도록 하는 방법.</li>
+<li>CSS 모듈이라고 부름.</li>
+<li>className을 임의화해서 local로 작동하게 함.</li>
+</ul>
+<p><strong>src - Components - Header - Header.module.css</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navList</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>CSS 파일명을 <code>Header.module.css</code> 방식으로 변경</li>
+<li>import는 자바스크립트와 같은 방식<ul>
+<li><code>import styles from ‘./Header.module.css’;</code></li>
+</ul>
+</li>
+<li>className을 자바스크립트의 객체처럼 사용함.</li>
+</ul>
+<p><strong>src - Components - Header - Header.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; (</span><br><span class="line">    &lt;header&gt;</span><br><span class="line">      &lt;ul className=&#123;styles.navList&#125;&gt; <span class="comment">// &lt;- like this</span></span><br><span class="line">        &lt;li&gt;</span><br><span class="line">          &lt;a href=<span class="string">"/a"</span>&gt;Home&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">          &lt;a href=<span class="string">"/tv"</span>&gt;TV&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">          &lt;a href=<span class="string">"/search"</span>&gt;Search&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;</span><br><span class="line">      &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>header&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>class명이 랜덤으로 생성됨.</p>
+<img src="/images/random-class.png">
+</li>
+<li><p><code>yarn add node-sass</code> 설치 후 아래와 같이 작성할 수도 있음.</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.navList</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  &amp;<span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: deeppink;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>이러한 모듈 방식도 괜찮기는 하지만 className을 기억해야 한다는 점이 단점이다.</p>
+</li>
+<li><p>여전히 JS와 CSS가 동떨어져 있다는 느낌을 지울 수가 없다. 둘을 하나의 파일에서 쓸 수 있는 방법은 무엇이 있을까?</p>
+</li>
+</ul>
+<br>
+
+<h2 id="3-2-CSS-in-React-part-Three"><a href="#3-2-CSS-in-React-part-Three" class="headerlink" title="3.2 CSS in React part Three"></a>3.2 CSS in React part Three</h2><hr>
+<h3 id="리액트에서-CSS를-적용하는-방법-04"><a href="#리액트에서-CSS를-적용하는-방법-04" class="headerlink" title="리액트에서 CSS를 적용하는 방법 04"></a>리액트에서 CSS를 적용하는 방법 04</h3><ul>
+<li>JS를 이용한 니코의 최애 방법은 <strong>styled-components</strong></li>
+<li>우선 설치가 필요함<ul>
+<li><code>yarn add styled-components</code></li>
+</ul>
+</li>
+<li>설치 후 import<ul>
+<li><code>import styled from &#39;styled-components&#39;</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>TIP)<br><strong>vscode-styled-components</strong> 확장 프로그램을 설치하면 텍스트에 색상이 들어감.</p>
+</blockquote>
+<ul>
+<li>styled-component 작성 후 아래와 같이 태그로 사용</li>
+</ul>
+<p><strong>src - Components - Header.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> styled <span class="keyword">from</span> <span class="string">'styled-components'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> List = styled.ul<span class="string">`</span></span><br><span class="line"><span class="string">  display: flex;</span></span><br><span class="line"><span class="string">  &amp;:hover &#123;</span></span><br><span class="line"><span class="string">    background-color: deeppink;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; (</span><br><span class="line">    &lt;header&gt;</span><br><span class="line">      &lt;List&gt; <span class="comment">// &lt;- here</span></span><br><span class="line">        &lt;li&gt;</span><br><span class="line">          &lt;a href=<span class="string">"/"</span>&gt;Home&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">          &lt;a href=<span class="string">"/tv"</span>&gt;TV&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">          &lt;a href=<span class="string">"/search"</span>&gt;Search&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>li&gt;</span><br><span class="line">      &lt;<span class="regexp">/List&gt; /</span><span class="regexp">/ &lt;- here</span></span><br><span class="line"><span class="regexp">    &lt;/</span>header&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><ul>
+<li><code>&lt;a&gt;&lt;/a&gt;</code>태그를 사용하면 링크로 이동할 때마다 뷰를 다시 렌더링 하는데, 굉장히 비효율적이다.</li>
+<li>따라서, React에서는 <code>Link</code>라는 기능을 사용함.<ul>
+<li><code>import { Link } from &#39;react-router-dom&#39;;</code></li>
+<li>동일한 페이지에 있을 경우 해당 요소만 교체하는 방식</li>
+</ul>
+</li>
+<li>이 경우에는 아래와 같이 styled-components를 적용<ul>
+<li><code>const SLink = styled(Link)``;</code></li>
+</ul>
+</li>
+<li>Link는 Router 밖에서 사용할 수 없으므로 아래와 같은 형식의 문장 구조를 이룸</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; (</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;Header /&gt; <span class="comment">// &lt;- here</span></span><br><span class="line">      &lt;Switch&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"/"</span> exact component=&#123;Home&#125; /&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"/tv"</span> exact component=&#123;TV&#125; /&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"/tv/popular"</span> render=&#123;() =&gt; <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>popular<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>&#125; /&gt;</span><br><span class="line">        &lt;Route path=<span class="string">"/search"</span> component=&#123;Search&#125; /&gt;</span><br><span class="line">        &lt;Redirect <span class="keyword">from</span>=<span class="string">"*"</span> to=<span class="string">"/"</span> /&gt;</span><br><span class="line">      &lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>&gt;</span><br><span class="line">  &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="3-3-GlobalStyles-and-Header"><a href="#3-3-GlobalStyles-and-Header" class="headerlink" title="3.3 GlobalStyles and Header"></a>3.3 GlobalStyles and Header</h2><hr>
+<h3 id="Global-style-적용"><a href="#Global-style-적용" class="headerlink" title="Global style 적용"></a>Global style 적용</h3><ul>
+<li>글로벌로 설정하는 이유는 해당 사이트의 폰트를 설정하거나, styled-components를 설치하거나 하는 등의 작업 때문.</li>
+<li>우선 <code>yarn add styled-reset</code></li>
+<li><a href="https://github.com/zacanger/styled-reset" target="_blank" rel="external nofollow noopener noreferrer">GitHub - zacanger/styled-reset: Eric Meyer’s Reset CSS for styled-components</a></li>
+<li>styled-reset은 SC를 이용하여 CSS초기화 한 뒤 0의 상태에서 시작할 수 있게 해줌.</li>
+<li>GlobalStyles.js 파일 생성</li>
+</ul>
+<p><strong>src - Components - GlobalStyles.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createGlobalStyle &#125; <span class="keyword">from</span> <span class="string">'styled-components'</span>;</span><br><span class="line"><span class="keyword">import</span> reset <span class="keyword">from</span> <span class="string">'styled-reset'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> globalStyles = createGlobalStyle<span class="string">`</span></span><br><span class="line"><span class="string">  <span class="subst">$&#123;reset&#125;</span>;</span></span><br><span class="line"><span class="string">  a &#123;</span></span><br><span class="line"><span class="string">    text-decoration: none;</span></span><br><span class="line"><span class="string">    color: inherit;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  * &#123;</span></span><br><span class="line"><span class="string">    box-sizing: border-box;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  body &#123;</span></span><br><span class="line"><span class="string">    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;</span></span><br><span class="line"><span class="string">    font-size: 14px;</span></span><br><span class="line"><span class="string">    background-color: rgba(20, 20, 20, 1);</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> globalStyles;</span><br></pre></td></tr></table></figure>
+
+<p><strong>src - Components - App.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'Components/Router'</span>;</span><br><span class="line"><span class="keyword">import</span> GlobalStyles <span class="keyword">from</span> <span class="string">'./GlobalStyles'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;&gt;</span><br><span class="line">        &lt;Router /&gt;</span><br><span class="line">        &lt;GlobalStyles /&gt;</span><br><span class="line">      &lt;<span class="regexp">/&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default App;</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="3-4-Location-Aware-Header"><a href="#3-4-Location-Aware-Header" class="headerlink" title="3.4 Location Aware Header"></a>3.4 Location Aware Header</h2><hr>
+<ul>
+<li>선택된 Header의 border에만 컬러링</li>
+<li>해당 요소에 props를 줌</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Item = styled.li<span class="string">`</span></span><br><span class="line"><span class="string">  width: 50px;</span></span><br><span class="line"><span class="string">  height: 50px;</span></span><br><span class="line"><span class="string">  text-align: center;</span></span><br><span class="line"><span class="string">  border-bottom: 5px solid <span class="subst">$&#123;props =&gt; props.current ? <span class="string">'deeppink'</span> : <span class="string">'transparent'</span>&#125;</span>;</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>props로 현재 선택된 Header의 Router를 전달해야 함<ul>
+<li>이때 <code>withRouter</code>을 사용. 이것은 컴포넌트를 감싸는 또 다른 컴포넌트의 개념.</li>
+<li>Router에 대한 정보를 줌.</li>
+<li><code>import { Link, withRouter } from ‘react-router-dom’;</code></li>
+<li>아래와 같은 형식으로 withRouter로 기존의 컴포넌트를 감싼다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HeaderC = <span class="function">(<span class="params">props</span>) =&gt;</span> (</span><br><span class="line">    &lt;Header&gt;</span><br><span class="line">      &#123;<span class="built_in">console</span>.log(props)&#125;</span><br><span class="line">      &lt;List&gt;</span><br><span class="line">        &lt;Item current=&#123;<span class="literal">false</span>&#125;&gt;</span><br><span class="line">          &lt;SLink to=<span class="string">"/"</span>&gt;Movies&lt;<span class="regexp">/SLink&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>Item&gt;</span><br><span class="line">        &lt;Item current=&#123;<span class="literal">true</span>&#125;&gt;</span><br><span class="line">          &lt;SLink to=<span class="string">"/tv"</span>&gt;TV&lt;<span class="regexp">/SLink&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>Item&gt;</span><br><span class="line">        &lt;Item current=&#123;<span class="literal">false</span>&#125;&gt;</span><br><span class="line">          &lt;SLink to=<span class="string">"/search"</span>&gt;Search&lt;<span class="regexp">/SLink&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>Item&gt;</span><br><span class="line">      &lt;<span class="regexp">/List&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Header&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> withRouter(HeaderC);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>위와 동일한 내용을 다른 형식으로 작성</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> withRouter(<span class="function"><span class="params">props</span> =&gt;</span> (</span><br><span class="line">    &lt;Header&gt;</span><br><span class="line">      &#123;<span class="built_in">console</span>.log(props)&#125;</span><br><span class="line">      &lt;List&gt;</span><br><span class="line">        &lt;Item current=&#123;<span class="literal">false</span>&#125;&gt;</span><br><span class="line">          &lt;SLink to=<span class="string">"/"</span>&gt;Movies&lt;<span class="regexp">/SLink&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>Item&gt;</span><br><span class="line">        &lt;Item current=&#123;<span class="literal">true</span>&#125;&gt;</span><br><span class="line">          &lt;SLink to=<span class="string">"/tv"</span>&gt;TV&lt;<span class="regexp">/SLink&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>Item&gt;</span><br><span class="line">        &lt;Item current=&#123;<span class="literal">false</span>&#125;&gt;</span><br><span class="line">          &lt;SLink to=<span class="string">"/search"</span>&gt;Search&lt;<span class="regexp">/SLink&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>Item&gt;</span><br><span class="line">      &lt;<span class="regexp">/List&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Header&gt;</span><br><span class="line">));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>console.log를 찍어보면 아래와 같이 props를 얻을 수 있음.</li>
+</ul>
+<img src="/images/withRouter-props.png">
+
+<ul>
+<li><p>여기서 필요한 것은 pathname</p>
+<ul>
+<li><code>{ location: { pathname } }</code></li>
+</ul>
+</li>
+<li><p>최종적으로 아래와 같이 pathname의 확인 결과가 boolean으로 나올 수 있도록 작성하면 선택한 요소에만 border 색상이 들어감.</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> withRouter(<span class="function">(<span class="params">&#123; location: &#123; pathname &#125; &#125;</span>) =&gt;</span> (</span><br><span class="line">    &lt;Header&gt;</span><br><span class="line">      &lt;List&gt;</span><br><span class="line">        &lt;Item current=&#123;pathname === <span class="string">'/'</span>&#125;&gt;</span><br><span class="line">          &lt;SLink to=<span class="string">'/'</span>&gt;Movies&lt;<span class="regexp">/SLink&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>Item&gt;</span><br><span class="line">        &lt;Item current=&#123;pathname === <span class="string">'/tv'</span>&#125;&gt;</span><br><span class="line">          &lt;SLink to=<span class="string">'/tv'</span>&gt;TV&lt;<span class="regexp">/SLink&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>Item&gt;</span><br><span class="line">        &lt;Item current=&#123;pathname === <span class="string">'/search'</span>&#125;&gt;</span><br><span class="line">          &lt;SLink to=<span class="string">'/search'</span>&gt;Search&lt;<span class="regexp">/SLink&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>Item&gt;</span><br><span class="line">      &lt;<span class="regexp">/List&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Header&gt;</span><br><span class="line">));</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<hr>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/til/"># til</a>
+                    
+                        <a href="/tags/TIL/"># TIL</a>
+                    
+                        <a href="/tags/Today-I-Learned/"># Today I Learned</a>
+                    
+                        <a href="/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"># 오늘배운것들</a>
+                    
+                        <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"># 자바스크립트</a>
+                    
+                        <a href="/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/"># 리액트</a>
+                    
+                        <a href="/tags/react/"># react</a>
+                    
+                        <a href="/tags/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94/"># 노마드코더</a>
+                    
+                        <a href="/tags/nomadcoders/"># nomadcoders</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/09/05/programming/react-movie-app-05/">[ReactJS] 무비앱 만들기 Day 05</a>
+            
+            
+            <a class="next" rel="next" href="/2019/08/29/programming/tdd-til-02/">TIL(190829) - TDD(Test Driven Development) 02</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>a.k.a codeAmeba in Seoul &#169; 2020 Sooyoung Jeong</span>
+    </div>
+</footer>
+    </div>
+</body>
+</html>
