@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/04/23/programming/cs-til-05/">
+
+
+<title>컴퓨터공학 5일차 TIL(2019.04.23) | AmebaLab</title>
+
+
+
+    <link rel="icon" href="/image/favicon2.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AmebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">AmebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">AmebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">컴퓨터공학 5일차 TIL(2019.04.23)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">4월 23, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/CS/">CS</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <img src="https://images.unsplash.com/39/F9g2FiPUSyC7IybhyI2p_09.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1954&q=80">
+
+<h1 id="컴공-5일차-19-04-23"><a href="#컴공-5일차-19-04-23" class="headerlink" title="컴공 5일차(19.04.23)"></a>컴공 5일차(19.04.23)</h1><ul>
+<li>운영체제와 알고리즘이 적절히 버무려진 강의였다. 덕분에 강의가 끝날 무렵에는 내 머릿속도 잘 버무려졌다. 아아.. 갈 길이 멀다.</li>
+</ul>
+<h3 id="금일-강의-진행-순서"><a href="#금일-강의-진행-순서" class="headerlink" title="금일 강의 진행 순서"></a>금일 강의 진행 순서</h3><ol start="0">
+<li>Binary search, big O</li>
+<li>Compiler vs interpreter</li>
+<li>Process / thread -&gt; multi thread -&gt; race condition -&gt; mural exclubion</li>
+<li>절차지향</li>
+<li>OOP</li>
+<li>Network</li>
+<li>알고리즘/자료구조</li>
+</ol>
+<h3 id="Binary-Search"><a href="#Binary-Search" class="headerlink" title="Binary Search"></a>Binary Search</h3><ul>
+<li>데이터가 정렬되어 있어야 함(필수)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(li, target)</span>:</span></span><br><span class="line">    start=<span class="number">0</span></span><br><span class="line">    end=len(li)<span class="number">-1</span></span><br><span class="line">    <span class="keyword">while</span> start &lt;= end:</span><br><span class="line">        mid=(start+end)//<span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> target == li[mid]:</span><br><span class="line">            <span class="keyword">return</span> mid</span><br><span class="line">        <span class="keyword">elif</span> target &lt; li[mid]:</span><br><span class="line">            end=mid<span class="number">-1</span></span><br><span class="line">        <span class="keyword">elif</span> target &gt; li[mid]:</span><br><span class="line">            start=mid+<span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">li=[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">15</span>, <span class="number">17</span>]</span><br><span class="line">target = <span class="number">7</span></span><br><span class="line">binary_search(li, target)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>linear search : T(n) = n</p>
+</li>
+<li><p>binary search : T(n) = log<sub>2</sub>n</p>
+</li>
+<li><p>아래의 영상을 이해할 수 있다면 BEST</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kPR8h4-qZdk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</li>
+</ul>
+<h3 id="Big-O-시간-복잡도-랭킹"><a href="#Big-O-시간-복잡도-랭킹" class="headerlink" title="Big-O 시간 복잡도 랭킹"></a>Big-O 시간 복잡도 랭킹</h3><ol>
+<li><p>O(1) : constant time(상수시간)</p>
+<ul>
+<li>입력값 n이 주어졌을 때, 알고리즘이 문제를 해결하는데 오직 한 단계만 거침</li>
+</ul>
+</li>
+<li><p>O(log n) : log time(로그시간)</p>
+<ul>
+<li>입력값 n이 주어졌을 때, 문제를 해결하는데 필요한 단계들이 연산마다 특정 요인에 의해 줄어듭니다.</li>
+<li>ex) BST(insert/search/delete)</li>
+</ul>
+</li>
+<li><p>O(n) : linear time(선형시간, 직선적 시간)</p>
+<ul>
+<li>문제를 해결하기 위한 단계의 수와 입력값 n이 1:1 관계를 가집니다.</li>
+</ul>
+</li>
+<li><p>O(n log n) : log linear time(선형 로그 시간)</p>
+<ul>
+<li>ex) quick sort, merge sort</li>
+<li>비교정렬(comparison sorting)의 경우 O(n log n)보다 성능이 좋을 수 없음.</li>
+</ul>
+</li>
+<li><p>O(n<sup>2</sup>) : quadratic time(2차 시간)</p>
+<ul>
+<li>문제를 해결하기 위한 단계의 수는 입력값 n의 제곱입니다.</li>
+</ul>
+</li>
+<li><p>O(n<sup>3</sup>) : cubic time</p>
+</li>
+<li><p>O(2<sup>n</sup>) : exponential time</p>
+</li>
+</ol>
+<h3 id="OS"><a href="#OS" class="headerlink" title="OS"></a>OS</h3><ol>
+<li>Job scheduling <ul>
+<li>scheduler -&gt; context switching</li>
+<li>process status(프로세스 상태) -&gt; thread -&gt; multithreading<br>  <strong>참고 페이지</strong><ul>
+<li>프로세스(<a href="https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4" target="_blank" rel="external nofollow noopener noreferrer">https://ko.wikipedia.org/wiki/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4</a>)</li>
+<li><a href="https://ko.wikipedia.org/wiki/%EC%9A%B4%EC%98%81_%EC%B2%B4%EC%A0%9C" target="_blank" rel="external nofollow noopener noreferrer">운영 체제 - 위키백과, 우리 모두의 백과사전</a></li>
+<li><a href="https://docs.microsoft.com/en-us/windows/desktop/procthread/scheduling-priorities" target="_blank" rel="external nofollow noopener noreferrer">Scheduling Priorities - Windows applications | Microsoft Docs</a></li>
+<li><a href="http://jake.dothome.co.kr/preemption/" target="_blank" rel="external nofollow noopener noreferrer">Scheduler -3- (Preemption &amp; Context Switch) – 문c 블로그</a></li>
+<li>선점형(새치기, pre-emptive) 스케쥴링 / 비선점형(non-preemptive) 스케쥴링</li>
+<li>pre-emptive -&gt; multitasking<ol>
+<li>Priority algorithm</li>
+<li>Round-Robin algorithm -&gt; 정해진 시간 동안 실행<ul>
+<li>time slice / quantum</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li>Concurrency programming(동시성 프로그래밍)<ul>
+<li>논리적인 용어로 동시에 실행되는 것처럼 보이는 것입니다. 싱글 코어(멀티 코어에서도 가능)에서 멀티스레드를 동작시키기 위한 방식으로 멀티 태스킹을 위해 여러 개의 스레드가 번갈아 가면서 실행되는 방식입니다. 동시성을 이용한 싱글 코어의 멀티 태스킹은 각 스레드들이 병렬적으로 실행되는 것처럼 보이지만 사실은 서로 번갈아 가면서 실행되고 있는 방식입니다. (출처: <a href="https://www.edwith.org/boostcourse-ios/lecture/16866/" target="_blank" rel="external nofollow noopener noreferrer">1) 동시성 프로그래밍과 비동기 프로그래밍 &gt; 부스트코스 iOS 프로그래밍 : edwith</a>)</li>
+<li>과거엔 주로 multithreading</li>
+<li>race-condition / dead-lock</li>
+<li>::Asynchronous I/O -&gt; IO Bound -&gt; javascript 핵심개념 꼭 공부할 것!::<ul>
+<li>프로그램의 주 실행 흐름을 멈추어서 기다리는 부분 없이 바로 다음 작업을 실행할 수 있게 하는 방식입니다. 즉, 코드의 실행 결과 처리를 별도의 공간에 맡겨둔 뒤 결과를 기다리지 않고 바로 다음 코드를 실행하는 병렬처리 방식입니다. 비동기 프로그래밍은 언어 및 프레임워크에서 지원하는 여러 방법으로 구현할 수 있습니다.(출처: <a href="https://www.edwith.org/boostcourse-ios/lecture/16866/" target="_blank" rel="external nofollow noopener noreferrer">1) 동시성 프로그래밍과 비동기 프로그래밍 &gt; 부스트코스 iOS 프로그래밍 : edwith</a>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="program"><a href="#program" class="headerlink" title="program"></a>program</h3><ul>
+<li><strong>하드디스크</strong>에 저장되어 있는 하나의 이미지(code, data)</li>
+</ul>
+<h3 id="process"><a href="#process" class="headerlink" title="process"></a>process</h3><ul>
+<li><strong>메인 메모리</strong>에 올라와서 실행을 시작한 프로그램</li>
+<li>실행된 프로그램마다 P(process)ID 발급</li>
+<li>프로세서는 하드웨어적인 측면에서 컴퓨터 내에서 프로그램을 수행하는 하드웨어 유닛입니다. 대표적으로 중앙처리장치(Central Processing Unit - CPU)가 이에 속합니다. 한 컴퓨터가 여러 개의 프로세서를 갖는다면 멀티 프로세서라고 말합니다. 듀얼 프로세서라고 한다면 한 컴퓨터에 두 개의 프로세서가 운용된다고 할 수 있습니다. (출처:  <a href="https://www.edwith.org/boostcourse-ios/lecture/16866/" target="_blank" rel="external nofollow noopener noreferrer">https://www.edwith.org/boostcourse-ios/lecture/16866/</a> )</li>
+</ul>
+<h3 id="프로그램과-프로세스"><a href="#프로그램과-프로세스" class="headerlink" title="프로그램과 프로세스"></a>프로그램과 프로세스</h3><ul>
+<li>프로그램은 일반적으로 보조기억 장치에 저장된 실행코드 즉, 생명이 없는 상태를 말합니다. 프로세스는 프로그램을 구동하여 프로그램 자체와 프로그램의 상태가 메모리상에서 실행되는 작업 단위를 말합니다. 동시에 여러 개의 프로세스를 운용하는 시분할 방식을 멀티태스킹이라고 합니다. 이러한 프로세스 관리는 운영체제에서 담당합니다. (출처: <a href="https://www.edwith.org/boostcourse-ios/lecture/16866/" target="_blank" rel="external nofollow noopener noreferrer">1) 동시성 프로그래밍과 비동기 프로그래밍 &gt; 부스트코스 iOS 프로그래밍 : edwith</a>)</li>
+</ul>
+<h3 id="Context-Switching"><a href="#Context-Switching" class="headerlink" title="Context Switching"></a>Context Switching</h3><ul>
+<li>instruction </li>
+<li>PCB(process controls block)</li>
+<li>context switching은 느려서 자주 하면 안 좋지만, 안 할 수는 없음</li>
+<li><a href="https://ko.wikipedia.org/wiki/%EB%AC%B8%EB%A7%A5_%EA%B5%90%ED%99%98" target="_blank" rel="external nofollow noopener noreferrer">문맥 교환 - 위키백과, 우리 모두의 백과사전</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Process_(computing)" target="_blank" rel="external nofollow noopener noreferrer">Process (computing) - Wikipedia</a></li>
+</ul>
+<h3 id="Process-vs-Thread"><a href="#Process-vs-Thread" class="headerlink" title="Process vs Thread"></a>Process vs Thread</h3><ul>
+<li><p>Process</p>
+<ul>
+<li>실행흐름</li>
+</ul>
+</li>
+<li><p>Thread</p>
+<ul>
+<li>스레드는 하나의 프로세스 내에서 실행되는 작업흐름의 단위를 말합니다. 보통 한 프로세스는 하나의 스레드를 가지고 있지만, 프로세스 환경에 따라 둘 이상의 스레드를 동시에 실행할 수 있습니다. 이러한 방식을 멀티스레딩이라고 합니다. 그리고 프로그램 실행이 시작될 때부터 동작하는 스레드를 메인 스레드라 하고 그 외에 나중에 생성된 스레드를 서브 스레드 또는 세컨더리 스레드라고 합니다. (출처: <a href="https://www.edwith.org/boostcourse-ios/lecture/16866/" target="_blank" rel="external nofollow noopener noreferrer">1) 동시성 프로그래밍과 비동기 프로그래밍 &gt; 부스트코스 iOS 프로그래밍 : edwith</a>)</li>
+<li>인스트럭션의 나열</li>
+<li>process에 포함됨                    </li>
+<li>GIL(global interpreter lock)</li>
+<li>multi-thread exam<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line">n=<span class="number">1000</span></span><br><span class="line">offset=n//<span class="number">4</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">thread_main</span><span class="params">(li, i)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> idx <span class="keyword">in</span> range(offset i, offset(<span class="number">1</span>+<span class="number">1</span>)):</span><br><span class="line">        li[idx]=<span class="number">2</span></span><br><span class="line">        </span><br><span class="line">li=[i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">1001</span>)]</span><br><span class="line">threads=[]</span><br><span class="line"></span><br><span class="line"><span class="comment">#스레드를 생성</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">    th=threading.Thread(</span><br><span class="line">        target=thread_main, args=(li, i))</span><br><span class="line">    threads.append(th)</span><br><span class="line"></span><br><span class="line"><span class="comment">#멀티스레딩</span></span><br><span class="line"><span class="keyword">for</span> th <span class="keyword">in</span> threads:</span><br><span class="line">    th.start()</span><br><span class="line"></span><br><span class="line"><span class="comment">#메인 스레드에서 나머지 스레드들이 모든 실행을 끝날 때까지 기다림.</span></span><br><span class="line"><span class="keyword">for</span> th <span class="keyword">in</span> threads:</span><br><span class="line">    th.join()</span><br><span class="line"></span><br><span class="line">print(li)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>동시성(Concurrency) 프로그래밍/ 병렬(Parallelism) 프로그래밍</p>
+<ul>
+<li>둘은 다른 개념</li>
+<li>동시성 프로그래밍은 하드웨어적으로도 나누어져야 함</li>
+</ul>
+</li>
+<li><p>공유자원(shared resource)에 같이 접근하면 멀티스레딩의 효율(race condition)이 좋지 않음</p>
+</li>
+<li><p>공유자원 대표적인 건 ‘전역 변수’ </p>
+</li>
+<li><p>race-condition exam</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="comment"># 공유 자원</span></span><br><span class="line"><span class="comment"># 모든 스레드에서 접근이 가능한 자원</span></span><br><span class="line"><span class="comment"># 전역 변수</span></span><br><span class="line">g_num=<span class="number">0</span></span><br><span class="line"><span class="comment"># Lock 객체</span></span><br><span class="line">lock=threading.Lock()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">thread_main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> g_num</span><br><span class="line"></span><br><span class="line">    <span class="comment"># critical section</span></span><br><span class="line">    <span class="comment"># 임계 영역</span></span><br><span class="line">    <span class="comment"># 어떤 스레드에서 공유 자원에 접근한 후</span></span><br><span class="line">    <span class="comment"># 수정, 변경 하려는 코드</span></span><br><span class="line">    lock.acquire()</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">1000000</span>):</span><br><span class="line">        g_num+=<span class="number">1</span></span><br><span class="line">    lock.release()</span><br><span class="line"></span><br><span class="line">threads=[]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">50</span>):</span><br><span class="line">            th=threading.Thread(target=thread_main)</span><br><span class="line">            threads.append(th)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> th <span class="keyword">in</span> threads:</span><br><span class="line">    th.start()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> th <span class="keyword">in</span> threads:</span><br><span class="line">    th.join()</span><br><span class="line"></span><br><span class="line">print(g_num)</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="재귀함수-Recursion"><a href="#재귀함수-Recursion" class="headerlink" title="재귀함수(Recursion)"></a>재귀함수(Recursion)</h3><ul>
+<li>함수 호출 도중에 자기 자신을 다시 호출하는 것</li>
+<li>base case(기저 조건, 종료 조건, 탈출 조건)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="comment"># base case</span></span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    func(n<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">func(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="재귀함수를-만드는-방법"><a href="#재귀함수를-만드는-방법" class="headerlink" title="재귀함수를 만드는 방법"></a>재귀함수를 만드는 방법</h3><ul>
+<li>패턴을 찾는 -&gt; 점화식을 만든다!</li>
+<li>기저 조건을 만든다</li>
+</ul>
+<p><strong>예제</strong></p>
+<ul>
+<li><p>factorial(계승) : <code>3! = 3 * 2 * 1 = 3 * 2!</code></p>
+</li>
+<li><p>점화식: <code>fac(n) = fac(n-1) * n</code></p>
+</li>
+<li><p>기저조건: <code>n==1 or n==0 return 1</code></p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">factorial</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">0</span> <span class="keyword">or</span> n==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> factorial(n<span class="number">-1</span>) * n</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">    print(factorial(i))</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="피보나치-수열-Fibonacci-Series"><a href="#피보나치-수열-Fibonacci-Series" class="headerlink" title="피보나치 수열(Fibonacci Series)"></a>피보나치 수열(Fibonacci Series)</h3><p><strong>예제</strong></p>
+<ul>
+<li>점화식: <code>fibo(n-2)+fibo(n-1)</code></li>
+<li>기저조건: <code>if n==1 then 0</code> / <code>if n==2 then 1</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibonacci</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">elif</span> n==<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> fibonacci(n<span class="number">-2</span>) + fibonacci(n<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">    print(fibonacci(i), end=<span class="string">' '</span>)</span><br></pre></td></tr></table></figure>
+
+<p>다음 시간에 계속…</p>
+<hr>
+<h4 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h4><ul>
+<li>edwith</li>
+<li>wikipedia</li>
+<li><a href="https://ko.wikipedia.org/wiki/%EC%8B%9C%EA%B0%84_%EB%B3%B5%EC%9E%A1%EB%8F%84" target="_blank" rel="external nofollow noopener noreferrer">시간 복잡도 - 위키백과</a></li>
+</ul>
+<h4 id="이미지-출처"><a href="#이미지-출처" class="headerlink" title="이미지 출처"></a>이미지 출처</h4><ul>
+<li><a href="https://unsplash.com/" target="_blank" rel="external nofollow noopener noreferrer">https://unsplash.com/</a></li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/til/"># til</a>
+                    
+                        <a href="/tags/TIL/"># TIL</a>
+                    
+                        <a href="/tags/Today-I-Learned/"># Today I Learned</a>
+                    
+                        <a href="/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"># 오늘배운것들</a>
+                    
+                        <a href="/tags/%EC%9D%BC%EA%B8%B0/"># 일기</a>
+                    
+                        <a href="/tags/%ED%8C%A8%EC%8A%A4%ED%8A%B8%EC%BA%A0%ED%8D%BC%EC%8A%A4/"># 패스트캠퍼스</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/04/24/programming/cs-til-06/">컴퓨터공학 6일차 TIL(2019.04.24)</a>
+            
+            
+            <a class="next" rel="next" href="/2019/04/23/programming/tip-git-command/">깃(git)과 터미널(terminal)의 주요 명령어</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>a.k.a codeAmeba in Seoul &#169; 2020 Sooyoung Jeong</span>
+    </div>
+</footer>
+    </div>
+</body>
+</html>
