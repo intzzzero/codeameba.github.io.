@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codeameba.github.io/"/>
-  <updated>2020-04-14T10:04:42.844Z</updated>
+  <updated>2020-04-14T10:23:32.119Z</updated>
   <id>http://codeameba.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://codeameba.github.io/2020/04/14/programming/why-use-factory-function/"/>
     <id>http://codeameba.github.io/2020/04/14/programming/why-use-factory-function/</id>
     <published>2020-04-14T10:12:42.000Z</published>
-    <updated>2020-04-14T10:04:42.844Z</updated>
+    <updated>2020-04-14T10:23:32.119Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="객체-공장"><a href="#객체-공장" class="headerlink" title="객체 공장"></a>객체 공장</h2><p>Factory Function은 이름 그대로 <strong>공장 함수</strong> 인데, 무엇을 생산하는 공장이냐 하면, <strong>객체를 생산하는 공장</strong> 이라고 할 수 있다.<br>물론, ‘객체 리터럴로 만들어도 되는 객체를 굳이 함수까지 써 가면서 만들 필요가 있을까’ 라고 생각할 수도 있겠지만, 그건 어디까지 한 두 개 정도 소량의 객체일 때 이야기다. 예를 들어 SNS를 서비스한다고 했을 때 유저의 가입 정보를 받아 객체에 저장하는 경우라면 일일이 객체를 만들기 보다는 Factory Function에 유저 정보에 해당하는 parameter를 할당하여 유저가 가입할 때마다 자동으로 객체를 생산하도록 하는 편이 훨씬 효율적일 것이다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> userInfo = <span class="function">(<span class="params">id, name, image</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    id: id,</span><br><span class="line">    name: name,</span><br><span class="line">    image: image,</span><br><span class="line">    friends: [],</span><br><span class="line">    posts: [],</span><br><span class="line">    addFriend(friend) &#123;</span><br><span class="line">      <span class="keyword">this</span>.friends.push(friend);</span><br><span class="line">    &#125;,</span><br><span class="line">    createPost(post) &#123;</span><br><span class="line">      <span class="keyword">this</span>.posts.push(post);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newUser = userInfo(‘codeAmeba’, ‘Sooyoung Jeong’, ‘codeameba.jpg’);</span><br><span class="line"><span class="built_in">console</span>.log(newUser.id); <span class="comment">// codeAmeba</span></span><br><span class="line"></span><br><span class="line">newUser.addFriend(‘codeMonkey’);</span><br><span class="line"><span class="built_in">console</span>.log(newUser.friends); <span class="comment">// ["codeMonkey"]</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="객체-공장"><a href="#객체-공장" class="headerlink" title="객체 공장"></a>객체 공장</h2><p>Factory Function은 이름 그대로 <strong>공장 함수</strong> 인데, 무엇을 생산하는 공장이냐 하면, <strong>객체를 생산하는 공장</strong> 이라고 할 수 있다.<br>물론, ‘객체 리터럴로 만들어도 되는 객체를 굳이 함수까지 써 가면서 만들 필요가 있을까’ 라고 생각할 수도 있겠지만, 그건 어디까지 한 두 개 정도 소량의 객체일 때 이야기다. 예를 들어 SNS를 서비스한다고 했을 때 유저의 가입 정보를 받아 객체에 저장하는 경우라면 일일이 객체를 만들기 보다는 Factory Function에 유저 정보에 해당하는 parameter를 할당하여 유저가 가입할 때마다 자동으로 객체를 생산하도록 하는 편이 훨씬 효율적일 것이다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> userInfo = <span class="function">(<span class="params">id, name, image</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    id,</span><br><span class="line">    name,</span><br><span class="line">    image,</span><br><span class="line">    friends: [],</span><br><span class="line">    posts: [],</span><br><span class="line">    addFriend(friend) &#123;</span><br><span class="line">      <span class="keyword">this</span>.friends.push(friend);</span><br><span class="line">    &#125;,</span><br><span class="line">    createPost(post) &#123;</span><br><span class="line">      <span class="keyword">this</span>.posts.push(post);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newUser = userInfo(‘codeAmeba’, ‘Sooyoung Jeong’, ‘codeameba.jpg’);</span><br><span class="line"><span class="built_in">console</span>.log(newUser.id); <span class="comment">// codeAmeba</span></span><br><span class="line"></span><br><span class="line">newUser.addFriend(‘codeMonkey’);</span><br><span class="line"><span class="built_in">console</span>.log(newUser.friends); <span class="comment">// ["codeMonkey"]</span></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -333,9 +333,9 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
@@ -408,13 +408,13 @@
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
+      <category term="hexo" scheme="http://codeameba.github.io/tags/hexo/"/>
+    
       <category term="댓글기능구현" scheme="http://codeameba.github.io/tags/%EB%8C%93%EA%B8%80%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84/"/>
     
       <category term="디스커스" scheme="http://codeameba.github.io/tags/%EB%94%94%EC%8A%A4%EC%BB%A4%EC%8A%A4/"/>
     
       <category term="disqus" scheme="http://codeameba.github.io/tags/disqus/"/>
-    
-      <category term="hexo" scheme="http://codeameba.github.io/tags/hexo/"/>
     
   </entry>
   
@@ -443,9 +443,9 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
@@ -479,9 +479,9 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
@@ -511,9 +511,9 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
@@ -541,9 +541,9 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
@@ -571,9 +571,9 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
@@ -601,9 +601,9 @@
       <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
     
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
       <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
+    
+      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
@@ -635,9 +635,9 @@
     
       <category term="book review" scheme="http://codeameba.github.io/tags/book-review/"/>
     
-      <category term="독후감" scheme="http://codeameba.github.io/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
-    
       <category term="마켓4.0" scheme="http://codeameba.github.io/tags/%EB%A7%88%EC%BC%934-0/"/>
+    
+      <category term="독후감" scheme="http://codeameba.github.io/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
     
   </entry>
   
@@ -667,9 +667,9 @@
     
       <category term="book review" scheme="http://codeameba.github.io/tags/book-review/"/>
     
-      <category term="마케터의 일" scheme="http://codeameba.github.io/tags/%EB%A7%88%EC%BC%80%ED%84%B0%EC%9D%98-%EC%9D%BC/"/>
-    
       <category term="독후감" scheme="http://codeameba.github.io/tags/%EB%8F%85%ED%9B%84%EA%B0%90/"/>
+    
+      <category term="마케터의 일" scheme="http://codeameba.github.io/tags/%EB%A7%88%EC%BC%80%ED%84%B0%EC%9D%98-%EC%9D%BC/"/>
     
   </entry>
   
