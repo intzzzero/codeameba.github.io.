@@ -248,11 +248,25 @@
 </li>
 </ol>
 <h2 id="함수를-정의하는-방법"><a href="#함수를-정의하는-방법" class="headerlink" title="함수를 정의하는 방법"></a>함수를 정의하는 방법</h2><ol>
-<li>함수 선언문<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>함수 리터럴<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-<li>Function 생성자<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'x'</span>, <span class="string">'return x * x);</span></span><br></pre></td></tr></table></figure></li>
-<li>화살표(arrow) 함수 표현식<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="params">x</span> =&gt;</span> x * x;</span><br></pre></td></tr></table></figure></li>
+<li>함수 선언문</li>
 </ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">square</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>함수 리터럴</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Function 생성자</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'x'</span>, <span class="string">'return x * x);</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>화살표(arrow) 함수 표현식</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="params">x</span> =&gt;</span> x * x;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>함수 선언문을 제외한 세 가지 방법은 호이스팅이 되지 않기 때문에 <strong>변수에 할당 후에 사용이 가능</strong> 하며, 따라서 호출하는 코드보다 상단에 위치해야 한다.</li>
 </ul>
@@ -264,10 +278,14 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Card</span>(<span class="params">suit, rank</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.suit = suit;</span><br><span class="line">  <span class="keyword">this</span>.rank = rank;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> card = <span class="keyword">new</span> Card(<span class="string">'Heart'</span>, <span class="string">'A'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(card); <span class="comment">// Card &#123; suit: 'Heart', rank: 'A' &#125;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>이때, 통상적으로 생성자 함수라는 것을 알리기 위해 <strong>파스칼 케이스</strong>를 쓴다.</li>
-<li>이와 같이 생성된 객체를 <strong>인스턴스</strong> 라고 부르는데, 본래 객체지향 언어에서의 인스턴스와는 차이가 있지만, 일반 객체와 구분하기 위해 편의상 인스턴스라고 부른다.</li>
-<li><code>this</code> 는 생성자가 생성하는 객체를 가리킨다. 즉, 생성자 함수 내부의 <code>this</code> 는 인스턴스를 가리킨다고 볼 수 있다.</li>
-<li><strong>참고:</strong> <ul>
+<li><p>이때, 통상적으로 생성자 함수라는 것을 알리기 위해 <strong>파스칼 케이스</strong>를 쓴다.</p>
+</li>
+<li><p>이와 같이 생성된 객체를 <strong>인스턴스</strong> 라고 부르는데, 본래 객체지향 언어에서의 인스턴스와는 차이가 있지만, 일반 객체와 구분하기 위해 편의상 인스턴스라고 부른다.</p>
+</li>
+<li><p><code>this</code> 는 생성자가 생성하는 객체를 가리킨다. 즉, 생성자 함수 내부의 <code>this</code> 는 인스턴스를 가리킨다고 볼 수 있다.</p>
+</li>
+<li><p><strong>참고:</strong></p>
+<ul>
 <li><a href="https://ko.javascript.info/constructor-new" target="_blank" rel="external nofollow noopener noreferrer">‘new’ 연산자와 생성자 함수</a></li>
 <li><a href="https://ko.javascript.info/class" target="_blank" rel="external nofollow noopener noreferrer">클래스와 기본 문법</a></li>
 <li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes" target="_blank" rel="external nofollow noopener noreferrer">Classes - JavaScript | MDN</a></li>
@@ -297,20 +315,32 @@
 </li>
 </ol>
 <h2 id="희소-배열-sparse-array"><a href="#희소-배열-sparse-array" class="headerlink" title="희소 배열(sparse array)"></a>희소 배열(sparse array)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>];</span><br><span class="line">a[<span class="number">4</span>] = <span class="string">'E'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// ["A", "B", "C", empty, "E"]</span></span><br><span class="line"><span class="built_in">console</span>.log(a[<span class="number">3</span>]); <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(a.length); <span class="comment">// 5</span></span><br><span class="line">a.hasOwnProperty(<span class="string">"3"</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>위와 같이 <code>length</code>가 요소의 개수보다 클 때 <strong>희소 배열</strong> 이라고 부른다.</li>
-<li>이때 배열은 내부적으로 <strong>객체</strong> 의 형태로 저장되어 있으며, 리터럴로 표현하자면 아래와 같다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  <span class="string">'0'</span>:<span class="string">'A'</span>,</span><br><span class="line">  <span class="string">'1'</span>:<span class="string">'B'</span>,</span><br><span class="line">  <span class="string">'2'</span>:<span class="string">'C'</span>,</span><br><span class="line">  <span class="string">'4'</span>:<span class="string">'E'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="표현식-expression"><a href="#표현식-expression" class="headerlink" title="표현식(expression)"></a>표현식(expression)</h2></li>
-<li>표현식이란 결과적으로 어떤 값으로 평가(evaluation)되는 것</li>
-<li>number, string, boolean 등의 원시 값(primitive value)은 그 자체로 가장 간단한 표현식이라고 할 수 있다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14</span></span><br><span class="line"><span class="string">"hello"</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line"><span class="literal">null</span></span><br></pre></td></tr></table></figure></li>
-<li>변수, 프로퍼티, 배열 요소, 함수 호출, 메서드 호출 등 또한 표현식이라고 할 수 있다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sum</span><br><span class="line">circle.radius</span><br><span class="line">a[<span class="number">3</span>]</span><br><span class="line">square(<span class="number">5</span>)</span><br><span class="line">card.getSum()</span><br></pre></td></tr></table></figure></li>
-<li>연산자가 더해지더라도 결과적으로 값으로 평가된다면 역시 표현식이다.<ul>
-<li>단항 연산자, 이항 연산자, 삼항 연산자 모두 그렇다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> c = a !== b ? <span class="string">'hello'</span> : <span class="string">'world'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
+<li>이때 배열은 내부적으로 <strong>객체</strong> 의 형태로 저장되어 있으며, 리터럴로 표현하자면 아래와 같다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  <span class="string">'0'</span>:<span class="string">'A'</span>,</span><br><span class="line">  <span class="string">'1'</span>:<span class="string">'B'</span>,</span><br><span class="line">  <span class="string">'2'</span>:<span class="string">'C'</span>,</span><br><span class="line">  <span class="string">'4'</span>:<span class="string">'E'</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-</li>
+<h2 id="표현식-expression"><a href="#표현식-expression" class="headerlink" title="표현식(expression)"></a>표현식(expression)</h2><ul>
+<li>표현식이란 결과적으로 어떤 값으로 평가(evaluation)되는 것</li>
+<li>number, string, boolean 등의 원시 값(primitive value)은 그 자체로 가장 간단한 표현식이라고 할 수 있다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14</span></span><br><span class="line"><span class="string">"hello"</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line"><span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>변수, 프로퍼티, 배열 요소, 함수 호출, 메서드 호출 등 또한 표현식이라고 할 수 있다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sum</span><br><span class="line">circle.radius</span><br><span class="line">a[<span class="number">3</span>]</span><br><span class="line">square(<span class="number">5</span>)</span><br><span class="line">card.getSum()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>연산자가 더해지더라도 결과적으로 값으로 평가된다면 역시 표현식이다.<ul>
+<li>단항 연산자, 이항 연산자, 삼항 연산자 모두 그렇다.</li>
 </ul>
 </li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> b = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> c = a !== b ? <span class="string">'hello'</span> : <span class="string">'world'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="자바스크립트의-문자열은-불변-immutable"><a href="#자바스크립트의-문자열은-불변-immutable" class="headerlink" title="자바스크립트의 문자열은 불변(immutable)"></a>자바스크립트의 문자열은 불변(immutable)</h2><ul>
 <li>자바스크립트는 원시 값을 처리할 때 원시 값을 래퍼(wrapper) 객체로 자동 변환한다.<ul>
 <li>문자열은 String 객체, 숫자는 Number 객체, 논리값은 Boolean 객체</li>
@@ -319,7 +349,11 @@
 </li>
 <li>래핑은 일시적으로 진행되며 처리가 끝나면 곧바로 메모리에서 삭제된다.</li>
 <li><strong>따라서 문자열을 직접 객체화 하지 않더라도 String 객체의 메서드를 사용할 수 있다.</strong></li>
-<li>또한, <strong>자바스크립트의 문자열은 불변</strong> 이므로 메서드를 통해 반환되는 새로운 문자열은 원본 문자열과 별개의 값이다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> randomString = <span class="string">'microsoft'</span>;</span><br><span class="line"><span class="keyword">const</span> newString = randomString.replace(<span class="string">'soft'</span>, <span class="string">'hard'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(randomString); <span class="comment">// microsoft</span></span><br><span class="line"><span class="built_in">console</span>.log(newString); <span class="comment">// microhard</span></span><br></pre></td></tr></table></figure></li>
+<li>또한, <strong>자바스크립트의 문자열은 불변</strong> 이므로 메서드를 통해 반환되는 새로운 문자열은 원본 문자열과 별개의 값이다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> randomString = <span class="string">'microsoft'</span>;</span><br><span class="line"><span class="keyword">const</span> newString = randomString.replace(<span class="string">'soft'</span>, <span class="string">'hard'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(randomString); <span class="comment">// microsoft</span></span><br><span class="line"><span class="built_in">console</span>.log(newString); <span class="comment">// microhard</span></span><br></pre></td></tr></table></figure>
+
+<ul>
 <li><strong>참고</strong><ul>
 <li><a href="https://ko.javascript.info/string" target="_blank" rel="external nofollow noopener noreferrer">문자열</a></li>
 </ul>
@@ -338,7 +372,11 @@
 <li>truthy와 falsy에 각각 속한 피연산자들을 보면 나름대로의 일관성이 보이는 것을 알 수 있다. 대체적으로 <strong>없음</strong> 의 뉘앙스가 강한 쪽이 false로 평가된다.</li>
 </ul>
 <h2 id="암묵적-타입-변환"><a href="#암묵적-타입-변환" class="headerlink" title="암묵적 타입 변환"></a>암묵적 타입 변환</h2><ul>
-<li>자바스크립트에서는 암묵적으로 타입을 변환하는 방법이 있다. 대표적으로 아래와 같은 방법으로 string을 number로 변환이 가능하다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'2'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(s, <span class="keyword">typeof</span>(s)); <span class="comment">// 2 string</span></span><br><span class="line"><span class="built_in">console</span>.log(s<span class="number">-0</span>, <span class="keyword">typeof</span>(s<span class="number">-0</span>)); <span class="comment">// 2 number</span></span><br><span class="line"><span class="built_in">console</span>.log(+s, <span class="keyword">typeof</span>(+s)); <span class="comment">// 2 number</span></span><br></pre></td></tr></table></figure></li>
+<li>자바스크립트에서는 암묵적으로 타입을 변환하는 방법이 있다. 대표적으로 아래와 같은 방법으로 string을 number로 변환이 가능하다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'2'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(s, <span class="keyword">typeof</span>(s)); <span class="comment">// 2 string</span></span><br><span class="line"><span class="built_in">console</span>.log(s<span class="number">-0</span>, <span class="keyword">typeof</span>(s<span class="number">-0</span>)); <span class="comment">// 2 number</span></span><br><span class="line"><span class="built_in">console</span>.log(+s, <span class="keyword">typeof</span>(+s)); <span class="comment">// 2 number</span></span><br></pre></td></tr></table></figure>
+
+<ul>
 <li>간단하고 편리한 방법이긴 하지만, 놓치고 지나칠 가능성이 농후하므로 되도록 <code>parseInt()</code>, <code>Number()</code>와 같은 명시적인 방법으로 타입을 변환하는 게 좋다고 생각한다.</li>
 </ul>
 <h2 id="대화상자의-종류"><a href="#대화상자의-종류" class="headerlink" title="대화상자의 종류"></a>대화상자의 종류</h2><ul>
@@ -362,6 +400,7 @@
 <li>‘확인’을 누르면 true를, ‘취소’를 누르면 false가 반환</li>
 </ul>
 <h2 id="for-문-실행순서"><a href="#for-문-실행순서" class="headerlink" title="for 문 실행순서"></a>for 문 실행순서</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><strong>위와 같은 일반적인 for 문이 있을 때, 실행 순서는 다음과 같다.</strong></p>
 <ol>
 <li>변수 i를 선언 및 0으로 초기화 <code>let i = 0</code></li>
@@ -374,20 +413,26 @@
 <h2 id="즉시-실행-함수-Immediately-invoked-function"><a href="#즉시-실행-함수-Immediately-invoked-function" class="headerlink" title="즉시 실행 함수(Immediately-invoked function)"></a>즉시 실행 함수(Immediately-invoked function)</h2><ul>
 <li>자바스크립트에는 익명 함수를 정의하는 동시에 실행되는 <strong>즉시 실행 함수</strong> 라는 것이 있다.</li>
 <li>즉시 실행 함수는 전역 유효 범위(global scope)를 오염시키지 않는 이름 공간(name space)를 생성할 때 사용한다.</li>
-<li>즉시 실행 함수는 아래와 같이 정의한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 첫 번째 방법</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// something</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 두 번째 방법</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// something</span></span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 인수를 넣을 수도 있음</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">fact</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> n * fact(n - <span class="number">1</span>);</span><br><span class="line">&#125;)(<span class="number">5</span>); <span class="comment">// 120</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 변수에 할당 가능</span></span><br><span class="line"><span class="keyword">const</span> x = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// something</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>즉시 실행 함수는 아래와 같이 정의한다.</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 첫 번째 방법</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// something</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 두 번째 방법</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// something</span></span><br><span class="line">&#125;());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 인수를 넣을 수도 있음</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">fact</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> n * fact(n - <span class="number">1</span>);</span><br><span class="line">&#125;)(<span class="number">5</span>); <span class="comment">// 120</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 변수에 할당 가능</span></span><br><span class="line"><span class="keyword">const</span> x = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// something</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
 <h2 id="인수의-생략"><a href="#인수의-생략" class="headerlink" title="인수의 생략"></a>인수의 생략</h2><ul>
-<li>함수 정의식에서 요구하는 인자의 개수보다 적은 인수를 전달할 경우 생략된 부분은 undefined가 된다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`x = <span class="subst">$&#123;x&#125;</span>, y = <span class="subst">$&#123;y&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line">f(<span class="number">2</span>); <span class="comment">// x = 2, y = undefined</span></span><br></pre></td></tr></table></figure></li>
-<li>만약 두 개 이상의 인자를 연산하여 반환해야 할 때에는 undefined가 나오는 것을 막기 위해 아래와 같이 or 연산자(||)를 활용할 수 있다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  b = b || <span class="number">1</span>; <span class="comment">// b가 falsy값이면 1을 할당</span></span><br><span class="line">  <span class="keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br><span class="line">multiply(<span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 6</span></span><br><span class="line">multiply(<span class="number">2</span>); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>함수 정의식에서 요구하는 인자의 개수보다 적은 인수를 전달할 경우 생략된 부분은 <code>undefined</code>가 된다.</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`x = <span class="subst">$&#123;x&#125;</span>, y = <span class="subst">$&#123;y&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line">f(<span class="number">2</span>); <span class="comment">// x = 2, y = undefined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>만약 두 개 이상의 인자를 연산하여 반환해야 할 때에는 undefined가 나오는 것을 막기 위해 아래와 같이 or 연산자(||)를 활용할 수 있다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  b = b || <span class="number">1</span>; <span class="comment">// b가 falsy값이면 1을 할당</span></span><br><span class="line">  <span class="keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br><span class="line">multiply(<span class="number">2</span>, <span class="number">3</span>); <span class="comment">// 6</span></span><br><span class="line">multiply(<span class="number">2</span>); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="재귀함수"><a href="#재귀함수" class="headerlink" title="재귀함수"></a>재귀함수</h2><ul>
 <li>함수가 자기 자신을 호출하는 행위를 재귀 호출(recursive call)이라고 한다.</li>
-<li>재귀 호출을 수행하는 함수를 <strong>재귀 함수</strong> 라고 한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 팩토리얼 재귀함수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fact</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> n * fact(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">fact(<span class="number">5</span>); <span class="comment">// 120</span></span><br></pre></td></tr></table></figure></li>
+<li>재귀 호출을 수행하는 함수를 <strong>재귀 함수</strong> 라고 한다.</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 팩토리얼 재귀함수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fact</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> n * fact(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">fact(<span class="number">5</span>); <span class="comment">// 120</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>재귀 함수를 정의할 때 유의해야 하는 사항</strong></p>
 <ol>
 <li><strong>재귀 호출은 반드시 멈춰야 한다.</strong><ul>
