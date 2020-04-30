@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codeameba.github.io/"/>
-  <updated>2020-04-25T10:05:49.397Z</updated>
+  <updated>2020-04-30T09:45:58.487Z</updated>
   <id>http://codeameba.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[TIL] 메서드(method)의 약식 표현과 한계</title>
+    <link href="http://codeameba.github.io/2020/04/30/programming/es6-method-expression/"/>
+    <id>http://codeameba.github.io/2020/04/30/programming/es6-method-expression/</id>
+    <published>2020-04-30T09:45:42.000Z</published>
+    <updated>2020-04-30T09:45:58.487Z</updated>
+    
+    <content type="html"><![CDATA[<p>ES6의 등장으로 말미암아 다양한 문법적 편의성을 누릴 수 있게 되었다. 그 중 하나가 아래와 같은 메서드(method)의 약식 표현이다.</p><ol><li><strong>메서드 약식 표현(ES6에서 추가)</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> robot = &#123;</span><br><span class="line">  name: ‘Coderoid’,</span><br><span class="line">  sayHello() &#123; <span class="built_in">console</span>.log(‘Hello! ‘ + <span class="keyword">this</span>.name); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ol><p>ES6 이전의 메서드의 표현은 아래와 같았다.</p><ol start="2"><li><strong>ES6 이전의 메서드 표현</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> robot = &#123;</span><br><span class="line">  name: ‘Coderoid’,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(‘Hello! ‘ + <span class="keyword">this</span>.name); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li></ol><p>단순히 <code>key : value</code>  형태의 유무 정도의 차이로 보이지만, 생각보다 중요한 차이가 있다.</p><p>약식표현의 경우 <code>prototype</code>을 지니지 않기 때문에 생성자로 사용할 수 없으며 이말은 곧, <code>new</code> 연산자를 통한 인스턴스의 생성이 불가하다는 말이기도 하다. 또한, 약식표현은 <code>super</code> 키워드를 사용할 수 없다.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;ES6의 등장으로 말미암아 다양한 문법적 편의성을 누릴 수 있게 되었다. 그 중 하나가 아래와 같은 메서드(method)의 약식 표현이다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;메서드 약식 표현(ES6에서 추가)&lt;/strong&gt;&lt;figure cl
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/categories/JavaScript/TIL/"/>
+    
+    
+      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
+    
+      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
+    
+      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
+    
+      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
+    
+      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>[TIL] 프로토타입을 임의로 수정하면 안 되는 이유</title>
@@ -691,36 +731,6 @@
     </summary>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>취향이 사람을 만든다</title>
-    <link href="http://codeameba.github.io/2019/12/23/blog/taste-maketh-man/"/>
-    <id>http://codeameba.github.io/2019/12/23/blog/taste-maketh-man/</id>
-    <published>2019-12-23T05:43:42.000Z</published>
-    <updated>2020-02-05T09:02:05.909Z</updated>
-    
-    <content type="html"><![CDATA[<p>남들은 어떤지 모르겠지만 내 경우에는 서로의 취향을 하나씩 던지며 대화가 이어진다. 그것이 내 취향과 겹치면 공통된 이야기가 생겨서 좋고, 겹치지 않으면 내가 모르던 것을 알게 되니 좋다. 그래서 취향이 분명하지 않은 사람과 가까운 관계로 발전하기란 썩 쉽지 않다.</p><p>즐겨 듣는 음악, 좋아하는 작가, 사용하는 카메라의 브랜드, 혼자 시간을 보내는 방법 등 취향을 드러낼만한 것들은 참 많다. 꼭 고상한 것일 필요는 없다. 하다 못해 점심 메뉴를 고르는 확고한 기준이라도 좋다. 뭐라도 좋으니 “난 이게 좋고 저건 싫다”라고 분명하게 말할 수 있는 영역을 지닌 사람이 좋다.</p><img src="https://images.unsplash.com/photo-1541443517255-9e9aa2962f14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="film"><p>취향은 곧 취미로 연결되고, 취미에 들이는 시간만큼 부정적인 생각에 사로잡힐 기회는 줄어든다. 물론 혼자 사색을 하는 시간도 소중하지만, 취향이 없는 사색은 알맹이 없는 몽상이 되기 쉽다. 그리고 그렇게 나이 드는 것은 너무나도 쓸쓸하지 않겠는가.</p><p>물론, 취향을 유지하기가 썩 쉽지 않은 시대라는 것은 잘 알고있다. 단지 취향일 뿐인데 손가락질을 받기도 하고, 적지 않은 돈이 들기도 하며, 때로는 이렇게까지 할 가치가 있는 건가… 싶을 때도 있다.</p><p>그럼에도 불구하고, 그런 시대이기에 더욱, 내 취향을 공고히 해야 할 필요가 있다. 취향은 곧, 나를 이루는 필수요소이며, 취향이 없이는 타인과 다른 ‘나’를 온전히 유지할 수도 없다.</p><img src="https://images.unsplash.com/photo-1486092573896-31a373bf1aad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="on my way">]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;남들은 어떤지 모르겠지만 내 경우에는 서로의 취향을 하나씩 던지며 대화가 이어진다. 그것이 내 취향과 겹치면 공통된 이야기가 생겨서 좋고, 겹치지 않으면 내가 모르던 것을 알게 되니 좋다. 그래서 취향이 분명하지 않은 사람과 가까운 관계로 발전하
-      
-    
-    </summary>
-    
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
-      <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
-    
-      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
     
   </entry>
   

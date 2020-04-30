@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>http://codeameba.github.io/categories/JavaScript/TIL/</loc>
+        <lastmod>2020-04-30T09:45:58.487Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/categories/JavaScript/</loc>
+        <lastmod>2020-04-30T09:45:58.487Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://codeameba.github.io/categories/Book/</loc>
         <lastmod>2020-04-25T10:11:50.514Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,20 +31,6 @@
     <url>
         <loc>http://codeameba.github.io/categories/tip/</loc>
         <lastmod>2020-04-25T10:11:09.009Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/JavaScript/TIL/</loc>
-        <lastmod>2020-04-25T10:10:50.532Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/JavaScript/</loc>
-        <lastmod>2020-04-25T10:10:50.532Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
