@@ -34,10 +34,10 @@
     <meta name="description" content="생각과 학습의 아카이브">
 
 
-<link rel="canonical" href="http://codeameba.github.io/2020/04/30/programming/es6-method-expression/">
+<link rel="canonical" href="http://codeameba.github.io/2020/05/04/programming/closure-is-very-important/">
 
 
-<title>[TIL] 메서드(method)의 약식 표현과 한계 | AmebaLab</title>
+<title>[TIL] 클로저(Closure) 복습 | AmebaLab</title>
 
 
 
@@ -134,11 +134,73 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">[TIL] 메서드(method)의 약식 표현과 한계</h1>
+            <h1 class="post-title">[TIL] 클로저(Closure) 복습</h1>
             
                 <div class="post-meta">
                     
@@ -147,7 +209,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">4월 30, 2020&nbsp;&nbsp;18:45:42</a>
+                        Date: <a href="#">5월 4, 2020&nbsp;&nbsp;19:45:42</a>
                         </span>
                     
                     
@@ -165,20 +227,26 @@
         </header>
 
         <div class="post-content">
-            <p>ES6의 등장으로 말미암아 다양한 문법적 편의성을 누릴 수 있게 되었다. 그 중 하나가 아래와 같은 메서드(method)의 약식 표현이다.</p>
+            <h2 id="렉시컬-스코핑-Lexical-Scoping"><a href="#렉시컬-스코핑-Lexical-Scoping" class="headerlink" title="렉시컬 스코핑(Lexical Scoping)"></a>렉시컬 스코핑(Lexical Scoping)</h2><p>클로저의 개념을 이해하기 위해서는 우선 렉시컬 스코핑을 이해해야 하며, 렉시컬 스코핑을 이해하기 위해서는 실행 컨텍스트(Execution Context)를 이해할 필요가 있다.</p>
+<p>아래와 같은 코드가 있을 때, 실행 컨텍스트와 렉시컬 스코핑을 단계별로 정리하며 알아보도록 하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> name = ‘codeAmeba’;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">displayName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name);</span><br><span class="line">  &#125;</span><br><span class="line">  displayName();</span><br><span class="line">&#125;</span><br><span class="line">init(); <span class="comment">// codeAmeba</span></span><br></pre></td></tr></table></figure>
+
 <ol>
-<li><strong>메서드 약식 표현(ES6에서 추가)</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> robot = &#123;</span><br><span class="line">  name: ‘Coderoid’,</span><br><span class="line">  sayHello() &#123; <span class="built_in">console</span>.log(‘Hello! ‘ + <span class="keyword">this</span>.name); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>글로벌 실행 컨텍스트 생성 -&gt; 렉시컬 환경에 <code>init()</code> 등록</li>
+<li>글로벌 실행 컨텍스트 위에 <code>init()</code> 실행 컨텍스트, 렉시컬 스코프 생성 </li>
+<li><code>init()</code> 렉시컬 환경에 변수와 함수 등록, 외부 환경 참조에 글로벌 렉시컬 환경 등록</li>
+<li><code>init()</code> 실행 컨텍스트 위에 <code>displayName()</code> 실행 컨텍스트, 렉시컬 스코프 생성 </li>
+<li><code>displayName()</code> 외부 환경 참조에 등록된  변수 <code>name</code>을 찾아 로그 실행</li>
+<li><code>displayName()</code> 실행 컨텍스트, 렉시컬 스코프 종료</li>
+<li><code>init()</code> 실행 컨텍스트, 렉시컬 스코프 종료</li>
 </ol>
-<p>ES6 이전의 메서드의 표현은 아래와 같았다.</p>
-<ol start="2">
-<li><strong>ES6 이전의 메서드 표현</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> robot = &#123;</span><br><span class="line">  name: ‘Coderoid’,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(‘Hello! ‘ + <span class="keyword">this</span>.name); &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="클로저-Closure"><a href="#클로저-Closure" class="headerlink" title="클로저(Closure)"></a>클로저(Closure)</h2><p>앞서 살펴본 내용이 일반적인 중첩함수라면, 클로저는 어떤 부분이 다른지 아래의 코드를 살펴보자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> name = ‘codeAmeba’;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">displayName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> displayName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myFunc = makeFunc();</span><br><span class="line">myFunc(); <span class="comment">// codeAmeba</span></span><br></pre></td></tr></table></figure>
 
-</li>
-</ol>
-<p>단순히 <code>key : value</code>  형태의 유무 정도의 차이로 보이지만, 생각보다 중요한 차이가 있다.</p>
-<p>약식표현의 경우 <code>prototype</code>을 지니지 않기 때문에 생성자로 사용할 수 없으며 이말은 곧, <code>new</code> 연산자를 통한 인스턴스의 생성이 불가하다는 말이기도 하다. 또한, 약식표현은 <code>super</code> 키워드를 사용할 수 없다.</p>
+<p><code>displayName()</code>을 리턴한다는 것 외에 큰 차이를 발견하기 어려우나 내부적으로는 클로저만의 차이점이 있다.</p>
+<p><strong>클로저의 컨셉은 실행 컨텍스트 종료 후에도 렉시컬 환경을 유지하는 것에 있다.</strong></p>
+<p>위의 경우에서는,  <code>displayName()</code>이 리턴되어 <code>myFunc</code>에 저장되고, <code>displayName()</code>은 외부 환경 참조를 통해  <code>makeFunc()</code>의 지역변수 <code>name</code>을 참조하고 있다고 볼 수 있다.</p>
+<p><strong>참고:</strong><br>    - <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Closures" target="_blank" rel="external nofollow noopener noreferrer">클로저 - JavaScript | MDN</a><br>    - <a href="https://ko.javascript.info/closure" target="_blank" rel="external nofollow noopener noreferrer">변수의 스코프</a></p>
 
         </div>
 
@@ -212,10 +280,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/05/04/programming/closure-is-very-important/">[TIL] 클로저(Closure) 복습</a>
             
-            
-            <a class="next" rel="next" href="/2020/04/22/programming/do-not-modify-prototype/">[TIL] 프로토타입을 임의로 수정하면 안 되는 이유</a>
+            <a class="next" rel="next" href="/2020/04/30/programming/es6-method-expression/">[TIL] 메서드(method)의 약식 표현과 한계</a>
             
         </section>
 
