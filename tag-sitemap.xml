@@ -458,13 +458,6 @@
     </url>
 
     <url>
-        <loc>http://codeameba.github.io/tags/extension/</loc>
-        <lastmod>2020-04-25T09:55:15.735Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://codeameba.github.io/tags/chrome/</loc>
         <lastmod>2020-04-25T09:55:15.735Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -473,6 +466,13 @@
 
     <url>
         <loc>http://codeameba.github.io/tags/%25ED%2581%25AC%25EB%25A1%25AC/</loc>
+        <lastmod>2020-04-25T09:55:15.735Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/tags/extension/</loc>
         <lastmod>2020-04-25T09:55:15.735Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
