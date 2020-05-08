@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/08/20/programming/js-til-increase-decrease/">
+
+
+<title>[JavaScript] ++i 와 i++의 차이 | AmebaLab</title>
+
+
+
+    <link rel="icon" href="/image/favicon2.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AmebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">AmebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">AmebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[JavaScript] ++i 와 i++의 차이</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">8월 20, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            
+                                <a href="/categories/JavaScript/TIL/">TIL</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="JavaScript-i-와-i-의-차이"><a href="#JavaScript-i-와-i-의-차이" class="headerlink" title="[JavaScript] ++i 와 i++의 차이"></a>[JavaScript] ++i 와 i++의 차이</h2><img src="https://images.unsplash.com/photo-1461773518188-b3e86f98242f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60">
+***
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">console</span>.log(i++);</span><br><span class="line"><span class="built_in">console</span>.log(++i);</span><br><span class="line"><span class="built_in">console</span>.log(i++);</span><br><span class="line"><span class="built_in">console</span>.log(++i);</span><br></pre></td></tr></table></figure>
+
+<p>위의 출력 결과를 알 수 있겠는가? 불과 3개월 전의 나라면 단순하게 1, 2, 3, 4라고 답했을 지도 모르겠다. 하지만, 지금의 나는 둘의 차이를 분명하게 알고 있다.</p>
+<p>위와 같이 <code>++</code> 혹은, <code>--</code>와 같이 더하기나 빼기 기호가 이어져 있는 연산자를 <strong>증감 연산자</strong>라고 하는데, 변수의 앞에 있을 경우 <strong>전위 증감 연산자</strong>, 뒤에 있을 경우 <strong>후위 증감 연산자</strong>라고 부른다.</p>
+<p>이 증감 연산자는 말 그대로 숫자형의 변수를 1씩 증가 시키거나 1씩 감소 시킨다. 여기까지만 알고 있다면, 자연스럽게 위의 답을 1, 2, 3, 4라고 할 수 있을 것이다.</p>
+<p>위의 답을 먼저 밝히자면 <code>0, 2, 2, 4</code>다.<br>1씩 증가하는 증감 연산자인데 어째서 1과 3이 빠지고 2씩 증가했는지 의아하게 생각할 누군가를 위해 개인적인 복습 겸 설명을 해볼까 한다.</p>
+<p>여기서 우리는 위의 증감 연산자가 <strong>전위</strong>인가 <strong>후위</strong>인가를 주의 깊게 봐야 한다. 굳이 이름까지 다르게 붙였다는 것은 각각의 작동 방식이다 다르다는 것을 의미한다.</p>
+<br>
+
+<h3 id="전위-증감-연산자-i"><a href="#전위-증감-연산자-i" class="headerlink" title="전위 증감 연산자(++i)"></a>전위 증감 연산자(++i)</h3><hr>
+<p>전위 증감 연산자는 변수의 값을 <strong>증가 먼저 시킨 뒤에 할당한다.</strong> 따라서 아래와 같은 경우가 있다면,</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">console</span>.log(++i);</span><br></pre></td></tr></table></figure>
+
+<p>출력 값은 <code>1</code>이 나올 것이다.</p>
+<br>
+
+<h3 id="후위-증감-연산자-i"><a href="#후위-증감-연산자-i" class="headerlink" title="후위 증감 연산자(i++)"></a>후위 증감 연산자(i++)</h3><hr>
+<p>반면에 후위 증감 연산자는 변수의 값을 <strong>할당 먼저 한 뒤에 증가 시킨다.</strong> 따라서 아래와 같은 경우가 있다면,</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">console</span>.log(i++);</span><br></pre></td></tr></table></figure>
+
+<p>증가 시키기 전의 값인  <code>0</code>이 나올 것이다.</p>
+<br>
+
+<h3 id="증감-연산자의-반복"><a href="#증감-연산자의-반복" class="headerlink" title="증감 연산자의 반복"></a>증감 연산자의 반복</h3><hr>
+<p>전위 증감 연산자를 쓰던 후위 증감 연산자를 쓰던 정해진 범위 내에서 증감이 이루어지기 때문에 최초의 값이 필요하다면 후위를, 최초의 값이 필요 없다면 전위를 쓰면 된다고 생각한다. 둘의 미묘한 속도 차이가 있다고는 하는데, 몇 차례 출력을 해본 결과로는 후위 증감 연산자가 약간 빠른 것 같기도 한다. 0.01초 정도.</p>
+<p><strong>어쨌든 중요한 것은, 전위와 후위를 섞어 쓰지 않는 것이다. 하나를 정했다면 그 프로젝트에서는 끝까지 그걸로 가야만 한다. 그래야 평화로울 것이다.</strong></p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%EC%9D%BC%EA%B8%B0/"># 일기</a>
+                    
+                        <a href="/tags/til/"># til</a>
+                    
+                        <a href="/tags/TIL/"># TIL</a>
+                    
+                        <a href="/tags/Today-I-Learned/"># Today I Learned</a>
+                    
+                        <a href="/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"># 오늘배운것들</a>
+                    
+                        <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"># 자바스크립트</a>
+                    
+                        <a href="/tags/Javascript/"># Javascript</a>
+                    
+                        <a href="/tags/%EC%A6%9D%EA%B0%90%EC%97%B0%EC%82%B0%EC%9E%90/"># 증감연산자</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/08/26/programming/react-movie-app-01/">[ReactJS] 무비앱 만들기 Day 01</a>
+            
+            
+            <a class="next" rel="next" href="/2019/08/20/programming/react-til-06/">TIL(190820) - React 06</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>a.k.a codeAmeba in Seoul &#169; 2020 Sooyoung Jeong</span>
+    </div>
+</footer>
+    </div>
+</body>
+</html>

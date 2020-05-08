@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codeameba.github.io/"/>
-  <updated>2020-05-04T10:56:30.092Z</updated>
+  <updated>2020-05-08T09:17:44.123Z</updated>
   <id>http://codeameba.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[TIL] 원본 배열을 수정하는 배열 메서드</title>
+    <link href="http://codeameba.github.io/2020/05/08/programming/array-method-changed-original/"/>
+    <id>http://codeameba.github.io/2020/05/08/programming/array-method-changed-original/</id>
+    <published>2020-05-08T09:12:42.000Z</published>
+    <updated>2020-05-08T09:17:44.123Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="수정-메서드"><a href="#수정-메서드" class="headerlink" title="수정 메서드"></a>수정 메서드</h2><p>배열 메서드는 크게 세 종류로 나눈다.</p><ul><li><strong>수정 메서드</strong> : 원본 배열을 수정함 </li><li><strong>접근자 메서드</strong> : 배열에 접근하여 새로운 배열을 반환</li><li><strong>반복 메서드</strong> : 배열의 요소들을 순회하며 작업을 수행</li></ul><p>이번 시간에는 주요 수정 메서드들을 살펴본다.</p><h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><p><code>push()</code>는 배열 마지막에 새로운 요소를 추가한다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];</span><br><span class="line"></span><br><span class="line">fruits.push(‘pineapple’);</span><br><span class="line"><span class="built_in">console</span>.log(fruits);</span><br><span class="line"><span class="comment">// ["apple", "banana", "melon", "peach", "blueberry", "pineapple"]</span></span><br></pre></td></tr></table></figure><h2 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h2><p><code>pop()</code>은 배열 마지막 요소를 제거한다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];</span><br><span class="line"></span><br><span class="line">fruits.pop();</span><br><span class="line"><span class="built_in">console</span>.log(fruits);</span><br><span class="line"><span class="comment">// ["apple", "banana", "melon", "peach"]</span></span><br></pre></td></tr></table></figure><h2 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h2><p><code>shift()</code>는 배열 맨 앞의 요소를 제거한 후 모든 요소를 왼쪽으로 이동 시킨다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];</span><br><span class="line"></span><br><span class="line">fruits.shift();</span><br><span class="line"><span class="built_in">console</span>.log(fruits);</span><br><span class="line"><span class="comment">// [‘banana’, ‘melon’, ‘peach’, ‘blueberry’]</span></span><br></pre></td></tr></table></figure><h2 id="unshift"><a href="#unshift" class="headerlink" title="unshift"></a>unshift</h2><p><code>unshift()</code>는 배열 맨 앞에 새로운 요소를 추가하며 기존의 요소들을 오른쪽으로 이동 시킨다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];</span><br><span class="line"></span><br><span class="line">fruits.unshift(‘pineapple’);</span><br><span class="line"><span class="built_in">console</span>.log(fruits);</span><br><span class="line"><span class="comment">// [‘pineapple’, ‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’]</span></span><br></pre></td></tr></table></figure><h2 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h2><p><code>splice</code>는 전달하는 인자 개수에 따라 특정 위치에 요소를 추가, 삭제, 교체할 수 있다.<br><strong><code>splice(시작 인덱스, 시작 인덱스부터 요소의 개수, 추가할 요소)</code></strong></p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 인덱스 1부터 2개의 요소를 제거하고, ‘lemon’과 ‘grape’를 추가</span></span><br><span class="line">fruits.splice(<span class="number">1</span>, <span class="number">2</span>, ‘lemon’, ‘grape’);</span><br><span class="line"><span class="built_in">console</span>.log(fruits);</span><br><span class="line"><span class="comment">// ["apple", "lemon", "grape", "peach", "blueberry"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 첫 번째 인수만 넘기면 해당 인덱스 이후의 요소 모두 제거</span></span><br><span class="line">fruits.splice(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(fruits);</span><br><span class="line"><span class="comment">// ["apple", "lemon"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 두 번째 인수에 0을 넘기면 제거 없이 새로운 요소만 추가</span></span><br><span class="line">fruits.splice(<span class="number">1</span>, <span class="number">0</span>, ‘cherry’);</span><br><span class="line"><span class="built_in">console</span>.log(fruits);</span><br><span class="line"><span class="comment">// [“apple", "cherry", "lemon"]</span></span><br></pre></td></tr></table></figure><h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><p><code>sort()</code>는 배열 요소를 정렬할 때 사용한다. 비교함수를 넣어야 인접한 두 개 의 요소를 비교하여 정렬을 하며, 정렬 방식은 다음과 같다.</p><ul><li>f(a, b) &lt; 0 이면 a를 b보다 작은 인덱스로 정렬</li><li>f(a, b) == 0 이면 a와 b의 순서 그대로 둠</li><li>f(a, b) &gt; 0 이면 b를 a보다 작은 인덱스로 정렬</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers = [<span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">15</span>, <span class="number">3</span>, <span class="number">36</span>, <span class="number">2</span>, <span class="number">51</span>, <span class="number">7</span>, <span class="number">19</span>, <span class="number">24</span>];</span><br><span class="line"></span><br><span class="line">numbers.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> a - b; &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(numbers); </span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 6, 7, 8, 15, 19, 24, 36, 51]</span></span><br></pre></td></tr></table></figure><p>비교함수를 지정하지 않으면 요소를 문자열로 변환하여 사전순(abc)으로 정렬한다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];</span><br><span class="line"></span><br><span class="line">fruits.sort();</span><br><span class="line"><span class="built_in">console</span>.log(fruits); </span><br><span class="line"><span class="comment">// ["apple", "banana", "blueberry", "melon", "peach"]</span></span><br></pre></td></tr></table></figure><p><strong>참고:</strong></p><ul><li><a href="https://ko.javascript.info/array-methods" target="_blank" rel="external nofollow noopener noreferrer">배열과 메서드</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;수정-메서드&quot;&gt;&lt;a href=&quot;#수정-메서드&quot; class=&quot;headerlink&quot; title=&quot;수정 메서드&quot;&gt;&lt;/a&gt;수정 메서드&lt;/h2&gt;&lt;p&gt;배열 메서드는 크게 세 종류로 나눈다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;수정 메서드&lt;/str
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/categories/JavaScript/TIL/"/>
+    
+    
+      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
+    
+      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
+    
+      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
+    
+      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
+    
+      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>[TIL] 클로저(Closure) 복습</title>
@@ -703,36 +743,6 @@
       
       
         &lt;img src=&quot;https://images.unsplash.com/photo-1513185041617-8ab03f83d6c5?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1950&amp;
-      
-    
-    </summary>
-    
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
-    
-      <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
-    
-      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>오류의 이해</title>
-    <link href="http://codeameba.github.io/2020/02/01/blog/understanding-error/"/>
-    <id>http://codeameba.github.io/2020/02/01/blog/understanding-error/</id>
-    <published>2020-02-01T11:50:42.000Z</published>
-    <updated>2020-02-03T07:54:34.369Z</updated>
-    
-    <content type="html"><![CDATA[<img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" alt="coding"><p>프로그래밍을 배울 때 들었던 말 중 가장 기억에 남는 말이, <strong>‘오류를 이해하라’</strong> 는 말이었다. 코딩을 하다 보면 다양한 형태의 오류가 다양한 상황에서 등장하는데, 구글에 복붙하여 찾아보고, 대강 수정하여 넘어가다 보면 동일한 오류가 다시 등장했을 때 대처를 못 하기 때문이다.</p><p>따라서 오류의 원인과 결과를 충분히 이해하고 넘어가야 한다는 것이다. 조금 더 부연설명을 하자면, 동일한 상황을 조성하여 의도적으로 동일한 오류를 발생시킬 수 있을 정도의 수준을 진정한 의미의 ‘오류의 이해’라고 할 수 있다.</p><p>그리고, ‘오류의 이해’가 필요한 곳은 비단 프로그래밍에만 국한된 것이 아니라고 생각한다. 삶을 살아가면서도 ‘나의 진짜 관심분야’, ‘다양한 상황에서의 인간관계’ 등 가설과 검증을 통한 ‘오류의 이해’가 유의미한 경우들이 있다.</p><p>물론, 극단적 가설에 의한 테스팅은 조금 곤란할지도…</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;img src=&quot;https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2089&amp;
       
     
     </summary>
