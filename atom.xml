@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codeameba.github.io/"/>
-  <updated>2020-05-09T11:22:38.236Z</updated>
+  <updated>2020-05-10T10:08:24.297Z</updated>
   <id>http://codeameba.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[TIL] 모든 요소에 특정 작업을 수행하는 반복 메서드</title>
+    <link href="http://codeameba.github.io/2020/05/10/programming/array-method-iteration/"/>
+    <id>http://codeameba.github.io/2020/05/10/programming/array-method-iteration/</id>
+    <published>2020-05-10T10:07:42.000Z</published>
+    <updated>2020-05-10T10:08:24.297Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="반복-메서드"><a href="#반복-메서드" class="headerlink" title="반복 메서드"></a>반복 메서드</h2><p>배열 메서드는 크게 세 종류로 나눈다.</p><ul><li><strong>수정 메서드</strong> : 원본 배열을 수정함</li><li><strong>접근자 메서드</strong> : 배열에 접근하여 새로운 배열을 반환</li><li><strong>반복 메서드</strong> : 배열의 요소들을 순회하며 작업을 수행</li></ul><p>이번 시간에는 주요 <strong>반복 메서드</strong> 들을 살펴본다.</p><h2 id="반복-메서드의-공통-성질"><a href="#반복-메서드의-공통-성질" class="headerlink" title="반복 메서드의 공통 성질"></a>반복 메서드의 공통 성질</h2><ol><li>반복 메서드의 인수로 전달한 함수는 배열의 모든 요소들에 호출되어 적용되며, 희소 배열의 경우 비어있는 요소는 건너뜀</li><li>반복 메서드 대부분은 첫 번째 인수로 함수를 받으며, 이 함수에는 <strong>최대 세 개의 인수</strong> 를 전달할 수 있다. 첫 번째 인수만 전달하는 경우가 많으며, 각각의 인수는 다음과 같다.<ul><li>첫 번째 인수(value): 현재 처리하는 요소의 값</li><li>두 번째 인수(index): 현재 처리하는 요소의 인덱스</li><li>세 번째 인수(array): 메서드가 적용되는 배열의 참조</li></ul></li><li><code>reduce</code>와 <code>reduceRight</code>를 제외한 반복 메서드에는 두 번째 인수를 지정할 수 있다. 두 번째 인수는 첫 번째 인수로 받은 함수 안의 <code>this</code>값이며 생략 가능하다.</li></ol><h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><p><code>forEach()</code>는 인수로 받은 함수를 요소 하나 하나마다 실행한다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];</span><br><span class="line"></span><br><span class="line">fruits.forEach(<span class="function">(<span class="params">fruit</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`I Love <span class="subst">$&#123;fruit&#125;</span>`</span>));</span><br><span class="line"><span class="comment">// I Love apple</span></span><br><span class="line"><span class="comment">// I Love banana</span></span><br><span class="line"><span class="comment">// I Love melon</span></span><br><span class="line"><span class="comment">// I Love peach</span></span><br><span class="line"><span class="comment">// I Love blueberry</span></span><br><span class="line"></span><br><span class="line">fruits.forEach(<span class="function">(<span class="params">fruit, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;fruit&#125;</span> is <span class="subst">$&#123;index + <span class="number">1</span>&#125;</span>th fruit.`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// apple is 1th fruit.</span></span><br><span class="line"><span class="comment">// banana is 2th fruit.</span></span><br><span class="line"><span class="comment">// melon is 3th fruit.</span></span><br><span class="line"><span class="comment">// peach is 4th fruit.</span></span><br><span class="line"><span class="comment">// blueberry is 5th fruit.</span></span><br></pre></td></tr></table></figure><h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p><code>map()</code>은 인수로 받은 함수를 요소별로 한 번씩 실행하며, 함수가 반환한 값으로 새로운 배열을 생성한다. <code>map()</code>의 인수로 넘기는 함수는 반드시 값을 반환해야 한다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];</span><br><span class="line"><span class="keyword">const</span> myFruits = fruits.map(<span class="function">(<span class="params">fruit</span>) =&gt;</span> fruit.toUpperCase());</span><br><span class="line"><span class="built_in">console</span>.log(myFruits); </span><br><span class="line"><span class="comment">// [“APPLE”, “BANANA”, “MELON”, “PEACH”, “BLUEBERRY”]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>];</span><br><span class="line"><span class="keyword">const</span> sqrt = numbers.map(<span class="built_in">Math</span>.sqrt);</span><br><span class="line"><span class="built_in">console</span>.log(sqrt); <span class="comment">// [1, 2, 3, 4, 5]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> persons = [</span><br><span class="line">  &#123;<span class="attr">name</span>: ‘Tom’, <span class="attr">age</span>: <span class="number">17</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>: ‘James’, <span class="attr">age</span>: <span class="number">19</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>: ‘Sam’, <span class="attr">age</span>: <span class="number">15</span>&#125;</span><br><span class="line">];</span><br><span class="line"><span class="keyword">const</span> names = persons.map(<span class="function"><span class="params">person</span> =&gt;</span> person.name);</span><br><span class="line"><span class="keyword">const</span> ages = persons.map(<span class="function"><span class="params">person</span> =&gt;</span> person.age);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`names: <span class="subst">$&#123;names&#125;</span> / ages: <span class="subst">$&#123;ages&#125;</span>`</span>);</span><br><span class="line"><span class="comment">// names: Tom,James,Sam / ages: 17,19,15</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(persons.map(<span class="function"><span class="params">person</span> =&gt;</span> person.name).map(<span class="function"><span class="params">name</span> =&gt;</span> name.length));</span><br><span class="line"><span class="comment">// [3, 5, 3]</span></span><br></pre></td></tr></table></figure><h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p><code>filter()</code>는 조건에 충족하는 요소만 걸러 새로운 배열로 반환한다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fruits = [‘apple’, ‘banana’, ‘melon’, ‘peach’, ‘blueberry’];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> includeM = fruits.filter(<span class="function">(<span class="params">fruit</span>) =&gt;</span> fruit.includes(‘m’));</span><br><span class="line"><span class="built_in">console</span>.log(includeM); <span class="comment">// [“melon”]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> longerThan5Length = fruits.filter(<span class="function"><span class="params">fruit</span> =&gt;</span> fruit.length &gt; <span class="number">5</span>);</span><br><span class="line"><span class="built_in">console</span>.log(longerThan5Length); <span class="comment">// [“banana”, “blueberry”]</span></span><br></pre></td></tr></table></figure><p><strong>참고:</strong></p><ul><li><a href="https://ko.javascript.info/array-methods" target="_blank" rel="external nofollow noopener noreferrer">배열과 메서드</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;반복-메서드&quot;&gt;&lt;a href=&quot;#반복-메서드&quot; class=&quot;headerlink&quot; title=&quot;반복 메서드&quot;&gt;&lt;/a&gt;반복 메서드&lt;/h2&gt;&lt;p&gt;배열 메서드는 크게 세 종류로 나눈다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;수정 메서드&lt;/str
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/categories/JavaScript/TIL/"/>
+    
+    
+      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
+    
+      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
+    
+      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
+    
+      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
+    
+      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>[TIL] 새로운 배열을 반환하는 배열 메서드</title>
@@ -736,36 +776,6 @@
       <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
       <category term="허니와클로버" scheme="http://codeameba.github.io/tags/%ED%97%88%EB%8B%88%EC%99%80%ED%81%B4%EB%A1%9C%EB%B2%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>종이책으로의 회귀</title>
-    <link href="http://codeameba.github.io/2020/02/04/blog/return-to-text/"/>
-    <id>http://codeameba.github.io/2020/02/04/blog/return-to-text/</id>
-    <published>2020-02-04T05:43:42.000Z</published>
-    <updated>2020-02-05T09:10:11.882Z</updated>
-    
-    <content type="html"><![CDATA[<img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="select a book"><p>콘텐츠의 포맷에 따라 여백의 비중이 다르다. 여기서 말하는 여백이란, 독자가 전•후 사정과 배경을 상상할 수 있는 여지를 뜻한다.</p><p>예를 들어 텍스트 콘텐츠의 여백이 50% 라면, 이미지 콘텐츠는 30%, 동영상 콘텐츠는 10% 쯤 될 것이다. 그런 점에서 동영상 콘텐츠의 이용률이 월등한 지금의 세대는 본인의 상상으로 채울 수 있는 여지가 지극히 적을 수밖에 없다.</p><p>사람은 기본적으로 상상을 기반으로 자신만의 세계관을 구축하고자 하는 욕구가 있으며, 이들은 결국 동영상 콘텐츠가 채워주지 못하는 여백에 대한 갈증을 채우기 위해 텍스트 콘텐츠를 찾게 될 것이다.</p><p>나아가 종이책에서만 느낄 수 있는 온기와 질감을 동경하여 종이책으로 회귀하게 될 것이다.</p><p>이것은, 종이책을 사랑하는 사람의 예측 혹은 바람이다.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;img src=&quot;https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1950&amp;
-      
-    
-    </summary>
-    
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
-    
-      <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
-    
-      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
     
   </entry>
   
