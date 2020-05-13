@@ -8,15 +8,57 @@
     </url>
 
     <url>
-        <loc>http://codeameba.github.io/categories/JavaScript/TIL/</loc>
-        <lastmod>2020-05-12T09:57:12.511Z</lastmod>
+        <loc>http://codeameba.github.io/categories/JavaScript/</loc>
+        <lastmod>2020-05-13T18:09:52.671Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://codeameba.github.io/categories/JavaScript/</loc>
-        <lastmod>2020-05-12T09:57:12.511Z</lastmod>
+        <loc>http://codeameba.github.io/categories/Vue/</loc>
+        <lastmod>2020-05-13T18:09:31.729Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/categories/HTML/</loc>
+        <lastmod>2020-05-13T18:09:24.023Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/categories/React/</loc>
+        <lastmod>2020-05-13T18:08:41.357Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/categories/Python/</loc>
+        <lastmod>2020-05-13T18:07:41.642Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/categories/CSS/</loc>
+        <lastmod>2020-05-13T18:02:39.959Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/categories/CS/</loc>
+        <lastmod>2020-05-13T18:02:29.088Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/categories/HTTP/</loc>
+        <lastmod>2020-05-13T18:01:45.085Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -31,90 +73,6 @@
     <url>
         <loc>http://codeameba.github.io/categories/tip/</loc>
         <lastmod>2020-04-25T10:11:09.009Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/Exercise/</loc>
-        <lastmod>2020-04-25T10:09:59.549Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/HTTP/TIL/</loc>
-        <lastmod>2020-04-25T10:08:22.439Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/HTTP/</loc>
-        <lastmod>2020-04-25T10:08:22.439Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/CS/TIL/</loc>
-        <lastmod>2020-04-25T10:08:06.327Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/CS/</loc>
-        <lastmod>2020-04-25T10:08:06.327Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/CSS/TIL/</loc>
-        <lastmod>2020-04-25T10:06:11.672Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/CSS/</loc>
-        <lastmod>2020-04-25T10:06:11.672Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/HTML/TIL/</loc>
-        <lastmod>2020-04-25T10:05:33.761Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/HTML/</loc>
-        <lastmod>2020-04-25T10:05:33.761Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/Python/TIL/</loc>
-        <lastmod>2020-04-25T10:00:40.880Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/Python/</loc>
-        <lastmod>2020-04-25T10:00:40.880Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/categories/JavaScript/TIL/React/</loc>
-        <lastmod>2020-04-25T10:00:24.261Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
