@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codeameba.github.io/"/>
-  <updated>2020-05-13T18:03:13.501Z</updated>
+  <updated>2020-05-14T10:22:42.494Z</updated>
   <id>http://codeameba.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[TIL] 인스턴스로 인스턴스 만들기</title>
+    <link href="http://codeameba.github.io/2020/05/14/programming/make-instance-use-instance/"/>
+    <id>http://codeameba.github.io/2020/05/14/programming/make-instance-use-instance/</id>
+    <published>2020-05-14T11:12:42.000Z</published>
+    <updated>2020-05-14T10:22:42.494Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="생성자-함수를-지닌-인스턴스"><a href="#생성자-함수를-지닌-인스턴스" class="headerlink" title="생성자 함수를 지닌 인스턴스"></a>생성자 함수를 지닌 인스턴스</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(first, last, age, gender, interests) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = &#123;</span><br><span class="line">      first: first,</span><br><span class="line">      last: last</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.gender = gender === <span class="string">'male'</span> ? <span class="string">'He'</span> : <span class="string">'She'</span>;</span><br><span class="line">    <span class="keyword">this</span>.interests = interests; </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  bio = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(</span><br><span class="line">      <span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name.first&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.name.last&#125;</span> is <span class="subst">$&#123;<span class="keyword">this</span>.age&#125;</span> years old. <span class="subst">$&#123;<span class="keyword">this</span>.gender&#125;</span> likes <span class="subst">$&#123;<span class="keyword">this</span>.interests[<span class="number">0</span>]&#125;</span> and <span class="subst">$&#123;<span class="keyword">this</span>.interests[<span class="number">1</span>]&#125;</span>.`</span></span><br><span class="line">    );</span><br><span class="line">  &#125;;</span><br><span class="line">  greeting = <span class="function"><span class="keyword">function</span>(<span class="params">myName</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Hello I'm <span class="subst">$&#123;<span class="keyword">this</span>.name.first&#125;</span>. Nice to meet you <span class="subst">$&#123;myName&#125;</span>.`</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> john = <span class="keyword">new</span> Person(<span class="string">'John'</span>, <span class="string">'Miles'</span>, <span class="number">32</span>, <span class="string">'male'</span>, [<span class="string">'coding'</span>, <span class="string">'reading'</span>]);</span><br><span class="line"><span class="keyword">const</span> Jane = <span class="keyword">new</span> Person(‘Jane<span class="string">', '</span>Carol<span class="string">', 29, '</span>female<span class="string">', ['</span>painting<span class="string">', '</span>watching movie<span class="string">']);</span></span><br></pre></td></tr></table></figure><p>위와 같은 <code>class</code>와 그것을 통해 생성된 인스턴스가 있을 때, <strong>부득이하게 생성자 함수를 예측할 수 없는 상황에서 새로운 인스턴스를 생성해야 하는 경우에 처했다고 가정한다.</strong></p><p>이럴 때에는 프로토타입 체인을 통해 인스턴스 내부에 구현되어 있는 생성자 함수 <code>constructor</code>를 쓰면 가능하다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(jane.__proto__); <span class="comment">// &#123;constructor: ƒ&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(jane.constructor);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">class Person &#123;</span></span><br><span class="line"><span class="comment">constructor(first, last, age, gender, interests) &#123;</span></span><br><span class="line"><span class="comment">this.name = &#123;</span></span><br><span class="line"><span class="comment">first: first,</span></span><br><span class="line"><span class="comment">last: last</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">this.age = age;</span></span><br><span class="line"><span class="comment">this.gender = gender === 'male' ? 'He' : 'She';</span></span><br><span class="line"><span class="comment">this.interests =…</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure><p>인스턴스의 생성자 함수를 콘솔에서 확인해보면 위와 같이 슈퍼클래스의 생성자가 그대로 담겨있는 것을 볼 수 있다. 그리고, 이를 통해 일반적이지 않은 방법으로 새로운 인스턴스를 만들어낼 수 있다.</p><h2 id="인스턴스로-인스턴스-만들기"><a href="#인스턴스로-인스턴스-만들기" class="headerlink" title="인스턴스로 인스턴스 만들기"></a>인스턴스로 인스턴스 만들기</h2><p>인스턴스로 인스턴스를 만들기는 어렵지 않다. 아래와 같이 <code>new</code> 키워드와 <code>constructor()</code>를 통해 간단히 만들 수가 있다.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sam = <span class="keyword">new</span> jane.constructor(‘Sam’, ‘Winchester<span class="string">', 25, '</span>male<span class="string">', ['</span>singing<span class="string">', '</span>running<span class="string">']);</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">console.log(sam.name); // &#123;first: "Sam", last: "Winchester"&#125;</span></span><br><span class="line"><span class="string">console.log(sam.bio()); // Sam Winchester is 25 years old. He likes singing and running.</span></span><br><span class="line"><span class="string">console.log(sam.greeting(‘Jane’)); // Hello I'</span>m Sam. Nice to meet you Jane.</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;생성자-함수를-지닌-인스턴스&quot;&gt;&lt;a href=&quot;#생성자-함수를-지닌-인스턴스&quot; class=&quot;headerlink&quot; title=&quot;생성자 함수를 지닌 인스턴스&quot;&gt;&lt;/a&gt;생성자 함수를 지닌 인스턴스&lt;/h2&gt;&lt;figure class=&quot;highli
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
+    
+      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
+    
+      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
+    
+      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
+    
+      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>[TIL] 모든 요소에 특정 작업을 수행하는 반복 메서드</title>
@@ -712,40 +748,6 @@
       <category term="황금시대" scheme="http://codeameba.github.io/tags/%ED%99%A9%EA%B8%88%EC%8B%9C%EB%8C%80/"/>
     
       <category term="미드나잇인파리" scheme="http://codeameba.github.io/tags/%EB%AF%B8%EB%93%9C%EB%82%98%EC%9E%87%EC%9D%B8%ED%8C%8C%EB%A6%AC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>허니와 클로버</title>
-    <link href="http://codeameba.github.io/2020/02/05/blog/honey-and-clovar/"/>
-    <id>http://codeameba.github.io/2020/02/05/blog/honey-and-clovar/</id>
-    <published>2020-02-05T09:05:42.000Z</published>
-    <updated>2020-02-06T08:51:58.272Z</updated>
-    
-    <content type="html"><![CDATA[  <img src="/images/honey01.png" alt="honey and clovar">  <img src="/images/honey02.png" alt="honey and clovar">  <img src="/images/honey03.png" alt="honey and clovar"><p>20대 초반에 우연히 보게 된 허니와 클로버는 당시 혼란스러웠던 내 마음을 대변해주는 것 같았고, 10년이 훌쩍 지난 지금까지도 마음이 꺾일 것 같을 때면 다시 정주행을 하며 의욕을 재충전하는 나의 최애 콘텐츠로 자리 잡았다.</p><p>또, 수차례 정주행 하며 알게 된 또 하나의 사실은, 내 나이와 상황에 따라 감정이입을 하게 되는 캐릭터가 달라진다는 점이다.</p><p>처음에는 진로와 자아에 대해 고민하며 뛰어난 재능 앞에 열등감을 느끼는 타케모토에게서 나를 봤다면, 다음에는 얽히고설킨 인간관계 사이에서 망설이는 마야마에게서, 그리고 지금은 어른이 되어서도 여전히 과거의 고민으로부터 벗어나지 못하는 하나모토 교수에게서 내 모습이 보인다.</p><p>그리고 아무리 마음에 와닿는 장면이라도 담담하게 볼 수 있던 예전과는 달리, 몇 번씩 울컥하게 된다. 이것은 내가 감정적으로 성숙했다는 긍정적인 의미로 해석하면 될까.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-          &lt;img src=&quot;/images/honey01.png&quot; alt=&quot;honey and clovar&quot;&gt;
-  &lt;img src=&quot;/images/honey02.png&quot; alt=&quot;honey and clovar&quot;&gt;
-  &lt;img src=&quot;/images/honey0
-      
-    
-    </summary>
-    
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
-    
-      <category term="블로그" scheme="http://codeameba.github.io/tags/%EB%B8%94%EB%A1%9C%EA%B7%B8/"/>
-    
-      <category term="blog" scheme="http://codeameba.github.io/tags/blog/"/>
-    
-      <category term="생각정리" scheme="http://codeameba.github.io/tags/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/"/>
-    
-      <category term="허니와클로버" scheme="http://codeameba.github.io/tags/%ED%97%88%EB%8B%88%EC%99%80%ED%81%B4%EB%A1%9C%EB%B2%84/"/>
     
   </entry>
   

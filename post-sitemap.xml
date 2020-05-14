@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://codeameba.github.io/2020/05/14/programming/make-instance-use-instance/</loc>
+        <lastmod>2020-05-14T10:22:42.494Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://codeameba.github.io/2020/04/14/programming/why-use-factory-function/</loc>
         <lastmod>2020-05-13T18:09:52.671Z</lastmod>
         <changefreq>weekly</changefreq>
