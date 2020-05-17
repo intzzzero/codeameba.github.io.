@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/04/19/programming/cs-til-03/">
+
+
+<title>컴퓨터공학 3일차 TIL(2019.04.19) | AmebaLab</title>
+
+
+
+    <link rel="icon" href="/image/favicon2.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AmebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">AmebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">AmebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">컴퓨터공학 3일차 TIL(2019.04.19)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">4월 19, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/CS/">CS</a>
+                            
+                                <a href="/categories/CS/TIL/">TIL</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="컴공-3일차-19-04-19"><a href="#컴공-3일차-19-04-19" class="headerlink" title="컴공 3일차(19.04.19)"></a>컴공 3일차(19.04.19)</h1><ul>
+<li><strong>자료구조 중 BST는 꼭 알아야 함</strong></li>
+<li><strong>파이썬은 hash로 구성됨</strong></li>
+<li><strong>이산수학, 집합, 선형대수 &gt; 프로그래머의 필수 수학</strong></li>
+</ul>
+<h3 id="새로운-언어를-공부할-때-보는-순서"><a href="#새로운-언어를-공부할-때-보는-순서" class="headerlink" title="새로운 언어를 공부할 때 보는 순서"></a>새로운 언어를 공부할 때 보는 순서</h3><ol>
+<li><p>자료형</p>
+</li>
+<li><p>연산자</p>
+</li>
+<li><p>제어문, 반복문</p>
+</li>
+<li><p>함수 - call by ref? or call by value?</p>
+</li>
+<li><p>class(OOP)</p>
+<ul>
+<li>정보은닉</li>
+<li>상속지원여부 </li>
+<li>가상함수지원여부</li>
+</ul>
+</li>
+<li><p>expression(식)</p>
+<ul>
+<li>“abc” , 1 : 단항식(unary expression)</li>
+<li>무언가를 반환할 수 있으면 식</li>
+<li>파이썬에서는 함수도 식</li>
+</ul>
+</li>
+<li><p>기본 입력 방식</p>
+<ul>
+<li>stdin(standard input) : keyboard</li>
+<li>stdout(standard output) : monitor</li>
+<li>stderr(standard error) : monitor</li>
+</ul>
+</li>
+</ol>
+<h3 id="함수는-첫-글자-‘소문자’-클래스는-첫-글자-‘대문자’"><a href="#함수는-첫-글자-‘소문자’-클래스는-첫-글자-‘대문자’" class="headerlink" title="함수는 첫 글자 ‘소문자’ / 클래스는 첫 글자 ‘대문자’"></a>함수는 첫 글자 ‘소문자’ / 클래스는 첫 글자 ‘대문자’</h3><h3 id="파이썬2-와-파이썬3-의-차이"><a href="#파이썬2-와-파이썬3-의-차이" class="headerlink" title="파이썬2 와 파이썬3 의 차이"></a>파이썬2 와 파이썬3 의 차이</h3><ul>
+<li>내부구조가 다름</li>
+<li>파이썬2는 유니코드 지원 안 함</li>
+<li>파이썬3에서 문자열이 편리해짐</li>
+</ul>
+<h3 id="ASCII-UNICODE"><a href="#ASCII-UNICODE" class="headerlink" title="ASCII / UNICODE"></a>ASCII / UNICODE</h3><ul>
+<li>신호(부호)를 문자로 바꾸는 것이 ‘인코드’ 예) 모스부호</li>
+<li>문자를 신호로 바꾸는 것이 ‘디코드’</li>
+<li>a(character)=97(code point) </li>
+<li>ASCII는 7bit까지만 지원 가능하다는 게 단점</li>
+</ul>
+<hr>
+<h4 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h4><ul>
+<li><a href="https://ko.wikipedia.org/wiki/ASCII" target="_blank" rel="external nofollow noopener noreferrer">https://ko.wikipedia.org/wiki/ASCII</a></li>
+<li><a href="https://ko.wikipedia.org/wiki/%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C" target="_blank" rel="external nofollow noopener noreferrer">https://ko.wikipedia.org/wiki/%EC%9C%A0%EB%8B%88%EC%BD%94%EB%93%9C</a></li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/til/"># til</a>
+                    
+                        <a href="/tags/TIL/"># TIL</a>
+                    
+                        <a href="/tags/Today-I-Learned/"># Today I Learned</a>
+                    
+                        <a href="/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"># 오늘배운것들</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/04/22/programming/cs-til-04/">컴퓨터공학 4일차 TIL(2019.04.22)</a>
+            
+            
+            <a class="next" rel="next" href="/2019/04/18/programming/cs-til-02/">컴퓨터공학 2일차 TIL(2019.04.18)</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>a.k.a codeAmeba in Seoul &#169; 2020 Sooyoung Jeong</span>
+    </div>
+</footer>
+    </div>
+</body>
+</html>

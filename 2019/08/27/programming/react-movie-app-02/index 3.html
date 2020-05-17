@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/08/27/programming/react-movie-app-02/">
+
+
+<title>[ReactJS] 무비앱 만들기 Day 02 | AmebaLab</title>
+
+
+
+    <link rel="icon" href="/image/favicon2.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AmebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">AmebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">AmebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[ReactJS] 무비앱 만들기 Day 02</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">8월 27, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/JavaScript/">JavaScript</a>
+                            
+                                <a href="/categories/JavaScript/TIL/">TIL</a>
+                            
+                                <a href="/categories/JavaScript/TIL/React/">React</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="ReactJS-무비앱-만들기-Day-02"><a href="#ReactJS-무비앱-만들기-Day-02" class="headerlink" title="[ReactJS] 무비앱 만들기 Day 02"></a>[ReactJS] 무비앱 만들기 Day 02</h1><hr>
+<br>
+
+<h2 id="1-6-Array-map"><a href="#1-6-Array-map" class="headerlink" title="1.6 Array.map"></a>1.6 Array.map</h2><hr>
+<ul>
+<li>API로부터 배열로 된 데이터를 받게 되기 때문에 배열 메서드는 중요함</li>
+<li>map 메서드는 해당 배열 요소에 모두 동일한 사항을 매핑하여 새로운 배열을 만들어냄</li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="external nofollow noopener noreferrer">Array.prototype.map() - JavaScript | MDN</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> days = [<span class="string">'Mon'</span>, <span class="string">'Tue'</span>, <span class="string">'Wed'</span>, <span class="string">'Thu'</span>, <span class="string">'Fri'</span>];</span><br><span class="line"><span class="keyword">const</span> drinkDays = days.map(<span class="function"><span class="params">day</span> =&gt;</span> <span class="string">`<span class="subst">$&#123;day&#125;</span>: I'll drink beer`</span>);</span><br><span class="line"><span class="built_in">console</span>.log(drinkDays);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">'Mon: I'll drink beer',</span></span><br><span class="line"><span class="comment">'Tue: I'll drink beer',</span></span><br><span class="line"><span class="comment">'Wed: I'll drink beer',</span></span><br><span class="line"><span class="comment">'Thu: I'll drink beer',</span></span><br><span class="line"><span class="comment">'Fri: I'll drink beer'</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="1-7-Array-filter"><a href="#1-7-Array-filter" class="headerlink" title="1.7 Array.filter"></a>1.7 Array.filter</h2><hr>
+<ul>
+<li>filter 메서드는 주어진 조건을 만족하는 요소만으로 새로운 배열을 만듬</li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank" rel="external nofollow noopener noreferrer">Array.prototype.filter() - JavaScript | MDN</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [ <span class="number">3</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">32</span>, <span class="number">31</span>, <span class="number">5</span>, <span class="number">64</span>, <span class="number">12</span>, <span class="number">24</span>, <span class="number">87</span>, <span class="number">66</span>, <span class="number">59</span>, <span class="number">243</span>, <span class="number">356</span>, <span class="number">645</span>, <span class="number">210</span> ];</span><br><span class="line"><span class="keyword">const</span> biggerThan50 = numbers.filter(<span class="function"><span class="params">num</span> =&gt;</span> num &gt; <span class="number">50</span>);</span><br><span class="line"><span class="built_in">console</span>.log(biggerThan50);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">   64,  87,  66,  59, 243, 356, 645, 210</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="1-8-forEach-includes-push"><a href="#1-8-forEach-includes-push" class="headerlink" title="1.8 forEach / includes / push"></a>1.8 forEach / includes / push</h2><hr>
+<h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h3><ul>
+<li>새로운 배열을 반환하는 map이나 filter와 다름</li>
+<li>배열 각각의 요소에 접근하여 조건에 받는 요소를 반환</li>
+<li>로컬 스토리지에 저장한다던가, API로 보낸다던가, 경고를 보낸다던가 하는 등의 작업에 사용</li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="external nofollow noopener noreferrer">Array.prototype.forEach() - JavaScript | MDN</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> beers = [<span class="string">'cass'</span>, <span class="string">'hite'</span>, <span class="string">'terra'</span>, <span class="string">'fitz'</span>];</span><br><span class="line">beers.forEach(<span class="function"><span class="params">beer</span> =&gt;</span> <span class="built_in">console</span>.log(beer));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">cass</span></span><br><span class="line"><span class="comment">hite</span></span><br><span class="line"><span class="comment">terra</span></span><br><span class="line"><span class="comment">fitz</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><ul>
+<li>배열에 새로운 요소를 추가할 때 사용함</li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/push" target="_blank" rel="external nofollow noopener noreferrer">Array.prototype.push() - JavaScript | MDN</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> beers = [<span class="string">'cass'</span>, <span class="string">'hite'</span>, <span class="string">'terra'</span>, <span class="string">'fitz'</span>];</span><br><span class="line">beers.push(<span class="string">'kloud'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(beers);</span><br><span class="line"><span class="comment">// [ 'cass', 'hite', 'terra', 'fitz', 'kloud' ]</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="includes"><a href="#includes" class="headerlink" title="includes"></a>includes</h3><ul>
+<li>배열 내에 특정 요소가 존재하는 확인</li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/includes" target="_blank" rel="external nofollow noopener noreferrer">Array.prototype.includes() - JavaScript | MDN</a></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cars = [<span class="string">'BMW'</span>, <span class="string">'AUDI'</span>, <span class="string">'VOLVO'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!cars.includes(<span class="string">'BENZ'</span>)) &#123;</span><br><span class="line">  cars.push(<span class="string">'BENZ'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(cars);</span><br><span class="line"><span class="comment">// [ 'BMW', 'AUDI', 'VOLVO', 'BENZ' ]</span></span><br></pre></td></tr></table></figure>
+
+
+<br>
+
+<h2 id="추가-reduce"><a href="#추가-reduce" class="headerlink" title="추가) reduce"></a>추가) reduce</h2><hr>
+<ul>
+<li>reduce는 단순히 배열 내의 요소를 모두 합하여 하나로 만드는 역할만 하는 메서드가 아니다.</li>
+<li>활용하기에 따라 무궁무진한 가능성이 있다.</li>
+<li>꾸준히 반복 학습이 필요한 메서드 중 하나.</li>
+<li><code>배열.reduce((누적값,현재값,인덱스,요소)=&gt;{return결과},초기값);</code></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external nofollow noopener noreferrer">Array.prototype.reduce() - JavaScript | MDN</a></li>
+</ul>
+<hr>
+<h3 id="참고-자료"><a href="#참고-자료" class="headerlink" title="참고 자료"></a>참고 자료</h3><ul>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="external nofollow noopener noreferrer">Array.prototype.slice() - JavaScript | MDN</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce" target="_blank" rel="external nofollow noopener noreferrer">https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce</a> </li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/split" target="_blank" rel="external nofollow noopener noreferrer">String.prototype.split() - JavaScript | MDN</a></li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank" rel="external nofollow noopener noreferrer">parseInt() - JavaScript | MDN</a></li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/til/"># til</a>
+                    
+                        <a href="/tags/TIL/"># TIL</a>
+                    
+                        <a href="/tags/Today-I-Learned/"># Today I Learned</a>
+                    
+                        <a href="/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"># 오늘배운것들</a>
+                    
+                        <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"># 자바스크립트</a>
+                    
+                        <a href="/tags/%EB%A6%AC%EC%95%A1%ED%8A%B8/"># 리액트</a>
+                    
+                        <a href="/tags/react/"># react</a>
+                    
+                        <a href="/tags/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94/"># 노마드코더</a>
+                    
+                        <a href="/tags/nomadcoders/"># nomadcoders</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/08/28/programming/react-movie-app-03/">[ReactJS] 무비앱 만들기 Day 03</a>
+            
+            
+            <a class="next" rel="next" href="/2019/08/26/programming/react-movie-app-01/">[ReactJS] 무비앱 만들기 Day 01</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>a.k.a codeAmeba in Seoul &#169; 2020 Sooyoung Jeong</span>
+    </div>
+</footer>
+    </div>
+</body>
+</html>
