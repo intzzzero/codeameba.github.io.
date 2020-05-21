@@ -325,20 +325,6 @@
     </url>
 
     <url>
-        <loc>http://codeameba.github.io/tags/%25EB%25A7%2588%25EC%25BC%25934-0/</loc>
-        <lastmod>2020-04-25T10:11:50.514Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/tags/%25EB%25A7%2588%25EC%25BC%2580%25ED%258C%2585/</loc>
-        <lastmod>2020-04-25T10:11:50.514Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://codeameba.github.io/tags/%25EB%258F%2585%25ED%259B%2584%25EA%25B0%2590/</loc>
         <lastmod>2020-04-25T10:11:50.514Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -346,7 +332,21 @@
     </url>
 
     <url>
+        <loc>http://codeameba.github.io/tags/%25EB%25A7%2588%25EC%25BC%25934-0/</loc>
+        <lastmod>2020-04-25T10:11:50.514Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://codeameba.github.io/tags/book-review/</loc>
+        <lastmod>2020-04-25T10:11:50.514Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://codeameba.github.io/tags/%25EB%25A7%2588%25EC%25BC%2580%25ED%258C%2585/</loc>
         <lastmod>2020-04-25T10:11:50.514Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
