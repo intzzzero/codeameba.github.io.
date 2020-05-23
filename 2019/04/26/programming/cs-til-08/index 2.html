@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/04/26/programming/cs-til-08/">
+
+
+<title>컴퓨터공학 8일차 TIL(2019.04.26) | AmebaLab</title>
+
+
+
+    <link rel="icon" href="/image/favicon2.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AmebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">AmebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">AmebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">컴퓨터공학 8일차 TIL(2019.04.26)</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">4월 26, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/CS/">CS</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <img src="https://images.unsplash.com/photo-1516204693117-2aca6f6e3413?ixlib=rb-1.2.1&auto=format&fit=crop&w=1942&q=80">
+
+<h1 id="컴공-8일차-19-04-26"><a href="#컴공-8일차-19-04-26" class="headerlink" title="컴공 8일차(19.04.26)"></a>컴공 8일차(19.04.26)</h1><ul>
+<li><p>오늘은 컴퓨터공학 <strong>마지막 수업</strong>이었다. 처음에는 워낙 생소하고 어려운 내용들 일색이라 무슨 생각을 할 겨를도 없이 수업을 따라가는 것만으로도 벅찼는데, 일주일 정도 지나니 이제 슬슬 용어들도 귀에 들어오고 익숙해지기 시작했다. 그런데 끝이라니, 아쉬움이 진하게 남는다. 하나라도 더 가르쳐주고 싶어하시던 선생님의 모습 또한 뇌리에 깊게 박혀 더욱 그렇다. </p>
+</li>
+<li><p>그리고, <strong>위클리 테스트의 날</strong>이기도 했다. 지금껏 다소 벅찬 감이 있어도 반타작은 했는데, 이번만큼은 무리였다. 아니, ‘무리였다’라는 건 너무나도 무책임한 변명이고, 내 수준을 절실히 느낀 시간이었다. 내가 지난 두 달 동안 했던 것은 공부가 아니라 ‘공부하는 척’이었다는 생각이 든다. 현재의 수준을 냉정히 받아들이고 치밀하게 계획을 짜야 하는 시기다.</p>
+</li>
+</ul>
+<h3 id="Merge-sort"><a href="#Merge-sort" class="headerlink" title="Merge sort"></a>Merge sort</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(li, start, mid, end)</span>:</span></span><br><span class="line">    merged=[]</span><br><span class="line">    left=start</span><br><span class="line">    right=mid+<span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= mid <span class="keyword">and</span> right &lt;= end:</span><br><span class="line">        <span class="keyword">if</span> li[left] &lt; li[right]:</span><br><span class="line">            merged.append(li[left])</span><br><span class="line">            left+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            merged.append(li[right])</span><br><span class="line">            right+=<span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">while</span> left &lt;= mid:</span><br><span class="line">        merged.append(li[left])</span><br><span class="line">        left+=<span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">while</span> right &lt;= end:</span><br><span class="line">        merged.append(li[right])</span><br><span class="line">        right+=<span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    li[start : end+<span class="number">1</span>]=merged</span><br><span class="line">    </span><br><span class="line"><span class="comment">#     또는 아래의 코드</span></span><br><span class="line"><span class="comment">#     for idx in range(start, end):</span></span><br><span class="line"><span class="comment">#         li[idx]=merged.pop(0)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(li, start, end)</span>:</span></span><br><span class="line">    <span class="comment"># 기저조건</span></span><br><span class="line">    <span class="keyword">if</span> start &gt;= end:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    </span><br><span class="line">    mid=(start+end)//<span class="number">2</span></span><br><span class="line">    merge_sort(li, start, mid)</span><br><span class="line">    merge_sort(li, mid+<span class="number">1</span>, end)</span><br><span class="line">    </span><br><span class="line">    merge(li, start, mid, end)</span><br><span class="line"></span><br><span class="line"><span class="comment"># TEST</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    num_data=int(input(<span class="string">'데이터 개수(종료:0):'</span>))</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> num_data:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    data=[random.randint(<span class="number">1</span>, <span class="number">100</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(num_data)]</span><br><span class="line">    print(data)</span><br><span class="line">    merge_sort(data, <span class="number">0</span>, len(data)<span class="number">-1</span>)</span><br><span class="line">    print(data)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>참고: <a href="https://ko.wikipedia.org/wiki/%ED%95%A9%EB%B3%91_%EC%A0%95%EB%A0%AC#/media/File:Merge-sort-example-300px.gif" target="_blank" rel="external nofollow noopener noreferrer">합병 정렬 - 위키백과, 우리 모두의 백과사전</a></li>
+</ul>
+<h3 id="영상-추천"><a href="#영상-추천" class="headerlink" title="영상 추천"></a>영상 추천</h3><ul>
+<li><a href="https://www.youtube.com/user/MIT" target="_blank" rel="external nofollow noopener noreferrer">MIT OpenCourseWare - YouTube</a></li>
+</ul>
+<h3 id="ADT-추상-자료형-Abstract-Data-Type"><a href="#ADT-추상-자료형-Abstract-Data-Type" class="headerlink" title="ADT(추상 자료형, Abstract Data Type)"></a>ADT(추상 자료형, Abstract Data Type)</h3><ul>
+<li>자료구조의 인터페이스(함수 시그니처, 오퍼레이션)를 명시해 놓은 것. 기능명세.</li>
+<li>구체적인 구현 설명이 들어가면 안 된다. </li>
+<li>구현 방법은 크게 3가지<ol>
+<li>배열</li>
+<li>연결리스트</li>
+<li>파이썬의 리스트(어댑터) -&gt; 스택</li>
+</ol>
+</li>
+</ul>
+<h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><ul>
+<li>LIFO(후입선출/선입후출, Last In, First Out)<ul>
+<li>쌓여있는 접시를 꺼내는 이미지로 생각하면 쉬움.</li>
+<li>stack ADT 참고<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># adapter pattern</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.container=list()</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.container:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.container.append(data)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 래퍼 함수(wrapper function)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.container.pop()</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.container[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">stack=Stack()</span><br><span class="line"></span><br><span class="line">stack.push(<span class="number">1</span>)</span><br><span class="line">stack.push(<span class="number">2</span>)</span><br><span class="line">stack.push(<span class="number">3</span>)</span><br><span class="line">stack.push(<span class="number">4</span>)</span><br><span class="line">stack.push(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> stack.empty():</span><br><span class="line">    print(stack.pop())</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="스택으로-꼭-해봐야-할-것"><a href="#스택으로-꼭-해봐야-할-것" class="headerlink" title="스택으로 꼭 해봐야 할 것"></a>스택으로 꼭 해봐야 할 것</h3><ol>
+<li>후위 표기법 계산기</li>
+<li>미로찾기</li>
+</ol>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><ul>
+<li>FIFO(선입선출, First In, First Out)</li>
+<li>ADT 참고<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># adapter pattern</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.container=list()</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.container:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.container.append(data)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 래퍼 함수(wrapper function)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.container.pop(<span class="number">0</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.container[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">q=Queue()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">    q.enqueue(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">    print(q.dequeue())</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="문제-스택-두-개를-이용해서-큐를-구현하라"><a href="#문제-스택-두-개를-이용해서-큐를-구현하라" class="headerlink" title="문제: 스택 두 개를 이용해서 큐를 구현하라!"></a>문제: 스택 두 개를 이용해서 큐를 구현하라!</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 스택</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.container=list()</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.container:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.container.append(data)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 래퍼 함수(wrapper function)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.container.pop()</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">peek</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.container[<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 큐</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Queue</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.first=Stack()</span><br><span class="line">        self.second=Stack()</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.first.empty() <span class="keyword">and</span> self.second.empty():</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">enqueue</span><span class="params">(self, deta)</span>:</span></span><br><span class="line">        self.first.push(data)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dequeue</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.empty():</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># first에서 second로 옮기는 시점이 중요</span></span><br><span class="line">        <span class="comment"># second가 비었을 때</span></span><br><span class="line">        <span class="keyword">if</span> self.second.empty():</span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">not</span> self.first.empty():</span><br><span class="line">                self.second.push(self.first.pop())</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> self.second.pop()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">q=Queue()</span><br><span class="line">q.enqueue(<span class="number">1</span>)</span><br><span class="line">q.enqueue(<span class="number">2</span>)</span><br><span class="line">q.enqueue(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">print(q.dequeue())</span><br><span class="line"></span><br><span class="line">q.enqueue(<span class="number">4</span>)</span><br><span class="line">q.enqueue(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">    print(q.dequeue())</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="연결리스트-Linked-List"><a href="#연결리스트-Linked-List" class="headerlink" title="연결리스트(Linked List)"></a>연결리스트(Linked List)</h3><ul>
+<li>싱글 링크드 리스트와 더블 링크드 리스트가 있음.</li>
+<li>더블 링크드 리스트<ul>
+<li>더미 더블 링크드 리스트</li>
+</ul>
+</li>
+</ul>
+<h3 id="노드-Node"><a href="#노드-Node" class="headerlink" title="노드(Node)"></a>노드(Node)</h3><ul>
+<li>링크드 리스트에 데이터와 데이터를 잇는 지점</li>
+<li>더미 노드: 데이터가 없는 노드, 구현 편의성(프로그래머의 실수를 줄임)을 높이기 위해 사용</li>
+</ul>
+<h3 id="Node-Add"><a href="#Node-Add" class="headerlink" title="Node Add"></a>Node Add</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DLinkedList</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.head=Node()</span><br><span class="line">        self.tail=Node()</span><br><span class="line">        self.d_size=<span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        self.head.next=self.tail</span><br><span class="line">        self.tail.prev=self.head</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.d_size==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">size</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.d_size</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_first</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        <span class="comment"># 새로운 노드를 만들었다.</span></span><br><span class="line">        new_node=Node(data)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># new_node 기준으로 연결</span></span><br><span class="line">        new_node.prev=self.head</span><br><span class="line">        new_node.next=self.head.next</span><br><span class="line">        </span><br><span class="line">        self.head.next.prev=new_node</span><br><span class="line">        self.head.next=new_node</span><br><span class="line">        </span><br><span class="line">        self.d_size+=<span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_last</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        new_node=Node(data)</span><br><span class="line">        </span><br><span class="line">        new_node.next=self.tail</span><br><span class="line">        new_node.prev=self.tail.prev</span><br><span class="line">        </span><br><span class="line">        self.tail.prev.next=new_node</span><br><span class="line">        self.tail.prev=new_node</span><br><span class="line">        </span><br><span class="line">        self.d_size+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Node-Insert"><a href="#Node-Insert" class="headerlink" title="Node Insert"></a>Node Insert</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DLinkedList</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.head=Node()</span><br><span class="line">        self.tail=Node()</span><br><span class="line">        self.d_size=<span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        self.head.next=self.tail</span><br><span class="line">        self.tail.prev=self.head</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.d_size==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">size</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.d_size </span><br><span class="line"></span><br><span class="line">	  <span class="function"><span class="keyword">def</span> <span class="title">insert_after</span><span class="params">(self, data, node)</span>:</span></span><br><span class="line">        new_node=Node(data)</span><br><span class="line">        </span><br><span class="line">        new_node.prev=node</span><br><span class="line">        new_node.next=node.next</span><br><span class="line">        </span><br><span class="line">        node.next.prev=new_node</span><br><span class="line">        node.next=new_node</span><br><span class="line">        </span><br><span class="line">        self.d_size+=<span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert_before</span><span class="params">(self, data, node)</span>:</span></span><br><span class="line">        new_node=Node(data)</span><br><span class="line">        </span><br><span class="line">        new_node.next=node</span><br><span class="line">        new_node.prev=node.prev</span><br><span class="line">        </span><br><span class="line">        node.prev.next=new_node</span><br><span class="line">        node.prev=new_node</span><br><span class="line">        </span><br><span class="line">        self.d_size+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Node-Search"><a href="#Node-Search" class="headerlink" title="Node Search"></a>Node Search</h3><ul>
+<li>순회 방식(Traversal)</li>
+<li>더미 노드 다음/이전(head.next / tail.prev)에서 시작</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DLinkedList</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.head=Node()</span><br><span class="line">        self.tail=Node()</span><br><span class="line">        self.d_size=<span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        self.head.next=self.tail</span><br><span class="line">        self.tail.prev=self.head</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.d_size==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">size</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.d_size</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search_forward</span><span class="params">(self, target)</span>:</span></span><br><span class="line">        cur=self.head.next</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> cur <span class="keyword">is</span> <span class="keyword">not</span> self.tail:</span><br><span class="line">            <span class="keyword">if</span> cur.data==target:</span><br><span class="line">                <span class="keyword">return</span> cur</span><br><span class="line">            cur=cur.next</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search_backward</span><span class="params">(self, target)</span>:</span></span><br><span class="line">        cur=self.tail.prev</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> cur <span class="keyword">is</span> <span class="keyword">not</span> self.head:</span><br><span class="line">            <span class="keyword">if</span> cur.data==target:</span><br><span class="line">                <span class="keyword">return</span> cur</span><br><span class="line">            cur=cur.prev</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 제너레이터</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_list</span><span class="params">(dlist)</span>:</span></span><br><span class="line">    cur=dlist.head.next</span><br><span class="line">    <span class="keyword">while</span> cur <span class="keyword">is</span> <span class="keyword">not</span> dlist.tail:</span><br><span class="line">        <span class="keyword">yield</span> cur.data</span><br><span class="line">        cur=cur.next</span><br><span class="line"></span><br><span class="line"><span class="comment"># TEST</span></span><br><span class="line">li=DLinkedList()</span><br><span class="line"></span><br><span class="line">li.add_first(<span class="number">1</span>)</span><br><span class="line">li.add_first(<span class="number">2</span>)</span><br><span class="line">li.add_last(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(li)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> elem <span class="keyword">in</span> show_list(li):</span><br><span class="line">        print(elem, end=<span class="string">' '</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># search data test</span></span><br><span class="line">li.add_last(<span class="number">4</span>)</span><br><span class="line">li.add_last(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">searched_node=li.search_forward(<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> searched_node:</span><br><span class="line">    print(searched_node.data)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'there is no such data'</span>)</span><br><span class="line"></span><br><span class="line">node=li.search_forward(<span class="number">3</span>)</span><br><span class="line"><span class="keyword">if</span> node:</span><br><span class="line">    li.insert_after(<span class="number">10</span>, node)</span><br><span class="line"></span><br><span class="line">show(li)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Node-Delete"><a href="#Node-Delete" class="headerlink" title="Node Delete"></a>Node Delete</h3><h4 id="Reference-Count"><a href="#Reference-Count" class="headerlink" title="Reference Count"></a>Reference Count</h4><ul>
+<li>참조 갯수</li>
+<li>a=10 일 때 10(value)을 기준으로 ref count는 1</li>
+<li>b=a,  c=b라고 한다면, ref count는 3</li>
+<li>garbage collection을 이루는 것들 중 하나</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, data=None)</span>:</span></span><br><span class="line">        self.prev=<span class="literal">None</span></span><br><span class="line">        self.data=data</span><br><span class="line">        self.next=<span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 객체가 소멸될 때</span></span><br><span class="line">    <span class="comment"># 반드시 한 번 호출되는 소멸자</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">f'<span class="subst">&#123;self.data&#125;</span> is deleted'</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DLinkedList</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.head=Node()</span><br><span class="line">        self.tail=Node()</span><br><span class="line">        self.d_size=<span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        self.head.next=self.tail</span><br><span class="line">        self.tail.prev=self.head</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">empty</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.d_size==<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">size</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.d_size</span><br><span class="line">   </span><br><span class="line"> <span class="function"><span class="keyword">def</span> <span class="title">delete_first</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.empty():</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        </span><br><span class="line">        self.head.next=self.head.next.next</span><br><span class="line">        self.head.next.prev=self.head</span><br><span class="line">        </span><br><span class="line">        self.d_size-=<span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete_last</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.empty():</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        </span><br><span class="line">        self.tail.prev=self.tail.prev.prev</span><br><span class="line">        self.tail.prev.next=self.tail</span><br><span class="line">        </span><br><span class="line">        self.d_size-=<span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete_node</span><span class="params">(self, node)</span>:</span></span><br><span class="line">        node.prev.next=node.next</span><br><span class="line">        node.next.prev=node.prev</span><br><span class="line">        </span><br><span class="line">        self.d_size-=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 제너레이터</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_list</span><span class="params">(dlist)</span>:</span></span><br><span class="line">    cur=dlist.head.next</span><br><span class="line">    <span class="keyword">while</span> cur <span class="keyword">is</span> <span class="keyword">not</span> dlist.tail:</span><br><span class="line">        <span class="keyword">yield</span> cur.data</span><br><span class="line">        cur=cur.next</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test</span></span><br><span class="line">li.delete_first()</span><br><span class="line">li.delete_last()</span><br><span class="line">li.delete_node(li.search_backward(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="추가로-공부해야-할-것들"><a href="#추가로-공부해야-할-것들" class="headerlink" title="추가로 공부해야 할 것들"></a>추가로 공부해야 할 것들</h2><h3 id="배열과-연결리스트"><a href="#배열과-연결리스트" class="headerlink" title="배열과 연결리스트"></a>배열과 연결리스트</h3><ul>
+<li><p>배열</p>
+<ul>
+<li>검색(인덱싱)이 빠르다는 것이 배열의 장점, O(1)</li>
+<li>데이터를 insert할 때 O(n) - 단점</li>
+<li>데이터를 delete할 때도 O(n) - 단점</li>
+</ul>
+</li>
+<li><p>연결리스트</p>
+<ul>
+<li>검색이 느림, O(n) - 단점</li>
+<li>insert - O(1) - 장점</li>
+<li>delete - O(1) - 장점</li>
+</ul>
+</li>
+</ul>
+<h3 id="선형-자료구조"><a href="#선형-자료구조" class="headerlink" title="선형 자료구조"></a>선형 자료구조</h3><ul>
+<li>Linked List</li>
+<li>Stack</li>
+<li>Queue</li>
+</ul>
+<h3 id="비선형-자료구조"><a href="#비선형-자료구조" class="headerlink" title="비선형 자료구조"></a>비선형 자료구조</h3><ul>
+<li><p>Tree(이진트리)</p>
+<ul>
+<li>순회(traversal)<ul>
+<li>전위(preorder) - stack</li>
+<li>중위(inorder) - stack. -&gt; DFS -&gt; 재귀(스택트레인)로 구현, 반복문으로 스택</li>
+<li>후위(postorder) - stack</li>
+<li>레벨 순서(level order) - queue -&gt; BFS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>BST(Binary Search Tree)</p>
+<ul>
+<li>O(n**2) -&gt; search</li>
+</ul>
+</li>
+<li><p>균형이진트리(Balanced Self Balancing)</p>
+<ul>
+<li>AVL Tree</li>
+<li>Red-Black Tree</li>
+</ul>
+</li>
+<li><p>B-Tree(데이터베이스 인덱스)</p>
+<ul>
+<li>균형이진트리 + 하드웨어 아키텍처</li>
+</ul>
+</li>
+<li><p>Heap(완전이진트리, 배열)</p>
+</li>
+</ul>
+<h3 id="Hash-Table-map"><a href="#Hash-Table-map" class="headerlink" title="Hash Table(map)"></a>Hash Table(map)</h3><ul>
+<li>heath function</li>
+<li>collision(충돌)<ul>
+<li>chaining</li>
+<li>open-addressing 기법</li>
+</ul>
+</li>
+</ul>
+<h3 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h3><ul>
+<li><p>순회(traversal)</p>
+<ul>
+<li>DFS -&gt; 깊이 우선 탐색 - 스택 기반</li>
+<li>BFS -&gt; 너비 우선 탐색 - 큐 기반</li>
+</ul>
+</li>
+<li><p>MST</p>
+<ul>
+<li>최소신장트리(minimum spanning tree)</li>
+<li>greedy algorithm 기반</li>
+<li>kruslcal algorithm</li>
+<li>prim algorithm</li>
+</ul>
+</li>
+<li><p>최단 경로 문제(shortest path)</p>
+<ul>
+<li>Dijkstra algorithm -&gt; greedy algorithm</li>
+<li>Bellman-ford algorithm</li>
+<li>flood-warshall algorithm -&gt; dynamic programming</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h4><ul>
+<li>WIKIPEDIA</li>
+</ul>
+<h4 id="이미지-출처"><a href="#이미지-출처" class="headerlink" title="이미지 출처"></a>이미지 출처</h4><ul>
+<li>unsplash.com</li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/til/"># til</a>
+                    
+                        <a href="/tags/TIL/"># TIL</a>
+                    
+                        <a href="/tags/Today-I-Learned/"># Today I Learned</a>
+                    
+                        <a href="/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"># 오늘배운것들</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/04/28/programming/css-inherit/">CSS의 상속(Inherit)에 대해 알아보자</a>
+            
+            
+            <a class="next" rel="next" href="/2019/04/25/programming/cs-til-07/">컴퓨터공학 7일차 TIL(2019.04.25)</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>&#169; codeAmeba | Powered by <a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank" rel="external nofollow noopener noreferrer">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

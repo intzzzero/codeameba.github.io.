@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2019/04/23/programming/tip-git-command/">
+
+
+<title>깃(git)과 터미널(terminal)의 주요 명령어 | AmebaLab</title>
+
+
+
+    <link rel="icon" href="/image/favicon2.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AmebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">AmebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">AmebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">깃(git)과 터미널(terminal)의 주요 명령어</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">4월 23, 2019&nbsp;&nbsp;1:00:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/tip/">tip</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="깃-git-이란"><a href="#깃-git-이란" class="headerlink" title="깃(git)이란?"></a>깃(git)이란?</h2><p>위키백과에서 말하길, <strong>깃(git)은 프로그램 등의 소스 코드 관리를 위한 분산 버전 관리 시스템</strong>이라고 한다. 다소 어려운 말로 설명이 되었는데, 내가 이해한 개념으로 다시 말하자면, ‘끔찍한 사태를 예방하기 위한 일종의 보험’ 같은 것이다. 여기서 끔찍한 사태란, 서비스를 개발하며 일어날 수 있는 모든 최악의 상황들을 말한다. 이래도 깃의 필요성을 느끼지 못 하는 사람이 있을 수 있으니, 조금 더 친절하게 가벼운 예시를 들어보겠다.</p>
+<img src="https://images.unsplash.com/photo-1477949331575-2763034b5fb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
+
+<h4 id="예시-1"><a href="#예시-1" class="headerlink" title="예시 1"></a>예시 1</h4><blockquote>
+<p>개발자A는 평소 USB를 애용하며 파일을 전달할 때에도 수고롭게 USB에 담아서 전달한다. 그날도 중요한 프로젝트의 소스코드를 USB에 고이 담아 동료에게 전달했다. 본인이 모르는 사이에 바이러스에 감염되었다는 사실도 모른 채…</p>
+</blockquote>
+<h4 id="예시-2"><a href="#예시-2" class="headerlink" title="예시 2"></a>예시 2</h4><blockquote>
+<p>개발자B는 본인이 깃 명령어를 모른다는 것에 자격지심을 느껴 일개 시스템보다 인간이 우수하다는 보여주겠다며, 본인만의 폴더에 파일명을 하나하나 정성껏 지정하여 업데이트 내역을 관리했다. 그러던 어느날 극도로 피로한 상태에서 야근을 하던 개발자B는 작업하던 파일을 저장하고 가벼운 마음으로 퇴근을 했다. ‘다른 이름으로 저장하기’가 아닌, ‘저장’을 했다는 사실도 모른 채…</p>
+</blockquote>
+<p>요즘 유행한다는 열린결말로 예시를 들어보았다. 각 예시의 결말은 당신의 상상에 맡기겠다. 물론, 두 사례 모두 현실성 없는 극단적인 예시이며, 이후에 딱히 별일이 없었을지도 모른다. 하지만, 개발자는 언제나 최악을 상황까지 고려하여 차선책을 마련해야만 한다고 나는 생각한다. 최악의 상황이 본인만의 일이라면 모르겠지만, 모두의 부담이 될 수도 있다. 따라서 버전별 소스코드를 저장 및 관리가 가능하고, 만일의 상황에서도 빠른 대처가 가능한 깃의 사용은 필수다.</p>
+<br>
+
+
+<h2 id="깃-git-을-설치해보자"><a href="#깃-git-을-설치해보자" class="headerlink" title="깃(git)을 설치해보자"></a>깃(git)을 설치해보자</h2><p><a href="https://git-scm.com/download/mac" target="_blank" rel="external nofollow noopener noreferrer">OS X 깃 설치 링크</a><br><a href="https://gitforwindows.org/" target="_blank" rel="external nofollow noopener noreferrer">Windows 깃 설치 링크</a></p>
+<h2 id="필수-명령어"><a href="#필수-명령어" class="headerlink" title="필수 명령어"></a>필수 명령어</h2><p>개인적으로 자주 사용하게 되는 터미널(terminal)과 깃(git)명령어를 소개한다. 카페에서 터미널을 실행하고 현란한 타이핑으로 명령어들을 실행하면 상당히 멋있다(고 나는 생각한다). </p>
+<h3 id="만약-깃을-처음-쓰거나-컴퓨터를-바꿨다면…"><a href="#만약-깃을-처음-쓰거나-컴퓨터를-바꿨다면…" class="headerlink" title="만약 깃을 처음 쓰거나, 컴퓨터를 바꿨다면…"></a>만약 깃을 처음 쓰거나, 컴퓨터를 바꿨다면…</h3><p>전역 사용자와 이메일을 등록해야 한다. 사용자 등록을 안 하더라도 깃헙은 사용할 수 있으나, 소중한 커밋(commit)이 집계되지 않아서 푸르른 잔디밭의 꿈이 날아간다.</p>
+<ul>
+<li>사용자 등록: <code>git config --global user.name &quot;본인이름&quot;</code></li>
+<li>이메일 등록: <code>git config --global user.email &quot;이메일주소&quot;</code></li>
+<li>전역 사용자 정보 조회: <code>git config --global --list</code></li>
+</ul>
+<p>저장소에 따라 별도의 사용자와 이메일을 등록하려면,</p>
+<ul>
+<li>사용자 등록: <code>git config user.name &quot;본인이름&quot;</code></li>
+<li>이메일 등록: <code>git config user.email &quot;이메일주소&quot;</code></li>
+<li>사용자 정보 조회: <code>git config --list</code></li>
+</ul>
+<br>
+
+<h3 id="자주-쓰는-터미널-명령어"><a href="#자주-쓰는-터미널-명령어" class="headerlink" title="자주 쓰는 터미널 명령어"></a>자주 쓰는 터미널 명령어</h3><ul>
+<li>현재 위치 확인: <code>pwd</code></li>
+<li>현재 위치의 폴더 확인: <code>ls</code></li>
+<li>최상위 위치로 이동: <code>cd</code></li>
+<li>한 단계 상위로 이동: <code>cd ..</code></li>
+<li>파일 생성: <code>touch 파일명</code></li>
+<li>폴더 생성: <code>mkdir 폴더명</code> Make Directory의 이니셜로 기억하면 쉽다.</li>
+<li>폴더 안에 또 폴더 만들기: <code>mkdir -p 폴더명/{하위폴더1,하위폴더2,하위폴더3}</code></li>
+<li>파일 삭제: <code>rm 파일명</code></li>
+<li>폴더 삭제: <code>rm -rf 폴더명</code> 또는 <code>rmdir 폴더명</code></li>
+<li>폴더로 이동: <code>cd 폴더명</code></li>
+</ul>
+<br>
+
+<h3 id="자주-쓰는-깃-명령어"><a href="#자주-쓰는-깃-명령어" class="headerlink" title="자주 쓰는 깃 명령어"></a>자주 쓰는 깃 명령어</h3><ul>
+<li><p>현 위치의 디렉토리 초기화: <code>git init</code></p>
+</li>
+<li><p>현 위치의 디렉토리와 원격 저장소 연결: <code>git remote add 이름 저장소URL</code></p>
+<blockquote>
+<p>이름은 관용적으로 origin을 쓴다. 저장소URL 위치는 아래의 이미지 참고.</p>
+<img src="/images/repo-url.jpg">
+</blockquote>
+</li>
+<li><p>원격 저장소 복제: <code>git clone 저장소URL</code></p>
+<blockquote>
+<p>저장소를 복제하면 별도의 remote 연결 과정은 생략해도 된다.</p>
+</blockquote>
+</li>
+<li><p>원격 저장소 내려받기: <code>git pull</code></p>
+<blockquote>
+<p>파일을 업로드 하기 전에 현재 상태를 내려받아야 한다. 안 그러면 에러 메시지가 나온다.</p>
+</blockquote>
+</li>
+<li><p>깃에 특정 파일 추가: <code>git add 파일명</code> </p>
+</li>
+<li><p>깃에 모든 파일 추가: <code>git add .</code></p>
+</li>
+<li><p>커밋(commit): <code>git commit -m &quot;설명&quot;</code></p>
+</li>
+<li><p>현 상태 확인: <code>git status</code></p>
+</li>
+</ul>
+<br>
+
+<h3 id="가끔-쓰는-깃-명령어"><a href="#가끔-쓰는-깃-명령어" class="headerlink" title="가끔 쓰는 깃 명령어"></a>가끔 쓰는 깃 명령어</h3><ul>
+<li><p>브랜치 생성: <code>git branch 브랜치이름</code></p>
+</li>
+<li><p>브랜치 목록 보기: <code>git branch</code></p>
+<blockquote>
+<p>Master가 기본이며, Develop과 feature 등을 주로 추가하게 된다.</p>
+</blockquote>
+</li>
+<li><p>다른 브랜치로 이동: <code>git checkout 브랜치이름</code></p>
+</li>
+</ul>
+<br>
+
+<p>이정도가 현재까지 내가 주로 사용하는 명령어들이다. 이 밖에도 팀 프로젝트를 할 때에는 <code>git flow</code>를 쓰기도 하는데, 이건 아직 제대로 숙지하지 못한 기능이라 이번 포스팅에서는 제외하도록 하겠다. 추후 제대로 숙달하거든 그때 보다 충실한 내용을 업로드 할 것을 약속한다. 물론, 주 용도는 내가 까먹었을 때 보기 위함이다.</p>
+<p>그래도 일단, 여기까지 익혔다면, 손가락이 쉬지 않고 움직일 정도는 된다. 카페로 가자! 터미널에 각종 명령어를 연습하며 폭풍간지를 뽐내보자. 사실, 그리 생산적인 행동이라고는 할 수 없지만, 내 경험으로 봤을 때 상당히 기분이 좋아진다. 고양감이라고 해야할까? 코피 터지게 공부해서 간지나게 코딩까지 하고 싶다는 나름의 동기부여도 된다.<br>한 가지 주의사항이라면, 카페에 시니어 개발자가 있는지 확인해야 한다는 것이다. 이불킥은 싫으니까.</p>
+<img src="https://images.unsplash.com/photo-1555100155-a7b708d9e19b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80">
+
+<hr>
+<h4 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h4><ul>
+<li><a href="https://git-scm.com/book/ko/v2" target="_blank" rel="external nofollow noopener noreferrer">https://git-scm.com/book/ko/v2</a></li>
+</ul>
+<h4 id="이미지-출처"><a href="#이미지-출처" class="headerlink" title="이미지 출처"></a>이미지 출처</h4><ul>
+<li><a href="https://unsplash.com/" target="_blank" rel="external nofollow noopener noreferrer">https://unsplash.com/</a></li>
+</ul>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/git/"># git</a>
+                    
+                        <a href="/tags/github/"># github</a>
+                    
+                        <a href="/tags/terminal/"># terminal</a>
+                    
+                        <a href="/tags/%ED%84%B0%EB%AF%B8%EB%84%90/"># 터미널</a>
+                    
+                        <a href="/tags/%EC%BB%A4%EB%A7%A8%EB%93%9C/"># 커맨드</a>
+                    
+                        <a href="/tags/%EA%B9%83/"># 깃</a>
+                    
+                        <a href="/tags/%EA%B9%83%ED%97%99/"># 깃헙</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/04/23/programming/cs-til-05/">컴퓨터공학 5일차 TIL(2019.04.23)</a>
+            
+            
+            <a class="next" rel="next" href="/2019/04/22/programming/cs-til-04/">컴퓨터공학 4일차 TIL(2019.04.22)</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>&#169; codeAmeba | Powered by <a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank" rel="external nofollow noopener noreferrer">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
