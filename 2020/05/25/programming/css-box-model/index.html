@@ -34,10 +34,10 @@
     <meta name="description" content="생각과 학습의 아카이브">
 
 
-<link rel="canonical" href="http://codeameba.github.io/2019/04/16/programming/css-box-model/">
+<link rel="canonical" href="http://codeameba.github.io/2020/05/25/programming/css-box-model/">
 
 
-<title>CSS 박스 모델(Box Model)을 알아보자 | AmebaLab</title>
+<title>[TIL] CSS 박스 모델(Box Model)을 알아보자 | AmebaLab</title>
 
 
 
@@ -200,7 +200,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">CSS 박스 모델(Box Model)을 알아보자</h1>
+            <h1 class="post-title">[TIL] CSS 박스 모델(Box Model)을 알아보자</h1>
             
                 <div class="post-meta">
                     
@@ -209,7 +209,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">4월 16, 2019&nbsp;&nbsp;21:05:00</a>
+                        Date: <a href="#">5월 25, 2020&nbsp;&nbsp;18:15:00</a>
                         </span>
                     
                     
@@ -239,18 +239,18 @@
 <li>맥: option + command + i</li>
 </ul>
 </blockquote>
-<br>
-
 <h2 id="BOX를-다루는-법"><a href="#BOX를-다루는-법" class="headerlink" title="BOX를 다루는 법"></a>BOX를 다루는 법</h2><p>박스를 이루는 각각의 요소(padding, border, margin)는 크기 임의로 조정할 수 있다. CSS의 문법을 따르며 다음과 같이 작성한다. 물론, 기본적으로 HTML 문서에 종속(Cascade)되어 있기 때문에, HTML 문서 내의 <code>&lt;style&gt;&lt;/style&gt;</code> 태그 사이에 작성하거나 별도의 CSS 파일을 만들어 HTML 파일에 링크를 해야 한다. 링크된 HTML 문서에 <code>&lt;div class=&quot;box&quot;&gt;&lt;/div&gt;</code>가 있다는 가정 하에 다음과 같이 padding과 border에 값을 지정해보겠다.</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: deeppink;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">3px</span> solid black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>그러면, 다음과 같은 형태의 박스를 확인할 수 있다. 가로, 세로 값을 지정하지 않았기 때문에 <code>&lt;div&gt;</code>의 기본값인 block이 적용되어 화면 전체를 차지하며, 기본 margin이 적용되어 가장자리에 여백이 있는 것을 확인할 수 있다.<br><img src="/images/class-box-02.jpg"></p>
-<p>마찬가지로 margin에도 임의의 값을 지정할 수 있으며, 기본으로 주어진 8px의 margin을 제거할 수도 있다.</p>
-<br>
 
+<p>그러면, 다음과 같은 형태의 박스를 확인할 수 있다. 가로, 세로 값을 지정하지 않았기 때문에 <code>&lt;div&gt;</code>의 기본값인 block이 적용되어 화면 전체를 차지하며, 기본 margin이 적용되어 가장자리에 여백이 있는 것을 확인할 수 있다.</p>
+<img src="/images/class-box-02.jpg">
+
+<p>마찬가지로 margin에도 임의의 값을 지정할 수 있으며, 기본으로 주어진 8px의 margin을 제거할 수도 있다.</p>
 <h2 id="box-sizing"><a href="#box-sizing" class="headerlink" title="box-sizing"></a>box-sizing</h2><img src="/images/box-sizing.jpg">
 
 <p>위의 BOX 01과 BOX 02의 사이즈는 같은가 다른가? 놀랍게도 같은 크기다. 좀 더 자세히 말하자면, 눈에 보이는 사이즈는 다르지만, 실제 적용된 너비와 높이는 동일하다. 코드는 아래와 같다.</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">    <span class="selector-tag">div</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">30px</span> auto;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">15px</span>;</span><br><span class="line">        <span class="attribute">text-align</span>: center;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="number">3rem</span>;</span><br><span class="line">        <span class="attribute">font-weight</span>: <span class="number">800</span>;</span><br><span class="line">        <span class="attribute">box-shadow</span>: <span class="number">3px</span> <span class="number">3px</span> <span class="number">15px</span> gray;</span><br><span class="line">        <span class="attribute">border</span>: <span class="number">3px</span> solid black;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.box-01</span> &#123;</span><br><span class="line">        <span class="attribute">background</span>: palevioletred;</span><br><span class="line">        <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.box-02</span> &#123;</span><br><span class="line">        <span class="attribute">background</span>: paleturquoise;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    div &#123;</span><br><span class="line">        width: 300px;</span><br><span class="line">        height: 300px;</span><br><span class="line">        margin: 30px auto;</span><br><span class="line">        padding: 15px;</span><br><span class="line">        text-align: center;</span><br><span class="line">        font-size: 3rem;</span><br><span class="line">        font-weight: 800;</span><br><span class="line">        box-shadow: 3px 3px 15px gray;</span><br><span class="line">        border: 3px solid black;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.box-01</span> &#123;</span></span><br><span class="line">        background: palevioletred;</span><br><span class="line">        box-sizing: border-box;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.box-02</span> &#123;</span></span><br><span class="line">        background: paleturquoise;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>차이점을 발견했는가? 그렇다. BOX 01에는 <code>box-sizing: border-box;</code>가 적용되어 있다. 이것은 <strong>지정된 박스 크기(width, height)에 border와 padding이 포함된 형태</strong>로 나타나며, 위의 예시에서 볼 수 있듯이 두 박스가 모두 <code>padding: 15px</code>을 갖고 있지만 보여지는 크기가 다르다.</p>
 <p>쉽게 이해하려면, border와 padding의 값은 적용되지 않는다고 생각하면 좋다. 하지만, ‘내부에 포함되었을 뿐, 사라진 것은 아니라는 점을 명심하자.’ 이러한 특성을 지닌 <code>border-box</code>를 사용하는 이유는 <strong>테두리(border나 여백(padding)에 상관 없이 예측 가능한 크기의 박스를 얻기 위함</strong>이다.</p>
 <p><code>border-box</code> 외에도 다음과 같은 속성값이 존재한다.</p>
@@ -259,17 +259,12 @@
 <li><code>padding-box</code>: 박스의 크기(width, height)에 border와 margin을 제외한 padding까지만 포함한다.</li>
 </ul>
 <p>각각의 차이점을 쉽게 이해할 수 있는 예시를 들어보겠다. 아래와 같은 박스가 있다고 쳤을 때,</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 300<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">height</span>: 300<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">border</span>: 5<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">black</span>;</span><br><span class="line"><span class="selector-tag">padding</span> 10<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">margin</span>: 10<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 300<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">height</span>: 300<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">border</span>: 5<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">black</span>;</span><br><span class="line"><span class="selector-tag">padding</span>: 10<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">margin</span>: 10<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure>
+
 <p>각 <code>box-sizing</code>값에 따라 실제로 차지하는 영역은 다음과 같다.<br><strong>content-box(기본값)</strong>: width: 350px, height: 350px<br><strong>padding-box</strong>: width: 320px, height: 320px<br><strong>border-box</strong>: width: 330px, height: 330px</p>
 <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
 
-<hr>
-<h4 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h4><ul>
-<li>MDN(<a href="https://developer.mozilla.org/ko/docs/Web/CSS/box-sizing" target="_blank" rel="external nofollow noopener noreferrer">https://developer.mozilla.org/ko/docs/Web/CSS/box-sizing</a>)</li>
-</ul>
-<h4 id="이미지-출처"><a href="#이미지-출처" class="headerlink" title="이미지 출처"></a>이미지 출처</h4><ul>
-<li><a href="https://unsplash.com/" target="_blank" rel="external nofollow noopener noreferrer">https://unsplash.com/</a></li>
-</ul>
+<p><strong>참고:</strong><br>    - <a href="https://developer.mozilla.org/ko/docs/Web/CSS/box-sizing" target="_blank" rel="external nofollow noopener noreferrer">box-sizing - CSS: Cascading Style Sheets | MDN</a>  </p>
 
         </div>
 
@@ -280,19 +275,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/html/"># html</a>
-                    
-                        <a href="/tags/markup/"># markup</a>
-                    
-                        <a href="/tags/html%EA%B8%B0%EC%B4%88/"># html기초</a>
-                    
-                        <a href="/tags/%EC%9B%B9-%ED%91%9C%EC%A4%80/"># 웹 표준</a>
-                    
-                        <a href="/tags/%EC%9B%B9-%EC%A0%91%EA%B7%BC%EC%84%B1/"># 웹 접근성</a>
-                    
-                        <a href="/tags/web-standard/"># web standard</a>
-                    
-                        <a href="/tags/web-accessibility/"># web accessibility</a>
+                        <a href="/tags/CSS/"># CSS</a>
                     
                         <a href="/tags/%EB%B0%95%EC%8A%A4%EB%AA%A8%EB%8D%B8/"># 박스모델</a>
                     
@@ -309,10 +292,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/04/17/programming/cs-til-01/">컴퓨터공학 1일차 TIL(2019.04.17)</a>
             
-            
-            <a class="next" rel="next" href="/2019/04/16/blog/tip-google-analytics/">구글 애널리틱스(Google analytics)로 블로그 유입 분석을 해보자</a>
+            <a class="next" rel="next" href="/2020/05/25/programming/css-inherit/">[TIL] CSS의 상속(Inheritance)에 대해 알아보자</a>
             
         </section>
 
