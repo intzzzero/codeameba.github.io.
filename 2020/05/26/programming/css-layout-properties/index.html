@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM2CPLV');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-151869647-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-151869647-3');
+</script>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Sooyoung Jeong">
+
+
+
+    <meta name="description" content="생각과 학습의 아카이브">
+
+
+<link rel="canonical" href="http://codeameba.github.io/2020/05/26/programming/css-layout-properties/">
+
+
+<title>[TIL] CSS 레이아웃의 기본 display, position, float | AmebaLab</title>
+
+
+
+    <link rel="icon" href="/image/favicon2.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AmebaLab" type="application/atom+xml">
+</head>
+<body>
+    <div class="wrapper">
+          
+<header>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM2CPLV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">AmebaLab</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">AmebaLab</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/contact">Contact</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">[TIL] CSS 레이아웃의 기본 display, position, float</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Sooyoung Jeong</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">5월 26, 2020&nbsp;&nbsp;13:55:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/CSS/">CSS</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="웹-페이지의-레이아웃-layout"><a href="#웹-페이지의-레이아웃-layout" class="headerlink" title="웹 페이지의 레이아웃(layout)"></a>웹 페이지의 레이아웃(layout)</h2><p>웹 페이지의 레이아웃을 구성하는데 유용한 CSS의 프로퍼티에는 크게 <code>display</code>, <code>position</code>, <code>float</code>가 있으며, 이 세 가지 프로퍼티를 활용함에 있어서는 기본적으로 <strong>박스모델</strong> 에 대한 이해가 필요하다.</p>
+<p><a href="https://codeameba.github.io/2020/05/25/programming/css-box-model/" target="_blank">박스모델 바로가기</a></p>
+<h2 id="display"><a href="#display" class="headerlink" title="display"></a>display</h2><p><code>display</code>는 해당 요소를 블록(block)과 인라인(inline) 둘 중 어떤 방식으로 자리를 차지하게 할지 정하는 프로퍼티다. 이를 통해 <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code> 등의 블록 요소를 인라인으로 바꿀 수도 있고, <code>&lt;span&gt;</code>고 같은 인라인 요소를 블록으로 바꿀 수도 있다. 그 외에도 <code>flow</code>, <code>flex</code>, <code>grid</code>처럼 반응형 웹에 적절하게 사용 가능한 속성도 있다.</p>
+<h3 id="block"><a href="#block" class="headerlink" title="block"></a>block</h3><p>블록 요소는 가장 기본적인 형태로써 <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;form&gt;</code> 등이 있으며, 해당 요소가 위치한 가로줄을 모두 차지한다는 특징이 있다.</p>
+<h3 id="inline"><a href="#inline" class="headerlink" title="inline"></a>inline</h3><p>블록과 함께 가장 기본적인 형태인 인라인은 대표적으로 <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code> 태그가 있다. 인라인 요소는 태그에 포함된 내용 만큼의 자리만 차지하는 것이 특징이다. 별도의 <code>width</code>, <code>height</code>를 지정하더라도 적용되지 않는다.</p>
+<h3 id="inline-block"><a href="#inline-block" class="headerlink" title="inline-block"></a>inline-block</h3><p>블록과 인라인의 장점을 하나로 합친 듯한 프로퍼티로써 일정한 사이즈를 유지하는 동시에 줄 바꿈은 원치 않을 때 사용할 수 있다. <code>inline-block</code>을 기본값을 갖는 대표적인 태그로는 <code>&lt;button&gt;</code>이 있다.</p>
+<h3 id="none"><a href="#none" class="headerlink" title="none"></a>none</h3><p>말 그대로 화면에서 해당 요소를 보이지 않게 만든다. 자칫  <code>visibility: hidden</code>과 혼동할 수 있으나,  <code>visibility: hidden</code>은 요소를 보이지만 않게 만들고 자리는 여전히 차지하는 반면에 <code>display: none</code>으로 설정하면 보이지도 않고, 자리도 차지하지 않는다.</p>
+<h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p>화면의 비율을 기준으로 레이아웃을 구성할 수 있는 속성이다. 반응형 웹 제작에 유용하며, 과거와 달리 이제는 98.65%(<a href="https://caniuse.com/#search=flex" target="_blank" rel="external nofollow noopener noreferrer">Can I use… Support tables for HTML5, CSS3, etc</a>)의 브라우저 호환성을 지녔기에 충분히 사용 가능하다고 본다.</p>
+<p><strong>flex 연습 사이트</strong> -&gt; <a href="https://flexboxfroggy.com/#ko" target="_blank" rel="external nofollow noopener noreferrer">Flexbox Froggy - A game for learning CSS flexbox</a></p>
+<p><strong>예시</strong><br><a href="https://codeameba.github.io/front-end-practice/layout-practice/display.html" target="_blank">display 예시 바로가기</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    * &#123;</span><br><span class="line">      box-sizing: border-box;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.block</span>&#123;</span></span><br><span class="line">      background-color: blue;</span><br><span class="line">      width: 150px;</span><br><span class="line">      height: 150px;</span><br><span class="line">      margin: 10px auto;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.inline</span> &#123;</span></span><br><span class="line">      background-color: green;</span><br><span class="line">      margin: 10px;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.inline-block</span> &#123;</span></span><br><span class="line">      display: inline-block;</span><br><span class="line">      background-color: red;</span><br><span class="line">      width: 150px;</span><br><span class="line">      height: 150px;</span><br><span class="line">      margin: 10px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.flex</span> &#123;</span></span><br><span class="line">      display: flex;</span><br><span class="line">      justify-content: center;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.flex</span> <span class="selector-tag">div</span> &#123;</span></span><br><span class="line">      background-color: yellow;</span><br><span class="line">      width: 150px;</span><br><span class="line">      height: 150px;</span><br><span class="line">      margin: 10px;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"block"</span>&gt;</span>I am block<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"inline"</span>&gt;</span>I am inline<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inline-block"</span>&gt;</span>I am inline-block<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inline-block"</span>&gt;</span>I am inline-block<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"flex"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>I am flex<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>I am flex<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>I am flex<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>참고:</strong><br>    - <a href="https://joshua1988.github.io/web-development/css/layout-basic/#display-%EC%86%8D%EC%84%B1" target="_blank" rel="external nofollow noopener noreferrer">CSS 레이아웃 기초 • Captain Pangyo</a><br>    - <a href="http://ko.learnlayout.com/display.html" target="_blank" rel="external nofollow noopener noreferrer">CSS - “display” 프로퍼티</a><br>    - <a href="https://poiemaweb.com/css3-display" target="_blank" rel="external nofollow noopener noreferrer">CSS3 Display | PoiemaWeb</a><br>    - <a href="https://poiemaweb.com/css3-flexbox" target="_blank" rel="external nofollow noopener noreferrer">CSS3 Flexbox Layout | PoiemaWeb</a><br>    - <a href="https://css-tricks.com/almanac/properties/d/display/" target="_blank" rel="external nofollow noopener noreferrer">display | CSS-Tricks</a></p>
+<h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><p><code>position</code>는 해당 요소가 페이지에서 어떻게 위치할지 지정하는 프로퍼티로써 설정할 수 있는 속성에는 다섯 가지가 있다.</p>
+<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><p><code>static</code> 은 기본값으로, 별도의 <code>position</code>을 지정하지 않은 요소는 모두 <code>static</code>이라고 볼 수 있다.</p>
+<h3 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h3><p><code>relative</code>는 기본적으로 <code>static</code>과 동일하지만, <code>top</code>, <code>left</code>, <code>bottom</code>, <code>right</code> 값으로 위치를 조정할 수 있다는 점이 다르다. 그리고, 조정된 위치는 다음 요소의 위치에 영향을 주지 않는다.</p>
+<h3 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h3><p>간혹 상단이나 측면 혹은 어딘가에 고정되어 스크롤을 내려도 계속 따라오는 요소를 발견할 때가 있는데, 이러한 요소들이 바로 <code>position: fixed</code>로 설정된 요소들이라고 할 수 있다.<br><code>fixed</code>는 뷰포트(viewport)에 대하여 상대적으로 위치가 고정되기 때문에 스크롤과 무관하게 같은 위치한다. <code>relative</code>와 마찬가지로 위치를 조정할 수 있다.</p>
+<h3 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h3><p><code>absolute</code>는 <code>fixed</code>와 유사하게 지정한 위치에 고정할 수 있는 값이지만, 그 기준이 <code>position</code> 값을 지닌 가장 근접한 부모 요소라는 점에 다르다. 만약, 부모 요소 중에 <code>position</code> 값을 지닌 요소가 하나도 없다면, 문서(document body)를 기준으로 위치가 고정된다. 따라서 <code>absolute</code>를 사용하기 전에 반드시 기준으로 삼을 요소에 <code>position: relative</code>를 설정하자.</p>
+<p><strong>예시</strong><br><a href="https://codeameba.github.io/front-end-practice/layout-practice/position.html" target="_blank">position 예시 바로가기</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    * &#123;</span><br><span class="line">      box-sizing: border-box;</span><br><span class="line">    &#125;</span><br><span class="line">    div &#123;</span><br><span class="line">      margin: 10px;</span><br><span class="line">      width: 150px;</span><br><span class="line">      height: 150px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.static</span> &#123;</span></span><br><span class="line">      background-color: blue;</span><br><span class="line">      color: white;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.relative</span> &#123;</span></span><br><span class="line">      background-color: green;</span><br><span class="line">      position: relative;</span><br><span class="line">      left: 50%;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.fixed</span> &#123;</span></span><br><span class="line">      background-color: red;</span><br><span class="line">      position: fixed;</span><br><span class="line">      bottom: 0;</span><br><span class="line">      right: 0;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.parent-of-absolute</span> &#123;</span></span><br><span class="line">      background-color: pink;</span><br><span class="line">      width: 500px;</span><br><span class="line">      height: 800px;</span><br><span class="line">      position: relative;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.absolute</span> &#123;</span></span><br><span class="line">      background-color: yellow;</span><br><span class="line">      position: absolute;</span><br><span class="line">      left: 0;</span><br><span class="line">      bottom: 50%;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"static"</span>&gt;</span>I am static<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"relative"</span>&gt;</span>I am relative<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"fixed"</span>&gt;</span>I am fixed<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent-of-absolute"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"absolute"</span>&gt;</span>I am absolute<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>참고:</strong><br>    - <a href="https://ko.learnlayout.com/position.html" target="_blank" rel="external nofollow noopener noreferrer">CSS - position</a><br>    - <a href="https://developer.mozilla.org/ko/docs/Web/CSS/position" target="_blank" rel="external nofollow noopener noreferrer">position - CSS: Cascading Style Sheets | MDN</a><br>    - <a href="https://css-tricks.com/almanac/properties/p/position/" target="_blank" rel="external nofollow noopener noreferrer">position | CSS-Tricks</a></p>
+<h2 id="float"><a href="#float" class="headerlink" title="float"></a>float</h2><p>신문 혹은 웹의 다양한 아티클을 읽다보면 이미지 주위를 텍스트가 감싸고 있는 형태를 쉽게 볼 수 있다. <code>float</code>는 이러한 형태의 레이아웃을 구성할 때 사용하기 좋은 프로퍼티다.</p>
+<p><code>float: left</code>와 같은 형태로 값을 지정하며, 설정 가능한 값으로는 <code>left</code>, <code>right</code>, <code>none</code>, <code>inherit</code>이 있다.</p>
+<p><code>float</code>를 쓰면, 이름 그대로 <strong>부유 하듯이</strong> 다음 요소의 위로 붕 뜨게 된다. 그러나 <code>float</code>를 사용한 요소의 다음 요소의 크기가 더 작을 경우 <code>float</code>가 적용된 요소 뒤에 가려져 안 보이는 문제가 있다. 이럴 때에는 <code>clear</code> 프로퍼티를 사용하여 문제를 해결할 수가 있다.</p>
+<p><strong>예시</strong><br><a href="https://codeameba.github.io/front-end-practice/layout-practice/float.html" target="_blank">float 예시 바로가기</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">    h2 &#123;</span><br><span class="line">      display: inline;</span><br><span class="line">      border-bottom: 3px solid black;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    img &#123;</span><br><span class="line">      width: 200px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">   <span class="selector-class">.container</span> &#123;</span></span><br><span class="line">      margin: 50px auto;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.first-article</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line">      float: left;</span><br><span class="line">      margin: 5px 10px 5px 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.second-article</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line">      float: right;</span><br><span class="line">      margin: 5px 0 10px 10px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.box</span> &#123;</span></span><br><span class="line">      background-color: blue;</span><br><span class="line">      width: 100px;</span><br><span class="line">      height: 100px;</span><br><span class="line">      color: white;</span><br><span class="line">      float: left;</span><br><span class="line"><span class="css">      <span class="selector-tag">opacity</span>: 0<span class="selector-class">.5</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    section &#123;</span><br><span class="line">      background-color: green;</span><br><span class="line">      height: 50px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.clearfix</span> &#123;</span></span><br><span class="line">      clear: both;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="css">    <span class="selector-class">.header</span> &#123;</span></span><br><span class="line">      background-color: yellow;</span><br><span class="line">      height: 50px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.main</span> &#123;</span></span><br><span class="line">      background-color: green;</span><br><span class="line">      height: 150px;</span><br><span class="line">      width: 70%;</span><br><span class="line">      float: left;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.nav</span> &#123;</span></span><br><span class="line">      background-color: red;</span><br><span class="line">      height: 150px;</span><br><span class="line">      width: 30%;</span><br><span class="line">      float: right;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.footer</span> &#123;</span></span><br><span class="line">      background-color: blue;</span><br><span class="line">      height: 50px;</span><br><span class="line">      color: white;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Normal float<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"first-article"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fopenmatt.org%2Fwp-content%2Fuploads%2F2015%2F11%2Foctocat_kenobi.jpg&amp;f=1&amp;nofb=1"</span> <span class="attr">alt</span>=<span class="string">"octocat magician"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus.</span><br><span class="line">        Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</span><br><span class="line">        Donec id elit non mi porta gravida at eget metus. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"second-article"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fxaharts.org%2Ffunny%2Fi%2Fgitopuss%2Fgithub-octocat_yes-we-code.jpg&amp;f=1&amp;nofb=1"</span> <span class="attr">alt</span>=<span class="string">"octocat propaganda"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur est at lobortis.</span><br><span class="line">        Maecenas faucibus mollis interdum. Maecenas faucibus mollis interdum. Sed posuere consectetur est at lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</span><br><span class="line">        Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span><br><span class="line">      <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>Float with clear<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>I am float<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span>&gt;</span>I am not clear<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>I am float<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"clearfix"</span>&gt;</span>I am clear<span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">h2</span>&gt;</span>for example<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span>I am header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span>I am main<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav"</span>&gt;</span>I am nav<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer clearfix"</span>&gt;</span>I am footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>참고:</strong><br>    - <a href="https://ko.learnlayout.com/float.html" target="_blank" rel="external nofollow noopener noreferrer">CSS - float</a><br>    - <a href="https://css-tricks.com/almanac/properties/f/float/" target="_blank" rel="external nofollow noopener noreferrer">float | CSS-Tricks</a></p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/CSS/"># CSS</a>
+                    
+                        <a href="/tags/%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83/"># 레이아웃</a>
+                    
+                        <a href="/tags/layout/"># layout</a>
+                    
+                        <a href="/tags/display/"># display</a>
+                    
+                        <a href="/tags/position/"># position</a>
+                    
+                        <a href="/tags/float/"># float</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2020/05/25/programming/css-box-model/">[TIL] CSS 박스 모델(Box Model)을 알아보자</a>
+            
+        </section>
+
+
+    </article>
+    
+    <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codeameba.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="external nofollow noopener noreferrer">comments powered by Disqus.</a></noscript>
+
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>&#169; codeAmeba | Powered by <a href="https://hexo.io" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank" rel="external nofollow noopener noreferrer">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
