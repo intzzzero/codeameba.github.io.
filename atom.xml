@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://codeameba.github.io/"/>
-  <updated>2020-05-28T04:34:37.711Z</updated>
+  <updated>2020-05-29T07:13:40.529Z</updated>
   <id>http://codeameba.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[TIL] 더욱 친해져야만 하는 개발자도구 Network</title>
+    <link href="http://codeameba.github.io/2020/05/29/programming/developer-tool-network/"/>
+    <id>http://codeameba.github.io/2020/05/29/programming/developer-tool-network/</id>
+    <published>2020-05-29T07:12:42.000Z</published>
+    <updated>2020-05-29T07:13:40.529Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Network-tab"><a href="#Network-tab" class="headerlink" title="Network tab"></a>Network tab</h2><ul><li>HTTP 통신 과정을 볼 수 있음</li><li>브라우저와 서버 간의 통신에서 발생하는 문제점을 파악할 수 있음</li><li>클라이언트 성능 개선 지점을 분석할 수 있음<ul><li>ex) 그래프를 통해 소요시간이 많은 파일 확인</li></ul></li><li>렌더링 되는 과정을 시각적으로 확인 가능</li></ul><h2 id="Status-code"><a href="#Status-code" class="headerlink" title="Status code"></a>Status code</h2><ul><li>1XX -&gt; 조건부 응답</li><li>2XX -&gt; 성공(정상)</li><li>3XX -&gt; 리다이렉션 완료</li><li>4XX -&gt; 요청 오류(프론트엔드 문제)</li><li>5XX -&gt; 서버 오류(백엔드 문제)</li><li><a href="https://developer.mozilla.org/ko/docs/Web/HTTP/Status" target="_blank" rel="external nofollow noopener noreferrer">HTTP 상태 코드 - HTTP | MDN</a></li></ul><h2 id="XHR"><a href="#XHR" class="headerlink" title="XHR"></a>XHR</h2><ul><li>XMLHttpRequest의 줄임말</li><li>서버와 통신하여 받아오는 데이터만 필터링하여 볼 수 있음</li><li>network - filter - XHR에서는 endpoint 리스트가 표시됨</li><li>API(Application Programming Interface)도 이곳에 있음.<ul><li>일반적으로 JSON 형태</li><li><a href="https://api.kurly.com/v2/categories?ver=1" target="_blank" rel="external nofollow noopener noreferrer">https://api.kurly.com/v2/categories?ver=1</a></li></ul></li><li><strong>API</strong>(Application Programming Interface, 응용 프로그램 프로그래밍 인터페이스)는  응용 프로그램에서 사용할 수 있도록,  운영 체제나  프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든  인터페이스를 뜻한다. 주로 파일 제어, 창 제어, 화상 처리, 문자 제어 등을 위한 인터페이스를 제공한다.</li></ul><h2 id="Endpoint"><a href="#Endpoint" class="headerlink" title="Endpoint"></a>Endpoint</h2><ul><li><a href="https://stackoverflow.com/questions/2122604/what-is-an-endpoint" target="_blank" rel="external nofollow noopener noreferrer">api - What is an Endpoint? - Stack Overflow</a></li><li>API를 요청하는 URI의 끝에 붙이는 것으로 이를 통해 서버측에서 해당 API에 대한 접근 권한 유무 등을 확인하고, 요청한 API를 보내주게 된다.</li><li><code>https://api.kurly.com/v2/categories?ver=1</code></li><li>위의 마켓컬리 API에서 <code>categories?ver=1</code>가 endpoint</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Network-tab&quot;&gt;&lt;a href=&quot;#Network-tab&quot; class=&quot;headerlink&quot; title=&quot;Network tab&quot;&gt;&lt;/a&gt;Network tab&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;HTTP 통신 과정을 볼 수 있음&lt;/li&gt;
+&lt;li&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
+    
+      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
+    
+      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
+    
+      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
+    
+      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
+    
+      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
+    
+      <category term="개발자도구" scheme="http://codeameba.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8F%84%EA%B5%AC/"/>
+    
+  </entry>
   
   <entry>
     <title>[TIL] 로컬 스토리지(Local Storage)와 세션 스토리지(Session Storage)</title>
@@ -673,43 +713,6 @@
       
       
         &lt;h2 id=&quot;일급객체-자바스크립트-함수&quot;&gt;&lt;a href=&quot;#일급객체-자바스크립트-함수&quot; class=&quot;headerlink&quot; title=&quot;일급객체 자바스크립트 함수&quot;&gt;&lt;/a&gt;일급객체 자바스크립트 함수&lt;/h2&gt;&lt;p&gt;자바스크립트에서 함수는 일급객체이기에 어
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="http://codeameba.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="til" scheme="http://codeameba.github.io/tags/til/"/>
-    
-      <category term="TIL" scheme="http://codeameba.github.io/tags/TIL/"/>
-    
-      <category term="Today I Learned" scheme="http://codeameba.github.io/tags/Today-I-Learned/"/>
-    
-      <category term="오늘배운것들" scheme="http://codeameba.github.io/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"/>
-    
-      <category term="자바스크립트" scheme="http://codeameba.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
-    
-      <category term="Javascript" scheme="http://codeameba.github.io/tags/Javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[TIL] 자주 쓰지 않지만 알면 유용한 배열 메서드</title>
-    <link href="http://codeameba.github.io/2020/04/12/programming/til-some-every/"/>
-    <id>http://codeameba.github.io/2020/04/12/programming/til-some-every/</id>
-    <published>2020-04-11T15:41:42.000Z</published>
-    <updated>2020-05-13T18:08:58.718Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="every"><a href="#every" class="headerlink" title=".every()"></a>.every()</h2><ul><li><code>every()</code> 메서드는 배열 안의 모든 요소가 주어진 판별 함수를 통과하는지 테스트합니다. (MDN)</li><li>간단히 말하자면, 요소 하나라도 조건식을 통과하지 못하면  <code>false</code>를 반환하고, 모든 요소가 조건식을 만족하면 <code>true</code>를 반환한다.</li><li>빈 배열일 경우에는 무조건 <code>true</code>를 반환한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> animals = [<span class="string">'bears'</span>, <span class="string">'cats'</span>, <span class="string">'dogs'</span>, <span class="string">'elephants'</span>, <span class="string">'giraffes'</span>];</span><br><span class="line">animals.every(<span class="function"><span class="params">animal</span> =&gt;</span> animal.length &lt; <span class="number">5</span>); <span class="comment">// false</span></span><br><span class="line">animals.every(<span class="function"><span class="params">animal</span> =&gt;</span> animal.length &lt; <span class="number">10</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> beers = [];</span><br><span class="line">beers.every(<span class="function"><span class="params">beer</span> =&gt;</span> beer === ‘beer’); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></li><li><strong>참고:</strong><ul><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/every" target="_blank" rel="external nofollow noopener noreferrer">Array.prototype.every() - JavaScript | MDN</a></li></ul></li></ul><h2 id="some"><a href="#some" class="headerlink" title=".some()"></a>.some()</h2><ul><li><code>every()</code> 메서드와 비슷하면서 다르다.</li><li>배열의 요소 중 <strong>단 하나라도</strong> 조건식을 통과하면 <code>true</code> 를 반환한다.</li><li>빈 배열의 경우는 무조건 <code>false</code>를 반환한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nums = [<span class="number">1</span>, <span class="number">4</span>, <span class="number">23</span>, <span class="number">37</span>, <span class="number">55</span>];</span><br><span class="line">nums.some(<span class="function"><span class="params">num</span> =&gt;</span> num &gt; <span class="number">50</span>); <span class="comment">// true</span></span><br><span class="line">nums.some(<span class="function"><span class="params">num</span> =&gt;</span> num &gt; <span class="number">60</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> beers = [];</span><br><span class="line">beers.some(<span class="function"><span class="params">beer</span> =&gt;</span> beer === <span class="string">'beer'</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></li><li><strong>참고:</strong><ul><li><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/some" target="_blank" rel="external nofollow noopener noreferrer">Array.prototype.some() - JavaScript | MDN</a></li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;every&quot;&gt;&lt;a href=&quot;#every&quot; class=&quot;headerlink&quot; title=&quot;.every()&quot;&gt;&lt;/a&gt;.every()&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;every()&lt;/code&gt; 메서드는 배열 안의 모든 요소가 주어진 판별 
       
     
     </summary>

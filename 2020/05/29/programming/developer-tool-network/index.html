@@ -34,10 +34,10 @@
     <meta name="description" content="생각과 학습의 아카이브">
 
 
-<link rel="canonical" href="http://codeameba.github.io/2020/05/28/programming/localstorage/">
+<link rel="canonical" href="http://codeameba.github.io/2020/05/29/programming/developer-tool-network/">
 
 
-<title>[TIL] 로컬 스토리지(Local Storage)와 세션 스토리지(Session Storage) | AmebaLab</title>
+<title>[TIL] 더욱 친해져야만 하는 개발자도구 Network | AmebaLab</title>
 
 
 
@@ -200,7 +200,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">[TIL] 로컬 스토리지(Local Storage)와 세션 스토리지(Session Storage)</h1>
+            <h1 class="post-title">[TIL] 더욱 친해져야만 하는 개발자도구 Network</h1>
             
                 <div class="post-meta">
                     
@@ -209,7 +209,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">5월 28, 2020&nbsp;&nbsp;13:34:42</a>
+                        Date: <a href="#">5월 29, 2020&nbsp;&nbsp;16:12:42</a>
                         </span>
                     
                     
@@ -225,20 +225,40 @@
         </header>
 
         <div class="post-content">
-            <p>개발자 도구의 Application 탭을 보면, Storage 그룹에서 로컬 스토리지, 세션 스토리지를 확인할 수 있다. 이번 포스팅을 통해 각각의 기능과 차이점을 정리한다.</p>
-<h2 id="로컬-스토리지-Local-Storage-와-세션-스토리지-Session-Storage"><a href="#로컬-스토리지-Local-Storage-와-세션-스토리지-Session-Storage" class="headerlink" title="로컬 스토리지(Local Storage)와 세션 스토리지(Session Storage)"></a>로컬 스토리지(Local Storage)와 세션 스토리지(Session Storage)</h2><p>로컬 스토리지와 세션 스토리지는 HTML5에서 추가된 저장소로써, <code>key : value</code> 형태의 데이터를 담고 있다.</p>
-<p>이 둘의 차이점 <strong>영구성</strong> 에 있다. 로컬 스토리지에 저장된 데이터는 사용자가 직접적으로 삭제하지 않는 이상 영구적인 보관이 가능하지만, 세션 스토리지는 브라우저의 창을 닫으면 삭제된다.</p>
-<p>여러모로 유용하게 사용할 수 있지만, 클라이언트에 저장되는 만큼 개인정보와 같이 보안이 필요한 데이터를 저장하기에는 적절치 않다.</p>
-<p>로컬 스토리지는 <code>window</code> 객체에 포함되어있으며, 로컬 스토리지와 세션 스토리지는 동일한 메소드를 갖는다.</p>
-<p>데이터를 저장할 때에는 <code>setItem()</code>, 불러올 때에는 <code>getItem()</code> 사용법은 아래와 같다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(<span class="string">'name'</span>, <span class="string">'codeAmeba'</span>);</span><br><span class="line">localStorage.getItem(<span class="string">'name'</span>); <span class="comment">// "codeAmeba"</span></span><br><span class="line"></span><br><span class="line">localStorage.setItem(<span class="string">'currentYear'</span>, <span class="number">2020</span>);</span><br><span class="line">localStorage.getItem(<span class="string">'currentYear'</span>); <span class="string">"2020"</span></span><br></pre></td></tr></table></figure>
-
-<p>위와 같이 첫 번째 인자로 <strong>key</strong>, 두 번째 인자로 <strong>value</strong>를 전달하면 로컬 스토리지에 저장이 되며, 불러올 때에는 key만 넣는다. 그리고, 어떤 데이터타입을 넣더라도 문자열로 저장된다.</p>
-<p>이외에도 특정 데이터를 삭제하는 <code>removeItem()</code>, 전체 데이터를 삭제하는 <code>clear()</code>가 있다.</p>
-<p>만약, value에 객체를 넣어야 할 때에는 <code>JSON.stringify()</code>메서드를 활용하여 문자열로 변환 후 저장해야 한다. 그렇지 않으면 객체를 통째로 넣을 수가 없다. 그리고, 그렇게 저장된 데이터를 꺼내올 때에도 역시 <code>JSON.parse()</code>를 통해 객체로 변환해야 한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">localStorage.setItem(<span class="string">'robot'</span>, <span class="built_in">JSON</span>.stringify(&#123;<span class="attr">name</span>: <span class="string">'coderoid'</span>, <span class="attr">serialNumber</span>: <span class="number">1542</span>, <span class="attr">author</span>: <span class="string">'Sooyoung Jeong'</span>&#125;));</span><br><span class="line"></span><br><span class="line"><span class="built_in">JSON</span>.parse(localStorage.getItem(<span class="string">'robot'</span>));</span><br><span class="line"><span class="comment">// &#123;name: "coderoid", serialNumber: 1542, author: "Sooyoung Jeong"&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 꺼내올 때 JSON.parse를 하지 않으면 문자열로 나온다.</span></span><br><span class="line">localStorage.getItem(<span class="string">'robot'</span>);</span><br><span class="line"><span class="comment">// "&#123;"name":"coderoid","serialNumber":1542,"author":"Sooyoung Jeong"&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JSON으로 변환하지 않으면 아래와 같이 된다.</span></span><br><span class="line">localStorage.setItem(<span class="string">'obj'</span>, &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span>&#125;);</span><br><span class="line">localStorage.getItem(<span class="string">'obj'</span>); <span class="comment">// "[object Object]"</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>참고:</strong><br>    - <a href="https://www.zerocho.com/category/HTML&DOM/post/5918515b1ed39f00182d3048" target="_blank" rel="external nofollow noopener noreferrer">(HTML&amp;DOM) 로컬스토리지, 세션스토리지 - 그리고 쿠키 - ZeroCho Blog</a><br>    - <a href="https://www.quora.com/What-is-the-difference-between-sessionstorage-localstorage-and-Cookies" target="_blank" rel="external nofollow noopener noreferrer">What is the difference between sessionstorage, localstorage and Cookies? - Quora</a><br>    - <a href="https://stackoverflow.com/questions/3220660/local-storage-vs-cookies/3220802#3220802" target="_blank" rel="external nofollow noopener noreferrer">html - Local Storage vs Cookies - Stack Overflow</a></p>
+            <h2 id="Network-tab"><a href="#Network-tab" class="headerlink" title="Network tab"></a>Network tab</h2><ul>
+<li>HTTP 통신 과정을 볼 수 있음</li>
+<li>브라우저와 서버 간의 통신에서 발생하는 문제점을 파악할 수 있음</li>
+<li>클라이언트 성능 개선 지점을 분석할 수 있음<ul>
+<li>ex) 그래프를 통해 소요시간이 많은 파일 확인</li>
+</ul>
+</li>
+<li>렌더링 되는 과정을 시각적으로 확인 가능</li>
+</ul>
+<h2 id="Status-code"><a href="#Status-code" class="headerlink" title="Status code"></a>Status code</h2><ul>
+<li>1XX -&gt; 조건부 응답</li>
+<li>2XX -&gt; 성공(정상)</li>
+<li>3XX -&gt; 리다이렉션 완료</li>
+<li>4XX -&gt; 요청 오류(프론트엔드 문제)</li>
+<li>5XX -&gt; 서버 오류(백엔드 문제)</li>
+<li><a href="https://developer.mozilla.org/ko/docs/Web/HTTP/Status" target="_blank" rel="external nofollow noopener noreferrer">HTTP 상태 코드 - HTTP | MDN</a></li>
+</ul>
+<h2 id="XHR"><a href="#XHR" class="headerlink" title="XHR"></a>XHR</h2><ul>
+<li>XMLHttpRequest의 줄임말</li>
+<li>서버와 통신하여 받아오는 데이터만 필터링하여 볼 수 있음</li>
+<li>network - filter - XHR에서는 endpoint 리스트가 표시됨</li>
+<li>API(Application Programming Interface)도 이곳에 있음.<ul>
+<li>일반적으로 JSON 형태</li>
+<li><a href="https://api.kurly.com/v2/categories?ver=1" target="_blank" rel="external nofollow noopener noreferrer">https://api.kurly.com/v2/categories?ver=1</a></li>
+</ul>
+</li>
+<li><strong>API</strong>(Application Programming Interface, 응용 프로그램 프로그래밍 인터페이스)는  응용 프로그램에서 사용할 수 있도록,  운영 체제나  프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든  인터페이스를 뜻한다. 주로 파일 제어, 창 제어, 화상 처리, 문자 제어 등을 위한 인터페이스를 제공한다.</li>
+</ul>
+<h2 id="Endpoint"><a href="#Endpoint" class="headerlink" title="Endpoint"></a>Endpoint</h2><ul>
+<li><a href="https://stackoverflow.com/questions/2122604/what-is-an-endpoint" target="_blank" rel="external nofollow noopener noreferrer">api - What is an Endpoint? - Stack Overflow</a></li>
+<li>API를 요청하는 URI의 끝에 붙이는 것으로 이를 통해 서버측에서 해당 API에 대한 접근 권한 유무 등을 확인하고, 요청한 API를 보내주게 된다.</li>
+<li><code>https://api.kurly.com/v2/categories?ver=1</code></li>
+<li>위의 마켓컬리 API에서 <code>categories?ver=1</code>가 endpoint</li>
+</ul>
 
         </div>
 
@@ -261,6 +281,8 @@
                     
                         <a href="/tags/Javascript/"># Javascript</a>
                     
+                        <a href="/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8F%84%EA%B5%AC/"># 개발자도구</a>
+                    
                         
                 </span>
             </div>
@@ -272,10 +294,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/05/29/programming/developer-tool-network/">[TIL] 더욱 친해져야만 하는 개발자도구 Network</a>
             
-            
-            <a class="next" rel="next" href="/2020/05/26/programming/css-layout-properties/">[TIL] CSS 레이아웃의 기본 display, position, float</a>
+            <a class="next" rel="next" href="/2020/05/28/programming/localstorage/">[TIL] 로컬 스토리지(Local Storage)와 세션 스토리지(Session Storage)</a>
             
         </section>
 
