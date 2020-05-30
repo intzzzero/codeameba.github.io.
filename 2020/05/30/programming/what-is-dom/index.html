@@ -34,10 +34,10 @@
     <meta name="description" content="생각과 학습의 아카이브">
 
 
-<link rel="canonical" href="http://codeameba.github.io/2020/05/29/programming/developer-tool-network/">
+<link rel="canonical" href="http://codeameba.github.io/2020/05/30/programming/what-is-dom/">
 
 
-<title>[TIL] 더욱 친해져야만 하는 개발자도구 Network | AmebaLab</title>
+<title>[TIL] DOM(Document Object Model) | AmebaLab</title>
 
 
 
@@ -200,7 +200,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">[TIL] 더욱 친해져야만 하는 개발자도구 Network</h1>
+            <h1 class="post-title">[TIL] DOM(Document Object Model)</h1>
             
                 <div class="post-meta">
                     
@@ -209,7 +209,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">5월 29, 2020&nbsp;&nbsp;16:12:42</a>
+                        Date: <a href="#">5월 30, 2020&nbsp;&nbsp;18:43:42</a>
                         </span>
                     
                     
@@ -225,40 +225,20 @@
         </header>
 
         <div class="post-content">
-            <h2 id="Network-tab"><a href="#Network-tab" class="headerlink" title="Network tab"></a>Network tab</h2><ul>
-<li>HTTP 통신 과정을 볼 수 있음</li>
-<li>브라우저와 서버 간의 통신에서 발생하는 문제점을 파악할 수 있음</li>
-<li>클라이언트 성능 개선 지점을 분석할 수 있음<ul>
-<li>ex) 그래프를 통해 소요시간이 많은 파일 확인</li>
-</ul>
-</li>
-<li>렌더링 되는 과정을 시각적으로 확인 가능</li>
-</ul>
-<h2 id="Status-code"><a href="#Status-code" class="headerlink" title="Status code"></a>Status code</h2><ul>
-<li>1XX -&gt; 조건부 응답</li>
-<li>2XX -&gt; 성공(정상)</li>
-<li>3XX -&gt; 리다이렉션 완료</li>
-<li>4XX -&gt; 요청 오류(프론트엔드 문제)</li>
-<li>5XX -&gt; 서버 오류(백엔드 문제)</li>
-<li><a href="https://developer.mozilla.org/ko/docs/Web/HTTP/Status" target="_blank" rel="external nofollow noopener noreferrer">HTTP 상태 코드 - HTTP | MDN</a></li>
-</ul>
-<h2 id="XHR"><a href="#XHR" class="headerlink" title="XHR"></a>XHR</h2><ul>
-<li>XMLHttpRequest의 줄임말</li>
-<li>서버와 통신하여 받아오는 데이터만 필터링하여 볼 수 있음</li>
-<li>network - filter - XHR에서는 endpoint 리스트가 표시됨</li>
-<li>API(Application Programming Interface)도 이곳에 있음.<ul>
-<li>일반적으로 JSON 형태</li>
-<li><a href="https://api.kurly.com/v2/categories?ver=1" target="_blank" rel="external nofollow noopener noreferrer">https://api.kurly.com/v2/categories?ver=1</a></li>
-</ul>
-</li>
-<li><strong>API</strong>(Application Programming Interface, 응용 프로그램 프로그래밍 인터페이스)는  응용 프로그램에서 사용할 수 있도록,  운영 체제나  프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든  인터페이스를 뜻한다. 주로 파일 제어, 창 제어, 화상 처리, 문자 제어 등을 위한 인터페이스를 제공한다.</li>
-</ul>
-<h2 id="Endpoint"><a href="#Endpoint" class="headerlink" title="Endpoint"></a>Endpoint</h2><ul>
-<li><a href="https://stackoverflow.com/questions/2122604/what-is-an-endpoint" target="_blank" rel="external nofollow noopener noreferrer">api - What is an Endpoint? - Stack Overflow</a></li>
-<li>API를 요청하는 URI의 끝에 붙이는 것으로 이를 통해 서버측에서 해당 API에 대한 접근 권한 유무 등을 확인하고, 요청한 API를 보내주게 된다.</li>
-<li><code>https://api.kurly.com/v2/categories?ver=1</code></li>
-<li>위의 마켓컬리 API에서 <code>categories?ver=1</code>가 endpoint</li>
-</ul>
+            <h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><p>Document Object Model의 약자로써 웹 브라우저가 읽어들인 HTML 파일을 해석하여 구조화 시킨 결과물이다. 그 형태가 나무와 같다 하여 DOM Tree라고도 부른다.</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/DOM-model.svg/1920px-DOM-model.svg.png" alt="DOM tree">
+
+<p>이렇게 구조화된 DOM 내부에는 elements, nodes, property, method 등이 존재하며 JavaScript를 이용하여 <code>document</code>에 접근하여 HTML과 CSS 조작을 가능하게 하는 매개체라고 볼 수 있다.</p>
+<h2 id="DOM-조작이-필수적인-시대"><a href="#DOM-조작이-필수적인-시대" class="headerlink" title="DOM 조작이 필수적인 시대"></a>DOM 조작이 필수적인 시대</h2><p>처음 World Wide Web이 등장했을 시기에는 기본적으로 정적페이지(HTML 문서)를 공유하고 이어주기 위한 목적이 전부였기 때문에 DOM과 같은 개념이 필요하지 않았다. 물론, DOM을 조작할 수 있는 JavaScript가 등장하게 된 것은 꽤 나중의 일이기도 하다.</p>
+<p>어쨌든 지금의 웹은 그 당시와는 목적이나 기능이 상이하기 때문에 DOM 조작은 필수라고 할 수 있다. 유저의 액션에 따른 시각적 효과를 보인다거나 요청받은 데이터를 HTML과 CSS로 재구성 한다던가 하는 등의 일이 대부분인 시대다.</p>
+<h2 id="document-객체"><a href="#document-객체" class="headerlink" title="document 객체"></a>document 객체</h2><h3 id="접근법"><a href="#접근법" class="headerlink" title="접근법"></a>접근법</h3><p>DOM객체에 접근을 할 때에는 기본적으로 DOM 트리 최상단에 위치한 <code>document</code>를 통해 접근한다. 아래와 같은 방식이다.</p>
+<img src="./images/document01.png">
+
+<p>위의 경우에는 마치 배열 요소에 접근하듯 <code>[0]</code>을 뒤에 붙였는데, 이는 문서에서 유일하게 존재하는 element가 아니기 때문이다. <code>id</code>처럼 유일한 element에 접근한다면 인덱스는 생략해도 된다.</p>
+<h3 id="document는-Window의-프로퍼티"><a href="#document는-Window의-프로퍼티" class="headerlink" title="document는 Window의 프로퍼티"></a>document는 Window의 프로퍼티</h3><p>브라우저에서 조작 가능한 모든 것은 <code>window</code>에 속한다. 따라서 정석적으로는 <code>window.document</code>로 접근하는 것이 맞다. 그러나 모두가 그 사실을 안다는 가정 하에 <code>window</code>는 생략이 가능하다. 실제로 아래와 같이 <code>window</code>의 프로퍼티 목록을 보면 <code>document</code>가 존재하는 것을 알 수 있다.</p>
+<img src="./images/document02.png">
+
+<p><strong>참고:</strong><br>    - <a href="https://developer.mozilla.org/ko/docs/Web/API/Document_Object_Model/%EC%86%8C%EA%B0%9C" target="_blank" rel="external nofollow noopener noreferrer">DOM 소개 - Web API | MDN</a><br>    - <a href="https://poiemaweb.com/js-browser" target="_blank" rel="external nofollow noopener noreferrer">Javascript Environment | PoiemaWeb</a><br>    - <a href="https://d2.naver.com/helloworld/59361" target="_blank" rel="external nofollow noopener noreferrer">NAVER D2</a><br>    - <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=ko" target="_blank" rel="external nofollow noopener noreferrer">렌더링 트리 생성, 레이아웃 및 페인트  |  Web  |  Google Developers</a></p>
 
         </div>
 
@@ -277,11 +257,7 @@
                     
                         <a href="/tags/%EC%98%A4%EB%8A%98%EB%B0%B0%EC%9A%B4%EA%B2%83%EB%93%A4/"># 오늘배운것들</a>
                     
-                        <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"># 자바스크립트</a>
-                    
-                        <a href="/tags/Javascript/"># Javascript</a>
-                    
-                        <a href="/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%8F%84%EA%B5%AC/"># 개발자도구</a>
+                        <a href="/tags/DOM/"># DOM</a>
                     
                         
                 </span>
@@ -294,10 +270,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/05/30/programming/what-is-dom/">[TIL] DOM(Document Object Model)</a>
             
-            
-            <a class="next" rel="next" href="/2020/05/28/programming/localstorage/">[TIL] 로컬 스토리지(Local Storage)와 세션 스토리지(Session Storage)</a>
+            <a class="next" rel="next" href="/2020/05/29/programming/developer-tool-network/">[TIL] 더욱 친해져야만 하는 개발자도구 Network</a>
             
         </section>
 
