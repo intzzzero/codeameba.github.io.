@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>http://codeameba.github.io/2020/06/03/programming/tip-git-command/</loc>
+        <lastmod>2020-06-03T07:58:02.610Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://codeameba.github.io/2020/05/30/programming/what-is-dom/</loc>
         <lastmod>2020-05-30T09:45:56.439Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -778,14 +786,6 @@
     <url>
         <loc>http://codeameba.github.io/2019/06/10/programming/tip-extensions/</loc>
         <lastmod>2020-04-25T09:54:48.867Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://codeameba.github.io/2019/04/23/programming/tip-git-command/</loc>
-        <lastmod>2020-04-25T09:54:35.784Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
