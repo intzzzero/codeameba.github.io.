@@ -34,7 +34,6 @@
 	"keywords": [ "gatsby" ],
 	"license": "MIT",
 	"scripts": {
-		"deploy": "npm run clean && gatsby build && gh-pages -d public -b master",
 		"build": "gatsby build",
 		"develop": "gatsby develop",
 		"format": "prettier --write src/**/*.{js,jsx}",
@@ -44,7 +43,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/codeAmeba/codeameba.github.io.git"
+		"url": "https://github.com/codeAmeba/codeameba"
 	},
 	"bugs": {
 		"url": "https://github.com/gatsbyjs/gatsby/issues"
