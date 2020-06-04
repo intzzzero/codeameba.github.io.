@@ -1,6 +1,6 @@
 ---
-title: "Code Example"
-date: "2019-06-06"
+title: "코드 예시"
+date: "2020-06-04"
 draft: false
 path: "/blog/code-example"
 ---
